@@ -171,6 +171,10 @@
   .pill.done{background:var(--sand-100);color:var(--ink-soft);}
   .signal .detail{font-size:13.5px;color:var(--ink-soft);margin-top:3px;line-height:1.45;}
   .signal .why{font-size:12px;color:var(--ink-soft);opacity:.8;margin-top:4px;font-style:italic;}
+  .signal-actions{margin-top:7px;}
+  .link-btn{background:none;border:none;color:var(--moss-700);font-weight:600;font-size:12.5px;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:2px;font-family:inherit;}
+  .history-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:13.5px;}
+  .history-row:last-child{border-bottom:none;}
 
   .empty{
     text-align:center;padding:28px 16px;color:var(--ink-soft);font-size:14px;
@@ -392,6 +396,7 @@ const DEFAULT_STATE = {
   units:"f",
   grassType:"kbg",       // see GRASS_TYPES
   plants:[],             // {id,name,emoji,location:'indoor'|'outdoor',coldSensitive:bool,heatSensitive:bool}
+  completions:{},        // {signalKey: ["YYYY-MM-DD", ...]}
   theme:"auto",
   onboarded:false
 };
@@ -603,6 +608,51 @@ function maxHighNext(om, days){
 }
 
 /* ---------------------------------------------------------
+   COMPLETION TRACKING
+   Logged dates are kept forever (so history persists year to
+   year) but a signal only counts as "done" for THIS calendar
+   year's window — logging always re-opens the reminder once a
+   new season rolls around.
+--------------------------------------------------------- */
+function todayISO(){
+  const d = new Date();
+  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+}
+function fmtDateShort(iso){
+  return new Date(iso+"T00:00:00").toLocaleDateString([], {month:"short", day:"numeric"});
+}
+function fmtDateLong(iso){
+  return new Date(iso+"T00:00:00").toLocaleDateString([], {month:"short", day:"numeric", year:"numeric"});
+}
+function getCompletionsThisYear(key){
+  const arr = (state.completions && state.completions[key]) || [];
+  const y = new Date().getFullYear();
+  return arr.filter(d=> new Date(d+"T00:00:00").getFullYear()===y).sort();
+}
+function logCompletion(key, iso){
+  if(!state.completions[key]) state.completions[key] = [];
+  if(!state.completions[key].includes(iso)) state.completions[key].push(iso);
+  saveState();
+}
+function removeCompletion(key, iso){
+  if(!state.completions[key]) return;
+  state.completions[key] = state.completions[key].filter(d=>d!==iso);
+  saveState();
+}
+function applyCompletionOverride(s){
+  if(!s.key) return s;
+  const comps = getCompletionsThisYear(s.key);
+  if(comps.length){
+    s.status = "done";
+    s.detail = comps.length>1
+      ? `Logged ${comps.length}× this year — most recent ${fmtDateShort(comps[comps.length-1])}.`
+      : `Logged on ${fmtDateShort(comps[0])}.`;
+    s.why = "";
+  }
+  return s;
+}
+
+/* ---------------------------------------------------------
    LAWN SIGNAL ENGINE
 --------------------------------------------------------- */
 function computeLawnSignals(om, grassKey){
@@ -619,7 +669,7 @@ function computeLawnSignals(om, grassKey){
   const lowNext5 = minLowNext(om,5);
   const signals = [];
 
-  function add(s){ signals.push(s); }
+  function add(s){ signals.push(applyCompletionOverride(s)); }
 
   if(soil2===null){
     return [{status:"watch", title:"Soil data unavailable", detail:"Couldn't read modeled soil temperature for your spot yet.", why:""}];
@@ -628,57 +678,57 @@ function computeLawnSignals(om, grassKey){
   // --- Pre-emergent crabgrass control ---
   if(season==="cool" || season==="warm"){
     if(soil2 < 50){
-      add({status:"upcoming", title:"Pre-emergent (crabgrass)", detail:`Soil is ${Math.round(soil2)}°F — still too cool. Crabgrass germinates once soil holds near 55°F.`, why:"Applying pre-emergent well ahead of germination gives it time to form a barrier."});
+      add({key:"preemergent", status:"upcoming", title:"Pre-emergent (crabgrass)", detail:`Soil is ${Math.round(soil2)}°F — still too cool. Crabgrass germinates once soil holds near 55°F.`, why:"Applying pre-emergent well ahead of germination gives it time to form a barrier."});
     } else if(soil2>=50 && soil2<=60 && warming){
-      add({status:"ready", title:"Pre-emergent (crabgrass)", detail:`Soil is ${Math.round(soil2)}°F and rising — this is the window. Apply before it holds above 60°F.`, why:"Crabgrass germinates as soil sustains ~55–60°F; pre-emergent needs to be down first."});
+      add({key:"preemergent", status:"ready", title:"Pre-emergent (crabgrass)", detail:`Soil is ${Math.round(soil2)}°F and rising — this is the window. Apply before it holds above 60°F.`, why:"Crabgrass germinates as soil sustains ~55–60°F; pre-emergent needs to be down first."});
     } else if(soil2>60 && warming){
-      add({status:"watch", title:"Pre-emergent (crabgrass)", detail:`Soil already at ${Math.round(soil2)}°F. If you haven't put pre-emergent down, crabgrass may already be germinating.`, why:""});
+      add({key:"preemergent", status:"watch", title:"Pre-emergent (crabgrass)", detail:`Soil already at ${Math.round(soil2)}°F. If you haven't put pre-emergent down, crabgrass may already be germinating.`, why:""});
     } else {
-      add({status:"done", title:"Pre-emergent (crabgrass)", detail:"Outside the spring application window for your area right now.", why:""});
+      add({key:"preemergent", status:"done", title:"Pre-emergent (crabgrass)", detail:"Outside the spring application window for your area right now.", why:""});
     }
   }
 
   // --- Grub control (preventive) ---
   if(soil2>=60 && soil2<=75 && (month>=4 && month<=6)){
-    add({status:"ready", title:"Grub prevention", detail:`Soil at ${Math.round(soil2)}°F — good window before eggs hatch.`, why:"Preventive grub control works best applied before eggs hatch in early-to-mid summer."});
+    add({key:"grub", status:"ready", title:"Grub prevention", detail:`Soil at ${Math.round(soil2)}°F — good window before eggs hatch.`, why:"Preventive grub control works best applied before eggs hatch in early-to-mid summer."});
   } else if(month>=4 && month<=6){
-    add({status:"upcoming", title:"Grub prevention", detail:`Soil at ${Math.round(soil2)}°F. Watch for it to settle into the 60–75°F range.`, why:""});
+    add({key:"grub", status:"upcoming", title:"Grub prevention", detail:`Soil at ${Math.round(soil2)}°F. Watch for it to settle into the 60–75°F range.`, why:""});
   }
 
   if(season==="warm"){
     // --- Green-up / first mow ---
     if(soil2>=55 && soil2<65 && warming){
-      add({status:"ready", title:"Warm-season green-up", detail:`Soil at ${Math.round(soil2)}°F and climbing — green-up is underway or close.`, why:"Warm-season grasses break dormancy as soil warms through the mid-50s to mid-60s."});
+      add({key:"greenup", status:"ready", title:"Warm-season green-up", detail:`Soil at ${Math.round(soil2)}°F and climbing — green-up is underway or close.`, why:"Warm-season grasses break dormancy as soil warms through the mid-50s to mid-60s."});
     }
     // --- Fertilize ---
     if(soil2>=65 && warming){
-      add({status:"ready", title:"First fertilizer feeding", detail:`Soil holding above 65°F — safe to start regular feeding now that green-up is complete.`, why:"Feeding before full green-up favors weeds over grass roots."});
+      add({key:"fert_first", status:"ready", title:"First fertilizer feeding", detail:`Soil holding above 65°F — safe to start regular feeding now that green-up is complete.`, why:"Feeding before full green-up favors weeds over grass roots."});
     } else if(soil2<65){
-      add({status:"upcoming", title:"First fertilizer feeding", detail:`Wait for soil to hold above 65°F before the first feeding.`, why:""});
+      add({key:"fert_first", status:"upcoming", title:"First fertilizer feeding", detail:`Wait for soil to hold above 65°F before the first feeding.`, why:""});
     }
     // --- Aeration / overseed ---
     if(soil2>=65 && soil2<=85 && warming){
-      add({status:"ready", title:"Aeration & overseed/sprig", detail:`Active growth conditions — a good stretch for aeration or filling in bare spots.`, why:"Warm-season lawns recover from aeration fastest during active growth."});
+      add({key:"aeration", status:"ready", title:"Aeration & overseed/sprig", detail:`Active growth conditions — a good stretch for aeration or filling in bare spots.`, why:"Warm-season lawns recover from aeration fastest during active growth."});
     }
     // --- Fall dormancy / last feeding ---
     if(cooling && soil2<75 && soil2>60 && (month>=7)){
-      add({status:"upcoming", title:"Last feeding before dormancy", detail:`Soil is cooling (currently ${Math.round(soil2)}°F). Plan your last nitrogen feeding soon so growth can harden off before frost.`, why:""});
+      add({key:"last_feed", status:"upcoming", title:"Last feeding before dormancy", detail:`Soil is cooling (currently ${Math.round(soil2)}°F). Plan your last nitrogen feeding soon so growth can harden off before frost.`, why:""});
     }
   } else {
     // cool season
     // --- Fall core aeration & overseed (main window) ---
     if(cooling && soil2>=50 && soil2<=75 && (month>=7 && month<=10)){
-      add({status:"ready", title:"Fall aeration & overseed", detail:`Soil is cooling through ${Math.round(soil2)}°F with air still mild — this is the prime cool-season window.`, why:"Cool-season grasses establish fastest when soil is warm enough for germination but air has eased off summer heat."});
+      add({key:"aeration", status:"ready", title:"Fall aeration & overseed", detail:`Soil is cooling through ${Math.round(soil2)}°F with air still mild — this is the prime cool-season window.`, why:"Cool-season grasses establish fastest when soil is warm enough for germination but air has eased off summer heat."});
     } else if((month>=7 && month<=10) && soil2>75){
-      add({status:"upcoming", title:"Fall aeration & overseed", detail:`Soil still warm at ${Math.round(soil2)}°F — hold off a bit longer for best seed-to-soil results.`, why:""});
+      add({key:"aeration", status:"upcoming", title:"Fall aeration & overseed", detail:`Soil still warm at ${Math.round(soil2)}°F — hold off a bit longer for best seed-to-soil results.`, why:""});
     }
     // --- Fall fertilization (main feed) ---
     if((month>=8 && month<=10) && highNext5!==null && highNext5<80){
-      add({status:"ready", title:"Fall feeding", detail:"Mild temperatures ahead — this is the most important feeding of the year for cool-season lawns.", why:"Fall feeding builds root and energy reserves for winter and next spring's green-up."});
+      add({key:"fall_feed", status:"ready", title:"Fall feeding", detail:"Mild temperatures ahead — this is the most important feeding of the year for cool-season lawns.", why:"Fall feeding builds root and energy reserves for winter and next spring's green-up."});
     }
     // --- Winterizer ---
     if(cooling && soil2<=55 && soil2>=40 && (month>=9 || month===0)){
-      add({status:"ready", title:"Winterizer feeding", detail:`Soil at ${Math.round(soil2)}°F and dropping — growth is slowing but roots are still active. Good timing for a winterizer application.`, why:""});
+      add({key:"winterizer", status:"ready", title:"Winterizer feeding", detail:`Soil at ${Math.round(soil2)}°F and dropping — growth is slowing but roots are still active. Good timing for a winterizer application.`, why:""});
     }
   }
 
@@ -697,7 +747,7 @@ function computeLawnSignals(om, grassKey){
 
   // --- Dormant oil for trees/shrubs ---
   if((month===1||month===2) && lowNext5!==null && lowNext5>32 && highNext5!==null && highNext5>40){
-    add({status:"upcoming", title:"Dormant oil (trees & shrubs)", detail:"Above-freezing stretch coming up before buds break — a workable window for dormant horticultural oil on scale-prone trees/shrubs.", why:""});
+    add({key:"dormant_oil", status:"upcoming", title:"Dormant oil (trees & shrubs)", detail:"Above-freezing stretch coming up before buds break — a workable window for dormant horticultural oil on scale-prone trees/shrubs.", why:""});
   }
 
   return signals.length ? signals : [{status:"done", title:"Nothing time-sensitive right now", detail:"Check back as conditions change.", why:""}];
@@ -808,8 +858,12 @@ function renderSignals(){
         <div class="title-row"><span class="title">${escapeHtml(s.title)}</span><span class="pill ${s.status}">${labelFor(s.status)}</span></div>
         <div class="detail">${escapeHtml(s.detail)}</div>
         ${s.why?`<div class="why">${escapeHtml(s.why)}</div>`:""}
+        ${s.key?`<div class="signal-actions"><button class="link-btn" data-log="${s.key}" data-title="${escapeHtml(s.title)}">${getCompletionsThisYear(s.key).length?"📝 Log / edit":"+ Mark done"}</button></div>`:""}
       </div>
     </div>`).join("");
+  document.querySelectorAll("#signalsCard [data-log]").forEach(btn=>{
+    btn.addEventListener("click", ()=> openLogModal(btn.dataset.log, btn.dataset.title));
+  });
 
   // plant alerts feed into a small addendum on the home tab
   const palerts = computePlantAlerts(cache.om, cache.alerts, state.plants);
@@ -998,6 +1052,47 @@ function openAddPlantModal(){
     });
     saveState(); closeModal(); renderPlants(); renderSignals();
   });
+}
+
+function openLogModal(key, title){
+  function render(){
+    const comps = ((state.completions[key])||[]).slice().sort();
+    openModal(`
+      <button class="modal-close" onclick="window.__gc.closeModal()">✕</button>
+      <h3>${escapeHtml(title)}</h3>
+      <div class="field">
+        <label>Log a completed date</label>
+        <div style="display:grid;grid-template-columns:1fr auto;gap:8px;">
+          <input id="logDate" type="date" value="${todayISO()}" max="${todayISO()}">
+          <button class="btn small" id="logAddBtn">Add</button>
+        </div>
+      </div>
+      <div class="field">
+        <label>History</label>
+        ${comps.length ? comps.map(d=>`
+          <div class="history-row">
+            <span>${fmtDateLong(d)}</span>
+            <button class="del-btn" data-d="${d}">✕</button>
+          </div>`).join("") : `<div style="font-size:12.5px;color:var(--ink-soft);">Nothing logged yet this year.</div>`}
+      </div>
+      <div style="font-size:12px;color:var(--ink-soft);line-height:1.5;">Once something's logged for this year, this signal drops to "done" until the next season's window comes back around.</div>
+    `);
+    document.getElementById("logAddBtn").addEventListener("click", ()=>{
+      const val = document.getElementById("logDate").value;
+      if(!val) return;
+      logCompletion(key, val);
+      render();
+      renderSignals();
+    });
+    document.querySelectorAll("#modalRoot [data-d]").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        removeCompletion(key, btn.dataset.d);
+        render();
+        renderSignals();
+      });
+    });
+  }
+  render();
 }
 
 function openSettingsModal(){
