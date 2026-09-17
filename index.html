@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ground Conditions</title>
+<meta name="theme-color" content="#3A2E22">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%233A2E22'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle'%3E%F0%9F%8C%B1%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --soil-900:#2A2118;
+    --soil-800:#3A2E22;
+    --soil-700:#4E3F2E;
+    --clay:#B5583A;
+    --clay-soft:#E8CBBB;
+    --moss-700:#3F5B3A;
+    --moss-500:#5A7A4E;
+    --moss-100:#DEE7D3;
+    --sky-600:#3E7285;
+    --sky-100:#DCEAEE;
+    --sand-50:#F6F1E4;
+    --sand-100:#EFE7D2;
+    --sand-200:#E3D7B8;
+    --ink:#2A2420;
+    --ink-soft:#6B5F52;
+    --amber:#C08A2E;
+    --amber-soft:#F1E1BC;
+    --line:#DCCFAE;
+    --card-bg:#FFFFFF;
+    --bg:var(--sand-50);
+    --shadow:0 1px 2px rgba(42,33,24,.06), 0 4px 14px rgba(42,33,24,.06);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#221A13;
+      --card-bg:#2C2318;
+      --ink:#EFE6D6;
+      --ink-soft:#B9A98F;
+      --line:#4A3B29;
+      --sand-100:#332818;
+      --sand-200:#3D3020;
+      --moss-100:#2C3527;
+      --sky-100:#233238;
+      --clay-soft:#3E2A22;
+      --amber-soft:#3C3018;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 4px 18px rgba(0,0,0,.35);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#221A13;
+    --card-bg:#2C2318;
+    --ink:#EFE6D6;
+    --ink-soft:#B9A98F;
+    --line:#4A3B29;
+    --sand-100:#332818;
+    --sand-200:#3D3020;
+    --moss-100:#2C3527;
+    --sky-100:#233238;
+    --clay-soft:#3E2A22;
+    --amber-soft:#3C3018;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 4px 18px rgba(0,0,0,.35);
+    color-scheme: dark;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:64px;
+    min-height:100vh;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 16px;}
+  header.top{
+    background:linear-gradient(180deg, var(--soil-800), var(--soil-900));
+    color:var(--sand-50);
+    padding:22px 0 26px;
+    border-bottom:4px solid var(--moss-700);
+  }
+  header.top .wrap{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+  .brand{display:flex;flex-direction:column;gap:2px;}
+  .brand .mark{font-family:'Fraunces',serif;font-weight:600;font-size:22px;letter-spacing:.2px;}
+  .brand .place{font-size:13px;color:var(--sand-200);opacity:.85;}
+  .brand .place button{background:none;border:none;color:inherit;font:inherit;text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:0;}
+  .icon-btn{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.16);
+    color:var(--sand-50);
+    width:38px;height:38px;border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;font-size:17px;
+  }
+  .icon-btn:active{transform:scale(.95);}
+
+  .hero{
+    margin-top:18px;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:18px;
+    align-items:center;
+  }
+  .hero .temp-big{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:64px;
+    line-height:.9;
+  }
+  .hero .temp-unit{font-size:26px;vertical-align:top;opacity:.7;}
+  .hero .cond{font-size:15px;color:var(--sand-200);margin-top:6px;}
+  .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+  .hero-stat{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:10px;
+    padding:8px 10px;
+  }
+  .hero-stat .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--sand-200);opacity:.8;}
+  .hero-stat .v{font-size:16px;font-weight:600;margin-top:2px;}
+
+  main{padding-top:18px;}
+  section{margin-bottom:22px;}
+  .section-head{
+    display:flex;align-items:baseline;justify-content:space-between;
+    margin-bottom:10px;
+  }
+  .section-head h2{
+    font-family:'Fraunces',serif;
+    font-size:19px;font-weight:600;margin:0;
+    display:flex;align-items:center;gap:8px;
+  }
+  .section-head .sub{font-size:12.5px;color:var(--ink-soft);}
+
+  .card{
+    background:var(--card-bg);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    padding:16px;
+  }
+
+  .signal{
+    display:flex;gap:12px;
+    padding:13px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .signal:last-child{border-bottom:none;padding-bottom:2px;}
+  .signal:first-child{padding-top:2px;}
+  .signal .dot{
+    width:10px;height:10px;border-radius:50%;margin-top:6px;flex-shrink:0;
+  }
+  .dot.ready{background:var(--moss-500);}
+  .dot.upcoming{background:var(--amber);}
+  .dot.watch{background:var(--clay);}
+  .dot.done{background:var(--ink-soft);opacity:.4;}
+  .signal .body{flex:1;min-width:0;}
+  .signal .title-row{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;}
+  .signal .title{font-weight:600;font-size:15px;}
+  .pill{
+    font-size:11px;font-weight:600;padding:3px 9px;border-radius:99px;white-space:nowrap;
+  }
+  .pill.ready{background:var(--moss-100);color:var(--moss-700);}
+  .pill.upcoming{background:var(--amber-soft);color:var(--amber);}
+  .pill.watch{background:var(--clay-soft);color:var(--clay);}
+  .pill.done{background:var(--sand-100);color:var(--ink-soft);}
+  .signal .detail{font-size:13.5px;color:var(--ink-soft);margin-top:3px;line-height:1.45;}
+  .signal .why{font-size:12px;color:var(--ink-soft);opacity:.8;margin-top:4px;font-style:italic;}
+
+  .empty{
+    text-align:center;padding:28px 16px;color:var(--ink-soft);font-size:14px;
+  }
+  .empty .big{font-size:28px;margin-bottom:6px;}
+
+  /* forecast strip */
+  .fstrip{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none;}
+  .fstrip::-webkit-scrollbar{display:none;}
+  .fday{
+    flex:0 0 auto;width:74px;text-align:center;
+    background:var(--sand-100);border-radius:12px;padding:10px 6px;
+  }
+  .fday .d{font-size:12px;font-weight:600;color:var(--ink-soft);}
+  .fday .e{font-size:22px;margin:4px 0;}
+  .fday .hi{font-weight:700;font-size:14px;}
+  .fday .lo{font-size:12.5px;color:var(--ink-soft);}
+  .fday .pr{font-size:11px;color:var(--sky-600);margin-top:3px;}
+
+  /* soil bars */
+  .soil-row{display:flex;align-items:center;gap:12px;padding:9px 0;}
+  .soil-row .lbl{width:64px;font-size:12.5px;color:var(--ink-soft);flex-shrink:0;}
+  .soil-track{
+    flex:1;height:10px;border-radius:99px;position:relative;
+    background:linear-gradient(90deg, #4A7CC7 0%, #6FA6C9 20%, #8FBF9E 38%, #E8C86B 55%, #E39A5A 72%, #C6603F 88%, #A83B3B 100%);
+  }
+  .soil-track .marker{
+    position:absolute;top:-4px;width:3px;height:18px;background:var(--ink);border-radius:2px;
+    box-shadow:0 0 0 2px var(--card-bg);
+  }
+  .soil-row .val{width:54px;text-align:right;font-weight:700;font-size:13.5px;flex-shrink:0;}
+  .soil-scale{display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-soft);opacity:.7;margin-top:2px;}
+  .soil-note{font-size:12px;color:var(--ink-soft);margin-top:10px;line-height:1.5;}
+
+  /* plants */
+  .plant-item{
+    display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);
+  }
+  .plant-item:last-child{border-bottom:none;}
+  .plant-emoji{font-size:22px;width:30px;text-align:center;flex-shrink:0;}
+  .plant-body{flex:1;min-width:0;}
+  .plant-name{font-weight:600;font-size:14.5px;}
+  .plant-meta{font-size:12px;color:var(--ink-soft);}
+  .plant-alert{font-size:12.5px;color:var(--clay);margin-top:2px;font-weight:600;}
+  .del-btn{background:none;border:none;color:var(--ink-soft);cursor:pointer;font-size:18px;padding:4px 6px;}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:6px;
+    background:var(--moss-700);color:#fff;border:none;border-radius:10px;
+    padding:11px 16px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;
+  }
+  .btn:active{transform:scale(.98);}
+  .btn.secondary{background:var(--sand-100);color:var(--ink);}
+  .btn.block{width:100%;}
+  .btn.small{padding:7px 12px;font-size:13px;}
+
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-bottom:5px;}
+  .field select, .field input{
+    width:100%;padding:10px 11px;border-radius:9px;border:1px solid var(--line);
+    background:var(--card-bg);color:var(--ink);font-family:inherit;font-size:14.5px;
+  }
+  .field .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .toggle-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);}
+  .toggle-row:last-child{border-bottom:none;}
+  .switch{position:relative;width:42px;height:24px;flex-shrink:0;}
+  .switch input{opacity:0;width:0;height:0;}
+  .slider{position:absolute;inset:0;background:var(--sand-200);border-radius:99px;cursor:pointer;transition:.15s;}
+  .slider:before{content:"";position:absolute;width:18px;height:18px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.15s;}
+  input:checked + .slider{background:var(--moss-500);}
+  input:checked + .slider:before{transform:translateX(18px);}
+
+  .modal-backdrop{
+    position:fixed;inset:0;background:rgba(20,15,10,.5);z-index:50;
+    display:flex;align-items:flex-end;justify-content:center;
+  }
+  .modal{
+    background:var(--bg);width:100%;max-width:760px;border-radius:18px 18px 0 0;
+    padding:20px 18px calc(20px + env(safe-area-inset-bottom));
+    max-height:88vh;overflow-y:auto;
+  }
+  .modal h3{font-family:'Fraunces',serif;font-size:19px;margin:0 0 16px;}
+  .modal-close{float:right;background:none;border:none;font-size:20px;color:var(--ink-soft);cursor:pointer;}
+
+  nav.tabs{
+    position:fixed;bottom:0;left:0;right:0;
+    background:var(--card-bg);border-top:1px solid var(--line);
+    display:flex;padding:6px 8px calc(6px + env(safe-area-inset-bottom));
+    z-index:40;
+  }
+  nav.tabs button{
+    flex:1;background:none;border:none;display:flex;flex-direction:column;align-items:center;gap:2px;
+    padding:6px 2px;color:var(--ink-soft);font-family:inherit;font-size:10.5px;cursor:pointer;border-radius:10px;
+  }
+  nav.tabs button .em{font-size:19px;}
+  nav.tabs button.active{color:var(--moss-700);background:var(--moss-100);}
+
+  .tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+  .tag{
+    font-size:11.5px;padding:4px 10px;border-radius:99px;border:1px solid var(--line);
+    background:var(--sand-100);color:var(--ink-soft);cursor:pointer;
+  }
+  .tag.on{background:var(--moss-700);color:#fff;border-color:var(--moss-700);}
+
+  .banner{
+    display:flex;gap:10px;align-items:flex-start;
+    background:var(--clay-soft);color:var(--clay);border-radius:12px;padding:12px 14px;font-size:13.5px;
+    margin-bottom:14px;line-height:1.45;
+  }
+  .banner.info{background:var(--sky-100);color:var(--sky-600);}
+  .banner strong{display:block;font-size:14px;margin-bottom:2px;}
+
+  .loading{display:flex;align-items:center;gap:10px;color:var(--ink-soft);font-size:13.5px;padding:20px 0;}
+  .spinner{
+    width:16px;height:16px;border-radius:50%;border:2px solid var(--line);border-top-color:var(--moss-500);
+    animation:spin .7s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .updated{font-size:11.5px;color:var(--ink-soft);opacity:.75;text-align:center;margin-top:6px;}
+  a.src-link{color:var(--sky-600);text-decoration:underline;text-underline-offset:2px;}
+  .foot-note{font-size:12px;color:var(--ink-soft);text-align:center;padding:10px 20px 4px;line-height:1.5;}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark">🌱 Ground Conditions</div>
+      <div class="place"><button id="placeBtn">Set location</button></div>
+    </div>
+    <button class="icon-btn" id="settingsBtn" aria-label="Settings">⚙︎</button>
+  </div>
+  <div class="wrap hero" id="heroBlock" style="display:none;">
+    <div>
+      <div class="temp-big" id="heroTemp">--<span class="temp-unit">°F</span></div>
+      <div class="cond" id="heroCond">—</div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="k">Soil (2")</div><div class="v" id="heroSoil">--°</div></div>
+      <div class="hero-stat"><div class="k">Humidity</div><div class="v" id="heroHum">--%</div></div>
+      <div class="hero-stat"><div class="k">Wind</div><div class="v" id="heroWind">-- mph</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div id="locateEmpty" style="display:none;">
+    <div class="card" style="text-align:center;padding:32px 20px;">
+      <div style="font-size:34px;margin-bottom:8px;">📍</div>
+      <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:600;margin-bottom:6px;">Where's your yard?</div>
+      <div style="font-size:13.5px;color:var(--ink-soft);margin-bottom:16px;line-height:1.5;">Ground Conditions uses your location to pull live weather and modeled soil temperature for exactly where you are.</div>
+      <button class="btn" id="useLocationBtn">Use my location</button>
+      <div style="margin:12px 0;color:var(--ink-soft);font-size:12.5px;">or</div>
+      <button class="btn secondary" id="manualLocationBtn">Enter coordinates manually</button>
+    </div>
+  </div>
+
+  <div id="appBody" style="display:none;">
+
+    <div id="alertBanner"></div>
+
+    <section id="signalsSection">
+      <div class="section-head">
+        <h2>🪧 Today's signals</h2>
+        <span class="sub" id="signalsSub"></span>
+      </div>
+      <div class="card" id="signalsCard"><div class="loading"><span class="spinner"></span> Reading the ground…</div></div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>☁️ 7-day forecast</h2></div>
+      <div class="card"><div class="fstrip" id="forecastStrip"><div class="loading"><span class="spinner"></span> Loading forecast…</div></div></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>🌡️ Soil profile</h2>
+        <span class="sub">modeled, updated hourly</span>
+      </div>
+      <div class="card" id="soilCard"><div class="loading"><span class="spinner"></span> Loading soil data…</div></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>🪴 Your plants</h2>
+        <button class="btn small secondary" id="addPlantBtn">+ Add</button>
+      </div>
+      <div class="card" id="plantsCard">
+        <div class="empty"><div class="big">🌿</div>No plants added yet — add one so freeze and heat alerts know what to watch for.</div>
+      </div>
+    </section>
+
+    <div class="updated" id="updatedNote"></div>
+    <div class="foot-note">Weather: National Weather Service (api.weather.gov). Soil temperature &amp; supplemental data: Open&#8209;Meteo (modeled, ECMWF/ICON/GFS blend). This is general guidance, not agronomic advice for your specific site — when in doubt, check with your local extension office.</div>
+  </div>
+
+</main>
+
+<nav class="tabs">
+  <button class="active" data-tab="home"><span class="em">🏡</span>Today</button>
+  <button data-tab="lawn"><span class="em">🌾</span>Lawn</button>
+  <button data-tab="plants"><span class="em">🪴</span>Plants</button>
+  <button data-tab="settings"><span class="em">⚙︎</span>Settings</button>
+</nav>
+
+<div id="modalRoot"></div>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------------------------------------------------------
+   STATE
+--------------------------------------------------------- */
+const DEFAULT_STATE = {
+  lat:null, lon:null, placeLabel:"",
+  units:"f",
+  grassType:"kbg",       // see GRASS_TYPES
+  plants:[],             // {id,name,emoji,location:'indoor'|'outdoor',coldSensitive:bool,heatSensitive:bool}
+  theme:"auto",
+  onboarded:false
+};
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem("groundcond_state");
+    if(!raw) return Object.assign({}, DEFAULT_STATE);
+    return Object.assign({}, DEFAULT_STATE, JSON.parse(raw));
+  }catch(e){ return Object.assign({}, DEFAULT_STATE); }
+}
+function saveState(){
+  try{ localStorage.setItem("groundcond_state", JSON.stringify(state)); }catch(e){}
+}
+let state = loadState();
+
+const GRASS_TYPES = {
+  kbg:   {label:"Kentucky Bluegrass", season:"cool"},
+  fescue:{label:"Tall Fescue", season:"cool"},
+  rye:   {label:"Perennial Ryegrass", season:"cool"},
+  finefescue:{label:"Fine Fescue", season:"cool"},
+  bermuda:{label:"Bermuda", season:"warm"},
+  zoysia: {label:"Zoysia", season:"warm"},
+  staugustine:{label:"St. Augustine", season:"warm"},
+  centipede:{label:"Centipede", season:"warm"},
+  buffalo:{label:"Buffalo Grass", season:"warm"},
+  unsure:{label:"Not sure / mixed", season:"cool"}
+};
+
+const PLANT_EMOJI = {outdoor:"🌳", indoor:"🪴"};
+
+/* ---------------------------------------------------------
+   THEME
+--------------------------------------------------------- */
+function applyTheme(){
+  document.documentElement.setAttribute("data-theme", state.theme === "auto" ? "" : state.theme);
+}
+applyTheme();
+
+/* ---------------------------------------------------------
+   UNIT HELPERS  (all math done in Fahrenheit / inches internally)
+--------------------------------------------------------- */
+function fmtTemp(f){
+  if(f===null||f===undefined||isNaN(f)) return "--°";
+  const v = state.units==="c" ? (f-32)*5/9 : f;
+  return Math.round(v)+"°";
+}
+function cToF(c){ return c*9/5+32; }
+function mmToIn(mm){ return mm/25.4; }
+
+/* ---------------------------------------------------------
+   DATA FETCHING
+--------------------------------------------------------- */
+let cache = { nws:null, om:null, alerts:null, fetchedAt:null };
+
+async function fetchAll(){
+  if(state.lat==null || state.lon==null) return;
+  setLoadingUI();
+  try{
+    const [om, alerts] = await Promise.all([
+      fetchOpenMeteo(state.lat, state.lon),
+      fetchAlerts(state.lat, state.lon).catch(()=>null)
+    ]);
+    cache.om = om;
+    cache.alerts = alerts;
+    // NWS points -> forecast (best-effort; Open-Meteo covers us if this fails)
+    try{
+      cache.nws = await fetchNWS(state.lat, state.lon);
+    }catch(e){ cache.nws = null; }
+    cache.fetchedAt = new Date();
+    renderAll();
+  }catch(e){
+    console.error(e);
+    document.getElementById("signalsCard").innerHTML =
+      '<div class="empty"><div class="big">⚠️</div>Could not reach weather services right now.<br><span style="font-size:12px;">'+ (e.message||"") +'</span></div>';
+  }
+}
+
+async function fetchNWS(lat, lon){
+  const pRes = await fetch(`https://api.weather.gov/points/${lat.toFixed(4)},${lon.toFixed(4)}`, {headers:{Accept:"application/geo+json"}});
+  if(!pRes.ok) throw new Error("NWS points lookup failed");
+  const pJson = await pRes.json();
+  const props = pJson.properties;
+  const [forecastRes, hourlyRes] = await Promise.all([
+    fetch(props.forecast, {headers:{Accept:"application/geo+json"}}),
+    fetch(props.forecastHourly, {headers:{Accept:"application/geo+json"}})
+  ]);
+  const forecast = forecastRes.ok ? (await forecastRes.json()).properties.periods : [];
+  const hourly = hourlyRes.ok ? (await hourlyRes.json()).properties.periods : [];
+  let current = null;
+  try{
+    const stRes = await fetch(props.observationStations, {headers:{Accept:"application/geo+json"}});
+    if(stRes.ok){
+      const stJson = await stRes.json();
+      const firstStation = stJson.features && stJson.features[0];
+      if(firstStation){
+        const obsRes = await fetch(firstStation.id + "/observations/latest", {headers:{Accept:"application/geo+json"}});
+        if(obsRes.ok){
+          const obsJson = await obsRes.json();
+          current = obsJson.properties;
+        }
+      }
+    }
+  }catch(e){ /* non-fatal */ }
+  return { relativeLocation: props.relativeLocation, forecast, hourly, current };
+}
+
+async function fetchOpenMeteo(lat, lon){
+  const params = new URLSearchParams({
+    latitude: lat, longitude: lon,
+    hourly: "temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m,soil_temperature_0cm,soil_temperature_6cm,soil_temperature_18cm,soil_moisture_1_to_3cm",
+    daily: "temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,weathercode,sunrise,sunset",
+    current: "temperature_2m,relative_humidity_2m,precipitation,weather_code,wind_speed_10m",
+    temperature_unit: "fahrenheit",
+    wind_speed_unit: "mph",
+    precipitation_unit: "inch",
+    timezone: "auto",
+    past_days: 2,
+    forecast_days: 8
+  });
+  const res = await fetch("https://api.open-meteo.com/v1/forecast?"+params.toString());
+  if(!res.ok) throw new Error("Open-Meteo request failed");
+  return await res.json();
+}
+
+async function fetchAlerts(lat, lon){
+  const res = await fetch(`https://api.weather.gov/alerts/active?point=${lat.toFixed(4)},${lon.toFixed(4)}`, {headers:{Accept:"application/geo+json"}});
+  if(!res.ok) throw new Error("alerts failed");
+  const json = await res.json();
+  return (json.features||[]).map(f=>f.properties);
+}
+
+/* ---------------------------------------------------------
+   WEATHER CODE -> EMOJI (Open-Meteo WMO codes)
+--------------------------------------------------------- */
+function wcodeEmoji(code){
+  if(code===0) return "☀️";
+  if([1,2].includes(code)) return "🌤️";
+  if(code===3) return "☁️";
+  if([45,48].includes(code)) return "🌫️";
+  if([51,53,55,56,57].includes(code)) return "🌦️";
+  if([61,63,65,66,67,80,81,82].includes(code)) return "🌧️";
+  if([71,73,75,77,85,86].includes(code)) return "🌨️";
+  if([95,96,99].includes(code)) return "⛈️";
+  return "🌡️";
+}
+
+/* ---------------------------------------------------------
+   DERIVED SERIES helpers from Open-Meteo hourly payload
+--------------------------------------------------------- */
+function nowIndexOM(om){
+  const now = Date.now();
+  const times = om.hourly.time.map(t=>new Date(t).getTime());
+  let idx = 0;
+  for(let i=0;i<times.length;i++){ if(times[i]<=now) idx=i; }
+  return idx;
+}
+function soilTempNowF(om, depthKey){
+  const idx = nowIndexOM(om);
+  const arr = om.hourly[depthKey];
+  if(!arr) return null;
+  return arr[idx];
+}
+function soilTempTrend(om, depthKey, hoursBack){
+  const idx = nowIndexOM(om);
+  const arr = om.hourly[depthKey];
+  if(!arr) return null;
+  const past = arr[Math.max(0, idx-hoursBack)];
+  const now = arr[idx];
+  if(past==null||now==null) return null;
+  return now-past; // positive = warming
+}
+function rainLast7days(om){
+  // past_days=2 only gives limited history; approximate using daily precipitation_sum for days we have + hourly for today
+  let total = 0;
+  if(om.daily && om.daily.precipitation_sum){
+    for(let i=0;i<om.daily.precipitation_sum.length;i++){
+      const d = new Date(om.daily.time[i]);
+      const daysAgo = (Date.now()-d.getTime())/86400000;
+      if(daysAgo>=0 && daysAgo<=7) total += (om.daily.precipitation_sum[i]||0);
+    }
+  }
+  return total; // inches (unit requested)
+}
+function next7DaysMinMax(om){
+  const out=[];
+  for(let i=0;i<om.daily.time.length;i++){
+    const d = new Date(om.daily.time[i]);
+    if(d.getTime() < new Date().setHours(0,0,0,0)) continue;
+    out.push({
+      date:d, hi:om.daily.temperature_2m_max[i], lo:om.daily.temperature_2m_min[i],
+      pr:om.daily.precipitation_sum[i], prProb:om.daily.precipitation_probability_max ? om.daily.precipitation_probability_max[i] : null,
+      code:om.daily.weathercode[i]
+    });
+  }
+  return out.slice(0,7);
+}
+function minLowNext(om, days){
+  const days7 = next7DaysMinMax(om);
+  let min = null;
+  days7.slice(0,days).forEach(d=>{ if(min===null || d.lo<min) min=d.lo; });
+  return min;
+}
+function maxHighNext(om, days){
+  const days7 = next7DaysMinMax(om);
+  let max = null;
+  days7.slice(0,days).forEach(d=>{ if(max===null || d.hi>max) max=d.hi; });
+  return max;
+}
+
+/* ---------------------------------------------------------
+   LAWN SIGNAL ENGINE
+--------------------------------------------------------- */
+function computeLawnSignals(om, grassKey){
+  const grass = GRASS_TYPES[grassKey] || GRASS_TYPES.unsure;
+  const season = grass.season; // cool | warm
+  const soil2 = soilTempNowF(om, "soil_temperature_6cm"); // ~2.4in depth, standard germination-monitoring depth
+  const soilSurf = soilTempNowF(om, "soil_temperature_0cm");
+  const trend7d = soilTempTrend(om, "soil_temperature_6cm", 24*7);
+  const warming = trend7d===null ? true : trend7d>0.3;
+  const cooling = trend7d===null ? false : trend7d < -0.3;
+  const month = new Date().getMonth(); // 0=Jan
+  const rain7 = rainLast7days(om);
+  const highNext5 = maxHighNext(om,5);
+  const lowNext5 = minLowNext(om,5);
+  const signals = [];
+
+  function add(s){ signals.push(s); }
+
+  if(soil2===null){
+    return [{status:"watch", title:"Soil data unavailable", detail:"Couldn't read modeled soil temperature for your spot yet.", why:""}];
+  }
+
+  // --- Pre-emergent crabgrass control ---
+  if(season==="cool" || season==="warm"){
+    if(soil2 < 50){
+      add({status:"upcoming", title:"Pre-emergent (crabgrass)", detail:`Soil is ${Math.round(soil2)}°F — still too cool. Crabgrass germinates once soil holds near 55°F.`, why:"Applying pre-emergent well ahead of germination gives it time to form a barrier."});
+    } else if(soil2>=50 && soil2<=60 && warming){
+      add({status:"ready", title:"Pre-emergent (crabgrass)", detail:`Soil is ${Math.round(soil2)}°F and rising — this is the window. Apply before it holds above 60°F.`, why:"Crabgrass germinates as soil sustains ~55–60°F; pre-emergent needs to be down first."});
+    } else if(soil2>60 && warming){
+      add({status:"watch", title:"Pre-emergent (crabgrass)", detail:`Soil already at ${Math.round(soil2)}°F. If you haven't put pre-emergent down, crabgrass may already be germinating.`, why:""});
+    } else {
+      add({status:"done", title:"Pre-emergent (crabgrass)", detail:"Outside the spring application window for your area right now.", why:""});
+    }
+  }
+
+  // --- Grub control (preventive) ---
+  if(soil2>=60 && soil2<=75 && (month>=4 && month<=6)){
+    add({status:"ready", title:"Grub prevention", detail:`Soil at ${Math.round(soil2)}°F — good window before eggs hatch.`, why:"Preventive grub control works best applied before eggs hatch in early-to-mid summer."});
+  } else if(month>=4 && month<=6){
+    add({status:"upcoming", title:"Grub prevention", detail:`Soil at ${Math.round(soil2)}°F. Watch for it to settle into the 60–75°F range.`, why:""});
+  }
+
+  if(season==="warm"){
+    // --- Green-up / first mow ---
+    if(soil2>=55 && soil2<65 && warming){
+      add({status:"ready", title:"Warm-season green-up", detail:`Soil at ${Math.round(soil2)}°F and climbing — green-up is underway or close.`, why:"Warm-season grasses break dormancy as soil warms through the mid-50s to mid-60s."});
+    }
+    // --- Fertilize ---
+    if(soil2>=65 && warming){
+      add({status:"ready", title:"First fertilizer feeding", detail:`Soil holding above 65°F — safe to start regular feeding now that green-up is complete.`, why:"Feeding before full green-up favors weeds over grass roots."});
+    } else if(soil2<65){
+      add({status:"upcoming", title:"First fertilizer feeding", detail:`Wait for soil to hold above 65°F before the first feeding.`, why:""});
+    }
+    // --- Aeration / overseed ---
+    if(soil2>=65 && soil2<=85 && warming){
+      add({status:"ready", title:"Aeration & overseed/sprig", detail:`Active growth conditions — a good stretch for aeration or filling in bare spots.`, why:"Warm-season lawns recover from aeration fastest during active growth."});
+    }
+    // --- Fall dormancy / last feeding ---
+    if(cooling && soil2<75 && soil2>60 && (month>=7)){
+      add({status:"upcoming", title:"Last feeding before dormancy", detail:`Soil is cooling (currently ${Math.round(soil2)}°F). Plan your last nitrogen feeding soon so growth can harden off before frost.`, why:""});
+    }
+  } else {
+    // cool season
+    // --- Fall core aeration & overseed (main window) ---
+    if(cooling && soil2>=50 && soil2<=75 && (month>=7 && month<=10)){
+      add({status:"ready", title:"Fall aeration & overseed", detail:`Soil is cooling through ${Math.round(soil2)}°F with air still mild — this is the prime cool-season window.`, why:"Cool-season grasses establish fastest when soil is warm enough for germination but air has eased off summer heat."});
+    } else if((month>=7 && month<=10) && soil2>75){
+      add({status:"upcoming", title:"Fall aeration & overseed", detail:`Soil still warm at ${Math.round(soil2)}°F — hold off a bit longer for best seed-to-soil results.`, why:""});
+    }
+    // --- Fall fertilization (main feed) ---
+    if((month>=8 && month<=10) && highNext5!==null && highNext5<80){
+      add({status:"ready", title:"Fall feeding", detail:"Mild temperatures ahead — this is the most important feeding of the year for cool-season lawns.", why:"Fall feeding builds root and energy reserves for winter and next spring's green-up."});
+    }
+    // --- Winterizer ---
+    if(cooling && soil2<=55 && soil2>=40 && (month>=9 || month===0)){
+      add({status:"ready", title:"Winterizer feeding", detail:`Soil at ${Math.round(soil2)}°F and dropping — growth is slowing but roots are still active. Good timing for a winterizer application.`, why:""});
+    }
+  }
+
+  // --- Fungal disease risk (both) ---
+  const veryHumid = om.hourly.relative_humidity_2m ? om.hourly.relative_humidity_2m[nowIndexOM(om)] : null;
+  if(soilSurf!==null && soilSurf>=68 && veryHumid!==null && veryHumid>=80){
+    add({status:"watch", title:"Fungal disease risk", detail:"Warm, humid conditions favor brown patch and dollar spot. Water early in the day, not at night, and avoid heavy feeding right now.", why:""});
+  }
+
+  // --- Watering ---
+  if(rain7 < 1 && (highNext5===null || highNext5>75)){
+    add({status:"upcoming", title:"Watering", detail:`Only ${rain7.toFixed(1)}" of rain in the last week. Most lawns want about 1"/week — consider a deep, infrequent watering.`, why:""});
+  } else if(rain7>=1){
+    add({status:"done", title:"Watering", detail:`~${rain7.toFixed(1)}" of rain this week — no supplemental watering needed.`, why:""});
+  }
+
+  // --- Dormant oil for trees/shrubs ---
+  if((month===1||month===2) && lowNext5!==null && lowNext5>32 && highNext5!==null && highNext5>40){
+    add({status:"upcoming", title:"Dormant oil (trees & shrubs)", detail:"Above-freezing stretch coming up before buds break — a workable window for dormant horticultural oil on scale-prone trees/shrubs.", why:""});
+  }
+
+  return signals.length ? signals : [{status:"done", title:"Nothing time-sensitive right now", detail:"Check back as conditions change.", why:""}];
+}
+
+/* ---------------------------------------------------------
+   PLANT ALERTS
+--------------------------------------------------------- */
+function computePlantAlerts(om, alerts, plants){
+  const out = [];
+  if(!plants.length) return out;
+  const lowTonight = minLowNext(om,1);
+  const lowNext3 = minLowNext(om,3);
+  const highNext3 = maxHighNext(om,3);
+  const freezeAlert = (alerts||[]).find(a=>/freeze|frost/i.test(a.event||""));
+
+  const coldSensitive = plants.filter(p=>p.coldSensitive);
+  const heatSensitive = plants.filter(p=>p.heatSensitive);
+  const outdoorCold = coldSensitive.filter(p=>p.location==="outdoor");
+  const indoorCold = coldSensitive.filter(p=>p.location==="indoor");
+
+  if(outdoorCold.length && (lowNext3!==null && lowNext3<=36)){
+    out.push({
+      title: lowNext3<=32 ? "Freeze expected" : "Frost risk",
+      detail: `Low near ${Math.round(lowNext3)}°F in the next few days. Bring in or cover: ${outdoorCold.map(p=>p.name).join(", ")}.`,
+      severe: lowNext3<=32
+    });
+  }
+  if(indoorCold.length && lowTonight!==null && lowTonight<=25){
+    out.push({
+      title:"Hard cold near windows",
+      detail:`It's getting down to ${Math.round(lowTonight)}°F tonight — pull ${indoorCold.map(p=>p.name).join(", ")} back from cold window glass.`,
+      severe:false
+    });
+  }
+  if(heatSensitive.length && highNext3!==null && highNext3>=95){
+    out.push({
+      title:"Heat stress risk",
+      detail:`Highs near ${Math.round(highNext3)}°F coming up. Check soil moisture daily and consider afternoon shade for: ${heatSensitive.map(p=>p.name).join(", ")}.`,
+      severe:false
+    });
+  }
+  if(freezeAlert){
+    out.push({title: freezeAlert.event, detail: freezeAlert.headline || "An official frost/freeze alert is active for your area.", severe:true});
+  }
+  return out;
+}
+
+/* ---------------------------------------------------------
+   RENDER
+--------------------------------------------------------- */
+function setLoadingUI(){
+  document.getElementById("signalsCard").innerHTML = '<div class="loading"><span class="spinner"></span> Reading the ground…</div>';
+  document.getElementById("forecastStrip").innerHTML = '<div class="loading"><span class="spinner"></span> Loading forecast…</div>';
+  document.getElementById("soilCard").innerHTML = '<div class="loading"><span class="spinner"></span> Loading soil data…</div>';
+}
+
+function renderAll(){
+  if(!cache.om) return;
+  renderHero();
+  renderAlertBanner();
+  renderSignals();
+  renderForecast();
+  renderSoil();
+  renderPlants();
+  const upd = document.getElementById("updatedNote");
+  upd.textContent = "Updated " + cache.fetchedAt.toLocaleTimeString([], {hour:"numeric", minute:"2-digit"});
+}
+
+function renderHero(){
+  const om = cache.om;
+  const idx = nowIndexOM(om);
+  const curTemp = om.current ? om.current.temperature_2m : om.hourly.temperature_2m[idx];
+  const curHum = om.current ? om.current.relative_humidity_2m : om.hourly.relative_humidity_2m[idx];
+  const curWind = om.current ? om.current.wind_speed_10m : om.hourly.wind_speed_10m[idx];
+  const code = om.current ? om.current.weather_code : (om.daily.weathercode ? om.daily.weathercode[2] : 0);
+  const soil2 = soilTempNowF(om, "soil_temperature_6cm");
+
+  document.getElementById("heroBlock").style.display = "grid";
+  document.getElementById("heroTemp").innerHTML = fmtTemp(curTemp) + '<span class="temp-unit">'+(state.units==="c"?"C":"F")+'</span>';
+  let condText = wcodeEmoji(code) + "  ";
+  if(cache.nws && cache.nws.forecast && cache.nws.forecast[0]) condText += cache.nws.forecast[0].shortForecast;
+  else condText += "—";
+  document.getElementById("heroCond").textContent = condText;
+  document.getElementById("heroSoil").textContent = fmtTemp(soil2);
+  document.getElementById("heroHum").textContent = (curHum!=null?Math.round(curHum):"--")+"%";
+  document.getElementById("heroWind").textContent = (curWind!=null?Math.round(curWind):"--")+" mph";
+  document.getElementById("placeBtn").textContent = state.placeLabel || `${state.lat.toFixed(2)}, ${state.lon.toFixed(2)}`;
+}
+
+function renderAlertBanner(){
+  const el = document.getElementById("alertBanner");
+  const alerts = cache.alerts||[];
+  if(!alerts.length){ el.innerHTML=""; return; }
+  const a = alerts[0];
+  el.innerHTML = `<div class="banner"><span>⚠️</span><div><strong>${escapeHtml(a.event)}</strong>${escapeHtml(a.headline||"")}</div></div>`;
+}
+
+function renderSignals(){
+  const signals = computeLawnSignals(cache.om, state.grassType);
+  const order = {ready:0, upcoming:1, watch:2, done:3};
+  signals.sort((a,b)=>order[a.status]-order[b.status]);
+  document.getElementById("signalsSub").textContent = GRASS_TYPES[state.grassType].label;
+  document.getElementById("signalsCard").innerHTML = signals.map(s=>`
+    <div class="signal">
+      <div class="dot ${s.status}"></div>
+      <div class="body">
+        <div class="title-row"><span class="title">${escapeHtml(s.title)}</span><span class="pill ${s.status}">${labelFor(s.status)}</span></div>
+        <div class="detail">${escapeHtml(s.detail)}</div>
+        ${s.why?`<div class="why">${escapeHtml(s.why)}</div>`:""}
+      </div>
+    </div>`).join("");
+
+  // plant alerts feed into a small addendum on the home tab
+  const palerts = computePlantAlerts(cache.om, cache.alerts, state.plants);
+  if(palerts.length){
+    document.getElementById("signalsCard").innerHTML += palerts.map(p=>`
+      <div class="signal">
+        <div class="dot watch"></div>
+        <div class="body">
+          <div class="title-row"><span class="title">${escapeHtml(p.title)}</span><span class="pill watch">Plants</span></div>
+          <div class="detail">${escapeHtml(p.detail)}</div>
+        </div>
+      </div>`).join("");
+  }
+}
+function labelFor(s){ return {ready:"Ready now", upcoming:"Not yet", watch:"Heads up", done:"Done / N-A"}[s]||s; }
+
+function renderForecast(){
+  const days = next7DaysMinMax(cache.om);
+  document.getElementById("forecastStrip").innerHTML = days.map((d,i)=>`
+    <div class="fday">
+      <div class="d">${i===0?"Today":d.date.toLocaleDateString([], {weekday:"short"})}</div>
+      <div class="e">${wcodeEmoji(d.code)}</div>
+      <div class="hi">${fmtTemp(d.hi)}</div>
+      <div class="lo">${fmtTemp(d.lo)}</div>
+      ${d.pr>0.01?`<div class="pr">💧${d.pr.toFixed(2)}"</div>`:""}
+    </div>`).join("");
+}
+
+function soilPosPct(f){
+  // maps 20F-100F onto 0-100% for the gradient bar (matches gradient stops roughly)
+  const clamped = Math.max(20, Math.min(100, f));
+  return ((clamped-20)/(100-20))*100;
+}
+function renderSoil(){
+  const om = cache.om;
+  const depths = [
+    {key:"soil_temperature_0cm", label:"Surface"},
+    {key:"soil_temperature_6cm", label:'2" deep'},
+    {key:"soil_temperature_18cm", label:'7" deep'}
+  ];
+  let html = depths.map(d=>{
+    const v = soilTempNowF(om, d.key);
+    if(v==null) return "";
+    return `<div class="soil-row">
+      <div class="lbl">${d.label}</div>
+      <div class="soil-track"><div class="marker" style="left:${soilPosPct(v)}%"></div></div>
+      <div class="val">${fmtTemp(v)}</div>
+    </div>`;
+  }).join("");
+  html += `<div class="soil-scale"><span>20°</span><span>60°</span><span>100°F</span></div>`;
+  const trend = soilTempTrend(om, "soil_temperature_6cm", 24*3);
+  let trendText = "";
+  if(trend!==null){
+    if(trend>0.5) trendText = `Warming — up about ${trend.toFixed(1)}°F over the last 3 days at 2" depth.`;
+    else if(trend<-0.5) trendText = `Cooling — down about ${Math.abs(trend).toFixed(1)}°F over the last 3 days at 2" depth.`;
+    else trendText = "Holding fairly steady over the last few days.";
+  }
+  html += `<div class="soil-note">${trendText} Soil readings are modeled for your coordinates (Open&#8209;Meteo), not a physical probe in your yard — a soil thermometer pushed 2–3" down will always be the most accurate check before you spread anything. In the Kansas City area, the <a class="src-link" href="https://mesonet.k-state.edu/" target="_blank" rel="noopener">Kansas Mesonet</a> publishes real station soil readings you can cross-check.</div>`;
+  document.getElementById("soilCard").innerHTML = html;
+}
+
+function renderPlants(){
+  const el = document.getElementById("plantsCard");
+  if(!state.plants.length){
+    el.innerHTML = '<div class="empty"><div class="big">🌿</div>No plants added yet — add one so freeze and heat alerts know what to watch for.</div>';
+    return;
+  }
+  el.innerHTML = state.plants.map(p=>`
+    <div class="plant-item">
+      <div class="plant-emoji">${p.emoji||PLANT_EMOJI[p.location]}</div>
+      <div class="plant-body">
+        <div class="plant-name">${escapeHtml(p.name)}</div>
+        <div class="plant-meta">${p.location==="indoor"?"Indoor":"Outdoor"}${p.coldSensitive?" · cold-sensitive":""}${p.heatSensitive?" · heat-sensitive":""}</div>
+      </div>
+      <button class="del-btn" data-del="${p.id}" aria-label="Remove">✕</button>
+    </div>`).join("");
+  el.querySelectorAll("[data-del]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      state.plants = state.plants.filter(p=>p.id!==btn.dataset.del);
+      saveState(); renderPlants(); renderSignals();
+    });
+  });
+}
+
+function escapeHtml(s){
+  return String(s==null?"":s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+/* ---------------------------------------------------------
+   MODALS
+--------------------------------------------------------- */
+function openModal(html){
+  const root = document.getElementById("modalRoot");
+  root.innerHTML = `<div class="modal-backdrop" id="backdrop"><div class="modal">${html}</div></div>`;
+  document.getElementById("backdrop").addEventListener("click", e=>{ if(e.target.id==="backdrop") closeModal(); });
+}
+function closeModal(){ document.getElementById("modalRoot").innerHTML = ""; }
+
+function openLocationModal(){
+  openModal(`
+    <button class="modal-close" onclick="window.__gc.closeModal()">✕</button>
+    <h3>Set your location</h3>
+    <button class="btn block" id="mUseLoc">📍 Use my current location</button>
+    <div style="text-align:center;margin:14px 0;color:var(--ink-soft);font-size:12.5px;">or enter manually</div>
+    <div class="field row2">
+      <div><label>Latitude</label><input id="mLat" type="number" step="0.0001" value="${state.lat||""}"></div>
+      <div><label>Longitude</label><input id="mLon" type="number" step="0.0001" value="${state.lon||""}"></div>
+    </div>
+    <div class="field"><label>Label (optional)</label><input id="mLabel" type="text" placeholder="e.g. Overland Park, KS" value="${state.placeLabel||""}"></div>
+    <button class="btn block" id="mSave">Save location</button>
+  `);
+  document.getElementById("mUseLoc").addEventListener("click", useGeolocation);
+  document.getElementById("mSave").addEventListener("click", ()=>{
+    const lat = parseFloat(document.getElementById("mLat").value);
+    const lon = parseFloat(document.getElementById("mLon").value);
+    if(isNaN(lat)||isNaN(lon)){ alert("Enter valid coordinates."); return; }
+    state.lat=lat; state.lon=lon; state.placeLabel = document.getElementById("mLabel").value.trim();
+    saveState(); closeModal(); showApp(); fetchAll();
+  });
+}
+
+function useGeolocation(){
+  if(!navigator.geolocation){ alert("Geolocation isn't available in this browser — enter coordinates manually."); return; }
+  navigator.geolocation.getCurrentPosition(pos=>{
+    state.lat = pos.coords.latitude; state.lon = pos.coords.longitude;
+    if(!state.placeLabel) state.placeLabel = "";
+    saveState(); closeModal(); showApp(); fetchAll();
+    reverseGeocode(state.lat, state.lon);
+  }, err=>{
+    alert("Couldn't get your location ("+err.message+"). Enter coordinates manually instead.");
+  }, {enableHighAccuracy:false, timeout:10000});
+}
+
+async function reverseGeocode(lat, lon){
+  try{
+    const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=10`, {headers:{Accept:"application/json"}});
+    if(!res.ok) return;
+    const j = await res.json();
+    const a = j.address||{};
+    const label = a.city||a.town||a.village||a.county;
+    if(label){
+      state.placeLabel = label + (a.state?", "+a.state:"");
+      saveState();
+      document.getElementById("placeBtn").textContent = state.placeLabel;
+    }
+  }catch(e){ /* non-fatal, coordinates still shown */ }
+}
+
+function openAddPlantModal(){
+  openModal(`
+    <button class="modal-close" onclick="window.__gc.closeModal()">✕</button>
+    <h3>Add a plant</h3>
+    <div class="field"><label>Name</label><input id="pName" type="text" placeholder="e.g. Fiddle Leaf Fig"></div>
+    <div class="field">
+      <label>Location</label>
+      <div class="tag-row">
+        <span class="tag on" data-loc="outdoor">Outdoor</span>
+        <span class="tag" data-loc="indoor">Indoor</span>
+      </div>
+    </div>
+    <div class="toggle-row">
+      <span>Cold-sensitive (needs protecting from frost/freeze)</span>
+      <label class="switch"><input type="checkbox" id="pCold" checked><span class="slider"></span></label>
+    </div>
+    <div class="toggle-row">
+      <span>Heat-sensitive (needs shade/extra water in a heat wave)</span>
+      <label class="switch"><input type="checkbox" id="pHeat"><span class="slider"></span></label>
+    </div>
+    <button class="btn block" id="pSave" style="margin-top:16px;">Add plant</button>
+  `);
+  let loc = "outdoor";
+  document.querySelectorAll("[data-loc]").forEach(t=>t.addEventListener("click", ()=>{
+    document.querySelectorAll("[data-loc]").forEach(o=>o.classList.remove("on"));
+    t.classList.add("on"); loc = t.dataset.loc;
+    document.getElementById("pCold").checked = true;
+  }));
+  document.getElementById("pSave").addEventListener("click", ()=>{
+    const name = document.getElementById("pName").value.trim();
+    if(!name){ alert("Give it a name."); return; }
+    state.plants.push({
+      id: "p"+Date.now(),
+      name, location: loc,
+      coldSensitive: document.getElementById("pCold").checked,
+      heatSensitive: document.getElementById("pHeat").checked,
+      emoji: PLANT_EMOJI[loc]
+    });
+    saveState(); closeModal(); renderPlants(); renderSignals();
+  });
+}
+
+function openSettingsModal(){
+  openModal(`
+    <button class="modal-close" onclick="window.__gc.closeModal()">✕</button>
+    <h3>Settings</h3>
+    <div class="field">
+      <label>Grass type</label>
+      <select id="sGrass">
+        ${Object.entries(GRASS_TYPES).map(([k,v])=>`<option value="${k}" ${state.grassType===k?"selected":""}>${v.label} (${v.season}-season)</option>`).join("")}
+      </select>
+    </div>
+    <div class="field">
+      <label>Temperature units</label>
+      <div class="tag-row">
+        <span class="tag ${state.units==='f'?'on':''}" data-unit="f">°Fahrenheit</span>
+        <span class="tag ${state.units==='c'?'on':''}" data-unit="c">°Celsius</span>
+      </div>
+    </div>
+    <div class="field">
+      <label>Appearance</label>
+      <div class="tag-row">
+        <span class="tag ${state.theme==='auto'?'on':''}" data-theme="auto">Auto</span>
+        <span class="tag ${state.theme==='light'?'on':''}" data-theme="light">Light</span>
+        <span class="tag ${state.theme==='dark'?'on':''}" data-theme="dark">Dark</span>
+      </div>
+    </div>
+    <button class="btn secondary block" id="sLocBtn" style="margin-bottom:10px;">Change location</button>
+    <button class="btn block" id="sSave">Save</button>
+  `);
+  document.getElementById("sLocBtn").addEventListener("click", ()=>{ closeModal(); openLocationModal(); });
+  document.querySelectorAll("[data-unit]").forEach(t=>t.addEventListener("click", ()=>{
+    document.querySelectorAll("[data-unit]").forEach(o=>o.classList.remove("on")); t.classList.add("on");
+  }));
+  document.querySelectorAll("[data-theme]").forEach(t=>t.addEventListener("click", ()=>{
+    document.querySelectorAll("[data-theme]").forEach(o=>o.classList.remove("on")); t.classList.add("on");
+  }));
+  document.getElementById("sSave").addEventListener("click", ()=>{
+    state.grassType = document.getElementById("sGrass").value;
+    state.units = document.querySelector("[data-unit].on").dataset.unit;
+    state.theme = document.querySelector("[data-theme].on").dataset.theme;
+    saveState(); applyTheme(); closeModal(); renderAll();
+  });
+}
+
+/* expose a couple handlers for inline onclick in modal markup */
+window.__gc = { closeModal };
+
+/* ---------------------------------------------------------
+   TABS (simple show/hide of sections, home shows everything;
+   lawn/plants/settings scroll+focus relevant section for now
+   to keep this a single continuous page)
+--------------------------------------------------------- */
+document.querySelectorAll("nav.tabs button").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll("nav.tabs button").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    const tab = btn.dataset.tab;
+    if(tab==="home") document.getElementById("signalsSection").scrollIntoView({behavior:"smooth"});
+    if(tab==="lawn") openSettingsModal();
+    if(tab==="plants") document.getElementById("plantsCard").scrollIntoView({behavior:"smooth", block:"center"});
+    if(tab==="settings") openSettingsModal();
+  });
+});
+
+document.getElementById("settingsBtn").addEventListener("click", openSettingsModal);
+document.getElementById("placeBtn").addEventListener("click", openLocationModal);
+document.getElementById("addPlantBtn").addEventListener("click", openAddPlantModal);
+document.getElementById("useLocationBtn").addEventListener("click", useGeolocation);
+document.getElementById("manualLocationBtn").addEventListener("click", openLocationModal);
+
+/* ---------------------------------------------------------
+   BOOT
+--------------------------------------------------------- */
+function showApp(){
+  document.getElementById("locateEmpty").style.display = "none";
+  document.getElementById("appBody").style.display = "block";
+}
+function boot(){
+  if(state.lat==null || state.lon==null){
+    document.getElementById("locateEmpty").style.display = "block";
+  } else {
+    showApp();
+    fetchAll();
+    // refresh every 20 minutes while the tab is open
+    setInterval(fetchAll, 20*60*1000);
+  }
+}
+boot();
+
+if("serviceWorker" in navigator){
+  window.addEventListener("load", ()=>{
+    navigator.serviceWorker.register("sw.js").catch(()=>{});
+  });
+}
+
+})();
+</script>
+</body>
+</html>
