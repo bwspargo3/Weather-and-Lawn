@@ -12,19 +12,20 @@
 ## 🚨 Next Action
 
 <!-- NEXT-ACTION:START (auto-generated from the Status Table; edits here are overwritten) -->
-> ### ➡️ [Step 4: Renovator®](#step-4)
-> **Timing:** September → October  **Programs:** Both  **Status:** ⬜ Not started  
-> **🛒 Buy by:** ~Aug 25
+> ### ➡️ [Fall Watering Shift](#step-w3)
+> **Timing:** September → October  **Programs:** Supplemental  **Status:** ⬜ Not started  
 >
 > **What to do:**
-> - Apply Renovator® at the bag rate. It's a strong nitrogen dose that helps the lawn recover from summer stress.
-> - **If you're doing Fall Renovation:** apply on seeding day (3–5 lb/1,000 sq ft) as the starter fertilizer. One application covers both.
-> - Water in with ~¼–½".
-> - Early September is ideal if you're not seeding. It gives the longest recovery window.
+> - **If you overseeded:**
+>   - Weeks 1–3: **light watering 3×/day** (~5–10 min per zone) to keep the top ½" moist.
+>   - Weeks 4–6: **once a day**, longer.
+>   - After that: back to **~1"/week**, deep and infrequent.
+> - **If you didn't seed:** drop to **~1"/week** including rain. September rains often cover it.
+> - **Mowing:** return to **3–3.5"**. Keep mowing as long as the grass grows.
 >
-> **Done?** [✅ Mark done](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9C%85%204%20done) · [❌ Skip](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9D%8C%204%20skipped) · [💬 Talk to Claude](https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL)
+> **Done?** [✅ Mark done](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9C%85%20W3%20done) · [❌ Skip](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9D%8C%20W3%20skipped) · [💬 Talk to Claude](https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL)
 >
-> **👀 Coming up after this:** [Fall Watering Shift](#step-w3) (Sep → Oct) → [Fall Broadleaf Weed Control](#step-s5) (Early → Late Oct, 🛒 buy by ~Sep 28)
+> **👀 Coming up after this:** [Fall Broadleaf Weed Control](#step-s5) (Early → Late Oct, 🛒 buy by ~Sep 28) → [Leaf Management](#step-s6) (Mid-Oct → Nov)
 <!-- NEXT-ACTION:END -->
 
 > **📲 iPhone reminders:** subscribe once to the [Lawn Care calendar](https://raw.githubusercontent.com/bwspargo3/Weather-and-Lawn/claude/lawn-care-tracker/lawn-calendar.ics) (setup steps at the [bottom](#iphone-calendar)). It updates itself whenever this tracker changes.
@@ -50,7 +51,7 @@
 | W2 | [Summer Mode: Mowing & Watering](#step-w2) | Supplemental | Late May → Aug | n/a | ❌ Skipped |
 | S3 | [Brown Patch Watch / Fungicide](#step-s3) | Supplemental (optional) | Jun → Aug | ~Jun 1 (if needed) | ❌ Skipped |
 | S4 | [Grub Check & Rescue Treatment](#step-s4) | Supplemental (if needed) | Mid-Aug → Mid-Sep | Only if grubs found | ❌ Skipped |
-| 4 | [Step 4: Renovator®](#step-4) | Both | Sep → Oct | ~Aug 25 | ⬜ Not started |
+| 4 | [Step 4: Renovator®](#step-4) | Both | Sep → Oct | ~Aug 25 | ✅ Done (Oct 2, 2026) |
 | FR | [Fall Renovation / Overseeding](#step-fr) | Optional | Late Aug prep → Sep 1 – Oct 10 seeding | ~Aug 20 | ✅ Done (Oct 2, 2026) |
 | W3 | [Fall Watering Shift](#step-w3) | Supplemental | Sep → Oct | n/a | ⬜ Not started |
 | S5 | [Fall Broadleaf Weed Control](#step-s5) | Supplemental (skip if you seeded) | Early → Late Oct | ~Sep 28 | ⬜ Not started |
@@ -253,7 +254,7 @@
 <a id="step-4"></a>
 ### 🍂 Step 4: Renovator®
 **Timing:** September → October  **Programs:** Both
-**Status:** ⬜ Not started
+**Status:** ✅ Done (Oct 2, 2026)
 
 **What to do:**
 - Apply Renovator® at the bag rate. It's a strong nitrogen dose that helps the lawn recover from summer stress.
@@ -376,6 +377,7 @@ Each one alerts at 9 AM. Its notes link back to its section here and include **�
 
 <!-- JOURNAL:START (newest last) -->
 - **Oct 2, 2026** · ✅ Done · FR · Fall Renovation / Overseeding
+- **Oct 2, 2026** · ✅ Done · 4 · Step 4: Renovator®
 <!-- JOURNAL:END -->
 
 *Sources: GrassPad's [Idiot-Proof Lawn Program](https://grasspad.com/idiot-proof-lawn-program/), [Spring Seeding / Seed Safe](https://grasspad.com/spring-seeding/), and [Idiot-Proof Fall Lawn Renovation](https://grasspad.com/idiot-proof-fall-lawn-renovation/). The supplemental tasks (grubs, mosquitoes, disease, watering) use standard cool-season extension guidance. Always follow the product label for rates.*
