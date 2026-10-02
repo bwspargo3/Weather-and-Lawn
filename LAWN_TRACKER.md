@@ -10,40 +10,44 @@
 
 ## 🚨 Next Action
 
-> ### ➡️ [Prep Tasks](#step-prep): sharpen, clean up, pick your spring path
-> **Timing:** Early → Mid March  **Programs:** Both  **Status:** ⬜ Not started
+> ### ➡️ [Step 4: Renovator®](#step-4): apply this week ⏰
+> **Timing:** Sep → Oct (you're in the back half of the window, so don't wait)  **Programs:** Both  **Status:** ⬜ Not started
 >
-> **🛒 Buy now (1 week ahead):** mower blade sharpening or a new blade, plus **either** Renovator® (Seed Safe path) **or** PREVENT!® (Idiot-Proof path), ready for Step 1.
+> **🛒 Buy now:** Renovator®. If you're overseeding, also buy grass seed (tall fescue blend, ~4–6 lb per 1,000 sq ft) **now**.
 >
 > **Do:**
-> 1. Decide your **spring path**: overseeding this spring → **Seed Safe**; not seeding → **Idiot-Proof**. Tell me which and I'll retire the other path's steps.
-> 2. Sharpen mower blades, rake out matted or dead grass and debris, and check that your spreader works.
-> 3. *(Optional)* Send a soil test to your county extension office.
+> 1. **Decide by ~Oct 5: overseed or not?** Seed has to go down by **~Oct 10**. After that it won't root deeply enough before winter.
+>    - **Overseeding:** follow [Fall Renovation](#step-fr) and spread Renovator **on seeding day** at 3–5 lb/1,000 sq ft. One application completes both Step 4 and FR.
+>    - **Not overseeding:** apply Renovator at the bag rate this week, water in ~¼–½", and tell me `❌ FR skipped`.
+> 2. Mow at 3–3.5" and keep mowing while the grass is growing.
 >
-> **👀 Coming up after this:** Step 1 Renovator (Seed Safe) **or** Step 1 PREVENT! (Idiot-Proof), Mid-March.
+> **👀 Coming up after this:** Fall Watering Shift (now) → Fall Broadleaf Weeds (Oct, only if you didn't seed) → **🛒 buy Snowman® by ~Oct 15**, then apply Oct 22 → Nov.
+
+> **📲 iPhone reminders:** subscribe once to the [Lawn Care calendar](https://raw.githubusercontent.com/bwspargo3/Weather-and-Lawn/claude/lawn-care-tracker/lawn-calendar.ics) (setup steps at the [bottom](#iphone-calendar)). It updates itself whenever this tracker changes.
 
 ---
 
 ## 📅 Status Table
 
-**Spring path:** ⬜ Not chosen yet (Seed Safe **or** Idiot-Proof)
+**Spring path:** ✅ Idiot-Proof (Seed Safe steps 1A / 2A marked ➖ N/A)  
+**Season start:** began tracking at Step 4 (Oct 2); earlier steps ❌ skipped
 
 | # | Step | Program(s) | Timing | 🛒 Buy by | Status |
 |---|------|------------|--------|-----------|--------|
-| P | [Prep Tasks](#step-prep) | Both | Early → Mid Mar | ~Mar 1 | ⬜ Not started |
-| 1A | [Step 1: Renovator®](#step-1a) | Seed Safe | Early → Mid Mar | ~Mar 1 | ⬜ Not started |
-| 1B | [Step 1: PREVENT!®](#step-1b) | Idiot-Proof | Mid-Mar → Mid-Apr | ~Mar 8 | ⬜ Not started |
-| W1 | [Spring Watering & Mowing Setup](#step-w1) | Supplemental | Early → Mid Apr | n/a | ⬜ Not started |
-| 2A | [Step 2: Seed Safe®](#step-2a) | Seed Safe | Mid-Apr (~3 wks after 1A) | ~Apr 1 | ⬜ Not started |
-| 2B | [Step 2: Weed & Feed](#step-2b) | Idiot-Proof | Apr → Early Jun | ~Apr 15 | ⬜ Not started |
-| S1 | [Grub Preventer](#step-s1) | Supplemental (recommended) | Mid-May → Late Jun | ~May 8 | ⬜ Not started |
-| S2 | [Mosquito Season Start](#step-s2) | Supplemental (optional) | Mid-May, repeat → Sep | ~May 8 | ⬜ Not started |
-| 3 | [Step 3: PREVENT!® (2nd app)](#step-3) | Both | Late May → Early Jul | ~May 15 | ⬜ Not started |
-| W2 | [Summer Mode: Mowing & Watering](#step-w2) | Supplemental | Late May → Aug | n/a | ⬜ Not started |
-| S3 | [Brown Patch Watch / Fungicide](#step-s3) | Supplemental (optional) | Jun → Aug | ~Jun 1 (if needed) | ⬜ Not started |
-| S4 | [Grub Check & Rescue Treatment](#step-s4) | Supplemental (if needed) | Mid-Aug → Mid-Sep | Only if grubs found | ⬜ Not started |
-| FR | [Fall Renovation / Overseeding](#step-fr) | Optional | Late Aug prep → Sep 1 – Oct 10 seeding | ~Aug 20 | ⬜ Not started |
+| P | [Prep Tasks](#step-prep) | Both | Early → Mid Mar | ~Mar 1 | ❌ Skipped |
+| 1A | [Step 1: Renovator®](#step-1a) | Seed Safe | Early → Mid Mar | ~Mar 1 | ➖ N/A (Idiot-Proof path chosen) |
+| 1B | [Step 1: PREVENT!®](#step-1b) | Idiot-Proof | Mid-Mar → Mid-Apr | ~Mar 8 | ❌ Skipped |
+| W1 | [Spring Watering & Mowing Setup](#step-w1) | Supplemental | Early → Mid Apr | n/a | ❌ Skipped |
+| 2A | [Step 2: Seed Safe®](#step-2a) | Seed Safe | Mid-Apr (~3 wks after 1A) | ~Apr 1 | ➖ N/A (Idiot-Proof path chosen) |
+| 2B | [Step 2: Weed & Feed](#step-2b) | Idiot-Proof | Apr → Early Jun | ~Apr 15 | ❌ Skipped |
+| S1 | [Grub Preventer](#step-s1) | Supplemental (recommended) | Mid-May → Late Jun | ~May 8 | ❌ Skipped |
+| S2 | [Mosquito Season Start](#step-s2) | Supplemental (optional) | Mid-May, repeat → Sep | ~May 8 | ❌ Skipped |
+| 3 | [Step 3: PREVENT!® (2nd app)](#step-3) | Both | Late May → Early Jul | ~May 15 | ❌ Skipped |
+| W2 | [Summer Mode: Mowing & Watering](#step-w2) | Supplemental | Late May → Aug | n/a | ❌ Skipped |
+| S3 | [Brown Patch Watch / Fungicide](#step-s3) | Supplemental (optional) | Jun → Aug | ~Jun 1 (if needed) | ❌ Skipped |
+| S4 | [Grub Check & Rescue Treatment](#step-s4) | Supplemental (if needed) | Mid-Aug → Mid-Sep | Only if grubs found | ❌ Skipped |
 | 4 | [Step 4: Renovator®](#step-4) | Both | Sep → Oct | ~Aug 25 | ⬜ Not started |
+| FR | [Fall Renovation / Overseeding](#step-fr) | Optional | Late Aug prep → Sep 1 – Oct 10 seeding | ~Aug 20 | ⬜ Not started |
 | W3 | [Fall Watering Shift](#step-w3) | Supplemental | Sep → Oct | n/a | ⬜ Not started |
 | S5 | [Fall Broadleaf Weed Control](#step-s5) | Supplemental (skip if you seeded) | Early → Late Oct | ~Sep 28 | ⬜ Not started |
 | S6 | [Leaf Management](#step-s6) | Supplemental | Mid-Oct → Nov | n/a | ⬜ Not started |
@@ -80,7 +84,7 @@
 <a id="step-prep"></a>
 ### 🧹 Prep Tasks
 **Timing:** Early → Mid March  **Programs:** Both
-**Status:** ⬜ Not started
+**Status:** ❌ Skipped
 
 **What to do:**
 - **Pick your spring path:**
@@ -97,7 +101,7 @@
 <a id="step-1a"></a>
 ### 🌾 Step 1: Renovator®
 **Timing:** Early → Mid March  **Programs:** Seed Safe only
-**Status:** ⬜ Not started
+**Status:** ➖ N/A (Idiot-Proof path chosen)
 
 **What to do:**
 - Apply Renovator® at the bag rate. It feeds the existing turf and gives food to the seed you'll put down.
@@ -110,7 +114,7 @@
 <a id="step-1b"></a>
 ### 🛡️ Step 1: PREVENT!®
 **Timing:** Mid-March → Mid-April  **Programs:** Idiot-Proof only
-**Status:** ⬜ Not started
+**Status:** ❌ Skipped
 
 **What to do:**
 - Apply PREVENT!® (crabgrass pre-emergent + fertilizer) at the bag rate.
@@ -124,7 +128,7 @@
 <a id="step-w1"></a>
 ### 💧 Spring Watering & Mowing Setup
 **Timing:** Early → Mid April  **Programs:** Supplemental
-**Status:** ⬜ Not started
+**Status:** ❌ Skipped
 
 **What to do:**
 - **Mowing:** first cuts at **3"**, removing no more than ⅓ of the blade per cut. Mulch the clippings.
@@ -137,7 +141,7 @@
 <a id="step-2a"></a>
 ### 🌱 Step 2: Seed Safe®
 **Timing:** Mid-April (~3 weeks after Renovator)  **Programs:** Seed Safe only
-**Status:** ⬜ Not started
+**Status:** ➖ N/A (Idiot-Proof path chosen)
 
 **What to do:**
 - Apply Seed Safe® (seed-safe crabgrass pre-emergent + fertilizer, mesotrione-based) at the bag rate.
@@ -151,7 +155,7 @@
 <a id="step-2b"></a>
 ### 🌼 Step 2: Weed & Feed
 **Timing:** April → Early June  **Programs:** Idiot-Proof only
-**Status:** ⬜ Not started
+**Status:** ❌ Skipped
 
 **What to do:**
 - Apply when dandelions and other broadleaf weeds are **actively growing and flowering**.
@@ -164,7 +168,7 @@
 <a id="step-s1"></a>
 ### 🐛 Grub Preventer
 **Timing:** Mid-May → Late June  **Programs:** Supplemental (recommended)
-**Status:** ⬜ Not started
+**Status:** ❌ Skipped
 
 **What to do:**
 - Apply a preventive grub control. **Chlorantraniliprole** (e.g. GrubEx) is the lowest-toxicity option and lasts the whole season.
@@ -177,7 +181,7 @@
 <a id="step-s2"></a>
 ### 🦟 Mosquito Season Start
 **Timing:** Mid-May, then repeat every 3–4 weeks through September  **Programs:** Supplemental (optional)
-**Status:** ⬜ Not started
+**Status:** ❌ Skipped
 
 **What to do:**
 - **Free first step:** dump standing water weekly (buckets, saucers, gutters, toys, tarps). This does more than spraying.
@@ -190,7 +194,7 @@
 <a id="step-3"></a>
 ### 🛡️ Step 3: PREVENT!® (2nd Application)
 **Timing:** Late May → Early July (GrassPad's sweet spot is **late May – early June**)  **Programs:** Both
-**Status:** ⬜ Not started
+**Status:** ❌ Skipped
 
 **What to do:**
 - Apply PREVENT!® at the bag rate. This is round two of crabgrass prevention, carrying the barrier through summer.
@@ -203,7 +207,7 @@
 <a id="step-w2"></a>
 ### ☀️ Summer Mode: Mowing & Watering
 **Timing:** Late May → August  **Programs:** Supplemental
-**Status:** ⬜ Not started
+**Status:** ❌ Skipped
 
 **What to do:**
 - **Raise the mower to 3.5–4"** by Memorial Day. Tall grass shades out weeds and holds moisture.
@@ -218,7 +222,7 @@
 <a id="step-s3"></a>
 ### 🍄 Brown Patch Watch / Fungicide
 **Timing:** June → August  **Programs:** Supplemental (optional)
-**Status:** ⬜ Not started
+**Status:** ❌ Skipped
 
 **What to do:**
 - **Watch for:** tan, roughly circular patches 6"–3' across, often with a dark "smoke ring" at the edge on humid mornings. This shows up mostly on tall fescue.
@@ -231,7 +235,7 @@
 <a id="step-s4"></a>
 ### 🔍 Grub Check & Rescue Treatment
 **Timing:** Mid-August → Mid-September  **Programs:** Supplemental (only if needed)
-**Status:** ⬜ Not started
+**Status:** ❌ Skipped
 
 **What to do:**
 - **Check:** in any brown patch, see whether the turf peels back like carpet. If it does, cut and lift a 1 sq ft piece of sod.
@@ -239,6 +243,19 @@
 - **Fewer than 10** → no treatment. Healthy grass outgrows them.
 - If you applied S1, this is mostly a quick confirmation check.
 - Skunks, raccoons or birds digging up the turf is a strong grub sign.
+
+---
+
+<a id="step-4"></a>
+### 🍂 Step 4: Renovator®
+**Timing:** September → October  **Programs:** Both
+**Status:** ⬜ Not started
+
+**What to do:**
+- Apply Renovator® at the bag rate. It's a strong nitrogen dose that helps the lawn recover from summer stress.
+- **If you're doing Fall Renovation:** apply on seeding day (3–5 lb/1,000 sq ft) as the starter fertilizer. One application covers both.
+- Water in with ~¼–½".
+- Early September is ideal if you're not seeding. It gives the longest recovery window.
 
 ---
 
@@ -258,19 +275,6 @@
 8. First mow when the new grass reaches ~4", cutting at 3".
 9. **No weed killer** on the new grass until it's been mowed 3–4 times (so skip S5 this year).
 10. Rake leaves off the new grass promptly (S6). Smothered seedlings die.
-
----
-
-<a id="step-4"></a>
-### 🍂 Step 4: Renovator®
-**Timing:** September → October  **Programs:** Both
-**Status:** ⬜ Not started
-
-**What to do:**
-- Apply Renovator® at the bag rate. It's a strong nitrogen dose that helps the lawn recover from summer stress.
-- **If you're doing Fall Renovation:** apply on seeding day (3–5 lb/1,000 sq ft) as the starter fertilizer. One application covers both.
-- Water in with ~¼–½".
-- Early September is ideal if you're not seeding. It gives the longest recovery window.
 
 ---
 
@@ -339,5 +343,21 @@
 - **Next season:** reset this tracker to ⬜ at the start of March.
 
 ---
+
+<a id="iphone-calendar"></a>
+## 📲 iPhone Calendar Sync
+
+`lawn-calendar.ics` is generated from the Status Table by `tools/build_lawn_calendar.py`, and Claude reruns it on every update. Each ⬜ step gets:
+- **🛒 Buy** reminder about 1 week before the window opens
+- **🌱 Window opens** reminder
+- **⏰ Last call** reminder 5 days before the window closes
+
+Each one alerts at 9 AM and links back to its section here. Steps marked ✅, ❌ or ➖ disappear from the calendar. Next season's events are already included.
+
+**One-time setup (about 1 minute):**
+1. iPhone **Settings → Apps → Calendar → Calendar Accounts → Add Account → Other → Add Subscribed Calendar**. On older iOS: Settings → Calendar → Accounts.
+2. Server: `https://raw.githubusercontent.com/bwspargo3/Weather-and-Lawn/claude/lawn-care-tracker/lawn-calendar.ics`
+3. Tap **Next**, then turn **Remove Alerts OFF**. iOS turns it on by default, and you'd get no notifications.
+4. Tap **Save**. Optional: under **Fetch New Data**, set it to *Hourly* so updates show up faster.
 
 *Sources: GrassPad's [Idiot-Proof Lawn Program](https://grasspad.com/idiot-proof-lawn-program/), [Spring Seeding / Seed Safe](https://grasspad.com/spring-seeding/), and [Idiot-Proof Fall Lawn Renovation](https://grasspad.com/idiot-proof-fall-lawn-renovation/). The supplemental tasks (grubs, mosquitoes, disease, watering) use standard cool-season extension guidance. Always follow the product label for rates.*
