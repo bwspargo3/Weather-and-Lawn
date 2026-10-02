@@ -7,16 +7,19 @@ The following season is always included in full so reminders keep coming
 without anyone touching the file.
 
 Usage:  python3 tools/build_lawn_calendar.py [--season 2026] [--today 2026-10-02]
+(defaults: season from the tracker's "**Season:**" line, today in Central time)
 """
 import argparse
 import datetime as dt
 import pathlib
 import re
+from zoneinfo import ZoneInfo
+
+from lawn_links import SESSION_URL, TRACKER_URL, issue_url
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 TRACKER = ROOT / "LAWN_TRACKER.md"
 OUT = ROOT / "lawn-calendar.ics"
-TRACKER_URL = "https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md"
 
 # id: name, anchor, buy (month, day) + item, window start/end, last-call flag, extra one-off nudges
 SCHEDULE = {
@@ -130,7 +133,9 @@ def season_events(year, today, pending_ids, catch_up):
         if end < today:
             continue  # window fully passed
         link = f"{TRACKER_URL}#{s['anchor']}"
-        desc = f"{s['note']}\n\nWindow: {d(s['start']):%b %d} – {end:%b %d}\nDetails: {link}\nDone? Tell Claude \"✅ {sid} done (date)\"."
+        desc = (f"{s['note']}\n\nWindow: {d(s['start']):%b %d} – {end:%b %d}\nDetails: {link}\n\n"
+                f"✅ Mark done: {issue_url(sid, 'done')}\n\n❌ Skip: {issue_url(sid, 'skip')}\n\n"
+                f"💬 Talk to Claude: {SESSION_URL}")
         planned = []
         if s.get("buy"):
             planned.append(("buy", d(s["buy"]), f"🛒 Buy {s['item']} ({s['name']})"))
@@ -152,9 +157,11 @@ def season_events(year, today, pending_ids, catch_up):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--season", type=int, default=dt.date.today().year, help="year the tracker statuses belong to")
-    ap.add_argument("--today", type=dt.date.fromisoformat, default=dt.date.today())
+    ap.add_argument("--season", type=int, help="year the tracker statuses belong to")
+    ap.add_argument("--today", type=dt.date.fromisoformat, default=dt.datetime.now(ZoneInfo("America/Chicago")).date())
     args = ap.parse_args()
+    if args.season is None:
+        args.season = int(re.search(r"^\*\*Season:\*\* (\d{4})", TRACKER.read_text(encoding="utf-8"), re.M).group(1))
 
     statuses = read_statuses()
     missing = set(SCHEDULE) - set(statuses)

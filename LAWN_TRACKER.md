@@ -2,14 +2,16 @@
 
 **Programs merged:** Idiot-Proof (5-Step) · Seed Safe (spring seeding) · Fall Renovation / Overseeding, plus optional supplemental tasks (grubs, mosquitoes, watering, mowing, disease).
 **Built for:** cool-season lawns (tall fescue / Kentucky bluegrass) in the Kansas City / Omaha region, which is where GrassPad's timings come from. If you're north of there, shift spring dates ~1 week later; south, ~1 week earlier.
+**Season:** 2026
 **Lawn size:** `_____ sq ft` (fill this in and I'll work out bag counts for you).
 
-> **How to update:** tell me `✅ 1B done (Mar 28)`, `❌ S2 skipped`, or `Spring path: Idiot-Proof`. I update the Next Action Box, the Status Table and the Detailed Timeline together.
+> **How to update:** tap **✅ Mark done** / **❌ Skip** in any calendar event (or in the box below). That opens a pre-filled GitHub issue; submit it and the tracker and calendar update themselves within about a minute. For anything else, tap **💬 Talk to Claude**, or tell Claude `✅ 1B done (Mar 28)` directly.
 
 ---
 
 ## 🚨 Next Action
 
+<!-- NEXT-ACTION:START (auto-generated from the Status Table; edits here are overwritten) -->
 > ### ➡️ [Step 4: Renovator®](#step-4): apply this week ⏰
 > **Timing:** Sep → Oct (you're in the back half of the window, so don't wait)  **Programs:** Both  **Status:** ⬜ Not started
 >
@@ -21,7 +23,10 @@
 >    - **Not overseeding:** apply Renovator at the bag rate this week, water in ~¼–½", and tell me `❌ FR skipped`.
 > 2. Mow at 3–3.5" and keep mowing while the grass is growing.
 >
+> **Done?** [✅ Mark done](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9C%85%204%20done) · [❌ Skip](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9D%8C%204%20skipped) · [💬 Talk to Claude](https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL)
+>
 > **👀 Coming up after this:** Fall Watering Shift (now) → Fall Broadleaf Weeds (Oct, only if you didn't seed) → **🛒 buy Snowman® by ~Oct 15**, then apply Oct 22 → Nov.
+<!-- NEXT-ACTION:END -->
 
 > **📲 iPhone reminders:** subscribe once to the [Lawn Care calendar](https://raw.githubusercontent.com/bwspargo3/Weather-and-Lawn/claude/lawn-care-tracker/lawn-calendar.ics) (setup steps at the [bottom](#iphone-calendar)). It updates itself whenever this tracker changes.
 
@@ -347,17 +352,30 @@
 <a id="iphone-calendar"></a>
 ## 📲 iPhone Calendar Sync
 
-`lawn-calendar.ics` is generated from the Status Table by `tools/build_lawn_calendar.py`, and Claude reruns it on every update. Each ⬜ step gets:
+`lawn-calendar.ics` is generated from the Status Table by `tools/build_lawn_calendar.py`. It's rebuilt automatically after every update, whether that comes from a one-tap link or from Claude. Each ⬜ step gets:
 - **🛒 Buy** reminder about 1 week before the window opens
 - **🌱 Window opens** reminder
 - **⏰ Last call** reminder 5 days before the window closes
 
-Each one alerts at 9 AM and links back to its section here. Steps marked ✅, ❌ or ➖ disappear from the calendar. Next season's events are already included.
+Each one alerts at 9 AM. Its notes link back to its section here and include **✅ Mark done**, **❌ Skip** and **💬 Talk to Claude** links. Steps marked ✅, ❌ or ➖ disappear from the calendar. Next season's events are already included.
 
 **One-time setup (about 1 minute):**
 1. iPhone **Settings → Apps → Calendar → Calendar Accounts → Add Account → Other → Add Subscribed Calendar**. On older iOS: Settings → Calendar → Accounts.
 2. Server: `https://raw.githubusercontent.com/bwspargo3/Weather-and-Lawn/claude/lawn-care-tracker/lawn-calendar.ics`
 3. Tap **Next**, then turn **Remove Alerts OFF**. iOS turns it on by default, and you'd get no notifications.
 4. Tap **Save**. Optional: under **Fetch New Data**, set it to *Hourly* so updates show up faster.
+
+**How the one-tap links work:**
+- **✅ / ❌** opens a GitHub issue titled like `✅ 4 done`. The date defaults to the day you submit (Central time). Put a different date in the title if needed, e.g. `✅ 4 done (Oct 4)`. Anything you type in the body is saved to the Journal below.
+- A GitHub Action (`.github/workflows/lawn-tracker-update.yml`) applies it, rebuilds the calendar, replies on the issue and closes it. Only issues opened by the repo owner are processed.
+- **💬 Talk to Claude** opens the Claude Code session for free-form changes (lawn size, plan changes, problems you've spotted).
+
+---
+
+<a id="journal"></a>
+## 📝 Journal
+
+<!-- JOURNAL:START (newest last) -->
+<!-- JOURNAL:END -->
 
 *Sources: GrassPad's [Idiot-Proof Lawn Program](https://grasspad.com/idiot-proof-lawn-program/), [Spring Seeding / Seed Safe](https://grasspad.com/spring-seeding/), and [Idiot-Proof Fall Lawn Renovation](https://grasspad.com/idiot-proof-fall-lawn-renovation/). The supplemental tasks (grubs, mosquitoes, disease, watering) use standard cool-season extension guidance. Always follow the product label for rates.*

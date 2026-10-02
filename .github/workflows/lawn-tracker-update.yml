@@ -1,0 +1,80 @@
+# Applies one-tap lawn tracker updates.
+# Calendar events link to pre-filled issues titled like "✅ 4 done" or "❌ S5 skipped".
+# This workflow applies the update to LAWN_TRACKER.md on the tracker branch, rebuilds
+# lawn-calendar.ics, replies on the issue, and closes it. Only the repo owner's issues count.
+name: Lawn tracker update
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: lawn-tracker
+  cancel-in-progress: false
+
+env:
+  TRACKER_BRANCH: claude/lawn-care-tracker
+
+jobs:
+  apply:
+    if: >-
+      github.event.issue.user.login == github.repository_owner &&
+      (startsWith(github.event.issue.title, '✅') || startsWith(github.event.issue.title, '❌'))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TRACKER_BRANCH }}
+
+      - name: Apply update and rebuild calendar
+        env:
+          TITLE: ${{ github.event.issue.title }}
+          BODY: ${{ github.event.issue.body }}
+          CREATED: ${{ github.event.issue.created_at }}
+        run: |
+          python3 tools/lawn_update.py apply --title "$TITLE" --body "$BODY" --created "$CREATED" > "$RUNNER_TEMP/summary.md" \
+            || { cp "$RUNNER_TEMP/summary.md" "$RUNNER_TEMP/error.md"; exit 1; }
+          python3 tools/build_lawn_calendar.py
+
+      - name: Commit and push
+        env:
+          TITLE: ${{ github.event.issue.title }}
+          NUMBER: ${{ github.event.issue.number }}
+        run: |
+          git config user.name "lawn-tracker-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add LAWN_TRACKER.md lawn-calendar.ics
+          git commit -m "Lawn tracker: $TITLE (#$NUMBER)"
+          for i in 1 2 3 4; do
+            git push origin "HEAD:$TRACKER_BRANCH" && exit 0
+            sleep $((2 ** i))
+            git pull --rebase origin "$TRACKER_BRANCH"
+          done
+          echo "Push failed" > "$RUNNER_TEMP/error.md"
+          exit 1
+
+      - name: Reply and close issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.issue.number }}
+        run: |
+          gh issue comment "$NUMBER" --repo "$GITHUB_REPOSITORY" --body-file "$RUNNER_TEMP/summary.md"
+          gh issue close "$NUMBER" --repo "$GITHUB_REPOSITORY" --reason completed
+
+      - name: Report failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.issue.number }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          {
+            if [ -s "$RUNNER_TEMP/error.md" ]; then cat "$RUNNER_TEMP/error.md"; else echo "⚠️ Something went wrong applying this update."; fi
+            echo
+            echo "Nothing was changed. Edit the title and open a new issue, or tap 💬 Talk to Claude. ([run log]($RUN_URL))"
+          } > "$RUNNER_TEMP/fail.md"
+          gh issue comment "$NUMBER" --repo "$GITHUB_REPOSITORY" --body-file "$RUNNER_TEMP/fail.md"
