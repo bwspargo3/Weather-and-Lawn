@@ -15,7 +15,7 @@ import pathlib
 import re
 from zoneinfo import ZoneInfo
 
-from lawn_links import SESSION_URL, TRACKER_URL, issue_url
+from lawn_links import SESSION_URL, TRACKER_URL, go_url
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 TRACKER = ROOT / "LAWN_TRACKER.md"
@@ -134,7 +134,7 @@ def season_events(year, today, pending_ids, catch_up):
             continue  # window fully passed
         link = f"{TRACKER_URL}#{s['anchor']}"
         desc = (f"{s['note']}\n\nWindow: {d(s['start']):%b %d} – {end:%b %d}\nDetails: {link}\n\n"
-                f"✅ Mark done: {issue_url(sid, 'done')}\n\n❌ Skip: {issue_url(sid, 'skip')}\n\n"
+                f"✅ Done: {go_url(sid, 'done')}\n\n❌ Skip: {go_url(sid, 'skip')}\n\n"
                 f"💬 Talk to Claude: {SESSION_URL}")
         planned = []
         if s.get("buy"):
@@ -175,6 +175,9 @@ def main():
     events += season_events(nxt, args.today, pending_next, catch_up=False)
     events.append((f"{nxt}-reset", dt.date(nxt, 2, 22), "🔄 Tell Claude: reset the lawn tracker for the new season",
                    f"Ask Claude to reset LAWN_TRACKER.md to ⬜ for {nxt}.\n{TRACKER_URL}"))
+    events.append(("lawn-log-token-renew", dt.date(2027, 9, 18), "🔑 Renew the Lawn Log GitHub token (expires ~Oct 2)",
+                   "The token inside the Lawn Log shortcut expires about Oct 2, 2027. Create a new one and paste it "
+                   f"into the shortcut. Steps: {TRACKER_URL}#lawn-log-shortcut"))
     events.sort(key=lambda e: (e[1], e[0]))
 
     stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")

@@ -16,7 +16,7 @@ import re
 import sys
 from zoneinfo import ZoneInfo
 
-from lawn_links import SESSION_URL, issue_url
+from lawn_links import SESSION_URL, go_url, issue_url
 
 TRACKER = pathlib.Path(__file__).resolve().parent.parent / "LAWN_TRACKER.md"
 TZ = ZoneInfo("America/Chicago")
@@ -83,8 +83,9 @@ def render_next_action(text):
         if r["buy"].strip().lower() not in ("n/a", ""):
             lines.append(f"**🛒 Buy by:** {r['buy']}")
         lines += [""] + body + [""]
-        lines.append(f"**Done?** [✅ Mark done]({issue_url(r['id'], 'done')}) · "
-                     f"[❌ Skip]({issue_url(r['id'], 'skip')}) · [💬 Talk to Claude]({SESSION_URL})")
+        lines.append(f"**Done?** [✅ Mark done]({go_url(r['id'], 'done')}) · "
+                     f"[❌ Skip]({go_url(r['id'], 'skip')}) · [💬 Talk to Claude]({SESSION_URL}) "
+                     f"<sub>(via GitHub: [✅]({issue_url(r['id'], 'done')}) · [❌]({issue_url(r['id'], 'skip')}))</sub>")
         nxt = [f"[{n['name']}](#{n['anchor']}) ({n['timing']}"
                + (f", 🛒 buy by {n['buy']}" if n["buy"].strip().lower() not in ("n/a", "") else "") + ")"
                for n in pending[1:3]]
@@ -97,7 +98,7 @@ def render_next_action(text):
 
 def clean_notes(body):
     body = re.sub(r"<!--.*?-->", "", body or "", flags=re.S)
-    parts = [l.strip() for l in body.splitlines() if l.strip()]
+    parts = [l.strip() for l in body.splitlines() if l.strip() not in ("", "-", ".")]
     return " / ".join(parts)
 
 
@@ -109,6 +110,10 @@ def apply(text, title, body, created):
     sid = sid.upper()
     skip = emoji == "❌" or (word or "").lower().startswith("skip")
     season = int(re.search(r"^\*\*Season:\*\* (\d{4})", text, re.M).group(1))
+    notes = clean_notes(body)
+    lead = re.match(r"^\(([^)]*)\)\s*", notes)
+    if not raw_date and lead:  # a note starting "(Oct 4) ..." sets the date (handy from the Shortcut)
+        raw_date, notes = lead.group(1), notes[lead.end():]
     when = parse_date(raw_date, season) if raw_date else created
 
     by_id = {r["id"]: r for r in rows(text)}
@@ -124,7 +129,6 @@ def apply(text, title, body, created):
     sec = re.sub(r"^\*\*Status:\*\* .*$", f"**Status:** {new_status}", text[s:e], count=1, flags=re.M)
     text = text[:s] + sec + text[e:]
 
-    notes = clean_notes(body)
     entry = f"- **{fmt_date(when)}** · {new_status.split(' (')[0]} · {sid} · {row['name']}" + (f": {notes}" if notes else "")
     text = text.replace("\n<!-- JOURNAL:END -->", f"\n{entry}\n<!-- JOURNAL:END -->", 1)
     text = render_next_action(text)

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Lawn Log</title>
+<meta name="theme-color" content="#3A2E22">
+<style>
+  :root{
+    --bg:#F6F1E4; --card:#FFFFFF; --ink:#2A2420; --ink-soft:#6B5F52; --line:#DCCFAE;
+    --moss:#3F5B3A; --clay:#B5583A; color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#221A13; --card:#2C2318; --ink:#EFE6D6; --ink-soft:#B9A98F; --line:#4A3B29;
+      --moss:#7FA06F; --clay:#D9805F; color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#221A13; --card:#2C2318; --ink:#EFE6D6; --ink-soft:#B9A98F; --line:#4A3B29;
+    --moss:#7FA06F; --clay:#D9805F; color-scheme:dark;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,sans-serif;
+       min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 16px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 20px;
+        max-width:420px;width:100%;text-align:center;}
+  .big{font-size:28px;font-weight:700;margin:4px 0 6px;}
+  p{color:var(--ink-soft);font-size:15px;line-height:1.45;margin:8px 0;}
+  a.btn{display:block;margin:18px 0 10px;padding:14px;border-radius:12px;background:var(--moss);
+        color:#fff;font-weight:600;font-size:17px;text-decoration:none;}
+  a.alt{color:var(--clay);font-size:14px;}
+  .small{font-size:13px;margin-top:16px;}
+</style>
+</head>
+<body>
+<main class="card">
+  <div>🌱 Lawn Log</div>
+  <div class="big" id="what">…</div>
+  <p id="hint">Opening the Lawn Log shortcut…</p>
+  <a class="btn" id="run" href="#">⚡ Run Lawn Log</a>
+  <a class="alt" id="gh" href="#">Log it on GitHub instead</a>
+  <p class="small"><a class="alt" href="https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#lawn-log-shortcut">Shortcut not set up yet?</a></p>
+</main>
+<script>
+  // Calendar events link here as lawn-go.html?s=4&a=done (or a=skip). This page hands the
+  // update to the "Lawn Log" iOS Shortcut, which files it as a GitHub issue using a token
+  // stored only on the phone. Nothing secret lives in this page or the public calendar feed.
+  const p = new URLSearchParams(location.search);
+  const id = (p.get("s") || "").toUpperCase().replace(/[^0-9A-Z]/g, "").slice(0, 3);
+  const skip = p.get("a") === "skip";
+  const text = id ? (skip ? `❌ ${id} skipped` : `✅ ${id} done`) : "";
+  const shortcut = "shortcuts://run-shortcut?name=" + encodeURIComponent("Lawn Log") +
+    (text ? "&input=text&text=" + encodeURIComponent(text) : "");
+  const github = "https://github.com/bwspargo3/Weather-and-Lawn/issues/new" +
+    (text ? "?title=" + encodeURIComponent(text) : "");
+
+  document.getElementById("what").textContent = text || "Lawn update";
+  document.getElementById("run").href = shortcut;
+  document.getElementById("gh").href = github;
+  if (text) {
+    location.href = shortcut;
+    setTimeout(() => {
+      document.getElementById("hint").textContent = "Didn't open? Tap the button below.";
+    }, 1500);
+  } else {
+    document.getElementById("hint").textContent = "No step in this link. Tap below to log something by hand.";
+  }
+</script>
+</body>
+</html>

@@ -5,7 +5,7 @@
 **Season:** 2026
 **Lawn size:** `_____ sq ft` (fill this in and I'll work out bag counts for you).
 
-> **How to update:** tap **✅ Mark done** / **❌ Skip** in any calendar event (or in the box below). That opens a pre-filled GitHub issue; submit it and the tracker and calendar update themselves within about a minute. For anything else, tap **💬 Talk to Claude**, or tell Claude `✅ 1B done (Mar 28)` directly.
+> **How to update:** tap **✅ Done** / **❌ Skip** in any calendar event (or in the box below). The [Lawn Log shortcut](#lawn-log-shortcut) logs it with no GitHub sign-in, and the tracker and calendar update themselves in about 15 seconds. For anything else, tap **💬 Talk to Claude**, or tell Claude `✅ 1B done (Mar 28)` directly.
 
 ---
 
@@ -23,7 +23,7 @@
 > - **If you didn't seed:** drop to **~1"/week** including rain. September rains often cover it.
 > - **Mowing:** return to **3–3.5"**. Keep mowing as long as the grass grows.
 >
-> **Done?** [✅ Mark done](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9C%85%20W3%20done) · [❌ Skip](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9D%8C%20W3%20skipped) · [💬 Talk to Claude](https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL)
+> **Done?** [✅ Mark done](https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=W3&a=done) · [❌ Skip](https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=W3&a=skip) · [💬 Talk to Claude](https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL) <sub>(via GitHub: [✅](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9C%85%20W3%20done) · [❌](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9D%8C%20W3%20skipped))</sub>
 >
 > **👀 Coming up after this:** [Fall Broadleaf Weed Control](#step-s5) (Early → Late Oct, 🛒 buy by ~Sep 28) → [Leaf Management](#step-s6) (Mid-Oct → Nov)
 <!-- NEXT-ACTION:END -->
@@ -366,9 +366,38 @@ Each one alerts at 9 AM. Its notes link back to its section here and include **�
 4. Tap **Save**. Optional: under **Fetch New Data**, set it to *Hourly* so updates show up faster.
 
 **How the one-tap links work:**
-- **✅ / ❌** opens a GitHub issue titled like `✅ 4 done`. The date defaults to the day you submit (Central time). Put a different date in the title if needed, e.g. `✅ 4 done (Oct 4)`. Anything you type in the body is saved to the Journal below.
-- A GitHub Action (`.github/workflows/lawn-tracker-update.yml`) applies it, rebuilds the calendar, replies on the issue and closes it. Only issues opened by the repo owner are processed.
-- **💬 Talk to Claude** opens the Claude Code session for free-form changes (lawn size, plan changes, problems you've spotted).
+- **✅ Done / ❌ Skip** opens a small page ([`lawn-go.html`](https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html)). It hands the update to the **Lawn Log** shortcut on your iPhone, which files it as a GitHub issue using a token stored only on your phone.
+- A GitHub Action (`.github/workflows/lawn-tracker-update.yml`) applies the update, rebuilds the calendar, replies on the issue and closes it. Only issues opened by the repo owner are processed.
+- **Date:** defaults to the day you log it (Central time). If you did it on a different day, start your note with the date, e.g. `(Oct 4) used 3 bags`.
+- **💬 Talk to Claude** opens the Claude Code session for free-form changes.
+- **No shortcut handy?** The page also has a "Log it on GitHub instead" link (requires GitHub sign-in).
+
+<a id="lawn-log-shortcut"></a>
+### ⚡ Lawn Log Shortcut Setup (one time, ~10 min)
+
+**A. Create a GitHub token** (the only time you'll need to sign in to GitHub)
+1. In Safari, open **github.com/settings/personal-access-tokens/new**.
+2. **Token name:** `Lawn Log`. **Expiration:** the longest available (up to 1 year). A 🔑 renewal reminder is already in the calendar for Sep 18, 2027; tell Claude if your date differs.
+3. **Repository access:** *Only select repositories* → **Weather-and-Lawn**.
+4. **Permissions → Repository permissions → Issues:** *Read and write*. Leave everything else as is.
+5. **Generate token** and copy it (starts with `github_pat_`). It's only shown once.
+
+**B. Build the shortcut** in the Shortcuts app → **+**
+1. Name it exactly **`Lawn Log`** (the links call it by name).
+2. Tap the **ⓘ** (Details) and turn on **Show in Share Sheet**. A *Receive* block appears at the top: set it to **Receive Text** input, and set **If there's no input** to **Ask For Text**.
+3. Add **Ask for Input** → *Text*. Prompt: `Notes? (optional)`.
+4. Add **Get Contents of URL**:
+   - URL: `https://api.github.com/repos/bwspargo3/Weather-and-Lawn/issues`
+   - Method: **POST**
+   - Headers: `Authorization` = `Bearer ` + your token · `Accept` = `application/vnd.github+json`
+   - Request Body: **JSON** · `title` (Text) = **Shortcut Input** · `body` (Text) = **Provided Input**
+5. Add **Get Dictionary Value** → Get *Value* for `number` in **Contents of URL**.
+6. Add **If** → *Dictionary Value* **has any value**.
+   - Inside: **Show Notification** → `🌱 Logged: Shortcut Input`
+   - Otherwise: **Show Alert** → `Lawn Log failed:` **Contents of URL**
+7. Tap **Done**.
+
+**C. Test it:** tap any ✅ / ❌ link in a lawn calendar event. Safari asks *Open in "Shortcuts"?* → **Open**. The first run asks to connect to api.github.com → **Always Allow**. Leave the note blank (or type `-`), then tap Done. You should see "🌱 Logged", and the tracker updates about 15 seconds later.
 
 ---
 
