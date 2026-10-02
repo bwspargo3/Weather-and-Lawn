@@ -24,7 +24,7 @@
 >
 > **Done?** [✅ Mark done](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9C%85%204%20done) · [❌ Skip](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9D%8C%204%20skipped) · [💬 Talk to Claude](https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL)
 >
-> **👀 Coming up after this:** [Fall Renovation / Overseeding](#step-fr) (Late Aug prep → Sep 1 – Oct 10 seeding, 🛒 buy by ~Aug 20) → [Fall Watering Shift](#step-w3) (Sep → Oct)
+> **👀 Coming up after this:** [Fall Watering Shift](#step-w3) (Sep → Oct) → [Fall Broadleaf Weed Control](#step-s5) (Early → Late Oct, 🛒 buy by ~Sep 28)
 <!-- NEXT-ACTION:END -->
 
 > **📲 iPhone reminders:** subscribe once to the [Lawn Care calendar](https://raw.githubusercontent.com/bwspargo3/Weather-and-Lawn/claude/lawn-care-tracker/lawn-calendar.ics) (setup steps at the [bottom](#iphone-calendar)). It updates itself whenever this tracker changes.
@@ -51,7 +51,7 @@
 | S3 | [Brown Patch Watch / Fungicide](#step-s3) | Supplemental (optional) | Jun → Aug | ~Jun 1 (if needed) | ❌ Skipped |
 | S4 | [Grub Check & Rescue Treatment](#step-s4) | Supplemental (if needed) | Mid-Aug → Mid-Sep | Only if grubs found | ❌ Skipped |
 | 4 | [Step 4: Renovator®](#step-4) | Both | Sep → Oct | ~Aug 25 | ⬜ Not started |
-| FR | [Fall Renovation / Overseeding](#step-fr) | Optional | Late Aug prep → Sep 1 – Oct 10 seeding | ~Aug 20 | ⬜ Not started |
+| FR | [Fall Renovation / Overseeding](#step-fr) | Optional | Late Aug prep → Sep 1 – Oct 10 seeding | ~Aug 20 | ✅ Done (Oct 2, 2026) |
 | W3 | [Fall Watering Shift](#step-w3) | Supplemental | Sep → Oct | n/a | ⬜ Not started |
 | S5 | [Fall Broadleaf Weed Control](#step-s5) | Supplemental (skip if you seeded) | Early → Late Oct | ~Sep 28 | ⬜ Not started |
 | S6 | [Leaf Management](#step-s6) | Supplemental | Mid-Oct → Nov | n/a | ⬜ Not started |
@@ -266,7 +266,7 @@
 <a id="step-fr"></a>
 ### 🌾 Fall Renovation / Overseeding
 **Timing:** Prep late August → seed **Sep 1 – Oct 10** (best by **Sep 30**; the earlier, the better root depth before winter)  **Programs:** Optional
-**Status:** ⬜ Not started
+**Status:** ✅ Done (Oct 2, 2026)
 
 **What to do (in order):**
 1. **Late August:** kill weeds and crabgrass in the areas to renovate. Wait the herbicide label's interval before seeding.
@@ -375,6 +375,7 @@ Each one alerts at 9 AM. Its notes link back to its section here and include **�
 ## 📝 Journal
 
 <!-- JOURNAL:START (newest last) -->
+- **Oct 2, 2026** · ✅ Done · FR · Fall Renovation / Overseeding
 <!-- JOURNAL:END -->
 
 *Sources: GrassPad's [Idiot-Proof Lawn Program](https://grasspad.com/idiot-proof-lawn-program/), [Spring Seeding / Seed Safe](https://grasspad.com/spring-seeding/), and [Idiot-Proof Fall Lawn Renovation](https://grasspad.com/idiot-proof-fall-lawn-renovation/). The supplemental tasks (grubs, mosquitoes, disease, watering) use standard cool-season extension guidance. Always follow the product label for rates.*
