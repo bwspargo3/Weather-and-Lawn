@@ -49,7 +49,7 @@
 | 3 | [Step 3: PREVENT!® (2nd app)](#step-3) | Both | Late May → Early Jul | ~May 15 | ❌ Skipped |
 | W2 | [Summer Mode: Mowing & Watering](#step-w2) | Supplemental | Late May → Aug | n/a | ❌ Skipped |
 | S3 | [Brown Patch Watch / Fungicide](#step-s3) | Supplemental (optional) | Jun → Aug | ~Jun 1 (if needed) | ❌ Skipped |
-| S4 | [Grub Check & Rescue Treatment](#step-s4) | Supplemental (if needed) | Mid-Aug → Mid-Sep | Only if grubs found | ❌ Skipped (Oct 2, 2026) |
+| S4 | [Grub Check & Rescue Treatment](#step-s4) | Supplemental (if needed) | Mid-Aug → Mid-Sep | Only if grubs found | ❌ Skipped |
 | 4 | [Step 4: Renovator®](#step-4) | Both | Sep → Oct | ~Aug 25 | ⬜ Not started |
 | FR | [Fall Renovation / Overseeding](#step-fr) | Optional | Late Aug prep → Sep 1 – Oct 10 seeding | ~Aug 20 | ⬜ Not started |
 | W3 | [Fall Watering Shift](#step-w3) | Supplemental | Sep → Oct | n/a | ⬜ Not started |
@@ -239,7 +239,7 @@
 <a id="step-s4"></a>
 ### 🔍 Grub Check & Rescue Treatment
 **Timing:** Mid-August → Mid-September  **Programs:** Supplemental (only if needed)
-**Status:** ❌ Skipped (Oct 2, 2026)
+**Status:** ❌ Skipped
 
 **What to do:**
 - **Check:** in any brown patch, see whether the turf peels back like carpet. If it does, cut and lift a 1 sq ft piece of sod.
@@ -375,7 +375,6 @@ Each one alerts at 9 AM. Its notes link back to its section here and include **�
 ## 📝 Journal
 
 <!-- JOURNAL:START (newest last) -->
-- **Oct 2, 2026** · ❌ Skipped · S4 · Grub Check & Rescue Treatment: Automation test of the one-tap update links (safe to ignore).
 <!-- JOURNAL:END -->
 
 *Sources: GrassPad's [Idiot-Proof Lawn Program](https://grasspad.com/idiot-proof-lawn-program/), [Spring Seeding / Seed Safe](https://grasspad.com/spring-seeding/), and [Idiot-Proof Fall Lawn Renovation](https://grasspad.com/idiot-proof-fall-lawn-renovation/). The supplemental tasks (grubs, mosquitoes, disease, watering) use standard cool-season extension guidance. Always follow the product label for rates.*
