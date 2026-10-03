@@ -12,20 +12,17 @@
 ## 🚨 Next Action
 
 <!-- NEXT-ACTION:START (auto-generated from the Status Table; edits here are overwritten) -->
-> ### ➡️ [Fall Watering Shift](#step-w3)
-> **Timing:** September → October  **Programs:** Supplemental  **Status:** ⬜ Not started  
+> ### ➡️ [Leaf Management](#step-s6)
+> **Timing:** Mid-October → November (weekly while trees drop)  **Programs:** Supplemental  **Status:** ⬜ Not started  
 >
 > **What to do:**
-> - **If you overseeded:**
->   - Weeks 1–3: **light watering 3×/day** (~5–10 min per zone) to keep the top ½" moist.
->   - Weeks 4–6: **once a day**, longer.
->   - After that: back to **~1"/week**, deep and infrequent.
-> - **If you didn't seed:** drop to **~1"/week** including rain. September rains often cover it.
-> - **Mowing:** return to **3–3.5"**. Keep mowing as long as the grass grows.
+> - **Mulch-mow** light leaf cover into the lawn. It's free organic matter.
+> - **Rake or bag** heavy layers. Leaves matted on the lawn over winter cause snow mold and kill new seedlings.
+> - **Most important on newly seeded areas.**
 >
-> **Done?** [✅ Mark done](https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=W3&a=done) · [❌ Skip](https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=W3&a=skip) · [💬 Talk to Claude](https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL) <sub>(via GitHub: [✅](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9C%85%20W3%20done) · [❌](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9D%8C%20W3%20skipped))</sub>
+> **Done?** [✅ Mark done](https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=S6&a=done) · [❌ Skip](https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=S6&a=skip) · [💬 Talk to Claude](https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL) <sub>(via GitHub: [✅](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9C%85%20S6%20done) · [❌](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9D%8C%20S6%20skipped))</sub>
 >
-> **👀 Coming up after this:** [Leaf Management](#step-s6) (Mid-Oct → Nov) → [Step 5: Snowman®](#step-5) (Late Oct → Nov, 🛒 buy by ~Oct 15)
+> **👀 Coming up after this:** [Step 5: Snowman®](#step-5) (Late Oct → Nov, 🛒 buy by ~Oct 15) → [Season Close-Out](#step-w4) (Mid → Late Nov)
 <!-- NEXT-ACTION:END -->
 
 > **📲 iPhone reminders:** subscribe once to the [Lawn Care calendar](https://raw.githubusercontent.com/bwspargo3/Weather-and-Lawn/claude/lawn-care-tracker/lawn-calendar.ics) (setup steps at the [bottom](#iphone-calendar)). It updates itself whenever this tracker changes.
@@ -53,7 +50,7 @@
 | S4 | [Grub Check & Rescue Treatment](#step-s4) | Supplemental (if needed) | Mid-Aug → Mid-Sep | Only if grubs found | ❌ Skipped |
 | 4 | [Step 4: Renovator®](#step-4) | Both | Sep → Oct | ~Aug 25 | ✅ Done (Oct 2, 2026) |
 | FR | [Fall Renovation / Overseeding](#step-fr) | Optional | Late Aug prep → Sep 1 – Oct 10 seeding | ~Aug 20 | ✅ Done (Oct 2, 2026) |
-| W3 | [Fall Watering Shift](#step-w3) | Supplemental | Sep → Oct | n/a | ⬜ Not started |
+| W3 | [Fall Watering Shift](#step-w3) | Supplemental | Sep → Oct | n/a | ✅ Done (Oct 3, 2026) |
 | S5 | [Fall Broadleaf Weed Control](#step-s5) | Supplemental (skip if you seeded) | Early → Late Oct | ~Sep 28 | ❌ Skipped (Oct 3, 2026) |
 | S6 | [Leaf Management](#step-s6) | Supplemental | Mid-Oct → Nov | n/a | ⬜ Not started |
 | 5 | [Step 5: Snowman®](#step-5) | Both | Late Oct → Nov | ~Oct 15 | ⬜ Not started |
@@ -286,7 +283,7 @@
 <a id="step-w3"></a>
 ### 💧 Fall Watering Shift
 **Timing:** September → October  **Programs:** Supplemental
-**Status:** ⬜ Not started
+**Status:** ✅ Done (Oct 3, 2026)
 
 **What to do:**
 - **If you overseeded:**
@@ -407,6 +404,7 @@ Each one alerts at 9 AM. Its notes link back to its section here and include **�
 - **Oct 2, 2026** · ✅ Done · FR · Fall Renovation / Overseeding
 - **Oct 2, 2026** · ✅ Done · 4 · Step 4: Renovator®
 - **Oct 3, 2026** · ❌ Skipped · S5 · Fall Broadleaf Weed Control
+- **Oct 3, 2026** · ✅ Done · W3 · Fall Watering Shift
 <!-- JOURNAL:END -->
 
 *Sources: GrassPad's [Idiot-Proof Lawn Program](https://grasspad.com/idiot-proof-lawn-program/), [Spring Seeding / Seed Safe](https://grasspad.com/spring-seeding/), and [Idiot-Proof Fall Lawn Renovation](https://grasspad.com/idiot-proof-fall-lawn-renovation/). The supplemental tasks (grubs, mosquitoes, disease, watering) use standard cool-season extension guidance. Always follow the product label for rates.*
