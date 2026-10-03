@@ -130,7 +130,8 @@ def apply(text, title, body, created):
     text = text[:s] + sec + text[e:]
 
     entry = f"- **{fmt_date(when)}** · {new_status.split(' (')[0]} · {sid} · {row['name']}" + (f": {notes}" if notes else "")
-    text = text.replace("\n<!-- JOURNAL:END -->", f"\n{entry}\n<!-- JOURNAL:END -->", 1)
+    if row["status"] != new_status or notes:  # don't journal an exact repeat (e.g. a double tap)
+        text = text.replace("\n<!-- JOURNAL:END -->", f"\n{entry}\n<!-- JOURNAL:END -->", 1)
     text = render_next_action(text)
 
     summary = [f"Marked **{sid} · {row['name']}** as {new_status}."]

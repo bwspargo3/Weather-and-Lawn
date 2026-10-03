@@ -388,13 +388,10 @@ Each one alerts at 9 AM. Its notes link back to its section here and include **�
    - Method: **POST**
    - Headers: `Authorization` = `Bearer ` + your token · `Accept` = `application/vnd.github+json`
    - Request Body: **JSON** · `title` (Text) = **Shortcut Input** · `body` (Text) = **Provided Input**
-5. Add a **Text** action containing only the **Contents of URL** variable. This turns GitHub's reply into plain text so it can be searched.
-6. Add **If** → *Text* **contains** `html_url` (this appears in every successful reply from GitHub).
-   - Inside: **Show Notification** → `🌱 Logged: Shortcut Input`
-   - Otherwise: **Show Alert** → `Lawn Log failed:` **Contents of URL**
-7. Tap **Done**.
+5. Add **Show Notification** → `🌱 Sent: Shortcut Input`. No success check is needed: if the tracker doesn't update, the token is the likely cause.
+6. Tap **Done**.
 
-**C. Test it:** tap any ✅ / ❌ link in a lawn calendar event. Safari asks *Open in "Shortcuts"?* → **Open**. The first run asks to connect to api.github.com → **Always Allow**. Leave the note blank (or type `-`), then tap Done. You should see "🌱 Logged", and the tracker updates about 15 seconds later.
+**C. Test it:** tap any ✅ / ❌ link in a lawn calendar event. Safari asks *Open in "Shortcuts"?* → **Open**. The first run asks to connect to api.github.com → **Always Allow**. Leave the note blank (or type `-`), then tap Done. You should see "🌱 Sent", and the tracker updates about 15 seconds later.
 
 ---
 
@@ -406,7 +403,6 @@ Each one alerts at 9 AM. Its notes link back to its section here and include **�
 - **Oct 2, 2026** · ✅ Done · 4 · Step 4: Renovator®
 - **Oct 3, 2026** · ❌ Skipped · S5 · Fall Broadleaf Weed Control
 - **Oct 3, 2026** · ✅ Done · W3 · Fall Watering Shift
-- **Oct 3, 2026** · ❌ Skipped · S5 · Fall Broadleaf Weed Control
 <!-- JOURNAL:END -->
 
 *Sources: GrassPad's [Idiot-Proof Lawn Program](https://grasspad.com/idiot-proof-lawn-program/), [Spring Seeding / Seed Safe](https://grasspad.com/spring-seeding/), and [Idiot-Proof Fall Lawn Renovation](https://grasspad.com/idiot-proof-fall-lawn-renovation/). The supplemental tasks (grubs, mosquitoes, disease, watering) use standard cool-season extension guidance. Always follow the product label for rates.*
