@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Plants</title>
+<meta name="theme-color" content="#3A2E22">
+<style>
+  :root{
+    --bg:#F6F1E4; --card:#FFFFFF; --ink:#2A2420; --ink-soft:#6B5F52; --line:#DCCFAE;
+    --moss:#3F5B3A; --moss-soft:#DEE7D3; --clay:#B5583A; color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#221A13; --card:#2C2318; --ink:#EFE6D6; --ink-soft:#B9A98F; --line:#4A3B29;
+      --moss:#7FA06F; --moss-soft:#2C3527; --clay:#D9805F; color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#221A13; --card:#2C2318; --ink:#EFE6D6; --ink-soft:#B9A98F; --line:#4A3B29;
+    --moss:#7FA06F; --moss-soft:#2C3527; --clay:#D9805F; color-scheme:dark;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,sans-serif;padding:20px 16px 120px;}
+  main{max-width:560px;margin:0 auto;}
+  h1{font-size:24px;margin:4px 0 6px;}
+  p{color:var(--ink-soft);font-size:15px;line-height:1.45;margin:6px 0 16px;}
+  label.plant{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);
+              border-radius:14px;padding:14px;margin:10px 0;cursor:pointer;}
+  label.plant:has(input:checked){border-color:var(--moss);background:var(--moss-soft);}
+  label.plant input{width:22px;height:22px;margin-top:2px;accent-color:var(--moss);flex-shrink:0;}
+  .em{font-size:22px;line-height:1;}
+  .name{font-weight:600;font-size:16px;}
+  .tasks{color:var(--ink-soft);font-size:13.5px;margin-top:3px;line-height:1.4;}
+  .bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);
+       padding:12px 16px calc(12px + env(safe-area-inset-bottom));}
+  .bar .in{max-width:560px;margin:0 auto;display:flex;gap:10px;align-items:center;}
+  a.btn{flex:1;text-align:center;padding:14px;border-radius:12px;background:var(--moss);color:#fff;
+        font-weight:600;font-size:16px;text-decoration:none;}
+  a.alt{color:var(--clay);font-size:13px;white-space:nowrap;}
+  .msg{font-size:14px;color:var(--ink-soft);}
+</style>
+</head>
+<body>
+<main>
+  <div>🌱 Lawn Log</div>
+  <h1>My Plants</h1>
+  <p>Check what's in your yard, then tap <b>Save</b>. The Lawn Log shortcut saves your list, and pruning, feeding and planting reminders appear in your lawn calendar. Some are timed by the weather (last frost, soil temperature, hard freeze).</p>
+  <div id="list"><p class="msg">Loading plants…</p></div>
+</main>
+<div class="bar"><div class="in">
+  <a class="btn" id="save" href="#">Save (<span id="count">0</span>)</a>
+  <a class="alt" id="gh" href="#">via GitHub</a>
+</div></div>
+<script>
+  // Reads the catalog and current choices from the tracker branch, then hands
+  // "🌿 plants: id, id" to the Lawn Log shortcut (or a GitHub issue) to save.
+  const RAW = "https://raw.githubusercontent.com/bwspargo3/Weather-and-Lawn/claude/lawn-care-tracker/";
+  const list = document.getElementById("list");
+
+  function update() {
+    const ids = [...document.querySelectorAll("input:checked")].map(i => i.value);
+    const text = "🌿 plants: " + (ids.length ? ids.join(", ") : "none");
+    document.getElementById("count").textContent = ids.length;
+    document.getElementById("save").href = "shortcuts://run-shortcut?name=" + encodeURIComponent("Lawn Log") +
+      "&input=text&text=" + encodeURIComponent(text);
+    document.getElementById("gh").href = "https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=" + encodeURIComponent(text);
+  }
+
+  Promise.all([
+    fetch(RAW + "plant-catalog.json", {cache: "no-store"}).then(r => r.json()),
+    fetch(RAW + "lawn-config.json", {cache: "no-store"}).then(r => r.json()).catch(() => ({}))
+  ]).then(([cat, cfg]) => {
+    const mine = new Set(cfg.plants || []);
+    list.innerHTML = "";
+    for (const p of cat.plants) {
+      const row = document.createElement("label");
+      row.className = "plant";
+      const box = document.createElement("input");
+      box.type = "checkbox"; box.value = p.id; box.checked = mine.has(p.id);
+      box.addEventListener("change", update);
+      const em = document.createElement("span"); em.className = "em"; em.textContent = p.emoji;
+      const txt = document.createElement("div");
+      const name = document.createElement("div"); name.className = "name"; name.textContent = p.name;
+      const tasks = document.createElement("div"); tasks.className = "tasks";
+      tasks.textContent = p.tasks.map(t => t.task).join(" · ");
+      txt.append(name, tasks);
+      row.append(box, em, txt);
+      list.append(row);
+    }
+    update();
+  }).catch(() => {
+    list.innerHTML = '<p class="msg">Couldn\'t load the plant list. Check your connection and reload.</p>';
+  });
+</script>
+</body>
+</html>

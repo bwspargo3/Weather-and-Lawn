@@ -23,7 +23,7 @@ jobs:
   apply:
     if: >-
       github.event.issue.user.login == github.repository_owner &&
-      (startsWith(github.event.issue.title, '✅') || startsWith(github.event.issue.title, '❌'))
+      (startsWith(github.event.issue.title, '✅') || startsWith(github.event.issue.title, '❌') || startsWith(github.event.issue.title, '🌿'))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
