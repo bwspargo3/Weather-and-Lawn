@@ -47,7 +47,7 @@ jobs:
         run: |
           git config user.name "lawn-tracker-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add LAWN_TRACKER.md lawn-calendar.ics
+          git add -A
           git commit -m "Lawn tracker: $TITLE (#$NUMBER)"
           for i in 1 2 3 4; do
             git push origin "HEAD:$TRACKER_BRANCH" && exit 0

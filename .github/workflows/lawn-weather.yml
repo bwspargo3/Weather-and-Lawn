@@ -1,0 +1,48 @@
+# Daily weather timing for the lawn tracker.
+# Pulls soil/air temperature, rain and humidity for lawn-config.json's location from
+# Open-Meteo, moves weather-triggered steps and alerts in lawn-state.json, rebuilds
+# lawn-calendar.ics and the Next Action box, and commits only if something changed.
+name: Lawn weather
+
+on:
+  schedule:
+    - cron: "20 10 * * *"  # 10:20 UTC ≈ 5:20 AM CDT / 4:20 AM CST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lawn-tracker
+  cancel-in-progress: false
+
+env:
+  TRACKER_BRANCH: claude/lawn-care-tracker
+
+jobs:
+  weather:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TRACKER_BRANCH }}
+
+      - name: Fetch weather and rebuild
+        run: |
+          python3 tools/lawn_weather.py
+          python3 tools/build_lawn_calendar.py
+          python3 tools/lawn_update.py render
+
+      - name: Commit if changed
+        run: |
+          git add -A
+          if git diff --cached --quiet; then echo "No changes."; exit 0; fi
+          git config user.name "lawn-tracker-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Lawn weather update ($(TZ=America/Chicago date +%F))"
+          for i in 1 2 3 4; do
+            git push origin "HEAD:$TRACKER_BRANCH" && exit 0
+            sleep $((2 ** i))
+            git pull --rebase origin "$TRACKER_BRANCH"
+          done
+          exit 1
