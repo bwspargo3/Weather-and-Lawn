@@ -71,7 +71,11 @@
      "default_days": 21,
      "min_days": 5
     },
-    "basis": "Soil at 2½\" hit a 7-day average of {val} on {date}. Crabgrass sprouts once soil holds ~55°F, so apply now."
+    "basis": "Soil at 2½\" hit a 7-day average of {val} on {date}. Crabgrass sprouts once soil holds ~55°F, so apply now.",
+    "min": {
+     "rel": "last_frost",
+     "days": -35
+    }
    }
   },
   {
@@ -439,27 +443,9 @@
     "days": -42
    },
    "note": "Stop nitrogen about 6 weeks before your first frost. Optional potassium (0-0-50 or similar) for winter hardiness.",
-   "body": "**What to do:**\n- **No nitrogen after this point.** Late nitrogen on warm-season grass invites winter kill and spring disease (large patch).\n- **Optional:** potassium (e.g. 0-0-50 or a \"fall\" warm-season blend) builds cold and disease tolerance, especially for Bermuda and St. Augustine.\n- There's **no winterizer** for warm-season grass; the cool-season \"winterizer\" advice doesn't apply.",
+   "body": "**What to do:**\n- **Timing:** about 6 weeks before your typical first frost (a fixed date for your area, not weather-timed).\n- **No nitrogen after this point.** Late nitrogen on warm-season grass invites winter kill and spring disease (large patch).\n- **Optional:** potassium (e.g. 0-0-50 or a \"fall\" warm-season blend) builds cold and disease tolerance, especially for Bermuda and St. Augustine.\n- There's **no winterizer** for warm-season grass; the cool-season \"winterizer\" advice doesn't apply.",
    "lastcall": true,
-   "buy_item": "potassium / fall warm-season blend (optional)",
-   "trigger": {
-    "type": "tmax_avg_le",
-    "value": 88,
-    "days": 5,
-    "from": {
-     "rel": "first_frost",
-     "days": -90
-    },
-    "to": {
-     "rel": "first_frost",
-     "days": -35
-    },
-    "max": {
-     "rel": "first_frost",
-     "days": -42
-    },
-    "basis": "Heat is breaking (5-day average high {val}). Last call for feeding before frost."
-   }
+   "buy_item": "potassium / fall warm-season blend (optional)"
   },
   {
    "id": "S5",

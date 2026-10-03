@@ -461,16 +461,20 @@
    "trigger": {
     "type": "tmax_avg_le",
     "value": 85,
-    "days": 5,
+    "days": 7,
     "from": {
      "rel": "first_frost",
-     "days": -80
+     "days": -70
     },
     "to": {
      "rel": "first_frost",
      "days": -20
     },
-    "basis": "Summer heat has broken (since {date}). Feed now so the lawn recovers and thickens before winter."
+    "basis": "Summer heat has broken (since {date}). Feed now so the lawn recovers and thickens before winter.",
+    "min": {
+     "rel": "first_frost",
+     "days": -60
+    }
    },
    "body": "**What to do:**\n- Apply a lawn fertilizer at the bag rate. Fall is when cool-season grass grows roots and fills in.\n- **Seeding?** Use starter fertilizer on seeding day instead; one application covers both.\n- Water in with ~½\"."
   },

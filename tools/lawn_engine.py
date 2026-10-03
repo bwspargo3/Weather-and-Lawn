@@ -178,7 +178,7 @@ def evaluate(item, year, wx, clim, today, anchors):
     if trig.get("max"):
         start = min(start, resolve(trig["max"], year, clim))
 
-    end, end_note = w_end, ""
+    end, end_note = max(w_end, start + 7 * DAY), ""  # without an end rule, keep at least a week to act
     e = trig.get("end")
     if e:
         if "days_after" in e:
