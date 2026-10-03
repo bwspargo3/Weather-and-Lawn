@@ -1,0 +1,25 @@
+# Manual replay: when would each lawn step have triggered in a past year's real weather?
+# Prints a table to the run log and summary. Changes nothing.
+name: Lawn weather backtest
+
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "Season year to replay"
+        default: "2026"
+
+permissions:
+  contents: read
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/lawn-care-tracker
+      - name: Replay
+        env:
+          YEAR: ${{ inputs.year }}
+        run: python3 tools/lawn_weather.py --backtest "$YEAR" | tee -a "$GITHUB_STEP_SUMMARY"
