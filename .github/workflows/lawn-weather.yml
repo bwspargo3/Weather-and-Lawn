@@ -17,7 +17,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  TRACKER_BRANCH: claude/lawn-care-tracker
+  TRACKER_BRANCH: claude/lawn-care-tracker  # branch holding LAWN_TRACKER.md (use main in a fresh copy)
 
 jobs:
   weather:
@@ -29,6 +29,9 @@ jobs:
 
       - name: Fetch weather and rebuild
         run: |
+          # Compute the climate profile (frost dates, zone) once, if it's missing
+          python3 -c "import json,sys;sys.exit(0 if json.load(open('lawn-config.json')).get('climate') else 1)" \
+            || { python3 tools/lawn_climate.py && python3 tools/lawn_init.py; }
           python3 tools/lawn_weather.py
           python3 tools/build_lawn_calendar.py
           python3 tools/lawn_update.py render

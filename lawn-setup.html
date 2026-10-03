@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lawn Setup</title>
+<meta name="theme-color" content="#3A2E22">
+<style>
+  :root{
+    --bg:#F6F1E4; --card:#FFFFFF; --ink:#2A2420; --ink-soft:#6B5F52; --line:#DCCFAE;
+    --moss:#3F5B3A; --moss-soft:#DEE7D3; --clay:#B5583A; color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#221A13; --card:#2C2318; --ink:#EFE6D6; --ink-soft:#B9A98F; --line:#4A3B29;
+      --moss:#7FA06F; --moss-soft:#2C3527; --clay:#D9805F; color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#221A13; --card:#2C2318; --ink:#EFE6D6; --ink-soft:#B9A98F; --line:#4A3B29;
+    --moss:#7FA06F; --moss-soft:#2C3527; --clay:#D9805F; color-scheme:dark;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,sans-serif;padding:20px 16px 130px;}
+  main{max-width:600px;margin:0 auto;}
+  h1{font-size:24px;margin:4px 0 6px;}
+  h2{font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);margin:24px 0 8px;}
+  p{color:var(--ink-soft);font-size:15px;line-height:1.45;margin:6px 0 12px;}
+  input[type=text]{width:100%;font:inherit;font-size:18px;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);}
+  label.opt{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:8px 0;cursor:pointer;}
+  label.opt:has(input:checked){border-color:var(--moss);background:var(--moss-soft);}
+  label.opt input{width:20px;height:20px;margin-top:2px;accent-color:var(--moss);flex-shrink:0;}
+  .name{font-weight:600;}
+  .sub{color:var(--ink-soft);font-size:13.5px;margin-top:3px;line-height:1.4;}
+  .warn{background:var(--card);border-left:4px solid var(--clay);padding:10px 12px;border-radius:8px;font-size:14px;color:var(--ink-soft);}
+  .bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom));}
+  .bar .in{max-width:600px;margin:0 auto;display:flex;gap:10px;align-items:center;}
+  a.btn{flex:1;text-align:center;padding:14px;border-radius:12px;background:var(--moss);color:#fff;font-weight:600;font-size:16px;text-decoration:none;}
+  a.btn.off{opacity:.5;pointer-events:none;}
+  a.alt{color:var(--clay);font-size:13px;white-space:nowrap;}
+</style>
+</head>
+<body>
+<main>
+  <div>🌱 Lawn Log</div>
+  <h1>Lawn Setup</h1>
+  <p>Your ZIP code sets the weather data, frost dates and USDA zone. Your program sets which lawn steps you get. Tap <b>Save</b> and the Lawn Log shortcut updates everything in about a minute.</p>
+  <h2>ZIP code</h2>
+  <input type="text" id="zip" inputmode="numeric" maxlength="5" placeholder="e.g. 66220">
+  <h2>Lawn program</h2>
+  <div id="programs"><p class="sub">Loading…</p></div>
+  <div id="pathbox" hidden>
+    <h2>Spring path</h2>
+    <div id="paths"></div>
+  </div>
+  <p class="warn" id="warn" hidden>Switching programs starts a fresh tracker for the new program (your journal is kept).</p>
+</main>
+<div class="bar"><div class="in">
+  <a class="btn off" id="save" href="#">Save setup</a>
+  <a class="alt" id="gh" href="#">via GitHub</a>
+</div></div>
+<script src="lawn-site.js"></script>
+<script>
+  // Builds "⚙️ setup: zip=…; program=…; path=…" for the Lawn Log shortcut (or a GitHub issue).
+  const S = window.LawnSite;
+  let progs = [], current = {};
+  const val = name => (document.querySelector(`input[name=${name}]:checked`) || {}).value;
+
+  function update() {
+    const zip = document.getElementById("zip").value.trim();
+    const program = val("program");
+    const p = progs.find(x => x.id === program);
+    document.getElementById("pathbox").hidden = !(p && p.paths);
+    document.getElementById("warn").hidden = !(current.program && program && program !== current.program);
+    const ok = /^\d{5}$/.test(zip) && program;
+    let text = `⚙️ setup: zip=${zip}; program=${program || ""}`;
+    if (p && p.paths && val("path")) text += `; path=${val("path")}`;
+    const save = document.getElementById("save");
+    save.classList.toggle("off", !ok);
+    save.href = ok ? S.shortcut(text) : "#";
+    document.getElementById("gh").href = ok ? S.github(text) : "#";
+  }
+
+  function radio(name, value, title, sub, checked) {
+    const l = document.createElement("label"); l.className = "opt";
+    const i = document.createElement("input"); i.type = "radio"; i.name = name; i.value = value; i.checked = !!checked;
+    i.addEventListener("change", update);
+    const d = document.createElement("div");
+    const n = document.createElement("div"); n.className = "name"; n.textContent = title;
+    const s = document.createElement("div"); s.className = "sub"; s.innerHTML = sub;
+    d.append(n, s); l.append(i, d); return l;
+  }
+
+  Promise.all([S.json("programs/index.json"), S.json("lawn-config.json").catch(() => ({}))]).then(([index, cfg]) => {
+    progs = index; current = cfg;
+    document.getElementById("zip").value = cfg.zip || "";
+    const box = document.getElementById("programs"); box.innerHTML = "";
+    const md = s => s.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
+    for (const p of index) box.append(radio("program", p.id, p.name, md(p.about.replace(/^\*\*Program(s merged)?:\*\*\s*/, "")), p.id === cfg.program));
+    const pb = document.getElementById("paths");
+    const withPaths = index.find(p => p.paths);
+    if (withPaths) for (const [id, label] of Object.entries(withPaths.paths)) pb.append(radio("path", id, label, "", id === cfg.spring_path));
+    document.getElementById("zip").addEventListener("input", update);
+    update();
+  });
+</script>
+</body>
+</html>
