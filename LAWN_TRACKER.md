@@ -406,6 +406,7 @@ Each one alerts at 9 AM. Its notes link back to its section here and include **�
 - **Oct 2, 2026** · ✅ Done · 4 · Step 4: Renovator®
 - **Oct 3, 2026** · ❌ Skipped · S5 · Fall Broadleaf Weed Control
 - **Oct 3, 2026** · ✅ Done · W3 · Fall Watering Shift
+- **Oct 3, 2026** · ❌ Skipped · S5 · Fall Broadleaf Weed Control
 <!-- JOURNAL:END -->
 
 *Sources: GrassPad's [Idiot-Proof Lawn Program](https://grasspad.com/idiot-proof-lawn-program/), [Spring Seeding / Seed Safe](https://grasspad.com/spring-seeding/), and [Idiot-Proof Fall Lawn Renovation](https://grasspad.com/idiot-proof-fall-lawn-renovation/). The supplemental tasks (grubs, mosquitoes, disease, watering) use standard cool-season extension guidance. Always follow the product label for rates.*
