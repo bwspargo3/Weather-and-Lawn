@@ -11,6 +11,7 @@ Usage:  python3 tools/build_lawn_calendar.py [--season 2026] [--today 2026-10-02
 """
 import argparse
 import datetime as dt
+import json
 import pathlib
 import re
 from zoneinfo import ZoneInfo
@@ -20,6 +21,8 @@ from lawn_links import SESSION_URL, TRACKER_URL, go_url
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 TRACKER = ROOT / "LAWN_TRACKER.md"
 OUT = ROOT / "lawn-calendar.ics"
+STATE = ROOT / "lawn-state.json"  # weather-timed dates from lawn_weather.py (optional)
+STAMP = "20260101T000000Z"  # fixed so unchanged events produce an identical file
 
 # id: name, anchor, buy (month, day) + item, window start/end, last-call flag, extra one-off nudges
 SCHEDULE = {
@@ -123,27 +126,44 @@ def event(uid, day, title, desc, stamp):
     ]
 
 
-def season_events(year, today, pending_ids, catch_up):
+def season_events(year, today, pending_ids, catch_up, state):
     events = []
+    where = state.get("location", {}).get("label", "your area")
     for sid, s in SCHEDULE.items():
         if sid not in pending_ids:
             continue
         d = lambda md: dt.date(year, *md)
-        end = d(s["end"])
+        wx = state.get("steps", {}).get(f"{year}:{sid}")
+        iso = lambda k: dt.date.fromisoformat(wx[k])
+        start = iso("start") if wx else d(s["start"])
+        end = iso("end") if wx else d(s["end"])
+        buy = (iso("buy") if wx and wx.get("buy") else d(s["buy"])) if s.get("buy") else None
         if end < today:
             continue  # window fully passed
+        tag = "📡 " if wx else ""
         link = f"{TRACKER_URL}#{s['anchor']}"
-        desc = (f"{s['note']}\n\nWindow: {d(s['start']):%b %d} – {end:%b %d}\nDetails: {link}\n\n"
+        timing = (f"📡 Weather-timed for {where}: {wx['basis']}\n\n" if wx
+                  else "📅 Typical date. It moves automatically once the weather says when.\n\n")
+        desc = (f"{timing}{s['note']}\n\nWindow: {start:%b %d} – {end:%b %d}\nDetails: {link}\n\n"
                 f"✅ Done: {go_url(sid, 'done')}\n\n❌ Skip: {go_url(sid, 'skip')}\n\n"
                 f"💬 Talk to Claude: {SESSION_URL}")
         planned = []
-        if s.get("buy"):
-            planned.append(("buy", d(s["buy"]), f"🛒 Buy {s['item']} ({s['name']})"))
-        planned.append(("start", d(s["start"]), f"🌱 {s['name']}: window opens"))
-        if s.get("lastcall"):
-            planned.append(("last", end - dt.timedelta(days=5), f"⏰ Last call: {s['name']}"))
-        for i, (md, title) in enumerate(s.get("extra", [])):
-            planned.append((f"x{i}", d(md), title))
+        if buy:
+            planned.append(("buy", buy, f"{tag}🛒 Buy {s['item']} ({s['name']})"))
+        planned.append(("start", start, f"{tag}🌱 {s['name']}: " + ("apply now" if wx and buy else "window opens")))
+        if wx and wx.get("best"):
+            planned.append(("best", iso("best"), f"📡 ⭐ Best day: {s['name']}"))
+            desc = f"⭐ {wx['best_note']}\n\n" + desc
+        if s.get("lastcall") and end - dt.timedelta(days=5) > start:
+            planned.append(("last", end - dt.timedelta(days=5), f"{tag}⏰ Last call: {s['name']} (by {end:%b %-d})"))
+        if wx and wx.get("repeat_every"):
+            k, nxt = 0, start + dt.timedelta(days=wx["repeat_every"])
+            while nxt <= dt.date.fromisoformat(wx["repeat_until"]):
+                planned.append((f"r{k}", nxt, f"📡 🦟 Mosquito re-spray + fresh Bti dunks"))
+                k, nxt = k + 1, nxt + dt.timedelta(days=wx["repeat_every"])
+        else:
+            for i, (md, title) in enumerate(s.get("extra", [])):
+                planned.append((f"x{i}", d(md), title))
 
         overdue = [p for p in planned if p[1] < today and p[0] in ("buy", "start")]
         for kind, day, title in planned:
@@ -151,8 +171,21 @@ def season_events(year, today, pending_ids, catch_up):
                 continue
             events.append((f"{year}-{sid}-{kind}", day, title, desc))
         if catch_up and overdue:
-            events.append((f"{year}-{sid}-catchup", today + dt.timedelta(days=1), f"⚠️ Now: {s['name']} (window open until {end:%b %d})", desc))
+            # First day we noticed it was overdue, so the reminder doesn't slide forward every day.
+            key = f"{year}:{sid}"
+            first = state.setdefault("catchup", {}).setdefault(key, (today + dt.timedelta(days=1)).isoformat())
+            events.append((f"{year}-{sid}-catchup", dt.date.fromisoformat(first),
+                           f"⚠️ Now: {s['name']} (window open until {end:%b %d})", desc))
     return events
+
+
+def alert_events(state, today):
+    out = []
+    for key, a in state.get("alerts", {}).items():
+        day = dt.date.fromisoformat(a["date"])
+        if day >= today:
+            out.append((f"alert-{key}", day, a["title"], f"📡 {a['note']}\n\n💬 Talk to Claude: {SESSION_URL}"))
+    return out
 
 
 def main():
@@ -170,9 +203,11 @@ def main():
     pending_now = {sid for sid, st in statuses.items() if st.startswith("⬜")}
     pending_next = set(SCHEDULE) - NEXT_SEASON_SKIP
 
+    state = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {}
     nxt = args.season + 1
-    events = season_events(args.season, args.today, pending_now, catch_up=True)
-    events += season_events(nxt, args.today, pending_next, catch_up=False)
+    events = season_events(args.season, args.today, pending_now, True, state)
+    events += season_events(nxt, args.today, pending_next, False, state)
+    events += alert_events(state, args.today)
     events.append((f"{nxt}-reset", dt.date(nxt, 2, 22), "🔄 Tell Claude: reset the lawn tracker for the new season",
                    f"Ask Claude to reset LAWN_TRACKER.md to ⬜ for {nxt}.\n{TRACKER_URL}"))
     events.append(("lawn-log-token-renew", dt.date(2027, 9, 18), "🔑 Renew the Lawn Log GitHub token (expires ~Oct 2)",
@@ -180,7 +215,11 @@ def main():
                    f"into the shortcut. Steps: {TRACKER_URL}#lawn-log-shortcut"))
     events.sort(key=lambda e: (e[1], e[0]))
 
-    stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    if state:  # drop catch-up markers for steps that are no longer pending
+        live = {f"{args.season}:{sid}" for sid in pending_now}
+        state["catchup"] = {k: v for k, v in sorted(state.get("catchup", {}).items()) if k in live}
+        STATE.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    stamp = STAMP
     lines = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",

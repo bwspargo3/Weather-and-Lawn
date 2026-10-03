@@ -11,6 +11,7 @@ afterwards to refresh the .ics feed.
 """
 import argparse
 import datetime as dt
+import json
 import pathlib
 import re
 import sys
@@ -19,6 +20,7 @@ from zoneinfo import ZoneInfo
 from lawn_links import SESSION_URL, go_url, issue_url
 
 TRACKER = pathlib.Path(__file__).resolve().parent.parent / "LAWN_TRACKER.md"
+STATE = TRACKER.parent / "lawn-state.json"
 TZ = ZoneInfo("America/Chicago")
 ROW_RE = re.compile(r"^\| (\w+) \| \[(.+?)\]\(#([\w-]+)\) \| (.*?) \| (.*?) \| (.*?) \| (.*?) \|\s*$")
 TITLE_RE = re.compile(r"^\s*(✅|❌)?\s*([0-9A-Za-z]{1,3})\b\s*(done|skipped|skip)?\s*(?:\((.*?)\))?", re.I)
@@ -80,8 +82,18 @@ def render_next_action(text):
         while body and not body[-1].strip():
             body.pop()
         lines = [f"### ➡️ [{r['name']}](#{r['anchor']})", f"{timing.rstrip()}  **Status:** {r['status']}  "]
-        if r["buy"].strip().lower() not in ("n/a", ""):
-            lines.append(f"**🛒 Buy by:** {r['buy']}")
+        season = re.search(r"^\*\*Season:\*\* (\d{4})", text, re.M).group(1)
+        state = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {}
+        wx = state.get("steps", {}).get(f"{season}:{r['id']}")
+        if wx:
+            fmt = lambda k: (lambda d: f"{d:%a %b} {d.day}")(dt.date.fromisoformat(wx[k]))
+            lines.append("**📡 Weather-timed:** " + (f"🛒 buy by **{fmt('buy')}** · " if wx.get("buy") else "")
+                         + f"apply **{fmt('start')} → {fmt('end')}**  ")
+            lines.append(f"_{wx['basis']}_" + ("  " if wx.get("best") else ""))
+            if wx.get("best"):
+                lines.append(f"**⭐ Best day:** {wx['best_note']}")
+        elif r["buy"].strip().lower() not in ("n/a", ""):
+            lines.append(f"**🛒 Buy by:** {r['buy']} _(typical date; it moves automatically once the weather says when)_")
         lines += [""] + body + [""]
         lines.append(f"**Done?** [✅ Mark done]({go_url(r['id'], 'done')}) · "
                      f"[❌ Skip]({go_url(r['id'], 'skip')}) · [💬 Talk to Claude]({SESSION_URL}) "

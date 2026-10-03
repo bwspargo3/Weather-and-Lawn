@@ -346,11 +346,35 @@
 
 ---
 
+<a id="weather-timing"></a>
+## 📡 Weather Timing (Lenexa, KS 66220)
+
+Every morning around 5 AM, a GitHub Action (`.github/workflows/lawn-weather.yml`) pulls **modeled soil temperature (at 2½"), air temperature, rain and humidity** for the location in `lawn-config.json`. The data comes from [Open-Meteo](https://open-meteo.com) and covers the last 3 months plus a 16-day forecast. The Action moves each step's calendar events to match. No AI is involved.
+
+| Step | Weather trigger |
+|------|-----------------|
+| 1B PREVENT!® | Soil 5-day average reaches **50°F** (crabgrass sprouts ~55°F). Last call as soil passes 57°F. |
+| 2B Weed & Feed | Highs **60°F+** for 3 days. ⭐ best day = mild (60–85°F) and dry for 24–48 hrs. |
+| 3 PREVENT!® #2 | **6 weeks** after your ✅ date for PREVENT! #1 (May 15 – Jun 10). |
+| S1 Grub preventer | Soil 5-day average reaches **60°F**. |
+| S2 Mosquitoes | Nights **50°F+** for 5 days, then re-spray every 25 days to mid-Sep. |
+| W2 Summer mode | Highs **85°F+** for 3 days. |
+| FR / 4 / W3 Fall | 5-day average high drops to **85°F** or below. Seeding last call when soil heads below 55°F. |
+| S5 Fall weeds | 5-day average high **≤ 80°F** (after Sep 25). ⭐ best day = 50–80°F and dry. |
+| 5 Snowman® | 5-day average high **≤ 55°F** (growth slowing), before a forecast hard freeze. |
+| W4 Close-out | **2 days before** the first forecast hard freeze (≤ 28°F). |
+
+**Extra alerts:** 💧 water this week (under 0.75" of rain in 7 days, none coming; it switches to seedling advice for 4 weeks after you seed) · 🌧 heavy rain coming (skip watering and liquid weed killers) · 🍄 brown patch weather (warm, humid nights) · 🥶 first frost.
+
+**How to read the calendar:** events marked **📡** are weather-timed, and their notes explain why. Unmarked events are typical dates that move once the weather triggers them. Dates are locked once they arrive, so past entries don't shift. To change the location, edit `lawn-config.json` (ZIP, label, lat/lon).
+
+---
+
 <a id="iphone-calendar"></a>
 ## 📲 iPhone Calendar Sync
 
-`lawn-calendar.ics` is generated from the Status Table by `tools/build_lawn_calendar.py`. It's rebuilt automatically after every update, whether that comes from a one-tap link or from Claude. Each ⬜ step gets:
-- **🛒 Buy** reminder about 1 week before the window opens
+`lawn-calendar.ics` is generated from the Status Table by `tools/build_lawn_calendar.py`. It's rebuilt automatically after every update, whether that comes from a one-tap link or from Claude. Each ⬜ step gets (📡 = weather-timed, see [Weather Timing](#weather-timing)):
+- **🛒 Buy** reminder about 1 week before the window opens (or before the weather-predicted apply date)
 - **🌱 Window opens** reminder
 - **⏰ Last call** reminder 5 days before the window closes
 
