@@ -32,15 +32,18 @@ DAY = dt.timedelta(days=1)
 
 # ---------------------------------------------------------------- data
 
-def fetch(cfg):
+def fetch(cfg, span=None):
+    """Live: last 92 days + 16-day forecast. span=(start, end): archived model runs for a past range."""
     q = {
         "latitude": cfg["lat"], "longitude": cfg["lon"], "timezone": cfg["timezone"],
-        "past_days": 92, "forecast_days": 16,
+        **({"start_date": span[0].isoformat(), "end_date": span[1].isoformat()} if span
+           else {"past_days": 92, "forecast_days": 16}),
         "temperature_unit": "fahrenheit", "precipitation_unit": "inch",
         "daily": "temperature_2m_max,temperature_2m_min,precipitation_sum",
         "hourly": "soil_temperature_6cm,relative_humidity_2m",
     }
-    url = "https://api.open-meteo.com/v1/forecast?" + urllib.parse.urlencode(q)
+    host = "historical-forecast-api.open-meteo.com" if span else "api.open-meteo.com"
+    url = f"https://{host}/v1/forecast?" + urllib.parse.urlencode(q)
     with urllib.request.urlopen(url, timeout=60) as r:
         return json.load(r)
 
@@ -258,13 +261,42 @@ def ser(step):
     return {k: (v.isoformat() if isinstance(v, D) else v) for k, v in step.items()}
 
 
+LABELS = {"1B": "PREVENT!® #1", "2B": "Weed & Feed", "S1": "Grub preventer", "S2": "Mosquito season start",
+          "3": "PREVENT!® #2", "W2": "Summer mode (raise mower)", "FR": "Fall seeding window opens",
+          "4": "Renovator®", "W3": "Fall watering shift", "S5": "Fall broadleaf spray", "5": "Snowman®",
+          "W4": "Blow out irrigation"}
+
+
+def backtest(cfg, year):
+    """Replay a past season's weather through the rules and print when each step would have triggered."""
+    today = dt.datetime.now(ZoneInfo(cfg["timezone"])).date()
+    end = min(D(year, 12, 31), today - DAY)
+    wx = Wx(daily_rows(fetch(cfg, (D(year, 1, 1), end))))
+    found = rules(wx, year, D(year, 1, 1), {})
+    lines = [f"### {year} replay for {cfg['label']} (weather through {end:%b %-d})", "",
+             "| Step | 🛒 Buy | Apply | Window closes | ⭐ First good day | Why |", "|---|---|---|---|---|---|"]
+    f = lambda d: f"{d:%a %b %-d}" if d else "–"
+    for sid, name in sorted(LABELS.items(), key=lambda kv: found[kv[0]]["start"] if kv[0] in found else D(year, 12, 31)):
+        st = found.get(sid)
+        if st:
+            lines.append(f"| {name} | {f(st.get('buy'))} | **{f(st['start'])}** | {f(st['end'])} | {f(st.get('best'))} | {st['basis']} |")
+        else:
+            lines.append(f"| {name} | – | not triggered yet | – | – | |")
+    frost = wx.first_day(D(year, 9, 1), wx.last, lambda d: wx.rows[d]["tmin"] <= 32)
+    lines += ["", f"First fall frost (≤32°F): {f(frost) if frost else 'not yet'}"]
+    print("\n".join(lines))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--fixture", help="saved Open-Meteo response to use instead of fetching")
     ap.add_argument("--today", type=D.fromisoformat)
+    ap.add_argument("--backtest", type=int, metavar="YEAR", help="print when steps would have triggered in a past year")
     args = ap.parse_args()
 
     cfg = json.loads(CONFIG.read_text())
+    if args.backtest:
+        return backtest(cfg, args.backtest)
     today = args.today or dt.datetime.now(ZoneInfo(cfg["timezone"])).date()
     raw = json.loads(pathlib.Path(args.fixture).read_text()) if args.fixture else fetch(cfg)
     wx = Wx(daily_rows(raw))
