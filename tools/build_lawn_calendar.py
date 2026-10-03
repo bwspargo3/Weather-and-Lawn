@@ -17,6 +17,7 @@ import re
 from zoneinfo import ZoneInfo
 
 from lawn_links import SESSION_URL, TRACKER_URL, go_url
+from lawn_plants import PICKER_URL, tasks_for
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 TRACKER = ROOT / "LAWN_TRACKER.md"
@@ -33,7 +34,7 @@ SCHEDULE = {
                start=(3, 1), end=(3, 20), lastcall=True, note="Apply at bag rate, water in. Seed Safe follows ~3 weeks later."),
     "1B": dict(name="Step 1: PREVENT!®", anchor="step-1b", buy=(3, 8), item="PREVENT!®",
                start=(3, 15), end=(4, 15), lastcall=True,
-               note="Apply before soil holds 55°F (check the Lawn tab) / when forsythia blooms. Water in ~½\". No seeding or aerating after."),
+               note="Apply before soil holds 55°F (check the Lawn tab) / when forsythia blooms. Water in ½\" within 24–48 hrs (GrassPad). No seeding or aerating after."),
     "W1": dict(name="Spring Watering & Mowing Setup", anchor="step-w1", start=(4, 1), end=(4, 15), lastcall=False,
                note="Mow at 3\". Turn irrigation on, check heads, leave it on manual. Water only after 10+ dry days."),
     "2A": dict(name="Step 2: Seed Safe®", anchor="step-2a", buy=(4, 1), item="Seed Safe® + grass seed",
@@ -50,12 +51,18 @@ SCHEDULE = {
                       ((7, 30), "🦟 Mosquito re-spray + fresh Bti dunks"), ((8, 25), "🦟 Mosquito re-spray (last round)")]),
     "3":  dict(name="Step 3: PREVENT!® (2nd app)", anchor="step-3", buy=(5, 15), item="PREVENT!® (2nd bag)",
                start=(5, 22), end=(7, 5), lastcall=True,
-               note="Best late May to early June. If you plan to overseed this fall, apply by June 15. Water in ~½\"."),
+               note="Best late May to early June. If you plan to overseed this fall, apply by June 15. Water in ½\" within 24–48 hrs (GrassPad)."),
     "W2": dict(name="Summer Mode: Mowing & Watering", anchor="step-w2", start=(5, 25), end=(8, 31), lastcall=False,
                note="Raise mower to 3.5–4\". Water 1–1.5\"/week in 2–3 deep sessions, 4–9 AM only. No summer fertilizer.",
                extra=[((7, 4), "🔧 Resharpen mower blade")]),
+    "O1": dict(name="Optional: Early-Summer Slow-Release Feeding", anchor="step-o1", buy=(5, 18), item="slow-release fertilizer (e.g. Milorganite)",
+               start=(5, 25), end=(6, 20), lastcall=True,
+               note="OPTIONAL. Non-burning slow-release feed (organic like Milorganite, or 50%+ slow-release N) at the bag rate. Skip if the lawn is drought-stressed or highs are 90°F+."),
     "S3": dict(name="Brown Patch Watch", anchor="step-s3", start=(6, 15), end=(8, 31), lastcall=False,
                note="Tan circular patches with a smoky edge? Water mornings only. Optional fungicide (azoxystrobin)."),
+    "O2": dict(name="Optional: Midsummer Feeding (irrigated lawns only)", anchor="step-o2", buy=(6, 24), item="slow-release fertilizer (e.g. Milorganite)",
+               start=(7, 1), end=(7, 20), lastcall=True,
+               note="OPTIONAL. Only if you water regularly and the lawn is green. Use a non-burning slow-release product; skip during heat waves (90°F+) or drought dormancy."),
     "S4": dict(name="Grub Check", anchor="step-s4", start=(8, 15), end=(9, 15), lastcall=False,
                note="Lift 1 sq ft of sod in any brown spot. 10+ grubs → apply Dylox (trichlorfon) and water in."),
     "4":  dict(name="Step 4: Renovator®", anchor="step-4", buy=(8, 25), item="Renovator®",
@@ -72,9 +79,9 @@ SCHEDULE = {
                note="Spot-spray on a 50–80°F day, no rain for 24 hrs. SKIP if you overseeded."),
     "S6": dict(name="Leaf Management", anchor="step-s6", start=(10, 15), end=(11, 30), lastcall=False,
                note="Mulch-mow light leaves; rake heavy mats, especially off new grass. Repeat weekly while trees drop."),
-    "5":  dict(name="Step 5: Snowman®", anchor="step-5", buy=(10, 15), item="Snowman®",
+    "5":  dict(name="Step 5: Snowman® Winter Root Builder", anchor="step-5", buy=(10, 15), item="Snowman® Winter Root Builder",
                start=(10, 22), end=(11, 30), lastcall=True,
-               note="Apply around the last or second-to-last mow while grass is still green. Water in."),
+               note="GrassPad: apply around Thanksgiving, at about the last mow while grass is still green. High phosphorus + potash for roots, disease resistance and early spring green-up. Water in ½\" within 24–48 hrs."),
     "W4": dict(name="Season Close-Out", anchor="step-w4", start=(11, 15), end=(11, 30), lastcall=False,
                note="Final mow ~2.5\". Blow out irrigation before a hard freeze. Stabilize mower fuel and sharpen the blade."),
 }
@@ -179,6 +186,31 @@ def season_events(year, today, pending_ids, catch_up, state):
     return events
 
 
+def plant_events(state, today, years):
+    out = []
+    season = years[0]
+    for year in years:
+        for t in tasks_for(year, state):
+            if t["end"] < today:
+                continue
+            p, task = t["plant"], t["task"]
+            tag = "📡 " if t["basis"] else ""
+            desc = ((f"📡 {t['basis']}\n\n" if t["basis"] else "📅 Typical window.\n\n")
+                    + f"{task['note']}\n\nWindow: {t['start']:%b %d} – {t['end']:%b %d}\n"
+                    f"Change your plants: {PICKER_URL}\n\n💬 Talk to Claude: {SESSION_URL}")
+            short = p["name"].split(" (")[0]
+            if task.get("buy") and t["start"] - dt.timedelta(days=7) >= today:
+                out.append((f"{year}-plant-{t['key']}-buy", t["start"] - dt.timedelta(days=7),
+                            f"{tag}🛒 Buy {task['buy']} ({short})", desc))
+            if t["start"] >= today:
+                out.append((f"{year}-plant-{t['key']}", t["start"], f"{tag}{p['emoji']} {short}: {task['task']}", desc))
+            elif year == season:  # window already open: one reminder, pinned to the day we first noticed
+                first = state.setdefault("catchup", {}).setdefault(f"plant:{year}:{t['key']}", (today + dt.timedelta(days=1)).isoformat())
+                out.append((f"{year}-plant-{t['key']}-now", dt.date.fromisoformat(first),
+                            f"⚠️ Now: {p['emoji']} {short}: {task['task']} (by {t['end']:%b %-d})", desc))
+    return out
+
+
 def alert_events(state, today):
     out = []
     for key, a in state.get("alerts", {}).items():
@@ -208,6 +240,7 @@ def main():
     events = season_events(args.season, args.today, pending_now, True, state)
     events += season_events(nxt, args.today, pending_next, False, state)
     events += alert_events(state, args.today)
+    events += plant_events(state, args.today, (args.season, nxt))
     events.append((f"{nxt}-reset", dt.date(nxt, 2, 22), "🔄 Tell Claude: reset the lawn tracker for the new season",
                    f"Ask Claude to reset LAWN_TRACKER.md to ⬜ for {nxt}.\n{TRACKER_URL}"))
     events.append(("lawn-log-token-renew", dt.date(2027, 9, 18), "🔑 Renew the Lawn Log GitHub token (expires ~Oct 2)",
@@ -217,6 +250,7 @@ def main():
 
     if state:  # drop catch-up markers for steps that are no longer pending
         live = {f"{args.season}:{sid}" for sid in pending_now}
+        live |= {f"plant:{args.season}:{t['key']}" for t in tasks_for(args.season, state) if t["start"] < args.today <= t["end"]}
         state["catchup"] = {k: v for k, v in sorted(state.get("catchup", {}).items()) if k in live}
         STATE.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     stamp = STAMP

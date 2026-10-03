@@ -22,7 +22,7 @@
 >
 > **Done?** [✅ Mark done](https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=S6&a=done) · [❌ Skip](https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=S6&a=skip) · [💬 Talk to Claude](https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL) <sub>(via GitHub: [✅](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9C%85%20S6%20done) · [❌](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9D%8C%20S6%20skipped))</sub>
 >
-> **👀 Coming up after this:** [Step 5: Snowman®](#step-5) (Late Oct → Nov, 🛒 buy by ~Oct 15) → [Season Close-Out](#step-w4) (Mid → Late Nov)
+> **👀 Coming up after this:** [Step 5: Snowman® Winter Root Builder](#step-5) (Late Oct → Nov (GrassPad: ~Thanksgiving), 🛒 buy by ~Oct 15) → [Season Close-Out](#step-w4) (Mid → Late Nov)
 <!-- NEXT-ACTION:END -->
 
 > **📲 iPhone reminders:** subscribe once to the [Lawn Care calendar](https://raw.githubusercontent.com/bwspargo3/Weather-and-Lawn/claude/lawn-care-tracker/lawn-calendar.ics) (setup steps at the [bottom](#iphone-calendar)). It updates itself whenever this tracker changes.
@@ -46,14 +46,16 @@
 | S2 | [Mosquito Season Start](#step-s2) | Supplemental (optional) | Mid-May, repeat → Sep | ~May 8 | ❌ Skipped |
 | 3 | [Step 3: PREVENT!® (2nd app)](#step-3) | Both | Late May → Early Jul | ~May 15 | ❌ Skipped |
 | W2 | [Summer Mode: Mowing & Watering](#step-w2) | Supplemental | Late May → Aug | n/a | ❌ Skipped |
+| O1 | [Optional: Early-Summer Slow-Release Feeding](#step-o1) | Optional | Late May → Jun | ~May 18 | ➖ N/A (added Oct 3) |
 | S3 | [Brown Patch Watch / Fungicide](#step-s3) | Supplemental (optional) | Jun → Aug | ~Jun 1 (if needed) | ❌ Skipped |
+| O2 | [Optional: Midsummer Feeding (irrigated only)](#step-o2) | Optional | Early → Mid Jul | ~Jun 24 | ➖ N/A (added Oct 3) |
 | S4 | [Grub Check & Rescue Treatment](#step-s4) | Supplemental (if needed) | Mid-Aug → Mid-Sep | Only if grubs found | ❌ Skipped |
 | 4 | [Step 4: Renovator®](#step-4) | Both | Sep → Oct | ~Aug 25 | ✅ Done (Oct 2, 2026) |
 | FR | [Fall Renovation / Overseeding](#step-fr) | Optional | Late Aug prep → Sep 1 – Oct 10 seeding | ~Aug 20 | ✅ Done (Oct 2, 2026) |
 | W3 | [Fall Watering Shift](#step-w3) | Supplemental | Sep → Oct | n/a | ✅ Done (Oct 3, 2026) |
 | S5 | [Fall Broadleaf Weed Control](#step-s5) | Supplemental (skip if you seeded) | Early → Late Oct | ~Sep 28 | ❌ Skipped (Oct 3, 2026) |
 | S6 | [Leaf Management](#step-s6) | Supplemental | Mid-Oct → Nov | n/a | ⬜ Not started |
-| 5 | [Step 5: Snowman®](#step-5) | Both | Late Oct → Nov | ~Oct 15 | ⬜ Not started |
+| 5 | [Step 5: Snowman® Winter Root Builder](#step-5) | Both | Late Oct → Nov (GrassPad: ~Thanksgiving) | ~Oct 15 | ⬜ Not started |
 | W4 | [Season Close-Out](#step-w4) | Supplemental | Mid → Late Nov | n/a | ⬜ Not started |
 
 **Status key:** ⬜ Not started · ✅ Done (date) · ❌ Skipped · ➖ N/A (other spring path)
@@ -221,6 +223,19 @@
 
 ---
 
+<a id="step-o1"></a>
+### 🍃 Optional: Early-Summer Slow-Release Feeding
+**Timing:** Late May → June 20 (about 6 weeks after Weed & Feed)  **Programs:** Optional (not part of GrassPad's 5 steps)
+**Status:** ➖ N/A (added Oct 3)
+
+**What to do:**
+- GrassPad's program doesn't include summer feeding. The "feed every 6–8 weeks" idea comes from national lawn programs. For Kansas City fescue and bluegrass, **one light early-summer feeding** is the safe version of it.
+- Use a **non-burning slow-release** product: organic (Milorganite) or 50%+ slow-release nitrogen, at the bag rate.
+- **Skip** if the lawn is drought-stressed or highs are 90°F+. Feeding cool-season grass in heat favors disease (brown patch).
+- 📡 Weather-timed: about 6 weeks after your Weed & Feed, on a day with a mild forecast.
+
+---
+
 <a id="step-s3"></a>
 ### 🍄 Brown Patch Watch / Fungicide
 **Timing:** June → August  **Programs:** Supplemental (optional)
@@ -231,6 +246,19 @@
 - **Trigger:** nights above 68–70°F combined with humidity or evening watering.
 - **Prevention:** water only in the early morning, don't fertilize in summer, and mow with a sharp blade.
 - **Fungicide (optional):** if you've had brown patch before, apply azoxystrobin or propiconazole preventively in mid-June and repeat at label intervals (14–28 days) through August.
+
+---
+
+<a id="step-o2"></a>
+### 🍃 Optional: Midsummer Feeding (irrigated lawns only)
+**Timing:** July 1 → 20  **Programs:** Optional
+**Status:** ➖ N/A (added Oct 3)
+
+**What to do:**
+- **Only if you irrigate** and the lawn is still green and growing. Never feed a dormant (brown) lawn.
+- Same non-burning slow-release product as O1, at the bag rate.
+- 📡 The calendar notes say "skip" if a heat wave (5-day average high ≥ 92°F) is forecast.
+- Most Kansas City lawns are better off **skipping this** and putting the energy into the fall Renovator®.
 
 ---
 
@@ -320,14 +348,14 @@
 ---
 
 <a id="step-5"></a>
-### ⛄ Step 5: Snowman®
-**Timing:** Late October → November  **Programs:** Both
+### ⛄ Step 5: Snowman® Winter Root Builder
+**Timing:** Late October → November (GrassPad: around Thanksgiving)  **Programs:** Both
 **Status:** ⬜ Not started
 
 **What to do:**
-- Apply Snowman® (winterizer) at the bag rate. It strengthens roots, improves disease resistance and gives an earlier green-up next spring.
-- **Timing cue:** after top growth slows but while the grass is still green, usually around the last or second-to-last mow.
-- Water in, or apply before rain.
+- Apply Snowman® **Winter Root Builder** at the bag rate. It's high in phosphorus and potash: it builds roots, disease, drought and traffic tolerance, and gives an earlier green-up next spring. This is the "root builder" step.
+- **Timing cue:** GrassPad says around Thanksgiving, once top growth slows but the grass is still green (about the last mow). 📡 The calendar times it when highs settle under about 55°F.
+- Water in with ½" within 24–48 hrs, or apply before rain.
 - This is the last product of the season.
 
 ---
@@ -346,6 +374,17 @@
 
 ---
 
+<a id="plants"></a>
+## 🌿 My Plants: Pruning, Feeding & Planting
+
+Reminders for the plants you pick, timed for zone 6 (Kansas City). Tasks marked 📡 move with the weather (last frost, soil temperature, hard freeze). These are calendar reminders only, with nothing to check off. Pick or change your plants on the [plant picker](https://bwspargo3.github.io/Weather-and-Lawn/lawn-plants.html).
+
+<!-- PLANTS:START (auto-generated from lawn-config.json + plant-catalog.json) -->
+_No plants chosen yet._ Pick yours on the **[plant picker](https://bwspargo3.github.io/Weather-and-Lawn/lawn-plants.html)**, and the Lawn Log shortcut saves the list. Pruning, feeding and planting reminders then appear in your calendar.
+<!-- PLANTS:END -->
+
+---
+
 <a id="weather-timing"></a>
 ## 📡 Weather Timing (Lenexa, KS 66220)
 
@@ -359,9 +398,11 @@ Every morning around 5 AM, a GitHub Action (`.github/workflows/lawn-weather.yml`
 | S1 Grub preventer | Soil 5-day average reaches **60°F**. |
 | S2 Mosquitoes | Nights **50°F+** for 5 days, then re-spray every 25 days to mid-Sep. |
 | W2 Summer mode | Highs **85°F+** for 3 days. |
+| O1 Optional summer feed | About **6 weeks after Weed & Feed** (May 25 – Jun 15). ⭐ best day = mild (60–88°F). |
+| O2 Optional midsummer feed | 6 weeks after O1 (Jul 1–15). Says **skip** if the 5-day average high is ≥ 92°F. |
 | FR / 4 / W3 Fall | 5-day average high drops to **85°F** or below. Seeding last call when soil heads below 55°F. |
 | S5 Fall weeds | 5-day average high **≤ 80°F** (after Sep 25). ⭐ best day = 50–80°F and dry. |
-| 5 Snowman® | 5-day average high **≤ 55°F** (growth slowing), before a forecast hard freeze. |
+| 5 Snowman® Root Builder | 5-day average high **≤ 55°F** (growth slowing), before a forecast hard freeze. |
 | W4 Close-out | **2 days before** the first forecast hard freeze (≤ 28°F). |
 
 **Extra alerts:** 💧 water this week (under 0.75" of rain in 7 days, none coming; it switches to seedling advice for 4 weeks after you seed) · 🌧 heavy rain coming (skip watering and liquid weed killers) · 🍄 brown patch weather (warm, humid nights) · 🥶 first frost.

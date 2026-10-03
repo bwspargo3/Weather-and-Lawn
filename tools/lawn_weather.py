@@ -157,6 +157,26 @@ def rules(wx, year, today, done):
                          basis=f"Nights have stayed above 50°F for 5 days (since {s - 4 * DAY:%b %-d}). Mosquito season is starting.",
                          repeat_every=25, repeat_until=y(9, 15))
 
+    # O1 optional early-summer slow-release feed — ~6 weeks after Weed & Feed, on a mild day.
+    wf = done.get("2B") or (out.get("2B") or {}).get("start")
+    if wf:
+        s = min(max(wf + 42 * DAY, y(5, 25)), y(6, 15))
+        st = dict(buy=s - 7 * DAY, start=s, end=y(6, 20),
+                  basis=f"About 6 weeks after Weed & Feed ({wf:%b %-d}). Optional: skip if the lawn is drought-stressed or highs reach 90°F+.")
+        b = best_day(wx, s, today, lo=60, hi=88, dry_hours=24)
+        if b:
+            st["best"], st["best_note"] = b, f"{b:%a %b %-d}: high {F(wx.rows[b]['tmax'])}. Mild enough to feed."
+        out["O1"] = st
+
+    # O2 optional midsummer feed — irrigated lawns only; flag heat waves.
+    o1 = done.get("O1") or (out.get("O1") or {}).get("start")
+    if o1:
+        s = min(max(o1 + 42 * DAY, y(7, 1)), y(7, 15))
+        hot = wx.covers(s + 4 * DAY) and (wx.avg("tmax", s + 4 * DAY) or 0) >= 92
+        out["O2"] = dict(buy=s - 7 * DAY, start=s, end=y(7, 20),
+                         basis=(f"⚠️ Heat wave forecast (5-day average high {F(wx.avg('tmax', s + 4 * DAY))}): SKIP this one."
+                                if hot else f"About 6 weeks after your early-summer feeding ({o1:%b %-d}). Only if you irrigate and the lawn is green."))
+
     # W2 summer mode — first real heat.
     s = wx.first_day(y(5, 1), y(7, 31), lambda d: wx.run(lambda r: r["tmax"] >= 85, d, 3))
     if s:
@@ -192,7 +212,7 @@ def rules(wx, year, today, done):
     if s:
         fr = wx.first_day(s + DAY, y(12, 15), lambda d: wx.rows[d]["tmin"] <= 20)
         out["5"] = dict(buy=s - 7 * DAY, start=s, end=min(fr or y(11, 30), y(12, 15)),
-                        basis=f"5-day average high down to {F(wx.avg('tmax', s))}. Growth is slowing, so it's time to winterize."
+                        basis=f"5-day average high down to {F(wx.avg('tmax', s))}. Growth is slowing, so it's time for the Winter Root Builder (GrassPad: ~Thanksgiving)."
                               + (f" A hard freeze (≤20°F) is forecast {fr:%b %-d}, so apply before then." if fr else ""))
 
     # W4 close-out — blow out irrigation before the first hard freeze.
@@ -248,6 +268,63 @@ def alerts(wx, today, done):
     return out
 
 
+def plant_rules(wx, year, plants):
+    """Weather-adjusted start dates for plant tasks that have a trigger (see plant-catalog.json)."""
+    out = {}
+    last_frost = None
+    lf = [d for d in wx.rows if D(year, 2, 1) <= d <= D(year, 6, 15) and wx.rows[d]["tmin"] <= 32]
+    if lf and wx.last >= max(lf) + 7 * DAY:  # need a frost-free week in view before calling it
+        last_frost = max(lf)
+    first_frost = wx.first_day(D(year, 9, 1), D(year, 12, 31), lambda d: wx.rows[d]["tmin"] <= 32)
+    hard_freeze = wx.first_day(D(year, 10, 1), D(year, 12, 31), lambda d: wx.rows[d]["tmin"] <= 28)
+    for plant in plants:
+        for t in plant["tasks"]:
+            trig = t.get("trigger")
+            if not trig:
+                continue
+            ws = D(year, *map(int, t["start"].split("-")))
+            we = D(year, *map(int, t["end"].split("-")))
+            off = trig.get("offset", 0) * DAY
+            start = basis = None
+            kind = trig["type"]
+            if kind in ("soil_ge", "soil_le"):
+                ge = kind == "soil_ge"
+                hit = wx.first_day(ws, we, lambda d: (lambda a: a is not None and (a >= trig["value"] if ge else a <= trig["value"]))(wx.avg("soil", d, 7)))
+                if hit:
+                    start = hit
+                    basis = f"Soil at 2½\" averaging {F(wx.avg('soil', hit, 7))} ({'warmed past' if ge else 'cooled below'} {trig['value']}°F) on {hit:%b %-d}."
+            elif kind == "last_frost" and last_frost:
+                start = max(ws, last_frost + DAY + off)
+                basis = f"Last frost was {last_frost:%b %-d}, with no more frost in the forecast."
+            elif kind == "first_frost" and first_frost:
+                start = max(D(year, 9, 1), first_frost + off)
+                basis = f"First frost (low {F(wx.rows[first_frost]['tmin'])}) forecast {first_frost:%a %b %-d}."
+            elif kind == "hard_freeze" and hard_freeze:
+                start = hard_freeze + off
+                basis = f"Hard freeze (low {F(wx.rows[hard_freeze]['tmin'])}) on {hard_freeze:%a %b %-d}."
+            if start:
+                out[f"{plant['id']}:{t['id']}"] = dict(start=start, basis=basis)
+    return out
+
+
+def merge(prev, fresh, today):
+    """Fresh dates win until a date arrives; then it's locked (history survives the 3-month lookback)."""
+    out = {}
+    for key, st in fresh.items():
+        locked = prev.get(key)
+        if locked and D.fromisoformat(locked["start"]) <= today:
+            keep = dict(locked)
+            if "best" in st and st["best"] >= today:
+                keep["best"], keep["best_note"] = st["best"].isoformat(), st["best_note"]
+            out[key] = keep
+        else:
+            out[key] = ser(st)
+    for key, st in prev.items():
+        if key not in out and D.fromisoformat(st["start"]) <= today:
+            out[key] = st
+    return dict(sorted(out.items()))
+
+
 # ---------------------------------------------------------------- state
 
 def completion_dates(text):
@@ -265,7 +342,7 @@ def ser(step):
 LABELS = {"1B": "PREVENT!® #1", "2B": "Weed & Feed", "S1": "Grub preventer", "S2": "Mosquito season start",
           "3": "PREVENT!® #2", "W2": "Summer mode (raise mower)", "FR": "Fall seeding window opens",
           "4": "Renovator®", "W3": "Fall watering shift", "S5": "Fall broadleaf spray", "5": "Snowman®",
-          "W4": "Blow out irrigation"}
+          "W4": "Blow out irrigation", "O1": "Optional early-summer feed", "O2": "Optional midsummer feed"}
 
 
 def backtest(cfg, year):
@@ -306,32 +383,25 @@ def main():
     done = completion_dates(text)
 
     old = json.loads(STATE.read_text()) if STATE.exists() else {}
-    steps, prev = {}, old.get("steps", {})
+    cat = {p["id"]: p for p in json.loads((ROOT / "plant-catalog.json").read_text(encoding="utf-8"))["plants"]}
+    mine = [cat[p] for p in cfg.get("plants", []) if p in cat]
+    fresh_steps, fresh_plants = {}, {}
     for year in (season, season + 1):
-        fresh = rules(wx, year, today, done if year == season else {})
-        for sid, st in fresh.items():
-            key = f"{year}:{sid}"
-            locked = prev.get(key)
-            # Once a step's start date has arrived, keep it fixed (just refresh the best-day pick).
-            if locked and D.fromisoformat(locked["start"]) <= today:
-                keep = dict(locked)
-                if "best" in st and st["best"] >= today:
-                    keep["best"], keep["best_note"] = st["best"].isoformat(), st["best_note"]
-                steps[key] = keep
-            else:
-                steps[key] = ser(st)
-    for key, st in prev.items():  # keep locked history the 3-month lookback no longer covers
-        if key not in steps and D.fromisoformat(st["start"]) <= today:
-            steps[key] = st
+        for sid, st in rules(wx, year, today, done if year == season else {}).items():
+            fresh_steps[f"{year}:{sid}"] = st
+        for key, st in plant_rules(wx, year, mine).items():
+            fresh_plants[f"{year}:{key}"] = st
+    steps = merge(old.get("steps", {}), fresh_steps, today)
+    plants = merge(old.get("plants", {}), fresh_plants, today)
 
     al = {k: v for k, v in old.get("alerts", {}).items() if D.fromisoformat(v["date"]) >= today - 30 * DAY}
     for k, v in alerts(wx, today, done).items():
         al.setdefault(k, ser(v))  # first sighting wins, so dates don't drift day to day
 
-    state = dict(location={k: cfg[k] for k in ("label", "lat", "lon")}, steps=dict(sorted(steps.items())),
+    state = dict(location={k: cfg[k] for k in ("label", "lat", "lon")}, steps=steps, plants=plants,
                  alerts=dict(sorted(al.items())), catchup=old.get("catchup", {}))
     STATE.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Weather data {wx.first} → {wx.last}; {len(steps)} weather-timed steps, {len(al)} alerts → {STATE.name}")
+    print(f"Weather data {wx.first} → {wx.last}; {len(steps)} weather-timed steps, {len(plants)} plant tasks, {len(al)} alerts → {STATE.name}")
 
 
 if __name__ == "__main__":

@@ -12,19 +12,23 @@ UID:2026-5-buy@weather-and-lawn
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
-SUMMARY:🛒 Buy Snowman® (Step 5: Snowman®)
+SUMMARY:🛒 Buy Snowman® Winter Root Builder (Step 5: Snowman® Winter Ro
+ ot Builder)
 DESCRIPTION:📅 Typical date. It moves automatically once the weather says
-  when.\n\nApply around the last or second-to-last mow while grass is still
-  green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.co
- m/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md
- #step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
- html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/
- lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/ses
- sion_016pCzefUgtdCddfA8FBqLjL
+  when.\n\nGrassPad: apply around Thanksgiving\, at about the last mow whil
+ e grass is still green. High phosphorus + potash for roots\, disease resis
+ tance and early spring green-up. Water in ½" within 24–48 hrs.\n\nWindo
+ w: Oct 22 – Nov 30\nDetails: https://github.com/bwspargo3/Weather-and-La
+ wn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-5\n\n✅ Done: https
+ ://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=5&a=done\n\n❌ Ski
+ p: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=5&a=skip\n\
+ n💬 Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBq
+ LjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:🛒 Buy Snowman® (Step 5: Snowman®)
+DESCRIPTION:🛒 Buy Snowman® Winter Root Builder (Step 5: Snowman® Winte
+ r Root Builder)
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
@@ -54,19 +58,21 @@ UID:2026-5-start@weather-and-lawn
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261022
 DTEND;VALUE=DATE:20261023
-SUMMARY:🌱 Step 5: Snowman®: window opens
+SUMMARY:🌱 Step 5: Snowman® Winter Root Builder: window opens
 DESCRIPTION:📅 Typical date. It moves automatically once the weather says
-  when.\n\nApply around the last or second-to-last mow while grass is still
-  green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.co
- m/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md
- #step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
- html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/
- lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/ses
- sion_016pCzefUgtdCddfA8FBqLjL
+  when.\n\nGrassPad: apply around Thanksgiving\, at about the last mow whil
+ e grass is still green. High phosphorus + potash for roots\, disease resis
+ tance and early spring green-up. Water in ½" within 24–48 hrs.\n\nWindo
+ w: Oct 22 – Nov 30\nDetails: https://github.com/bwspargo3/Weather-and-La
+ wn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-5\n\n✅ Done: https
+ ://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=5&a=done\n\n❌ Ski
+ p: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=5&a=skip\n\
+ n💬 Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBq
+ LjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:🌱 Step 5: Snowman®: window opens
+DESCRIPTION:🌱 Step 5: Snowman® Winter Root Builder: window opens
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
@@ -96,19 +102,22 @@ UID:2026-5-last@weather-and-lawn
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261125
 DTEND;VALUE=DATE:20261126
-SUMMARY:⏰ Last call: Step 5: Snowman® (by Nov 30)
+SUMMARY:⏰ Last call: Step 5: Snowman® Winter Root Builder (by Nov 30)
 DESCRIPTION:📅 Typical date. It moves automatically once the weather says
-  when.\n\nApply around the last or second-to-last mow while grass is still
-  green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.co
- m/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md
- #step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
- html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/
- lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/ses
- sion_016pCzefUgtdCddfA8FBqLjL
+  when.\n\nGrassPad: apply around Thanksgiving\, at about the last mow whil
+ e grass is still green. High phosphorus + potash for roots\, disease resis
+ tance and early spring green-up. Water in ½" within 24–48 hrs.\n\nWindo
+ w: Oct 22 – Nov 30\nDetails: https://github.com/bwspargo3/Weather-and-La
+ wn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-5\n\n✅ Done: https
+ ://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=5&a=done\n\n❌ Ski
+ p: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=5&a=skip\n\
+ n💬 Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBq
+ LjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:⏰ Last call: Step 5: Snowman® (by Nov 30)
+DESCRIPTION:⏰ Last call: Step 5: Snowman® Winter Root Builder (by Nov 30
+ )
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
@@ -178,12 +187,13 @@ DTEND;VALUE=DATE:20270309
 SUMMARY:🛒 Buy PREVENT!® (Step 1: PREVENT!®)
 DESCRIPTION:📅 Typical date. It moves automatically once the weather says
   when.\n\nApply before soil holds 55°F (check the Lawn tab) / when forsyt
- hia blooms. Water in ~½". No seeding or aerating after.\n\nWindow: Mar 15
-  – Apr 15\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/c
- laude/lawn-care-tracker/LAWN_TRACKER.md#step-1b\n\n✅ Done: https://bwspa
- rgo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=done\n\n❌ Skip: http
- s://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=skip\n\n💬 
- Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+ hia blooms. Water in ½" within 24–48 hrs (GrassPad). No seeding or aera
+ ting after.\n\nWindow: Mar 15 – Apr 15\nDetails: https://github.com/bwsp
+ argo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-
+ 1b\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?
+ s=1B&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/lawn
+ -go.html?s=1B&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/sessio
+ n_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -199,12 +209,13 @@ DTEND;VALUE=DATE:20270316
 SUMMARY:🌱 Step 1: PREVENT!®: window opens
 DESCRIPTION:📅 Typical date. It moves automatically once the weather says
   when.\n\nApply before soil holds 55°F (check the Lawn tab) / when forsyt
- hia blooms. Water in ~½". No seeding or aerating after.\n\nWindow: Mar 15
-  – Apr 15\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/c
- laude/lawn-care-tracker/LAWN_TRACKER.md#step-1b\n\n✅ Done: https://bwspa
- rgo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=done\n\n❌ Skip: http
- s://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=skip\n\n💬 
- Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+ hia blooms. Water in ½" within 24–48 hrs (GrassPad). No seeding or aera
+ ting after.\n\nWindow: Mar 15 – Apr 15\nDetails: https://github.com/bwsp
+ argo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-
+ 1b\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?
+ s=1B&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/lawn
+ -go.html?s=1B&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/sessio
+ n_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -241,12 +252,13 @@ DTEND;VALUE=DATE:20270411
 SUMMARY:⏰ Last call: Step 1: PREVENT!® (by Apr 15)
 DESCRIPTION:📅 Typical date. It moves automatically once the weather says
   when.\n\nApply before soil holds 55°F (check the Lawn tab) / when forsyt
- hia blooms. Water in ~½". No seeding or aerating after.\n\nWindow: Mar 15
-  – Apr 15\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/c
- laude/lawn-care-tracker/LAWN_TRACKER.md#step-1b\n\n✅ Done: https://bwspa
- rgo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=done\n\n❌ Skip: http
- s://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=skip\n\n💬 
- Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+ hia blooms. Water in ½" within 24–48 hrs (GrassPad). No seeding or aera
+ ting after.\n\nWindow: Mar 15 – Apr 15\nDetails: https://github.com/bwsp
+ argo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-
+ 1b\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?
+ s=1B&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/lawn
+ -go.html?s=1B&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/sessio
+ n_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -348,12 +360,13 @@ DTEND;VALUE=DATE:20270516
 SUMMARY:🛒 Buy PREVENT!® (2nd bag) (Step 3: PREVENT!® (2nd app))
 DESCRIPTION:📅 Typical date. It moves automatically once the weather says
   when.\n\nBest late May to early June. If you plan to overseed this fall\,
-  apply by June 15. Water in ~½".\n\nWindow: May 22 – Jul 05\nDetails: h
- ttps://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker
- /LAWN_TRACKER.md#step-3\n\n✅ Done: https://bwspargo3.github.io/Weather-a
- nd-Lawn/lawn-go.html?s=3&a=done\n\n❌ Skip: https://bwspargo3.github.io/W
- eather-and-Lawn/lawn-go.html?s=3&a=skip\n\n💬 Talk to Claude: https://cl
- aude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+  apply by June 15. Water in ½" within 24–48 hrs (GrassPad).\n\nWindow: 
+ May 22 – Jul 05\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/
+ blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-3\n\n✅ Done: https://
+ bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=3&a=done\n\n❌ Skip: 
+ https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=3&a=skip\n\n
+ 💬 Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqL
+ jL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -403,6 +416,30 @@ TRIGGER:PT9H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
+UID:2027-O1-buy@weather-and-lawn
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270518
+DTEND;VALUE=DATE:20270519
+SUMMARY:🛒 Buy slow-release fertilizer (e.g. Milorganite) (Optional: Earl
+ y-Summer Slow-Release Feeding)
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nOPTIONAL. Non-burning slow-release feed (organic like Milorganit
+ e\, or 50%+ slow-release N) at the bag rate. Skip if the lawn is drought-s
+ tressed or highs are 90°F+.\n\nWindow: May 25 – Jun 20\nDetails: https:
+ //github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN
+ _TRACKER.md#step-o1\n\n✅ Done: https://bwspargo3.github.io/Weather-and-L
+ awn/lawn-go.html?s=O1&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weat
+ her-and-Lawn/lawn-go.html?s=O1&a=skip\n\n💬 Talk to Claude: https://clau
+ de.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:🛒 Buy slow-release fertilizer (e.g. Milorganite) (Optional: 
+ Early-Summer Slow-Release Feeding)
+TRIGGER:PT9H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:2027-3-start@weather-and-lawn
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270522
@@ -410,16 +447,39 @@ DTEND;VALUE=DATE:20270523
 SUMMARY:🌱 Step 3: PREVENT!® (2nd app): window opens
 DESCRIPTION:📅 Typical date. It moves automatically once the weather says
   when.\n\nBest late May to early June. If you plan to overseed this fall\,
-  apply by June 15. Water in ~½".\n\nWindow: May 22 – Jul 05\nDetails: h
- ttps://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker
- /LAWN_TRACKER.md#step-3\n\n✅ Done: https://bwspargo3.github.io/Weather-a
- nd-Lawn/lawn-go.html?s=3&a=done\n\n❌ Skip: https://bwspargo3.github.io/W
- eather-and-Lawn/lawn-go.html?s=3&a=skip\n\n💬 Talk to Claude: https://cl
- aude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+  apply by June 15. Water in ½" within 24–48 hrs (GrassPad).\n\nWindow: 
+ May 22 – Jul 05\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/
+ blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-3\n\n✅ Done: https://
+ bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=3&a=done\n\n❌ Skip: 
+ https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=3&a=skip\n\n
+ 💬 Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqL
+ jL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:🌱 Step 3: PREVENT!® (2nd app): window opens
+TRIGGER:PT9H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-O1-start@weather-and-lawn
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270525
+DTEND;VALUE=DATE:20270526
+SUMMARY:🌱 Optional: Early-Summer Slow-Release Feeding: window opens
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nOPTIONAL. Non-burning slow-release feed (organic like Milorganit
+ e\, or 50%+ slow-release N) at the bag rate. Skip if the lawn is drought-s
+ tressed or highs are 90°F+.\n\nWindow: May 25 – Jun 20\nDetails: https:
+ //github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN
+ _TRACKER.md#step-o1\n\n✅ Done: https://bwspargo3.github.io/Weather-and-L
+ awn/lawn-go.html?s=O1&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weat
+ her-and-Lawn/lawn-go.html?s=O1&a=skip\n\n💬 Talk to Claude: https://clau
+ de.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:🌱 Optional: Early-Summer Slow-Release Feeding: window opens
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
@@ -487,6 +547,30 @@ TRIGGER:PT9H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
+UID:2027-O1-last@weather-and-lawn
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270615
+DTEND;VALUE=DATE:20270616
+SUMMARY:⏰ Last call: Optional: Early-Summer Slow-Release Feeding (by Jun 
+ 20)
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nOPTIONAL. Non-burning slow-release feed (organic like Milorganit
+ e\, or 50%+ slow-release N) at the bag rate. Skip if the lawn is drought-s
+ tressed or highs are 90°F+.\n\nWindow: May 25 – Jun 20\nDetails: https:
+ //github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN
+ _TRACKER.md#step-o1\n\n✅ Done: https://bwspargo3.github.io/Weather-and-L
+ awn/lawn-go.html?s=O1&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weat
+ her-and-Lawn/lawn-go.html?s=O1&a=skip\n\n💬 Talk to Claude: https://clau
+ de.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Last call: Optional: Early-Summer Slow-Release Feeding (by 
+ Jun 20)
+TRIGGER:PT9H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:2027-S3-start@weather-and-lawn
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270615
@@ -504,6 +588,30 @@ TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:🌱 Brown Patch Watch: window opens
+TRIGGER:PT9H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-O2-buy@weather-and-lawn
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270624
+DTEND;VALUE=DATE:20270625
+SUMMARY:🛒 Buy slow-release fertilizer (e.g. Milorganite) (Optional: Mids
+ ummer Feeding (irrigated lawns only))
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nOPTIONAL. Only if you water regularly and the lawn is green. Use
+  a non-burning slow-release product\; skip during heat waves (90°F+) or d
+ rought dormancy.\n\nWindow: Jul 01 – Jul 20\nDetails: https://github.com
+ /bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#
+ step-o2\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
+ html?s=O2&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn
+ /lawn-go.html?s=O2&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/s
+ ession_016pCzefUgtdCddfA8FBqLjL
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:🛒 Buy slow-release fertilizer (e.g. Milorganite) (Optional: 
+ Midsummer Feeding (irrigated lawns only))
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
@@ -535,16 +643,41 @@ DTEND;VALUE=DATE:20270701
 SUMMARY:⏰ Last call: Step 3: PREVENT!® (2nd app) (by Jul 5)
 DESCRIPTION:📅 Typical date. It moves automatically once the weather says
   when.\n\nBest late May to early June. If you plan to overseed this fall\,
-  apply by June 15. Water in ~½".\n\nWindow: May 22 – Jul 05\nDetails: h
- ttps://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker
- /LAWN_TRACKER.md#step-3\n\n✅ Done: https://bwspargo3.github.io/Weather-a
- nd-Lawn/lawn-go.html?s=3&a=done\n\n❌ Skip: https://bwspargo3.github.io/W
- eather-and-Lawn/lawn-go.html?s=3&a=skip\n\n💬 Talk to Claude: https://cl
- aude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+  apply by June 15. Water in ½" within 24–48 hrs (GrassPad).\n\nWindow: 
+ May 22 – Jul 05\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/
+ blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-3\n\n✅ Done: https://
+ bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=3&a=done\n\n❌ Skip: 
+ https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=3&a=skip\n\n
+ 💬 Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqL
+ jL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:⏰ Last call: Step 3: PREVENT!® (2nd app) (by Jul 5)
+TRIGGER:PT9H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-O2-start@weather-and-lawn
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270701
+DTEND;VALUE=DATE:20270702
+SUMMARY:🌱 Optional: Midsummer Feeding (irrigated lawns only): window ope
+ ns
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nOPTIONAL. Only if you water regularly and the lawn is green. Use
+  a non-burning slow-release product\; skip during heat waves (90°F+) or d
+ rought dormancy.\n\nWindow: Jul 01 – Jul 20\nDetails: https://github.com
+ /bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#
+ step-o2\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
+ html?s=O2&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn
+ /lawn-go.html?s=O2&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/s
+ ession_016pCzefUgtdCddfA8FBqLjL
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:🌱 Optional: Midsummer Feeding (irrigated lawns only): window
+  opens
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
@@ -587,6 +720,30 @@ TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:🦟 Mosquito re-spray + fresh Bti dunks
+TRIGGER:PT9H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-O2-last@weather-and-lawn
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270715
+DTEND;VALUE=DATE:20270716
+SUMMARY:⏰ Last call: Optional: Midsummer Feeding (irrigated lawns only) (
+ by Jul 20)
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nOPTIONAL. Only if you water regularly and the lawn is green. Use
+  a non-burning slow-release product\; skip during heat waves (90°F+) or d
+ rought dormancy.\n\nWindow: Jul 01 – Jul 20\nDetails: https://github.com
+ /bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#
+ step-o2\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
+ html?s=O2&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn
+ /lawn-go.html?s=O2&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/s
+ ession_016pCzefUgtdCddfA8FBqLjL
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Last call: Optional: Midsummer Feeding (irrigated lawns onl
+ y) (by Jul 20)
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
@@ -868,19 +1025,23 @@ UID:2027-5-buy@weather-and-lawn
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20271015
 DTEND;VALUE=DATE:20271016
-SUMMARY:🛒 Buy Snowman® (Step 5: Snowman®)
+SUMMARY:🛒 Buy Snowman® Winter Root Builder (Step 5: Snowman® Winter Ro
+ ot Builder)
 DESCRIPTION:📅 Typical date. It moves automatically once the weather says
-  when.\n\nApply around the last or second-to-last mow while grass is still
-  green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.co
- m/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md
- #step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
- html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/
- lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/ses
- sion_016pCzefUgtdCddfA8FBqLjL
+  when.\n\nGrassPad: apply around Thanksgiving\, at about the last mow whil
+ e grass is still green. High phosphorus + potash for roots\, disease resis
+ tance and early spring green-up. Water in ½" within 24–48 hrs.\n\nWindo
+ w: Oct 22 – Nov 30\nDetails: https://github.com/bwspargo3/Weather-and-La
+ wn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-5\n\n✅ Done: https
+ ://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=5&a=done\n\n❌ Ski
+ p: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=5&a=skip\n\
+ n💬 Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBq
+ LjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:🛒 Buy Snowman® (Step 5: Snowman®)
+DESCRIPTION:🛒 Buy Snowman® Winter Root Builder (Step 5: Snowman® Winte
+ r Root Builder)
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
@@ -910,19 +1071,21 @@ UID:2027-5-start@weather-and-lawn
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20271022
 DTEND;VALUE=DATE:20271023
-SUMMARY:🌱 Step 5: Snowman®: window opens
+SUMMARY:🌱 Step 5: Snowman® Winter Root Builder: window opens
 DESCRIPTION:📅 Typical date. It moves automatically once the weather says
-  when.\n\nApply around the last or second-to-last mow while grass is still
-  green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.co
- m/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md
- #step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
- html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/
- lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/ses
- sion_016pCzefUgtdCddfA8FBqLjL
+  when.\n\nGrassPad: apply around Thanksgiving\, at about the last mow whil
+ e grass is still green. High phosphorus + potash for roots\, disease resis
+ tance and early spring green-up. Water in ½" within 24–48 hrs.\n\nWindo
+ w: Oct 22 – Nov 30\nDetails: https://github.com/bwspargo3/Weather-and-La
+ wn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-5\n\n✅ Done: https
+ ://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=5&a=done\n\n❌ Ski
+ p: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=5&a=skip\n\
+ n💬 Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBq
+ LjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:🌱 Step 5: Snowman®: window opens
+DESCRIPTION:🌱 Step 5: Snowman® Winter Root Builder: window opens
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
@@ -994,19 +1157,22 @@ UID:2027-5-last@weather-and-lawn
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20271125
 DTEND;VALUE=DATE:20271126
-SUMMARY:⏰ Last call: Step 5: Snowman® (by Nov 30)
+SUMMARY:⏰ Last call: Step 5: Snowman® Winter Root Builder (by Nov 30)
 DESCRIPTION:📅 Typical date. It moves automatically once the weather says
-  when.\n\nApply around the last or second-to-last mow while grass is still
-  green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.co
- m/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md
- #step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
- html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/
- lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/ses
- sion_016pCzefUgtdCddfA8FBqLjL
+  when.\n\nGrassPad: apply around Thanksgiving\, at about the last mow whil
+ e grass is still green. High phosphorus + potash for roots\, disease resis
+ tance and early spring green-up. Water in ½" within 24–48 hrs.\n\nWindo
+ w: Oct 22 – Nov 30\nDetails: https://github.com/bwspargo3/Weather-and-La
+ wn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-5\n\n✅ Done: https
+ ://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=5&a=done\n\n❌ Ski
+ p: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=5&a=skip\n\
+ n💬 Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBq
+ LjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:⏰ Last call: Step 5: Snowman® (by Nov 30)
+DESCRIPTION:⏰ Last call: Step 5: Snowman® Winter Root Builder (by Nov 30
+ )
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT

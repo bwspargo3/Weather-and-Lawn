@@ -18,6 +18,7 @@ import sys
 from zoneinfo import ZoneInfo
 
 from lawn_links import SESSION_URL, go_url, issue_url
+import lawn_plants
 
 TRACKER = pathlib.Path(__file__).resolve().parent.parent / "LAWN_TRACKER.md"
 STATE = TRACKER.parent / "lawn-state.json"
@@ -114,7 +115,29 @@ def clean_notes(body):
     return " / ".join(parts)
 
 
+def render_all(text, today):
+    state = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {}
+    return lawn_plants.render_section(render_next_action(text), today, state)
+
+
+def apply_plants(text, title, today):
+    """Title like '🌿 plants: roses, veg, bulbs' (or 'none') replaces the plant list in lawn-config.json."""
+    cat = lawn_plants.catalog()
+    raw = title.split(":", 1)[1] if ":" in title else ""
+    ids = [w for w in re.split(r"[,\s]+", raw.strip().lower()) if w and w != "none"]
+    bad = [i for i in ids if i not in cat]
+    if bad:
+        raise UpdateError(f"Unknown plant id(s): {', '.join(bad)}. Valid: {', '.join(cat)}.")
+    ids = list(dict.fromkeys(ids))
+    lawn_plants.set_plants(ids)
+    names = ", ".join(f"{cat[i]['emoji']} {cat[i]['name']}" for i in ids) or "none"
+    return render_all(text, today), (f"🌿 Plant list saved: {names}.\n\nPruning, feeding and planting reminders for these "
+                                     "are now in your calendar; the next weather run times any weather-triggered ones.")
+
+
 def apply(text, title, body, created):
+    if title.lstrip().startswith("🌿"):
+        return apply_plants(text, title, created)
     m = TITLE_RE.match(title)
     if not m or not (m.group(1) or m.group(3)):
         raise UpdateError("Title should look like `✅ 4 done` or `❌ S5 skipped` (optionally with a date: `(Oct 4)`).")
@@ -144,7 +167,7 @@ def apply(text, title, body, created):
     entry = f"- **{fmt_date(when)}** · {new_status.split(' (')[0]} · {sid} · {row['name']}" + (f": {notes}" if notes else "")
     if row["status"] != new_status or notes:  # don't journal an exact repeat (e.g. a double tap)
         text = text.replace("\n<!-- JOURNAL:END -->", f"\n{entry}\n<!-- JOURNAL:END -->", 1)
-    text = render_next_action(text)
+    text = render_all(text, created)
 
     summary = [f"Marked **{sid} · {row['name']}** as {new_status}."]
     if row["status"] != "⬜ Not started":
@@ -174,7 +197,7 @@ def main():
 
     text = TRACKER.read_text(encoding="utf-8")
     if args.cmd == "render":
-        TRACKER.write_text(render_next_action(text), encoding="utf-8")
+        TRACKER.write_text(render_all(text, dt.datetime.now(TZ).date()), encoding="utf-8")
         return
     created = (dt.datetime.fromisoformat(args.created.replace("Z", "+00:00")).astimezone(TZ).date()
                if args.created else dt.datetime.now(TZ).date())
