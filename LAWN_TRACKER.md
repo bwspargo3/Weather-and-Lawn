@@ -25,7 +25,7 @@
 >
 > **Done?** [✅ Mark done](https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=W3&a=done) · [❌ Skip](https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=W3&a=skip) · [💬 Talk to Claude](https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL) <sub>(via GitHub: [✅](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9C%85%20W3%20done) · [❌](https://github.com/bwspargo3/Weather-and-Lawn/issues/new?title=%E2%9D%8C%20W3%20skipped))</sub>
 >
-> **👀 Coming up after this:** [Fall Broadleaf Weed Control](#step-s5) (Early → Late Oct, 🛒 buy by ~Sep 28) → [Leaf Management](#step-s6) (Mid-Oct → Nov)
+> **👀 Coming up after this:** [Leaf Management](#step-s6) (Mid-Oct → Nov) → [Step 5: Snowman®](#step-5) (Late Oct → Nov, 🛒 buy by ~Oct 15)
 <!-- NEXT-ACTION:END -->
 
 > **📲 iPhone reminders:** subscribe once to the [Lawn Care calendar](https://raw.githubusercontent.com/bwspargo3/Weather-and-Lawn/claude/lawn-care-tracker/lawn-calendar.ics) (setup steps at the [bottom](#iphone-calendar)). It updates itself whenever this tracker changes.
@@ -54,7 +54,7 @@
 | 4 | [Step 4: Renovator®](#step-4) | Both | Sep → Oct | ~Aug 25 | ✅ Done (Oct 2, 2026) |
 | FR | [Fall Renovation / Overseeding](#step-fr) | Optional | Late Aug prep → Sep 1 – Oct 10 seeding | ~Aug 20 | ✅ Done (Oct 2, 2026) |
 | W3 | [Fall Watering Shift](#step-w3) | Supplemental | Sep → Oct | n/a | ⬜ Not started |
-| S5 | [Fall Broadleaf Weed Control](#step-s5) | Supplemental (skip if you seeded) | Early → Late Oct | ~Sep 28 | ⬜ Not started |
+| S5 | [Fall Broadleaf Weed Control](#step-s5) | Supplemental (skip if you seeded) | Early → Late Oct | ~Sep 28 | ❌ Skipped (Oct 3, 2026) |
 | S6 | [Leaf Management](#step-s6) | Supplemental | Mid-Oct → Nov | n/a | ⬜ Not started |
 | 5 | [Step 5: Snowman®](#step-5) | Both | Late Oct → Nov | ~Oct 15 | ⬜ Not started |
 | W4 | [Season Close-Out](#step-w4) | Supplemental | Mid → Late Nov | n/a | ⬜ Not started |
@@ -301,7 +301,7 @@
 <a id="step-s5"></a>
 ### 🌿 Fall Broadleaf Weed Control
 **Timing:** Early → Late October  **Programs:** Supplemental (skip if you seeded)
-**Status:** ⬜ Not started
+**Status:** ❌ Skipped (Oct 3, 2026)
 
 **What to do:**
 - Fall is the **most effective** time to kill dandelions, clover and ground ivy (creeping Charlie). Weeds are pulling energy down to their roots and take the herbicide with it.
@@ -407,6 +407,7 @@ Each one alerts at 9 AM. Its notes link back to its section here and include **�
 <!-- JOURNAL:START (newest last) -->
 - **Oct 2, 2026** · ✅ Done · FR · Fall Renovation / Overseeding
 - **Oct 2, 2026** · ✅ Done · 4 · Step 4: Renovator®
+- **Oct 3, 2026** · ❌ Skipped · S5 · Fall Broadleaf Weed Control
 <!-- JOURNAL:END -->
 
 *Sources: GrassPad's [Idiot-Proof Lawn Program](https://grasspad.com/idiot-proof-lawn-program/), [Spring Seeding / Seed Safe](https://grasspad.com/spring-seeding/), and [Idiot-Proof Fall Lawn Renovation](https://grasspad.com/idiot-proof-fall-lawn-renovation/). The supplemental tasks (grubs, mosquitoes, disease, watering) use standard cool-season extension guidance. Always follow the product label for rates.*
