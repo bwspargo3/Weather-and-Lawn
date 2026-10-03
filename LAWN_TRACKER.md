@@ -353,7 +353,7 @@ Every morning around 5 AM, a GitHub Action (`.github/workflows/lawn-weather.yml`
 
 | Step | Weather trigger |
 |------|-----------------|
-| 1B PREVENT!® | Soil 5-day average reaches **50°F** (crabgrass sprouts ~55°F). Last call as soil passes 57°F. |
+| 1B PREVENT!® | Soil **7-day** average reaches **50°F**, not before Mar 10 (crabgrass sprouts ~55°F; this ignores February warm spells). Last call as soil passes 57°F. |
 | 2B Weed & Feed | Highs **60°F+** for 3 days. ⭐ best day = mild (60–85°F) and dry for 24–48 hrs. |
 | 3 PREVENT!® #2 | **6 weeks** after your ✅ date for PREVENT! #1 (May 15 – Jun 10). |
 | S1 Grub preventer | Soil 5-day average reaches **60°F**. |

@@ -117,11 +117,12 @@ def rules(wx, year, today, done):
     y = lambda m, d: D(year, m, d)
 
     # 1B PREVENT! #1 — crabgrass sprouts once soil holds ~55°F; get the barrier down as it passes 50°F.
-    s = wx.first_day(y(2, 15), y(5, 15), lambda d: (wx.avg("soil", d) or 0) >= 50)
+    # Not before Mar 10 and on a 7-day average, so a February warm spell can't trigger it early.
+    s = wx.first_day(y(3, 10), y(5, 15), lambda d: (wx.avg("soil", d, 7) or 0) >= 50)
     if s:
-        e = wx.first_day(s + DAY, y(5, 31), lambda d: (wx.avg("soil", d) or 0) >= 57) or min(s + 21 * DAY, y(4, 30))
-        out["1B"] = dict(buy=s - 7 * DAY, start=s, end=max(e, s + 3 * DAY),
-                         basis=f"Soil at 2½\" hit a 5-day average of {F(wx.avg('soil', s))} on {s:%b %-d}. "
+        e = wx.first_day(s + DAY, y(5, 31), lambda d: (wx.avg("soil", d, 7) or 0) >= 57) or min(s + 21 * DAY, y(4, 30))
+        out["1B"] = dict(buy=s - 7 * DAY, start=s, end=max(e, s + 5 * DAY),
+                         basis=f"Soil at 2½\" hit a 7-day average of {F(wx.avg('soil', s, 7))} on {s:%b %-d}. "
                                f"Crabgrass sprouts once soil holds ~55°F, so apply now.")
     pre1 = done.get("1B") or (out.get("1B") or {}).get("start")
 
