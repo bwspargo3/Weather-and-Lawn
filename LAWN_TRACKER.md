@@ -391,11 +391,10 @@ Each one alerts at 9 AM. Its notes link back to its section here and include **�
    - Method: **POST**
    - Headers: `Authorization` = `Bearer ` + your token · `Accept` = `application/vnd.github+json`
    - Request Body: **JSON** · `title` (Text) = **Shortcut Input** · `body` (Text) = **Provided Input**
-5. Add **Get Dictionary Value** → Get *Value* for `number` in **Contents of URL**.
-6. Add **If** → *Dictionary Value* **has any value**.
+5. Add **If** → *Contents of URL* **contains** `html_url` (this text appears in every successful reply from GitHub).
    - Inside: **Show Notification** → `🌱 Logged: Shortcut Input`
    - Otherwise: **Show Alert** → `Lawn Log failed:` **Contents of URL**
-7. Tap **Done**.
+6. Tap **Done**.
 
 **C. Test it:** tap any ✅ / ❌ link in a lawn calendar event. Safari asks *Open in "Shortcuts"?* → **Open**. The first run asks to connect to api.github.com → **Always Allow**. Leave the note blank (or type `-`), then tap Done. You should see "🌱 Logged", and the tracker updates about 15 seconds later.
 
