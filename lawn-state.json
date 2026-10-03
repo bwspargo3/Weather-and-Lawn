@@ -1,0 +1,41 @@
+{
+  "location": {
+    "label": "Lenexa, KS 66220",
+    "lat": 38.96,
+    "lon": -94.82
+  },
+  "steps": {
+    "2026:4": {
+      "buy": "2026-09-06",
+      "start": "2026-09-13",
+      "end": "2026-10-31",
+      "basis": "Summer heat has broken (since Sep 13). Feed now so the lawn recovers before winter."
+    },
+    "2026:FR": {
+      "buy": "2026-09-06",
+      "start": "2026-09-13",
+      "end": "2026-10-10",
+      "basis": "Summer heat broke Sep 13 (5-day average high 83°F). Seed germinates best in warm soil and cool air."
+    },
+    "2026:S5": {
+      "buy": "2026-09-18",
+      "start": "2026-09-25",
+      "end": "2026-10-31",
+      "basis": "5-day average high 73°F. Weeds are moving energy to their roots, so spraying works best now.",
+      "best": "2026-10-03",
+      "best_note": "Sat Oct 3: high 72°F with no rain. Good spraying day."
+    },
+    "2026:W2": {
+      "start": "2026-07-07",
+      "end": "2026-08-31",
+      "basis": "Highs 85°F+ for 3 days (since Jul 5). Raise the mower and switch to summer watering."
+    },
+    "2026:W3": {
+      "start": "2026-09-13",
+      "end": "2026-10-31",
+      "basis": "Cooler weather since Sep 13. Cut back to ~1\"/week unless you seeded."
+    }
+  },
+  "alerts": {},
+  "catchup": {}
+}

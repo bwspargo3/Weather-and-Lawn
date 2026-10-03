@@ -9,17 +9,18 @@ REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:2026-5-buy@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:🛒 Buy Snowman® (Step 5: Snowman®)
-DESCRIPTION:Apply around the last or second-to-last mow while grass is stil
- l green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.c
- om/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.m
- d#step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go
- .html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn
- /lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/se
- ssion_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply around the last or second-to-last mow while grass is still
+  green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.co
+ m/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md
+ #step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
+ html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/
+ lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/ses
+ sion_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -29,17 +30,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-S6-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:🌱 Leaf Management: window opens
-DESCRIPTION:Mulch-mow light leaves\; rake heavy mats\, especially off new g
- rass. Repeat weekly while trees drop.\n\nWindow: Oct 15 – Nov 30\nDetail
- s: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tra
- cker/LAWN_TRACKER.md#step-s6\n\n✅ Done: https://bwspargo3.github.io/Weat
- her-and-Lawn/lawn-go.html?s=S6&a=done\n\n❌ Skip: https://bwspargo3.githu
- b.io/Weather-and-Lawn/lawn-go.html?s=S6&a=skip\n\n💬 Talk to Claude: htt
- ps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nMulch-mow light leaves\; rake heavy mats\, especially off new gr
+ ass. Repeat weekly while trees drop.\n\nWindow: Oct 15 – Nov 30\nDetails
+ : https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-trac
+ ker/LAWN_TRACKER.md#step-s6\n\n✅ Done: https://bwspargo3.github.io/Weath
+ er-and-Lawn/lawn-go.html?s=S6&a=done\n\n❌ Skip: https://bwspargo3.github
+ .io/Weather-and-Lawn/lawn-go.html?s=S6&a=skip\n\n💬 Talk to Claude: http
+ s://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -49,17 +51,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-5-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261022
 DTEND;VALUE=DATE:20261023
 SUMMARY:🌱 Step 5: Snowman®: window opens
-DESCRIPTION:Apply around the last or second-to-last mow while grass is stil
- l green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.c
- om/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.m
- d#step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go
- .html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn
- /lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/se
- ssion_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply around the last or second-to-last mow while grass is still
+  green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.co
+ m/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md
+ #step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
+ html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/
+ lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/ses
+ sion_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -69,17 +72,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-W4-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:🌱 Season Close-Out: window opens
-DESCRIPTION:Final mow ~2.5". Blow out irrigation before a hard freeze. Stab
- ilize mower fuel and sharpen the blade.\n\nWindow: Nov 15 – Nov 30\nDeta
- ils: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-t
- racker/LAWN_TRACKER.md#step-w4\n\n✅ Done: https://bwspargo3.github.io/We
- ather-and-Lawn/lawn-go.html?s=W4&a=done\n\n❌ Skip: https://bwspargo3.git
- hub.io/Weather-and-Lawn/lawn-go.html?s=W4&a=skip\n\n💬 Talk to Claude: h
- ttps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nFinal mow ~2.5". Blow out irrigation before a hard freeze. Stabi
+ lize mower fuel and sharpen the blade.\n\nWindow: Nov 15 – Nov 30\nDetai
+ ls: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tr
+ acker/LAWN_TRACKER.md#step-w4\n\n✅ Done: https://bwspargo3.github.io/Wea
+ ther-and-Lawn/lawn-go.html?s=W4&a=done\n\n❌ Skip: https://bwspargo3.gith
+ ub.io/Weather-and-Lawn/lawn-go.html?s=W4&a=skip\n\n💬 Talk to Claude: ht
+ tps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -89,27 +93,28 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-5-last@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261125
 DTEND;VALUE=DATE:20261126
-SUMMARY:⏰ Last call: Step 5: Snowman®
-DESCRIPTION:Apply around the last or second-to-last mow while grass is stil
- l green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.c
- om/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.m
- d#step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go
- .html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn
- /lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/se
- ssion_016pCzefUgtdCddfA8FBqLjL
+SUMMARY:⏰ Last call: Step 5: Snowman® (by Nov 30)
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply around the last or second-to-last mow while grass is still
+  green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.co
+ m/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md
+ #step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
+ html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/
+ lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/ses
+ sion_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:⏰ Last call: Step 5: Snowman®
+DESCRIPTION:⏰ Last call: Step 5: Snowman® (by Nov 30)
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-reset@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270222
 DTEND;VALUE=DATE:20270223
 SUMMARY:🔄 Tell Claude: reset the lawn tracker for the new season
@@ -125,17 +130,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-P-buy@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:🛒 Buy mower blade sharpening (Prep Tasks)
-DESCRIPTION:Sharpen blades\, rake out debris\, check spreader. Confirm spri
- ng path with Claude (Idiot-Proof vs Seed Safe).\n\nWindow: Mar 01 – Mar 
- 15\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/law
- n-care-tracker/LAWN_TRACKER.md#step-prep\n\n✅ Done: https://bwspargo3.gi
- thub.io/Weather-and-Lawn/lawn-go.html?s=P&a=done\n\n❌ Skip: https://bwsp
- argo3.github.io/Weather-and-Lawn/lawn-go.html?s=P&a=skip\n\n💬 Talk to C
- laude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nSharpen blades\, rake out debris\, check spreader. Confirm sprin
+ g path with Claude (Idiot-Proof vs Seed Safe).\n\nWindow: Mar 01 – Mar 1
+ 5\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn
+ -care-tracker/LAWN_TRACKER.md#step-prep\n\n✅ Done: https://bwspargo3.git
+ hub.io/Weather-and-Lawn/lawn-go.html?s=P&a=done\n\n❌ Skip: https://bwspa
+ rgo3.github.io/Weather-and-Lawn/lawn-go.html?s=P&a=skip\n\n💬 Talk to Cl
+ aude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -145,17 +151,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-P-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:🌱 Prep Tasks: window opens
-DESCRIPTION:Sharpen blades\, rake out debris\, check spreader. Confirm spri
- ng path with Claude (Idiot-Proof vs Seed Safe).\n\nWindow: Mar 01 – Mar 
- 15\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/law
- n-care-tracker/LAWN_TRACKER.md#step-prep\n\n✅ Done: https://bwspargo3.gi
- thub.io/Weather-and-Lawn/lawn-go.html?s=P&a=done\n\n❌ Skip: https://bwsp
- argo3.github.io/Weather-and-Lawn/lawn-go.html?s=P&a=skip\n\n💬 Talk to C
- laude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nSharpen blades\, rake out debris\, check spreader. Confirm sprin
+ g path with Claude (Idiot-Proof vs Seed Safe).\n\nWindow: Mar 01 – Mar 1
+ 5\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn
+ -care-tracker/LAWN_TRACKER.md#step-prep\n\n✅ Done: https://bwspargo3.git
+ hub.io/Weather-and-Lawn/lawn-go.html?s=P&a=done\n\n❌ Skip: https://bwspa
+ rgo3.github.io/Weather-and-Lawn/lawn-go.html?s=P&a=skip\n\n💬 Talk to Cl
+ aude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -165,17 +172,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-1B-buy@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270308
 DTEND;VALUE=DATE:20270309
 SUMMARY:🛒 Buy PREVENT!® (Step 1: PREVENT!®)
-DESCRIPTION:Apply before soil holds 55°F (check the Lawn tab) / when forsy
- thia blooms. Water in ~½". No seeding or aerating after.\n\nWindow: Mar 1
- 5 – Apr 15\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/
- claude/lawn-care-tracker/LAWN_TRACKER.md#step-1b\n\n✅ Done: https://bwsp
- argo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=done\n\n❌ Skip: htt
- ps://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=skip\n\n💬
-  Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply before soil holds 55°F (check the Lawn tab) / when forsyt
+ hia blooms. Water in ~½". No seeding or aerating after.\n\nWindow: Mar 15
+  – Apr 15\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/c
+ laude/lawn-care-tracker/LAWN_TRACKER.md#step-1b\n\n✅ Done: https://bwspa
+ rgo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=done\n\n❌ Skip: http
+ s://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=skip\n\n💬 
+ Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -185,17 +193,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-1B-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270315
 DTEND;VALUE=DATE:20270316
 SUMMARY:🌱 Step 1: PREVENT!®: window opens
-DESCRIPTION:Apply before soil holds 55°F (check the Lawn tab) / when forsy
- thia blooms. Water in ~½". No seeding or aerating after.\n\nWindow: Mar 1
- 5 – Apr 15\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/
- claude/lawn-care-tracker/LAWN_TRACKER.md#step-1b\n\n✅ Done: https://bwsp
- argo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=done\n\n❌ Skip: htt
- ps://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=skip\n\n💬
-  Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply before soil holds 55°F (check the Lawn tab) / when forsyt
+ hia blooms. Water in ~½". No seeding or aerating after.\n\nWindow: Mar 15
+  – Apr 15\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/c
+ laude/lawn-care-tracker/LAWN_TRACKER.md#step-1b\n\n✅ Done: https://bwspa
+ rgo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=done\n\n❌ Skip: http
+ s://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=skip\n\n💬 
+ Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -205,17 +214,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-W1-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270401
 DTEND;VALUE=DATE:20270402
 SUMMARY:🌱 Spring Watering & Mowing Setup: window opens
-DESCRIPTION:Mow at 3". Turn irrigation on\, check heads\, leave it on manua
- l. Water only after 10+ dry days.\n\nWindow: Apr 01 – Apr 15\nDetails: h
- ttps://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker
- /LAWN_TRACKER.md#step-w1\n\n✅ Done: https://bwspargo3.github.io/Weather-
- and-Lawn/lawn-go.html?s=W1&a=done\n\n❌ Skip: https://bwspargo3.github.io
- /Weather-and-Lawn/lawn-go.html?s=W1&a=skip\n\n💬 Talk to Claude: https:/
- /claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nMow at 3". Turn irrigation on\, check heads\, leave it on manual
+ . Water only after 10+ dry days.\n\nWindow: Apr 01 – Apr 15\nDetails: ht
+ tps://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/
+ LAWN_TRACKER.md#step-w1\n\n✅ Done: https://bwspargo3.github.io/Weather-a
+ nd-Lawn/lawn-go.html?s=W1&a=done\n\n❌ Skip: https://bwspargo3.github.io/
+ Weather-and-Lawn/lawn-go.html?s=W1&a=skip\n\n💬 Talk to Claude: https://
+ claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -225,37 +235,39 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-1B-last@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270410
 DTEND;VALUE=DATE:20270411
-SUMMARY:⏰ Last call: Step 1: PREVENT!®
-DESCRIPTION:Apply before soil holds 55°F (check the Lawn tab) / when forsy
- thia blooms. Water in ~½". No seeding or aerating after.\n\nWindow: Mar 1
- 5 – Apr 15\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/
- claude/lawn-care-tracker/LAWN_TRACKER.md#step-1b\n\n✅ Done: https://bwsp
- argo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=done\n\n❌ Skip: htt
- ps://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=skip\n\n💬
-  Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+SUMMARY:⏰ Last call: Step 1: PREVENT!® (by Apr 15)
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply before soil holds 55°F (check the Lawn tab) / when forsyt
+ hia blooms. Water in ~½". No seeding or aerating after.\n\nWindow: Mar 15
+  – Apr 15\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/c
+ laude/lawn-care-tracker/LAWN_TRACKER.md#step-1b\n\n✅ Done: https://bwspa
+ rgo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=done\n\n❌ Skip: http
+ s://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=1B&a=skip\n\n💬 
+ Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:⏰ Last call: Step 1: PREVENT!®
+DESCRIPTION:⏰ Last call: Step 1: PREVENT!® (by Apr 15)
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-2B-buy@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270415
 DTEND;VALUE=DATE:20270416
 SUMMARY:🛒 Buy Weed & Feed (Step 2: Weed & Feed)
-DESCRIPTION:Apply to WET grass when dandelions flower. No water or mowing f
- or 24–48 hrs\; check for a dry forecast.\n\nWindow: Apr 22 – Jun 05\nD
- etails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-car
- e-tracker/LAWN_TRACKER.md#step-2b\n\n✅ Done: https://bwspargo3.github.io
- /Weather-and-Lawn/lawn-go.html?s=2B&a=done\n\n❌ Skip: https://bwspargo3.
- github.io/Weather-and-Lawn/lawn-go.html?s=2B&a=skip\n\n💬 Talk to Claude
- : https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply to WET grass when dandelions flower. No water or mowing fo
+ r 24–48 hrs\; check for a dry forecast.\n\nWindow: Apr 22 – Jun 05\nDe
+ tails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care
+ -tracker/LAWN_TRACKER.md#step-2b\n\n✅ Done: https://bwspargo3.github.io/
+ Weather-and-Lawn/lawn-go.html?s=2B&a=done\n\n❌ Skip: https://bwspargo3.g
+ ithub.io/Weather-and-Lawn/lawn-go.html?s=2B&a=skip\n\n💬 Talk to Claude:
+  https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -265,17 +277,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-2B-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270422
 DTEND;VALUE=DATE:20270423
 SUMMARY:🌱 Step 2: Weed & Feed: window opens
-DESCRIPTION:Apply to WET grass when dandelions flower. No water or mowing f
- or 24–48 hrs\; check for a dry forecast.\n\nWindow: Apr 22 – Jun 05\nD
- etails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-car
- e-tracker/LAWN_TRACKER.md#step-2b\n\n✅ Done: https://bwspargo3.github.io
- /Weather-and-Lawn/lawn-go.html?s=2B&a=done\n\n❌ Skip: https://bwspargo3.
- github.io/Weather-and-Lawn/lawn-go.html?s=2B&a=skip\n\n💬 Talk to Claude
- : https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply to WET grass when dandelions flower. No water or mowing fo
+ r 24–48 hrs\; check for a dry forecast.\n\nWindow: Apr 22 – Jun 05\nDe
+ tails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care
+ -tracker/LAWN_TRACKER.md#step-2b\n\n✅ Done: https://bwspargo3.github.io/
+ Weather-and-Lawn/lawn-go.html?s=2B&a=done\n\n❌ Skip: https://bwspargo3.g
+ ithub.io/Weather-and-Lawn/lawn-go.html?s=2B&a=skip\n\n💬 Talk to Claude:
+  https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -285,17 +298,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-S1-buy@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270508
 DTEND;VALUE=DATE:20270509
 SUMMARY:🛒 Buy grub preventer (chlorantraniliprole\, e.g. GrubEx) (Grub P
  reventer)
-DESCRIPTION:Apply and water in ~½" within 24 hrs.\n\nWindow: May 15 – Ju
- n 30\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/l
- awn-care-tracker/LAWN_TRACKER.md#step-s1\n\n✅ Done: https://bwspargo3.gi
- thub.io/Weather-and-Lawn/lawn-go.html?s=S1&a=done\n\n❌ Skip: https://bws
- pargo3.github.io/Weather-and-Lawn/lawn-go.html?s=S1&a=skip\n\n💬 Talk to
-  Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply and water in ~½" within 24 hrs.\n\nWindow: May 15 – Jun
+  30\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/la
+ wn-care-tracker/LAWN_TRACKER.md#step-s1\n\n✅ Done: https://bwspargo3.git
+ hub.io/Weather-and-Lawn/lawn-go.html?s=S1&a=done\n\n❌ Skip: https://bwsp
+ argo3.github.io/Weather-and-Lawn/lawn-go.html?s=S1&a=skip\n\n💬 Talk to 
+ Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -306,17 +320,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-S2-buy@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270508
 DTEND;VALUE=DATE:20270509
 SUMMARY:🛒 Buy Bti dunks + mosquito barrier spray (Mosquito Season Start)
-DESCRIPTION:Dump standing water weekly. Bti dunks in bird baths and barrels
- . Spray shrubs and shade\, not flowers.\n\nWindow: May 15 – May 31\nDeta
- ils: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-t
- racker/LAWN_TRACKER.md#step-s2\n\n✅ Done: https://bwspargo3.github.io/We
- ather-and-Lawn/lawn-go.html?s=S2&a=done\n\n❌ Skip: https://bwspargo3.git
- hub.io/Weather-and-Lawn/lawn-go.html?s=S2&a=skip\n\n💬 Talk to Claude: h
- ttps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nDump standing water weekly. Bti dunks in bird baths and barrels.
+  Spray shrubs and shade\, not flowers.\n\nWindow: May 15 – May 31\nDetai
+ ls: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tr
+ acker/LAWN_TRACKER.md#step-s2\n\n✅ Done: https://bwspargo3.github.io/Wea
+ ther-and-Lawn/lawn-go.html?s=S2&a=done\n\n❌ Skip: https://bwspargo3.gith
+ ub.io/Weather-and-Lawn/lawn-go.html?s=S2&a=skip\n\n💬 Talk to Claude: ht
+ tps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -327,17 +342,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-3-buy@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270515
 DTEND;VALUE=DATE:20270516
 SUMMARY:🛒 Buy PREVENT!® (2nd bag) (Step 3: PREVENT!® (2nd app))
-DESCRIPTION:Best late May to early June. If you plan to overseed this fall\
- , apply by June 15. Water in ~½".\n\nWindow: May 22 – Jul 05\nDetails: 
- https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracke
- r/LAWN_TRACKER.md#step-3\n\n✅ Done: https://bwspargo3.github.io/Weather-
- and-Lawn/lawn-go.html?s=3&a=done\n\n❌ Skip: https://bwspargo3.github.io/
- Weather-and-Lawn/lawn-go.html?s=3&a=skip\n\n💬 Talk to Claude: https://c
- laude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nBest late May to early June. If you plan to overseed this fall\,
+  apply by June 15. Water in ~½".\n\nWindow: May 22 – Jul 05\nDetails: h
+ ttps://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker
+ /LAWN_TRACKER.md#step-3\n\n✅ Done: https://bwspargo3.github.io/Weather-a
+ nd-Lawn/lawn-go.html?s=3&a=done\n\n❌ Skip: https://bwspargo3.github.io/W
+ eather-and-Lawn/lawn-go.html?s=3&a=skip\n\n💬 Talk to Claude: https://cl
+ aude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -347,16 +363,17 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-S1-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270515
 DTEND;VALUE=DATE:20270516
 SUMMARY:🌱 Grub Preventer: window opens
-DESCRIPTION:Apply and water in ~½" within 24 hrs.\n\nWindow: May 15 – Ju
- n 30\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/l
- awn-care-tracker/LAWN_TRACKER.md#step-s1\n\n✅ Done: https://bwspargo3.gi
- thub.io/Weather-and-Lawn/lawn-go.html?s=S1&a=done\n\n❌ Skip: https://bws
- pargo3.github.io/Weather-and-Lawn/lawn-go.html?s=S1&a=skip\n\n💬 Talk to
-  Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply and water in ~½" within 24 hrs.\n\nWindow: May 15 – Jun
+  30\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/la
+ wn-care-tracker/LAWN_TRACKER.md#step-s1\n\n✅ Done: https://bwspargo3.git
+ hub.io/Weather-and-Lawn/lawn-go.html?s=S1&a=done\n\n❌ Skip: https://bwsp
+ argo3.github.io/Weather-and-Lawn/lawn-go.html?s=S1&a=skip\n\n💬 Talk to 
+ Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -366,17 +383,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-S2-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270515
 DTEND;VALUE=DATE:20270516
 SUMMARY:🌱 Mosquito Season Start: window opens
-DESCRIPTION:Dump standing water weekly. Bti dunks in bird baths and barrels
- . Spray shrubs and shade\, not flowers.\n\nWindow: May 15 – May 31\nDeta
- ils: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-t
- racker/LAWN_TRACKER.md#step-s2\n\n✅ Done: https://bwspargo3.github.io/We
- ather-and-Lawn/lawn-go.html?s=S2&a=done\n\n❌ Skip: https://bwspargo3.git
- hub.io/Weather-and-Lawn/lawn-go.html?s=S2&a=skip\n\n💬 Talk to Claude: h
- ttps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nDump standing water weekly. Bti dunks in bird baths and barrels.
+  Spray shrubs and shade\, not flowers.\n\nWindow: May 15 – May 31\nDetai
+ ls: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tr
+ acker/LAWN_TRACKER.md#step-s2\n\n✅ Done: https://bwspargo3.github.io/Wea
+ ther-and-Lawn/lawn-go.html?s=S2&a=done\n\n❌ Skip: https://bwspargo3.gith
+ ub.io/Weather-and-Lawn/lawn-go.html?s=S2&a=skip\n\n💬 Talk to Claude: ht
+ tps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -386,17 +404,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-3-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270522
 DTEND;VALUE=DATE:20270523
 SUMMARY:🌱 Step 3: PREVENT!® (2nd app): window opens
-DESCRIPTION:Best late May to early June. If you plan to overseed this fall\
- , apply by June 15. Water in ~½".\n\nWindow: May 22 – Jul 05\nDetails: 
- https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracke
- r/LAWN_TRACKER.md#step-3\n\n✅ Done: https://bwspargo3.github.io/Weather-
- and-Lawn/lawn-go.html?s=3&a=done\n\n❌ Skip: https://bwspargo3.github.io/
- Weather-and-Lawn/lawn-go.html?s=3&a=skip\n\n💬 Talk to Claude: https://c
- laude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nBest late May to early June. If you plan to overseed this fall\,
+  apply by June 15. Water in ~½".\n\nWindow: May 22 – Jul 05\nDetails: h
+ ttps://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker
+ /LAWN_TRACKER.md#step-3\n\n✅ Done: https://bwspargo3.github.io/Weather-a
+ nd-Lawn/lawn-go.html?s=3&a=done\n\n❌ Skip: https://bwspargo3.github.io/W
+ eather-and-Lawn/lawn-go.html?s=3&a=skip\n\n💬 Talk to Claude: https://cl
+ aude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -406,17 +425,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-W2-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270525
 DTEND;VALUE=DATE:20270526
 SUMMARY:🌱 Summer Mode: Mowing & Watering: window opens
-DESCRIPTION:Raise mower to 3.5–4". Water 1–1.5"/week in 2–3 deep sess
- ions\, 4–9 AM only. No summer fertilizer.\n\nWindow: May 25 – Aug 31\n
- Details: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-ca
- re-tracker/LAWN_TRACKER.md#step-w2\n\n✅ Done: https://bwspargo3.github.i
- o/Weather-and-Lawn/lawn-go.html?s=W2&a=done\n\n❌ Skip: https://bwspargo3
- .github.io/Weather-and-Lawn/lawn-go.html?s=W2&a=skip\n\n💬 Talk to Claud
- e: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nRaise mower to 3.5–4". Water 1–1.5"/week in 2–3 deep sessi
+ ons\, 4–9 AM only. No summer fertilizer.\n\nWindow: May 25 – Aug 31\nD
+ etails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-car
+ e-tracker/LAWN_TRACKER.md#step-w2\n\n✅ Done: https://bwspargo3.github.io
+ /Weather-and-Lawn/lawn-go.html?s=W2&a=done\n\n❌ Skip: https://bwspargo3.
+ github.io/Weather-and-Lawn/lawn-go.html?s=W2&a=skip\n\n💬 Talk to Claude
+ : https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -426,37 +446,39 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-2B-last@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270531
 DTEND;VALUE=DATE:20270601
-SUMMARY:⏰ Last call: Step 2: Weed & Feed
-DESCRIPTION:Apply to WET grass when dandelions flower. No water or mowing f
- or 24–48 hrs\; check for a dry forecast.\n\nWindow: Apr 22 – Jun 05\nD
- etails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-car
- e-tracker/LAWN_TRACKER.md#step-2b\n\n✅ Done: https://bwspargo3.github.io
- /Weather-and-Lawn/lawn-go.html?s=2B&a=done\n\n❌ Skip: https://bwspargo3.
- github.io/Weather-and-Lawn/lawn-go.html?s=2B&a=skip\n\n💬 Talk to Claude
- : https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+SUMMARY:⏰ Last call: Step 2: Weed & Feed (by Jun 5)
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply to WET grass when dandelions flower. No water or mowing fo
+ r 24–48 hrs\; check for a dry forecast.\n\nWindow: Apr 22 – Jun 05\nDe
+ tails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care
+ -tracker/LAWN_TRACKER.md#step-2b\n\n✅ Done: https://bwspargo3.github.io/
+ Weather-and-Lawn/lawn-go.html?s=2B&a=done\n\n❌ Skip: https://bwspargo3.g
+ ithub.io/Weather-and-Lawn/lawn-go.html?s=2B&a=skip\n\n💬 Talk to Claude:
+  https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:⏰ Last call: Step 2: Weed & Feed
+DESCRIPTION:⏰ Last call: Step 2: Weed & Feed (by Jun 5)
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-S2-x0@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270610
 DTEND;VALUE=DATE:20270611
 SUMMARY:🦟 Mosquito re-spray + fresh Bti dunks
-DESCRIPTION:Dump standing water weekly. Bti dunks in bird baths and barrels
- . Spray shrubs and shade\, not flowers.\n\nWindow: May 15 – May 31\nDeta
- ils: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-t
- racker/LAWN_TRACKER.md#step-s2\n\n✅ Done: https://bwspargo3.github.io/We
- ather-and-Lawn/lawn-go.html?s=S2&a=done\n\n❌ Skip: https://bwspargo3.git
- hub.io/Weather-and-Lawn/lawn-go.html?s=S2&a=skip\n\n💬 Talk to Claude: h
- ttps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nDump standing water weekly. Bti dunks in bird baths and barrels.
+  Spray shrubs and shade\, not flowers.\n\nWindow: May 15 – May 31\nDetai
+ ls: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tr
+ acker/LAWN_TRACKER.md#step-s2\n\n✅ Done: https://bwspargo3.github.io/Wea
+ ther-and-Lawn/lawn-go.html?s=S2&a=done\n\n❌ Skip: https://bwspargo3.gith
+ ub.io/Weather-and-Lawn/lawn-go.html?s=S2&a=skip\n\n💬 Talk to Claude: ht
+ tps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -466,17 +488,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-S3-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270615
 DTEND;VALUE=DATE:20270616
 SUMMARY:🌱 Brown Patch Watch: window opens
-DESCRIPTION:Tan circular patches with a smoky edge? Water mornings only. Op
- tional fungicide (azoxystrobin).\n\nWindow: Jun 15 – Aug 31\nDetails: ht
- tps://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/
- LAWN_TRACKER.md#step-s3\n\n✅ Done: https://bwspargo3.github.io/Weather-a
- nd-Lawn/lawn-go.html?s=S3&a=done\n\n❌ Skip: https://bwspargo3.github.io/
- Weather-and-Lawn/lawn-go.html?s=S3&a=skip\n\n💬 Talk to Claude: https://
- claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nTan circular patches with a smoky edge? Water mornings only. Opt
+ ional fungicide (azoxystrobin).\n\nWindow: Jun 15 – Aug 31\nDetails: htt
+ ps://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/L
+ AWN_TRACKER.md#step-s3\n\n✅ Done: https://bwspargo3.github.io/Weather-an
+ d-Lawn/lawn-go.html?s=S3&a=done\n\n❌ Skip: https://bwspargo3.github.io/W
+ eather-and-Lawn/lawn-go.html?s=S3&a=skip\n\n💬 Talk to Claude: https://c
+ laude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -486,56 +509,59 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-S1-last@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270625
 DTEND;VALUE=DATE:20270626
-SUMMARY:⏰ Last call: Grub Preventer
-DESCRIPTION:Apply and water in ~½" within 24 hrs.\n\nWindow: May 15 – Ju
- n 30\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/l
- awn-care-tracker/LAWN_TRACKER.md#step-s1\n\n✅ Done: https://bwspargo3.gi
- thub.io/Weather-and-Lawn/lawn-go.html?s=S1&a=done\n\n❌ Skip: https://bws
- pargo3.github.io/Weather-and-Lawn/lawn-go.html?s=S1&a=skip\n\n💬 Talk to
-  Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+SUMMARY:⏰ Last call: Grub Preventer (by Jun 30)
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply and water in ~½" within 24 hrs.\n\nWindow: May 15 – Jun
+  30\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/la
+ wn-care-tracker/LAWN_TRACKER.md#step-s1\n\n✅ Done: https://bwspargo3.git
+ hub.io/Weather-and-Lawn/lawn-go.html?s=S1&a=done\n\n❌ Skip: https://bwsp
+ argo3.github.io/Weather-and-Lawn/lawn-go.html?s=S1&a=skip\n\n💬 Talk to 
+ Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:⏰ Last call: Grub Preventer
+DESCRIPTION:⏰ Last call: Grub Preventer (by Jun 30)
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-3-last@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270630
 DTEND;VALUE=DATE:20270701
-SUMMARY:⏰ Last call: Step 3: PREVENT!® (2nd app)
-DESCRIPTION:Best late May to early June. If you plan to overseed this fall\
- , apply by June 15. Water in ~½".\n\nWindow: May 22 – Jul 05\nDetails: 
- https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracke
- r/LAWN_TRACKER.md#step-3\n\n✅ Done: https://bwspargo3.github.io/Weather-
- and-Lawn/lawn-go.html?s=3&a=done\n\n❌ Skip: https://bwspargo3.github.io/
- Weather-and-Lawn/lawn-go.html?s=3&a=skip\n\n💬 Talk to Claude: https://c
- laude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+SUMMARY:⏰ Last call: Step 3: PREVENT!® (2nd app) (by Jul 5)
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nBest late May to early June. If you plan to overseed this fall\,
+  apply by June 15. Water in ~½".\n\nWindow: May 22 – Jul 05\nDetails: h
+ ttps://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker
+ /LAWN_TRACKER.md#step-3\n\n✅ Done: https://bwspargo3.github.io/Weather-a
+ nd-Lawn/lawn-go.html?s=3&a=done\n\n❌ Skip: https://bwspargo3.github.io/W
+ eather-and-Lawn/lawn-go.html?s=3&a=skip\n\n💬 Talk to Claude: https://cl
+ aude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:⏰ Last call: Step 3: PREVENT!® (2nd app)
+DESCRIPTION:⏰ Last call: Step 3: PREVENT!® (2nd app) (by Jul 5)
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-W2-x0@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270704
 DTEND;VALUE=DATE:20270705
 SUMMARY:🔧 Resharpen mower blade
-DESCRIPTION:Raise mower to 3.5–4". Water 1–1.5"/week in 2–3 deep sess
- ions\, 4–9 AM only. No summer fertilizer.\n\nWindow: May 25 – Aug 31\n
- Details: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-ca
- re-tracker/LAWN_TRACKER.md#step-w2\n\n✅ Done: https://bwspargo3.github.i
- o/Weather-and-Lawn/lawn-go.html?s=W2&a=done\n\n❌ Skip: https://bwspargo3
- .github.io/Weather-and-Lawn/lawn-go.html?s=W2&a=skip\n\n💬 Talk to Claud
- e: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nRaise mower to 3.5–4". Water 1–1.5"/week in 2–3 deep sessi
+ ons\, 4–9 AM only. No summer fertilizer.\n\nWindow: May 25 – Aug 31\nD
+ etails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-car
+ e-tracker/LAWN_TRACKER.md#step-w2\n\n✅ Done: https://bwspargo3.github.io
+ /Weather-and-Lawn/lawn-go.html?s=W2&a=done\n\n❌ Skip: https://bwspargo3.
+ github.io/Weather-and-Lawn/lawn-go.html?s=W2&a=skip\n\n💬 Talk to Claude
+ : https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -545,17 +571,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-S2-x1@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270705
 DTEND;VALUE=DATE:20270706
 SUMMARY:🦟 Mosquito re-spray + fresh Bti dunks
-DESCRIPTION:Dump standing water weekly. Bti dunks in bird baths and barrels
- . Spray shrubs and shade\, not flowers.\n\nWindow: May 15 – May 31\nDeta
- ils: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-t
- racker/LAWN_TRACKER.md#step-s2\n\n✅ Done: https://bwspargo3.github.io/We
- ather-and-Lawn/lawn-go.html?s=S2&a=done\n\n❌ Skip: https://bwspargo3.git
- hub.io/Weather-and-Lawn/lawn-go.html?s=S2&a=skip\n\n💬 Talk to Claude: h
- ttps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nDump standing water weekly. Bti dunks in bird baths and barrels.
+  Spray shrubs and shade\, not flowers.\n\nWindow: May 15 – May 31\nDetai
+ ls: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tr
+ acker/LAWN_TRACKER.md#step-s2\n\n✅ Done: https://bwspargo3.github.io/Wea
+ ther-and-Lawn/lawn-go.html?s=S2&a=done\n\n❌ Skip: https://bwspargo3.gith
+ ub.io/Weather-and-Lawn/lawn-go.html?s=S2&a=skip\n\n💬 Talk to Claude: ht
+ tps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -565,17 +592,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-S2-x2@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270730
 DTEND;VALUE=DATE:20270731
 SUMMARY:🦟 Mosquito re-spray + fresh Bti dunks
-DESCRIPTION:Dump standing water weekly. Bti dunks in bird baths and barrels
- . Spray shrubs and shade\, not flowers.\n\nWindow: May 15 – May 31\nDeta
- ils: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-t
- racker/LAWN_TRACKER.md#step-s2\n\n✅ Done: https://bwspargo3.github.io/We
- ather-and-Lawn/lawn-go.html?s=S2&a=done\n\n❌ Skip: https://bwspargo3.git
- hub.io/Weather-and-Lawn/lawn-go.html?s=S2&a=skip\n\n💬 Talk to Claude: h
- ttps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nDump standing water weekly. Bti dunks in bird baths and barrels.
+  Spray shrubs and shade\, not flowers.\n\nWindow: May 15 – May 31\nDetai
+ ls: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tr
+ acker/LAWN_TRACKER.md#step-s2\n\n✅ Done: https://bwspargo3.github.io/Wea
+ ther-and-Lawn/lawn-go.html?s=S2&a=done\n\n❌ Skip: https://bwspargo3.gith
+ ub.io/Weather-and-Lawn/lawn-go.html?s=S2&a=skip\n\n💬 Talk to Claude: ht
+ tps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -585,17 +613,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-S4-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270815
 DTEND;VALUE=DATE:20270816
 SUMMARY:🌱 Grub Check: window opens
-DESCRIPTION:Lift 1 sq ft of sod in any brown spot. 10+ grubs → apply Dylo
- x (trichlorfon) and water in.\n\nWindow: Aug 15 – Sep 15\nDetails: https
- ://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAW
- N_TRACKER.md#step-s4\n\n✅ Done: https://bwspargo3.github.io/Weather-and-
- Lawn/lawn-go.html?s=S4&a=done\n\n❌ Skip: https://bwspargo3.github.io/Wea
- ther-and-Lawn/lawn-go.html?s=S4&a=skip\n\n💬 Talk to Claude: https://cla
- ude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nLift 1 sq ft of sod in any brown spot. 10+ grubs → apply Dylox
+  (trichlorfon) and water in.\n\nWindow: Aug 15 – Sep 15\nDetails: https:
+ //github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN
+ _TRACKER.md#step-s4\n\n✅ Done: https://bwspargo3.github.io/Weather-and-L
+ awn/lawn-go.html?s=S4&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weat
+ her-and-Lawn/lawn-go.html?s=S4&a=skip\n\n💬 Talk to Claude: https://clau
+ de.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -605,18 +634,19 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-FR-buy@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270820
 DTEND;VALUE=DATE:20270821
 SUMMARY:🛒 Buy grass seed + aerator/slit-seeder rental (Fall Renovation /
   Overseeding)
-DESCRIPTION:Mow low\, clear debris\, rough up soil\, seed\, apply Renovator
- \, water lightly 3×/day for 3 weeks.\n\nWindow: Sep 01 – Oct 10\nDetail
- s: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tra
- cker/LAWN_TRACKER.md#step-fr\n\n✅ Done: https://bwspargo3.github.io/Weat
- her-and-Lawn/lawn-go.html?s=FR&a=done\n\n❌ Skip: https://bwspargo3.githu
- b.io/Weather-and-Lawn/lawn-go.html?s=FR&a=skip\n\n💬 Talk to Claude: htt
- ps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nMow low\, clear debris\, rough up soil\, seed\, apply Renovator\
+ , water lightly 3×/day for 3 weeks.\n\nWindow: Sep 01 – Oct 10\nDetails
+ : https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-trac
+ ker/LAWN_TRACKER.md#step-fr\n\n✅ Done: https://bwspargo3.github.io/Weath
+ er-and-Lawn/lawn-go.html?s=FR&a=done\n\n❌ Skip: https://bwspargo3.github
+ .io/Weather-and-Lawn/lawn-go.html?s=FR&a=skip\n\n💬 Talk to Claude: http
+ s://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -627,17 +657,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-4-buy@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270825
 DTEND;VALUE=DATE:20270826
 SUMMARY:🛒 Buy Renovator® (Step 4: Renovator®)
-DESCRIPTION:Apply at bag rate (3–5 lb/1\,000 sq ft if seeding\, on seedin
- g day). Water in.\n\nWindow: Sep 01 – Oct 31\nDetails: https://github.co
- m/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md
- #step-4\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
- html?s=4&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/
- lawn-go.html?s=4&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/ses
- sion_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply at bag rate (3–5 lb/1\,000 sq ft if seeding\, on seeding
+  day). Water in.\n\nWindow: Sep 01 – Oct 31\nDetails: https://github.com
+ /bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#
+ step-4\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.h
+ tml?s=4&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/l
+ awn-go.html?s=4&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/sess
+ ion_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -647,17 +678,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-FR-x0@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270825
 DTEND;VALUE=DATE:20270826
 SUMMARY:🌾 Fall overseed? Decide this week (seed Sep 1–30 is best)
-DESCRIPTION:Mow low\, clear debris\, rough up soil\, seed\, apply Renovator
- \, water lightly 3×/day for 3 weeks.\n\nWindow: Sep 01 – Oct 10\nDetail
- s: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tra
- cker/LAWN_TRACKER.md#step-fr\n\n✅ Done: https://bwspargo3.github.io/Weat
- her-and-Lawn/lawn-go.html?s=FR&a=done\n\n❌ Skip: https://bwspargo3.githu
- b.io/Weather-and-Lawn/lawn-go.html?s=FR&a=skip\n\n💬 Talk to Claude: htt
- ps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nMow low\, clear debris\, rough up soil\, seed\, apply Renovator\
+ , water lightly 3×/day for 3 weeks.\n\nWindow: Sep 01 – Oct 10\nDetails
+ : https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-trac
+ ker/LAWN_TRACKER.md#step-fr\n\n✅ Done: https://bwspargo3.github.io/Weath
+ er-and-Lawn/lawn-go.html?s=FR&a=done\n\n❌ Skip: https://bwspargo3.github
+ .io/Weather-and-Lawn/lawn-go.html?s=FR&a=skip\n\n💬 Talk to Claude: http
+ s://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -667,17 +699,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-S2-x3@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270825
 DTEND;VALUE=DATE:20270826
 SUMMARY:🦟 Mosquito re-spray (last round)
-DESCRIPTION:Dump standing water weekly. Bti dunks in bird baths and barrels
- . Spray shrubs and shade\, not flowers.\n\nWindow: May 15 – May 31\nDeta
- ils: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-t
- racker/LAWN_TRACKER.md#step-s2\n\n✅ Done: https://bwspargo3.github.io/We
- ather-and-Lawn/lawn-go.html?s=S2&a=done\n\n❌ Skip: https://bwspargo3.git
- hub.io/Weather-and-Lawn/lawn-go.html?s=S2&a=skip\n\n💬 Talk to Claude: h
- ttps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nDump standing water weekly. Bti dunks in bird baths and barrels.
+  Spray shrubs and shade\, not flowers.\n\nWindow: May 15 – May 31\nDetai
+ ls: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tr
+ acker/LAWN_TRACKER.md#step-s2\n\n✅ Done: https://bwspargo3.github.io/Wea
+ ther-and-Lawn/lawn-go.html?s=S2&a=done\n\n❌ Skip: https://bwspargo3.gith
+ ub.io/Weather-and-Lawn/lawn-go.html?s=S2&a=skip\n\n💬 Talk to Claude: ht
+ tps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -687,17 +720,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-4-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270901
 DTEND;VALUE=DATE:20270902
 SUMMARY:🌱 Step 4: Renovator®: window opens
-DESCRIPTION:Apply at bag rate (3–5 lb/1\,000 sq ft if seeding\, on seedin
- g day). Water in.\n\nWindow: Sep 01 – Oct 31\nDetails: https://github.co
- m/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md
- #step-4\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
- html?s=4&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/
- lawn-go.html?s=4&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/ses
- sion_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply at bag rate (3–5 lb/1\,000 sq ft if seeding\, on seeding
+  day). Water in.\n\nWindow: Sep 01 – Oct 31\nDetails: https://github.com
+ /bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#
+ step-4\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.h
+ tml?s=4&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/l
+ awn-go.html?s=4&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/sess
+ ion_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -707,17 +741,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-FR-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270901
 DTEND;VALUE=DATE:20270902
 SUMMARY:🌱 Fall Renovation / Overseeding: window opens
-DESCRIPTION:Mow low\, clear debris\, rough up soil\, seed\, apply Renovator
- \, water lightly 3×/day for 3 weeks.\n\nWindow: Sep 01 – Oct 10\nDetail
- s: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tra
- cker/LAWN_TRACKER.md#step-fr\n\n✅ Done: https://bwspargo3.github.io/Weat
- her-and-Lawn/lawn-go.html?s=FR&a=done\n\n❌ Skip: https://bwspargo3.githu
- b.io/Weather-and-Lawn/lawn-go.html?s=FR&a=skip\n\n💬 Talk to Claude: htt
- ps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nMow low\, clear debris\, rough up soil\, seed\, apply Renovator\
+ , water lightly 3×/day for 3 weeks.\n\nWindow: Sep 01 – Oct 10\nDetails
+ : https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-trac
+ ker/LAWN_TRACKER.md#step-fr\n\n✅ Done: https://bwspargo3.github.io/Weath
+ er-and-Lawn/lawn-go.html?s=FR&a=done\n\n❌ Skip: https://bwspargo3.github
+ .io/Weather-and-Lawn/lawn-go.html?s=FR&a=skip\n\n💬 Talk to Claude: http
+ s://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -727,17 +762,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-W3-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270901
 DTEND;VALUE=DATE:20270902
 SUMMARY:🌱 Fall Watering Shift: window opens
-DESCRIPTION:Overseeded: light 3×/day for weeks 1–3\, then daily\, then 1
- "/wk. Otherwise ~1"/wk incl. rain. Mow 3–3.5".\n\nWindow: Sep 01 – Oct
-  31\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/la
- wn-care-tracker/LAWN_TRACKER.md#step-w3\n\n✅ Done: https://bwspargo3.git
- hub.io/Weather-and-Lawn/lawn-go.html?s=W3&a=done\n\n❌ Skip: https://bwsp
- argo3.github.io/Weather-and-Lawn/lawn-go.html?s=W3&a=skip\n\n💬 Talk to 
- Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nOverseeded: light 3×/day for weeks 1–3\, then daily\, then 1"
+ /wk. Otherwise ~1"/wk incl. rain. Mow 3–3.5".\n\nWindow: Sep 01 – Oct 
+ 31\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/law
+ n-care-tracker/LAWN_TRACKER.md#step-w3\n\n✅ Done: https://bwspargo3.gith
+ ub.io/Weather-and-Lawn/lawn-go.html?s=W3&a=done\n\n❌ Skip: https://bwspa
+ rgo3.github.io/Weather-and-Lawn/lawn-go.html?s=W3&a=skip\n\n💬 Talk to C
+ laude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -747,7 +783,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lawn-log-token-renew@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270918
 DTEND;VALUE=DATE:20270919
 SUMMARY:🔑 Renew the Lawn Log GitHub token (expires ~Oct 2)
@@ -764,18 +800,19 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-S5-buy@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270928
 DTEND;VALUE=DATE:20270929
 SUMMARY:🛒 Buy broadleaf weed spray (2\,4-D/triclopyr) (Fall Broadleaf We
  ed Control)
-DESCRIPTION:Spot-spray on a 50–80°F day\, no rain for 24 hrs. SKIP if yo
- u overseeded.\n\nWindow: Oct 05 – Oct 31\nDetails: https://github.com/bw
- spargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#ste
- p-s5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.htm
- l?s=S5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/la
- wn-go.html?s=S5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/sess
- ion_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nSpot-spray on a 50–80°F day\, no rain for 24 hrs. SKIP if you
+  overseeded.\n\nWindow: Oct 05 – Oct 31\nDetails: https://github.com/bws
+ pargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step
+ -s5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html
+ ?s=S5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/law
+ n-go.html?s=S5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/sessi
+ on_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -786,37 +823,39 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-FR-last@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20271005
 DTEND;VALUE=DATE:20271006
-SUMMARY:⏰ Last call: Fall Renovation / Overseeding
-DESCRIPTION:Mow low\, clear debris\, rough up soil\, seed\, apply Renovator
- \, water lightly 3×/day for 3 weeks.\n\nWindow: Sep 01 – Oct 10\nDetail
- s: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tra
- cker/LAWN_TRACKER.md#step-fr\n\n✅ Done: https://bwspargo3.github.io/Weat
- her-and-Lawn/lawn-go.html?s=FR&a=done\n\n❌ Skip: https://bwspargo3.githu
- b.io/Weather-and-Lawn/lawn-go.html?s=FR&a=skip\n\n💬 Talk to Claude: htt
- ps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+SUMMARY:⏰ Last call: Fall Renovation / Overseeding (by Oct 10)
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nMow low\, clear debris\, rough up soil\, seed\, apply Renovator\
+ , water lightly 3×/day for 3 weeks.\n\nWindow: Sep 01 – Oct 10\nDetails
+ : https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-trac
+ ker/LAWN_TRACKER.md#step-fr\n\n✅ Done: https://bwspargo3.github.io/Weath
+ er-and-Lawn/lawn-go.html?s=FR&a=done\n\n❌ Skip: https://bwspargo3.github
+ .io/Weather-and-Lawn/lawn-go.html?s=FR&a=skip\n\n💬 Talk to Claude: http
+ s://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:⏰ Last call: Fall Renovation / Overseeding
+DESCRIPTION:⏰ Last call: Fall Renovation / Overseeding (by Oct 10)
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-S5-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20271005
 DTEND;VALUE=DATE:20271006
 SUMMARY:🌱 Fall Broadleaf Weed Control: window opens
-DESCRIPTION:Spot-spray on a 50–80°F day\, no rain for 24 hrs. SKIP if yo
- u overseeded.\n\nWindow: Oct 05 – Oct 31\nDetails: https://github.com/bw
- spargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#ste
- p-s5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.htm
- l?s=S5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/la
- wn-go.html?s=S5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/sess
- ion_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nSpot-spray on a 50–80°F day\, no rain for 24 hrs. SKIP if you
+  overseeded.\n\nWindow: Oct 05 – Oct 31\nDetails: https://github.com/bws
+ pargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step
+ -s5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html
+ ?s=S5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/law
+ n-go.html?s=S5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/sessi
+ on_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -826,17 +865,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-5-buy@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20271015
 DTEND;VALUE=DATE:20271016
 SUMMARY:🛒 Buy Snowman® (Step 5: Snowman®)
-DESCRIPTION:Apply around the last or second-to-last mow while grass is stil
- l green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.c
- om/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.m
- d#step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go
- .html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn
- /lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/se
- ssion_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply around the last or second-to-last mow while grass is still
+  green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.co
+ m/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md
+ #step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
+ html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/
+ lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/ses
+ sion_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -846,17 +886,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-S6-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20271015
 DTEND;VALUE=DATE:20271016
 SUMMARY:🌱 Leaf Management: window opens
-DESCRIPTION:Mulch-mow light leaves\; rake heavy mats\, especially off new g
- rass. Repeat weekly while trees drop.\n\nWindow: Oct 15 – Nov 30\nDetail
- s: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tra
- cker/LAWN_TRACKER.md#step-s6\n\n✅ Done: https://bwspargo3.github.io/Weat
- her-and-Lawn/lawn-go.html?s=S6&a=done\n\n❌ Skip: https://bwspargo3.githu
- b.io/Weather-and-Lawn/lawn-go.html?s=S6&a=skip\n\n💬 Talk to Claude: htt
- ps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nMulch-mow light leaves\; rake heavy mats\, especially off new gr
+ ass. Repeat weekly while trees drop.\n\nWindow: Oct 15 – Nov 30\nDetails
+ : https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-trac
+ ker/LAWN_TRACKER.md#step-s6\n\n✅ Done: https://bwspargo3.github.io/Weath
+ er-and-Lawn/lawn-go.html?s=S6&a=done\n\n❌ Skip: https://bwspargo3.github
+ .io/Weather-and-Lawn/lawn-go.html?s=S6&a=skip\n\n💬 Talk to Claude: http
+ s://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -866,17 +907,18 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-5-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20271022
 DTEND;VALUE=DATE:20271023
 SUMMARY:🌱 Step 5: Snowman®: window opens
-DESCRIPTION:Apply around the last or second-to-last mow while grass is stil
- l green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.c
- om/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.m
- d#step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go
- .html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn
- /lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/se
- ssion_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply around the last or second-to-last mow while grass is still
+  green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.co
+ m/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md
+ #step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
+ html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/
+ lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/ses
+ sion_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -886,57 +928,60 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-4-last@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20271026
 DTEND;VALUE=DATE:20271027
-SUMMARY:⏰ Last call: Step 4: Renovator®
-DESCRIPTION:Apply at bag rate (3–5 lb/1\,000 sq ft if seeding\, on seedin
- g day). Water in.\n\nWindow: Sep 01 – Oct 31\nDetails: https://github.co
- m/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md
- #step-4\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
- html?s=4&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/
- lawn-go.html?s=4&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/ses
- sion_016pCzefUgtdCddfA8FBqLjL
+SUMMARY:⏰ Last call: Step 4: Renovator® (by Oct 31)
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply at bag rate (3–5 lb/1\,000 sq ft if seeding\, on seeding
+  day). Water in.\n\nWindow: Sep 01 – Oct 31\nDetails: https://github.com
+ /bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#
+ step-4\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.h
+ tml?s=4&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/l
+ awn-go.html?s=4&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/sess
+ ion_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:⏰ Last call: Step 4: Renovator®
+DESCRIPTION:⏰ Last call: Step 4: Renovator® (by Oct 31)
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-S5-last@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20271026
 DTEND;VALUE=DATE:20271027
-SUMMARY:⏰ Last call: Fall Broadleaf Weed Control
-DESCRIPTION:Spot-spray on a 50–80°F day\, no rain for 24 hrs. SKIP if yo
- u overseeded.\n\nWindow: Oct 05 – Oct 31\nDetails: https://github.com/bw
- spargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#ste
- p-s5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.htm
- l?s=S5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/la
- wn-go.html?s=S5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/sess
- ion_016pCzefUgtdCddfA8FBqLjL
+SUMMARY:⏰ Last call: Fall Broadleaf Weed Control (by Oct 31)
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nSpot-spray on a 50–80°F day\, no rain for 24 hrs. SKIP if you
+  overseeded.\n\nWindow: Oct 05 – Oct 31\nDetails: https://github.com/bws
+ pargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step
+ -s5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html
+ ?s=S5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/law
+ n-go.html?s=S5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/sessi
+ on_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:⏰ Last call: Fall Broadleaf Weed Control
+DESCRIPTION:⏰ Last call: Fall Broadleaf Weed Control (by Oct 31)
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-W4-start@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20271115
 DTEND;VALUE=DATE:20271116
 SUMMARY:🌱 Season Close-Out: window opens
-DESCRIPTION:Final mow ~2.5". Blow out irrigation before a hard freeze. Stab
- ilize mower fuel and sharpen the blade.\n\nWindow: Nov 15 – Nov 30\nDeta
- ils: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-t
- racker/LAWN_TRACKER.md#step-w4\n\n✅ Done: https://bwspargo3.github.io/We
- ather-and-Lawn/lawn-go.html?s=W4&a=done\n\n❌ Skip: https://bwspargo3.git
- hub.io/Weather-and-Lawn/lawn-go.html?s=W4&a=skip\n\n💬 Talk to Claude: h
- ttps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nFinal mow ~2.5". Blow out irrigation before a hard freeze. Stabi
+ lize mower fuel and sharpen the blade.\n\nWindow: Nov 15 – Nov 30\nDetai
+ ls: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tr
+ acker/LAWN_TRACKER.md#step-w4\n\n✅ Done: https://bwspargo3.github.io/Wea
+ ther-and-Lawn/lawn-go.html?s=W4&a=done\n\n❌ Skip: https://bwspargo3.gith
+ ub.io/Weather-and-Lawn/lawn-go.html?s=W4&a=skip\n\n💬 Talk to Claude: ht
+ tps://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -946,21 +991,22 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-5-last@weather-and-lawn
-DTSTAMP:20261003T163150Z
+DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20271125
 DTEND;VALUE=DATE:20271126
-SUMMARY:⏰ Last call: Step 5: Snowman®
-DESCRIPTION:Apply around the last or second-to-last mow while grass is stil
- l green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.c
- om/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.m
- d#step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go
- .html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn
- /lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/se
- ssion_016pCzefUgtdCddfA8FBqLjL
+SUMMARY:⏰ Last call: Step 5: Snowman® (by Nov 30)
+DESCRIPTION:📅 Typical date. It moves automatically once the weather says
+  when.\n\nApply around the last or second-to-last mow while grass is still
+  green. Water in.\n\nWindow: Oct 22 – Nov 30\nDetails: https://github.co
+ m/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md
+ #step-5\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.
+ html?s=5&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/
+ lawn-go.html?s=5&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/ses
+ sion_016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:⏰ Last call: Step 5: Snowman®
+DESCRIPTION:⏰ Last call: Step 5: Snowman® (by Nov 30)
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
