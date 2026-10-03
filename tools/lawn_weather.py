@@ -117,8 +117,8 @@ def rules(wx, year, today, done):
     y = lambda m, d: D(year, m, d)
 
     # 1B PREVENT! #1 — crabgrass sprouts once soil holds ~55°F; get the barrier down as it passes 50°F.
-    # Not before Mar 10 and on a 7-day average, so a February warm spell can't trigger it early.
-    s = wx.first_day(y(3, 10), y(5, 15), lambda d: (wx.avg("soil", d, 7) or 0) >= 50)
+    # Not before Mar 15 (GrassPad's window opens mid-March) and on a 7-day average, so a February warm spell can't trigger it early.
+    s = wx.first_day(y(3, 15), y(5, 15), lambda d: (wx.avg("soil", d, 7) or 0) >= 50)
     if s:
         e = wx.first_day(s + DAY, y(5, 31), lambda d: (wx.avg("soil", d, 7) or 0) >= 57) or min(s + 21 * DAY, y(4, 30))
         out["1B"] = dict(buy=s - 7 * DAY, start=s, end=max(e, s + 5 * DAY),
