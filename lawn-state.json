@@ -1,6 +1,6 @@
 {
   "location": {
-    "label": "Lenexa, KS 66220",
+    "label": "Shawnee Mission, KS 66220",
     "lat": 38.96,
     "lon": -94.82
   },
@@ -23,7 +23,7 @@
       "end": "2026-10-31",
       "basis": "5-day average high 73°F. Weeds are moving energy to their roots, so spraying works best now.",
       "best": "2026-10-03",
-      "best_note": "Sat Oct 3: high 72°F with no rain. Good spraying day."
+      "best_note": "Sat Oct 3: high 73°F with no rain. Good spraying day."
     },
     "2026:W2": {
       "start": "2026-07-07",

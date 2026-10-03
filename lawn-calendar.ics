@@ -5,7 +5,7 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:🌱 Lawn Care
 X-WR-CALDESC:GrassPad: Idiot-Proof + Seed Safe + Fall Renovation: buy/apply
-  reminders for Lenexa\, KS 66220
+  reminders for Shawnee Mission\, KS 66220
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
@@ -125,8 +125,8 @@ END:VEVENT
 BEGIN:VEVENT
 UID:2027-reset@weather-and-lawn
 DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20270209
-DTEND;VALUE=DATE:20270210
+DTSTART;VALUE=DATE:20270207
+DTEND;VALUE=DATE:20270208
 SUMMARY:🔄 New lawn season: tap to reset the tracker for 2027
 DESCRIPTION:Starts 2027 with every step back to ⬜ (your journal is kept).
  \n\n🔄 Reset: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?

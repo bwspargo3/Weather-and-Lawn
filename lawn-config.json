@@ -1,6 +1,6 @@
 {
   "zip": "66220",
-  "label": "Lenexa, KS 66220",
+  "label": "Shawnee Mission, KS 66220",
   "lat": 38.96,
   "lon": -94.82,
   "timezone": "America/Chicago",
@@ -9,5 +9,13 @@
   "repo": "bwspargo3/Weather-and-Lawn",
   "branch": "claude/lawn-care-tracker",
   "claude_url": "https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL",
-  "token_expires": "2027-10-02"
+  "token_expires": "2027-10-02",
+  "climate": {
+    "last_frost": "04-08",
+    "first_frost": "11-01",
+    "zone": "6b",
+    "extreme_min": -3.4,
+    "frost_free": false,
+    "years": "2011–2025"
+  }
 }

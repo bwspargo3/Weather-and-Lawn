@@ -2,7 +2,7 @@
 
 **Programs merged:** Idiot-Proof (5-Step) · Seed Safe (spring seeding) · Fall Renovation / Overseeding, plus optional supplemental tasks (grubs, mosquitoes, watering, mowing, disease).
 **Built for:** cool-season lawns (tall fescue / Kentucky bluegrass) in the Kansas City / Omaha region, which is where GrassPad's timings come from. Dates are GrassPad's; 📡 weather triggers fine-tune them for your yard.
-**📍 Location:** Lenexa, KS 66220 · USDA zone 6a · typical last frost **Apr 10**, first frost **Oct 25** _(Kansas City defaults until your climate profile is computed)_
+**📍 Location:** Shawnee Mission, KS 66220 · USDA zone 6b · typical last frost **Apr 8**, first frost **Nov 1**
 **Season:** 2026
 **Lawn size:** `_____ sq ft` (fill this in and I'll work out bag counts for you).
 **Spring path:** Idiot-Proof (not seeding in spring)
@@ -385,7 +385,7 @@ _No plants chosen yet._ Pick yours on the **[plant picker](https://bwspargo3.git
 ---
 
 <a id="weather-timing"></a>
-## 📡 Weather Timing (Lenexa, KS 66220)
+## 📡 Weather Timing (Shawnee Mission, KS 66220)
 
 Every morning a GitHub Action (`.github/workflows/lawn-weather.yml`) pulls **modeled soil temperature (2½"), highs/lows, rain and humidity** for your location from [Open-Meteo](https://open-meteo.com) (3 months back + 16-day forecast) and moves each step's calendar events to match. No AI involved.
 
