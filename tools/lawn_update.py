@@ -97,7 +97,7 @@ def render_next_action(text):
             lines.append(f"**🛒 Buy by:** {r['buy']} _(typical date; it moves automatically once the weather says when)_")
         lines += [""] + body + [""]
         lines.append(f"**Done?** [✅ Mark done]({go_url(r['id'], 'done')}) · "
-                     f"[❌ Skip]({go_url(r['id'], 'skip')}) · [💬 Talk to Claude]({SESSION_URL}) "
+                     f"[❌ Skip]({go_url(r['id'], 'skip')})" + (f" · [💬 Talk to Claude]({SESSION_URL})" if SESSION_URL else "") + " "
                      f"<sub>(via GitHub: [✅]({issue_url(r['id'], 'done')}) · [❌]({issue_url(r['id'], 'skip')}))</sub>")
         nxt = [f"[{n['name']}](#{n['anchor']}) ({n['timing']}"
                + (f", 🛒 buy by {n['buy']}" if n["buy"].strip().lower() not in ("n/a", "") else "") + ")"
@@ -121,23 +121,74 @@ def render_all(text, today):
 
 
 def apply_plants(text, title, today):
-    """Title like '🌿 plants: roses, veg, bulbs' (or 'none') replaces the plant list in lawn-config.json."""
-    cat = lawn_plants.catalog()
+    """Title like '🌿 plants: roses, veg, spring-shrub=Grandma's lilac' (or 'none') replaces the plant list."""
     raw = title.split(":", 1)[1] if ":" in title else ""
-    ids = [w for w in re.split(r"[,\s]+", raw.strip().lower()) if w and w != "none"]
-    bad = [i for i in ids if i not in cat]
+    entries, bad = lawn_plants.parse_plants(raw)
     if bad:
-        raise UpdateError(f"Unknown plant id(s): {', '.join(bad)}. Valid: {', '.join(cat)}.")
-    ids = list(dict.fromkeys(ids))
-    lawn_plants.set_plants(ids)
-    names = ", ".join(f"{cat[i]['emoji']} {cat[i]['name']}" for i in ids) or "none"
+        raise UpdateError(f"Didn't recognize: {', '.join(bad)}. Use catalog ids ({', '.join(lawn_plants.catalog())}) "
+                          "or `profile=My plant name` for a custom plant.")
+    lawn_plants.set_plants(entries)
+    items = lawn_plants.chosen_items()
+    names = ", ".join(f"{i['plant']['emoji']} {i['name']}" for i in items) or "none"
     return render_all(text, today), (f"🌿 Plant list saved: {names}.\n\nPruning, feeding and planting reminders for these "
                                      "are now in your calendar; the next weather run times any weather-triggered ones.")
 
 
+def apply_setup(title):
+    """'⚙️ setup: zip=66220; program=grasspad; path=idiotproof' → config, climate profile, regenerated tracker."""
+    import lawn_climate
+    import lawn_init
+    from lawn_engine import config
+    opts = dict(kv.split("=", 1) for kv in re.split(r"\s*;\s*", title.split(":", 1)[-1].strip()) if "=" in kv)
+    opts = {k.strip().lower(): v.strip() for k, v in opts.items()}
+    index = {p["id"]: p for p in json.loads((TRACKER.parent / "programs" / "index.json").read_text(encoding="utf-8"))}
+    cfg = config()
+    zip_code, prog = opts.get("zip", cfg.get("zip", "")), opts.get("program", cfg.get("program", "grasspad"))
+    if not re.fullmatch(r"\d{5}", zip_code):
+        raise UpdateError(f"`{zip_code}` isn't a 5-digit ZIP code.")
+    if prog not in index:
+        raise UpdateError(f"Unknown program `{prog}`. Choose one of: {', '.join(index)}.")
+    path = opts.get("path") or cfg.get("spring_path")
+    paths = index[prog].get("paths") or {}
+    if paths and path not in paths:
+        path = next(iter(paths))
+    changed_program = prog != cfg.get("program")
+    if zip_code != cfg.get("zip") or not cfg.get("climate"):
+        lawn_climate.main(["--zip", zip_code])
+        cfg = config()
+    cfg.update(program=prog)
+    if paths:
+        cfg["spring_path"] = path
+    else:
+        cfg.pop("spring_path", None)
+    lawn_plants.CONFIG.write_text(json.dumps(cfg, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    lawn_init.generate(fresh=changed_program)
+    clim = cfg.get("climate", {})
+    summary = (f"⚙️ Setup saved: **{cfg.get('label', zip_code)}** · USDA zone {clim.get('zone', '?')} · "
+               + ("frost-free most years" if clim.get("frost_free") else f"typical last frost {clim.get('last_frost')}, first frost {clim.get('first_frost')}")
+               + f"\n\nProgram: **{index[prog]['name']}**" + (f" · spring path: {paths[path]}" if paths else "")
+               + ("\n\nNew program, so the tracker starts fresh (journal kept)." if changed_program else "")
+               + "\n\nThe calendar is rebuilt and weather timing refreshes in this run.")
+    return TRACKER.read_text(encoding="utf-8"), summary
+
+
+def apply_reset(title):
+    import lawn_init
+    m = re.search(r"(\d{4})", title)
+    if not m:
+        raise UpdateError("Reset needs a year, e.g. `🔄 new season 2027`.")
+    lawn_init.generate(reset=int(m.group(1)))
+    return TRACKER.read_text(encoding="utf-8"), f"🔄 Season {m.group(1)} started: every step is back to ⬜ and your journal is kept."
+
+
 def apply(text, title, body, created):
-    if title.lstrip().startswith("🌿"):
+    t = title.lstrip()
+    if t.startswith("🌿"):
         return apply_plants(text, title, created)
+    if t.startswith("⚙"):
+        return apply_setup(title)
+    if t.startswith("🔄"):
+        return apply_reset(title)
     m = TITLE_RE.match(title)
     if not m or not (m.group(1) or m.group(3)):
         raise UpdateError("Title should look like `✅ 4 done` or `❌ S5 skipped` (optionally with a date: `(Oct 4)`).")

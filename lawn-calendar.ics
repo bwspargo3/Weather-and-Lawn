@@ -4,7 +4,8 @@ PRODID:-//Weather-and-Lawn//Lawn Tracker//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:🌱 Lawn Care
-X-WR-CALDESC:Buy/apply reminders generated from LAWN_TRACKER.md
+X-WR-CALDESC:GrassPad: Idiot-Proof + Seed Safe + Fall Renovation: buy/apply
+  reminders for Lenexa\, KS 66220
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
@@ -38,14 +39,14 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:🌱 Leaf Management: window opens
-DESCRIPTION:📅 Typical date. It moves automatically once the weather says
-  when.\n\nMulch-mow light leaves\; rake heavy mats\, especially off new gr
- ass. Repeat weekly while trees drop.\n\nWindow: Oct 15 – Nov 30\nDetails
- : https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-trac
- ker/LAWN_TRACKER.md#step-s6\n\n✅ Done: https://bwspargo3.github.io/Weath
- er-and-Lawn/lawn-go.html?s=S6&a=done\n\n❌ Skip: https://bwspargo3.github
- .io/Weather-and-Lawn/lawn-go.html?s=S6&a=skip\n\n💬 Talk to Claude: http
- s://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date for your area.\n\nMulch-mow light leaves\; ra
+ ke heavy mats\, especially off new grass. Repeat weekly while trees drop.\
+ n\nWindow: Oct 15 – Nov 30\nDetails: https://github.com/bwspargo3/Weathe
+ r-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-s6\n\n✅ Do
+ ne: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=S6&a=done\
+ n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=S
+ 6&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/session_016pCzefUg
+ tdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -124,16 +125,17 @@ END:VEVENT
 BEGIN:VEVENT
 UID:2027-reset@weather-and-lawn
 DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20270222
-DTEND;VALUE=DATE:20270223
-SUMMARY:🔄 Tell Claude: reset the lawn tracker for the new season
-DESCRIPTION:Ask Claude to reset LAWN_TRACKER.md to ⬜ for 2027.\nhttps://g
- ithub.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TR
- ACKER.md
+DTSTART;VALUE=DATE:20270209
+DTEND;VALUE=DATE:20270210
+SUMMARY:🔄 New lawn season: tap to reset the tracker for 2027
+DESCRIPTION:Starts 2027 with every step back to ⬜ (your journal is kept).
+ \n\n🔄 Reset: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?
+ reset=2027\n\n💬 Talk to Claude: https://claude.ai/code/session_016pCzef
+ UgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:🔄 Tell Claude: reset the lawn tracker for the new season
+DESCRIPTION:🔄 New lawn season: tap to reset the tracker for 2027
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
@@ -143,14 +145,14 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:🛒 Buy mower blade sharpening (Prep Tasks)
-DESCRIPTION:📅 Typical date. It moves automatically once the weather says
-  when.\n\nSharpen blades\, rake out debris\, check spreader. Confirm sprin
- g path with Claude (Idiot-Proof vs Seed Safe).\n\nWindow: Mar 01 – Mar 1
- 5\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn
- -care-tracker/LAWN_TRACKER.md#step-prep\n\n✅ Done: https://bwspargo3.git
- hub.io/Weather-and-Lawn/lawn-go.html?s=P&a=done\n\n❌ Skip: https://bwspa
- rgo3.github.io/Weather-and-Lawn/lawn-go.html?s=P&a=skip\n\n💬 Talk to Cl
- aude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date for your area.\n\nSharpen blades\, rake out d
+ ebris\, check spreader. Confirm spring path with Claude (Idiot-Proof vs Se
+ ed Safe).\n\nWindow: Mar 01 – Mar 15\nDetails: https://github.com/bwspar
+ go3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-pr
+ ep\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?
+ s=P&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/lawn-
+ go.html?s=P&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/session_
+ 016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -164,14 +166,14 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:🌱 Prep Tasks: window opens
-DESCRIPTION:📅 Typical date. It moves automatically once the weather says
-  when.\n\nSharpen blades\, rake out debris\, check spreader. Confirm sprin
- g path with Claude (Idiot-Proof vs Seed Safe).\n\nWindow: Mar 01 – Mar 1
- 5\nDetails: https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn
- -care-tracker/LAWN_TRACKER.md#step-prep\n\n✅ Done: https://bwspargo3.git
- hub.io/Weather-and-Lawn/lawn-go.html?s=P&a=done\n\n❌ Skip: https://bwspa
- rgo3.github.io/Weather-and-Lawn/lawn-go.html?s=P&a=skip\n\n💬 Talk to Cl
- aude: https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date for your area.\n\nSharpen blades\, rake out d
+ ebris\, check spreader. Confirm spring path with Claude (Idiot-Proof vs Se
+ ed Safe).\n\nWindow: Mar 01 – Mar 15\nDetails: https://github.com/bwspar
+ go3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-pr
+ ep\n\n✅ Done: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?
+ s=P&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/lawn-
+ go.html?s=P&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/session_
+ 016pCzefUgtdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -229,14 +231,14 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270401
 DTEND;VALUE=DATE:20270402
 SUMMARY:🌱 Spring Watering & Mowing Setup: window opens
-DESCRIPTION:📅 Typical date. It moves automatically once the weather says
-  when.\n\nMow at 3". Turn irrigation on\, check heads\, leave it on manual
- . Water only after 10+ dry days.\n\nWindow: Apr 01 – Apr 15\nDetails: ht
- tps://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/
- LAWN_TRACKER.md#step-w1\n\n✅ Done: https://bwspargo3.github.io/Weather-a
- nd-Lawn/lawn-go.html?s=W1&a=done\n\n❌ Skip: https://bwspargo3.github.io/
- Weather-and-Lawn/lawn-go.html?s=W1&a=skip\n\n💬 Talk to Claude: https://
- claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date for your area.\n\nMow at 3". Turn irrigation 
+ on\, check heads\, leave it on manual. Water only after 10+ dry days.\n\nW
+ indow: Apr 01 – Apr 15\nDetails: https://github.com/bwspargo3/Weather-an
+ d-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-w1\n\n✅ Done: 
+ https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=W1&a=done\n\n
+ ❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=W1&a
+ =skip\n\n💬 Talk to Claude: https://claude.ai/code/session_016pCzefUgtdC
+ ddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -576,14 +578,14 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270615
 DTEND;VALUE=DATE:20270616
 SUMMARY:🌱 Brown Patch Watch: window opens
-DESCRIPTION:📅 Typical date. It moves automatically once the weather says
-  when.\n\nTan circular patches with a smoky edge? Water mornings only. Opt
- ional fungicide (azoxystrobin).\n\nWindow: Jun 15 – Aug 31\nDetails: htt
- ps://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/L
- AWN_TRACKER.md#step-s3\n\n✅ Done: https://bwspargo3.github.io/Weather-an
- d-Lawn/lawn-go.html?s=S3&a=done\n\n❌ Skip: https://bwspargo3.github.io/W
- eather-and-Lawn/lawn-go.html?s=S3&a=skip\n\n💬 Talk to Claude: https://c
- laude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date for your area.\n\nTan circular patches with a
+  smoky edge? Water mornings only. Optional fungicide (azoxystrobin).\n\nWi
+ ndow: Jun 15 – Aug 31\nDetails: https://github.com/bwspargo3/Weather-and
+ -Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-s3\n\n✅ Done: h
+ ttps://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=S3&a=done\n\n
+ ❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=S3&a
+ =skip\n\n💬 Talk to Claude: https://claude.ai/code/session_016pCzefUgtdC
+ ddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -774,14 +776,14 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270815
 DTEND;VALUE=DATE:20270816
 SUMMARY:🌱 Grub Check: window opens
-DESCRIPTION:📅 Typical date. It moves automatically once the weather says
-  when.\n\nLift 1 sq ft of sod in any brown spot. 10+ grubs → apply Dylox
-  (trichlorfon) and water in.\n\nWindow: Aug 15 – Sep 15\nDetails: https:
- //github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN
- _TRACKER.md#step-s4\n\n✅ Done: https://bwspargo3.github.io/Weather-and-L
- awn/lawn-go.html?s=S4&a=done\n\n❌ Skip: https://bwspargo3.github.io/Weat
- her-and-Lawn/lawn-go.html?s=S4&a=skip\n\n💬 Talk to Claude: https://clau
- de.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date for your area.\n\nLift 1 sq ft of sod in any 
+ brown spot. 10+ grubs → apply Dylox (trichlorfon) and water in.\n\nWindo
+ w: Aug 15 – Sep 15\nDetails: https://github.com/bwspargo3/Weather-and-La
+ wn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-s4\n\n✅ Done: http
+ s://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=S4&a=done\n\n❌ S
+ kip: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=S4&a=skip
+ \n\n💬 Talk to Claude: https://claude.ai/code/session_016pCzefUgtdCddfA8
+ FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -943,15 +945,15 @@ UID:lawn-log-token-renew@weather-and-lawn
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270918
 DTEND;VALUE=DATE:20270919
-SUMMARY:🔑 Renew the Lawn Log GitHub token (expires ~Oct 2)
-DESCRIPTION:The token inside the Lawn Log shortcut expires about Oct 2\, 20
- 27. Create a new one and paste it into the shortcut. Steps: https://github
- .com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER
- .md#lawn-log-shortcut
+SUMMARY:🔑 Renew the Lawn Log GitHub token (expires Oct 2)
+DESCRIPTION:Create a new token\, paste it into the Lawn Log shortcut\, and 
+ update token_expires in lawn-config.json. Steps: https://github.com/bwspar
+ go3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#lawn-lo
+ g-shortcut
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:🔑 Renew the Lawn Log GitHub token (expires ~Oct 2)
+DESCRIPTION:🔑 Renew the Lawn Log GitHub token (expires Oct 2)
 TRIGGER:PT9H
 END:VALARM
 END:VEVENT
@@ -1051,14 +1053,14 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20271015
 DTEND;VALUE=DATE:20271016
 SUMMARY:🌱 Leaf Management: window opens
-DESCRIPTION:📅 Typical date. It moves automatically once the weather says
-  when.\n\nMulch-mow light leaves\; rake heavy mats\, especially off new gr
- ass. Repeat weekly while trees drop.\n\nWindow: Oct 15 – Nov 30\nDetails
- : https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-trac
- ker/LAWN_TRACKER.md#step-s6\n\n✅ Done: https://bwspargo3.github.io/Weath
- er-and-Lawn/lawn-go.html?s=S6&a=done\n\n❌ Skip: https://bwspargo3.github
- .io/Weather-and-Lawn/lawn-go.html?s=S6&a=skip\n\n💬 Talk to Claude: http
- s://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL
+DESCRIPTION:📅 Typical date for your area.\n\nMulch-mow light leaves\; ra
+ ke heavy mats\, especially off new grass. Repeat weekly while trees drop.\
+ n\nWindow: Oct 15 – Nov 30\nDetails: https://github.com/bwspargo3/Weathe
+ r-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#step-s6\n\n✅ Do
+ ne: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=S6&a=done\
+ n\n❌ Skip: https://bwspargo3.github.io/Weather-and-Lawn/lawn-go.html?s=S
+ 6&a=skip\n\n💬 Talk to Claude: https://claude.ai/code/session_016pCzefUg
+ tdCddfA8FBqLjL
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY

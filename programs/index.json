@@ -1,0 +1,26 @@
+[
+ {
+  "id": "grasspad",
+  "name": "GrassPad: Idiot-Proof + Seed Safe + Fall Renovation",
+  "grass": "cool",
+  "about": "**Programs merged:** Idiot-Proof (5-Step) · Seed Safe (spring seeding) · Fall Renovation / Overseeding, plus optional supplemental tasks (grubs, mosquitoes, watering, mowing, disease).",
+  "paths": {
+   "idiotproof": "Idiot-Proof (not seeding in spring)",
+   "seedsafe": "Seed Safe (seeding in spring)"
+  }
+ },
+ {
+  "id": "cool-generic",
+  "name": "Cool-season lawn (fescue, bluegrass, ryegrass): 5-step program",
+  "grass": "cool",
+  "about": "**Program:** a brand-neutral 5-step plan for **tall fescue, Kentucky bluegrass and perennial ryegrass** (the northern US and the transition zone), plus optional supplemental tasks.",
+  "paths": null
+ },
+ {
+  "id": "warm-generic",
+  "name": "Warm-season lawn (Bermuda, Zoysia, St. Augustine, Centipede): 5-step program",
+  "grass": "warm",
+  "about": "**Program:** a brand-neutral plan for **Bermuda, Zoysia, St. Augustine, Centipede and Bahia** (the South, Southwest and transition zone). Steps note species differences.",
+  "paths": null
+ }
+]

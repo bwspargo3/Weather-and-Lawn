@@ -1,11 +1,16 @@
-"""Shared URLs for the lawn tracker (calendar notes, Next Action box, issue links)."""
+"""Shared URLs for the lawn tracker, built from lawn-config.json (repo, branch, optional claude_url)."""
+import json
+import pathlib
 from urllib.parse import quote
 
-REPO = "bwspargo3/Weather-and-Lawn"
-BRANCH = "claude/lawn-care-tracker"
+_cfg = json.loads((pathlib.Path(__file__).resolve().parent.parent / "lawn-config.json").read_text(encoding="utf-8"))
+REPO = _cfg.get("repo", "OWNER/REPO")
+BRANCH = _cfg.get("branch", "main")
+OWNER, REPO_NAME = REPO.split("/", 1)
 TRACKER_URL = f"https://github.com/{REPO}/blob/{BRANCH}/LAWN_TRACKER.md"
-SESSION_URL = "https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL"
-PAGES_URL = "https://bwspargo3.github.io/Weather-and-Lawn"
+PAGES_URL = f"https://{OWNER.lower()}.github.io/{REPO_NAME}"
+RAW_URL = f"https://raw.githubusercontent.com/{REPO}/{BRANCH}"
+SESSION_URL = _cfg.get("claude_url")  # optional "💬 Talk to Claude" link; omitted when unset
 
 
 def issue_url(sid, action):
@@ -18,3 +23,7 @@ def issue_url(sid, action):
 def go_url(sid, action):
     """Quick-log link: lawn-go.html (GitHub Pages) hands the update to the 'Lawn Log' iOS Shortcut."""
     return f"{PAGES_URL}/lawn-go.html?s={sid}&a={'skip' if action == 'skip' else 'done'}"
+
+
+def claude_line(prefix="💬 Talk to Claude: "):
+    return f"{prefix}{SESSION_URL}" if SESSION_URL else ""

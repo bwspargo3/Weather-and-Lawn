@@ -3,5 +3,11 @@
   "label": "Lenexa, KS 66220",
   "lat": 38.96,
   "lon": -94.82,
-  "timezone": "America/Chicago"
+  "timezone": "America/Chicago",
+  "program": "grasspad",
+  "spring_path": "idiotproof",
+  "repo": "bwspargo3/Weather-and-Lawn",
+  "branch": "claude/lawn-care-tracker",
+  "claude_url": "https://claude.ai/code/session_016pCzefUgtdCddfA8FBqLjL",
+  "token_expires": "2027-10-02"
 }

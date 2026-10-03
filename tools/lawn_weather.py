@@ -1,17 +1,13 @@
 #!/usr/bin/env python3
-"""Weather-time the lawn program from live soil/air data for the location in lawn-config.json.
+"""Weather-time the lawn program and plant tasks for the location in lawn-config.json.
 
 Pulls ~3 months of history plus a 16-day forecast from Open-Meteo (free, no key),
-evaluates each step's weather trigger, and writes lawn-state.json:
-
-  steps["2027:1B"] = {"buy": ..., "start": ..., "end": ..., "best": ..., "basis": "..."}
-  alerts[...]      = one-off events (watering, heavy rain, brown patch, frost)
-
-build_lawn_calendar.py uses these dates instead of the fixed typical dates, and
-falls back to the typical dates for any step the weather hasn't triggered yet.
-Dates that have already arrived are locked so the history doesn't move around.
+evaluates each program step's and plant task's trigger (see lawn_engine.py), and
+writes lawn-state.json. build_lawn_calendar.py uses those dates instead of the
+typical ones; dates lock once they arrive so history doesn't move.
 
   python3 tools/lawn_weather.py [--fixture weather.json] [--today 2026-10-03]
+  python3 tools/lawn_weather.py --backtest 2026      # replay a past season
 """
 import argparse
 import datetime as dt
@@ -22,12 +18,12 @@ import urllib.parse
 import urllib.request
 from zoneinfo import ZoneInfo
 
+import lawn_plants
+from lawn_engine import (D, DAY, F, Wx, active_steps, climate, config, daily_rows, evaluate, fmt, program)
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-CONFIG = ROOT / "lawn-config.json"
 STATE = ROOT / "lawn-state.json"
 TRACKER = ROOT / "LAWN_TRACKER.md"
-D = dt.date
-DAY = dt.timedelta(days=1)
 
 
 # ---------------------------------------------------------------- data
@@ -48,183 +44,31 @@ def fetch(cfg, span=None):
         return json.load(r)
 
 
-def daily_rows(raw):
-    """One row per day: tmax, tmin, rain (in), soil (mean °F at 6 cm ≈ 2.4"), rh (mean %)."""
-    hourly = raw["hourly"]
-    soil, rh = {}, {}
-    for t, s, h in zip(hourly["time"], hourly["soil_temperature_6cm"], hourly["relative_humidity_2m"]):
-        day = t[:10]
-        if s is not None:
-            soil.setdefault(day, []).append(s)
-        if h is not None:
-            rh.setdefault(day, []).append(h)
-    rows = {}
-    d = raw["daily"]
-    for t, hi, lo, p in zip(d["time"], d["temperature_2m_max"], d["temperature_2m_min"], d["precipitation_sum"]):
-        if hi is None or lo is None:
-            continue
-        rows[D.fromisoformat(t)] = dict(
-            tmax=hi, tmin=lo, rain=p or 0.0,
-            soil=sum(soil[t]) / len(soil[t]) if soil.get(t) else None,
-            rh=sum(rh[t]) / len(rh[t]) if rh.get(t) else None)
-    return rows
-
-
-class Wx:
-    def __init__(self, rows):
-        self.rows = rows
-        self.first, self.last = min(rows), max(rows)
-
-    def avg(self, key, end, n=5):
-        vals = [self.rows[end - i * DAY][key] for i in range(n) if end - i * DAY in self.rows]
-        vals = [v for v in vals if v is not None]
-        return sum(vals) / len(vals) if len(vals) == n else None
-
-    def run(self, cond, end, n):
-        """cond true on each of the n days ending at `end`."""
-        return all(end - i * DAY in self.rows and cond(self.rows[end - i * DAY]) for i in range(n))
-
-    def first_day(self, start, stop, test):
-        d = max(start, self.first)
-        while d <= min(stop, self.last):
-            if test(d):
-                return d
-            d += DAY
-        return None
-
-    def covers(self, day):
-        return self.first <= day <= self.last
-
 
 # ---------------------------------------------------------------- rules
 
-def F(x):
-    return f"{round(x)}°F"
-
-
-def best_day(wx, start, today, lo=60, hi=85, dry_hours=48):
-    """First forecast day from max(start, today) that's mild and stays dry for 24–48 hrs."""
-    def ok(d):
-        r, nxt = wx.rows.get(d), wx.rows.get(d + DAY)
-        return (r and nxt and lo <= r["tmax"] <= hi and r["rain"] < 0.05
-                and (nxt["rain"] < 0.10 if dry_hours >= 48 else True))
-    return wx.first_day(max(start, today), wx.last - DAY, ok)
-
-
-def rules(wx, year, today, done):
-    """Return {sid: step} for one season year. `done` maps sid -> completion date (from the tracker)."""
-    out = {}
-    y = lambda m, d: D(year, m, d)
-
-    # 1B PREVENT! #1 — crabgrass sprouts once soil holds ~55°F; get the barrier down as it passes 50°F.
-    # Not before Mar 15 (GrassPad's window opens mid-March) and on a 7-day average, so a February warm spell can't trigger it early.
-    s = wx.first_day(y(3, 15), y(5, 15), lambda d: (wx.avg("soil", d, 7) or 0) >= 50)
-    if s:
-        e = wx.first_day(s + DAY, y(5, 31), lambda d: (wx.avg("soil", d, 7) or 0) >= 57) or min(s + 21 * DAY, y(4, 30))
-        out["1B"] = dict(buy=s - 7 * DAY, start=s, end=max(e, s + 5 * DAY),
-                         basis=f"Soil at 2½\" hit a 7-day average of {F(wx.avg('soil', s, 7))} on {s:%b %-d}. "
-                               f"Crabgrass sprouts once soil holds ~55°F, so apply now.")
-    pre1 = done.get("1B") or (out.get("1B") or {}).get("start")
-
-    # 2B Weed & Feed — weeds actively growing (3 days ≥ 60°F); pick a dry, mild day.
-    s = wx.first_day(y(4, 1), y(6, 1), lambda d: wx.run(lambda r: r["tmax"] >= 60, d, 3))
-    if s:
-        st = dict(buy=s - 7 * DAY, start=s, end=y(6, 5),
-                  basis=f"Highs have been 60°F+ for 3 days (since {s - 2 * DAY:%b %-d}), so weeds are actively growing.")
-        b = best_day(wx, s, today)
-        if b:
-            st["best"] = b
-            st["best_note"] = (f"{b:%a %b %-d}: high {F(wx.rows[b]['tmax'])}, dry for the next 24–48 hrs. "
-                               f"Apply to wet (dewy) grass that morning.")
-        out["2B"] = st
-
-    # 3 PREVENT! #2 — ~6 weeks after the first application.
-    if pre1:
-        s = min(max(pre1 + 42 * DAY, y(5, 15)), y(6, 10))
-        out["3"] = dict(buy=s - 7 * DAY, start=s, end=y(7, 5),
-                        basis=f"About 6 weeks after your first PREVENT! ({pre1:%b %-d}). If you plan to overseed this fall, apply by Jun 15.")
-
-    # S1 grub preventer — soil warming through 60°F.
-    s = wx.first_day(y(4, 20), y(6, 20), lambda d: (wx.avg("soil", d) or 0) >= 60)
-    if s:
-        out["S1"] = dict(buy=s - 7 * DAY, start=s, end=y(6, 30),
-                         basis=f"Soil at 2½\" averaging {F(wx.avg('soil', s))}. Grub preventer goes down before beetles lay eggs.")
-
-    # S2 mosquitoes — nights staying above 50°F.
-    s = wx.first_day(y(4, 15), y(6, 30), lambda d: wx.run(lambda r: r["tmin"] >= 50, d, 5))
-    if s:
-        out["S2"] = dict(buy=s - 7 * DAY, start=s, end=s + 14 * DAY,
-                         basis=f"Nights have stayed above 50°F for 5 days (since {s - 4 * DAY:%b %-d}). Mosquito season is starting.",
-                         repeat_every=25, repeat_until=y(9, 15))
-
-    # O1 optional early-summer slow-release feed — ~6 weeks after Weed & Feed, on a mild day.
-    wf = done.get("2B") or (out.get("2B") or {}).get("start")
-    if wf:
-        s = min(max(wf + 42 * DAY, y(5, 25)), y(6, 15))
-        st = dict(buy=s - 7 * DAY, start=s, end=y(6, 20),
-                  basis=f"About 6 weeks after Weed & Feed ({wf:%b %-d}). Optional: skip if the lawn is drought-stressed or highs reach 90°F+.")
-        b = best_day(wx, s, today, lo=60, hi=88, dry_hours=24)
-        if b:
-            st["best"], st["best_note"] = b, f"{b:%a %b %-d}: high {F(wx.rows[b]['tmax'])}. Mild enough to feed."
-        out["O1"] = st
-
-    # O2 optional midsummer feed — irrigated lawns only; flag heat waves.
-    o1 = done.get("O1") or (out.get("O1") or {}).get("start")
-    if o1:
-        s = min(max(o1 + 42 * DAY, y(7, 1)), y(7, 15))
-        hot = wx.covers(s + 4 * DAY) and (wx.avg("tmax", s + 4 * DAY) or 0) >= 92
-        out["O2"] = dict(buy=s - 7 * DAY, start=s, end=y(7, 20),
-                         basis=(f"⚠️ Heat wave forecast (5-day average high {F(wx.avg('tmax', s + 4 * DAY))}): SKIP this one."
-                                if hot else f"About 6 weeks after your early-summer feeding ({o1:%b %-d}). Only if you irrigate and the lawn is green."))
-
-    # W2 summer mode — first real heat.
-    s = wx.first_day(y(5, 1), y(7, 31), lambda d: wx.run(lambda r: r["tmax"] >= 85, d, 3))
-    if s:
-        out["W2"] = dict(start=s, end=y(8, 31),
-                         basis=f"Highs 85°F+ for 3 days (since {s - 2 * DAY:%b %-d}). Raise the mower and switch to summer watering.")
-
-    # FR / 4 / W3 — fall: seed and feed once summer heat breaks; last call as soil cools toward 55°F.
-    s = wx.first_day(y(8, 15), y(10, 5), lambda d: (wx.avg("tmax", d) or 99) <= 85)
-    if s:
-        lc = wx.first_day(s + DAY, y(10, 31), lambda d: (wx.avg("soil", d) or 99) < 55)
-        end = min(lc or y(10, 10), y(10, 15))
-        out["FR"] = dict(buy=s - 7 * DAY, start=s, end=max(end, s + 7 * DAY),
-                         basis=f"Summer heat broke {s:%b %-d} (5-day average high {F(wx.avg('tmax', s))}). Seed germinates best in warm soil and cool air."
-                               + (f" Soil is forecast to cool below 55°F around {lc:%b %-d}, so seed before then." if lc else ""))
-        s4 = max(s, y(8, 25))
-        out["4"] = dict(buy=s4 - 7 * DAY, start=s4, end=y(10, 31),
-                        basis=f"Summer heat has broken (since {s:%b %-d}). Feed now so the lawn recovers before winter.")
-        out["W3"] = dict(start=s, end=y(10, 31), basis=f"Cooler weather since {s:%b %-d}. Cut back to ~1\"/week unless you seeded.")
-
-    # S5 fall broadleaf — weeds pulling energy to roots; spray on a mild, dry day.
-    s = wx.first_day(y(9, 25), y(10, 25), lambda d: (wx.avg("tmax", d) or 99) <= 80)
-    if s:
-        st = dict(buy=s - 7 * DAY, start=s, end=y(10, 31),
-                  basis=f"5-day average high {F(wx.avg('tmax', s))}. Weeds are moving energy to their roots, so spraying works best now.")
-        b = best_day(wx, s, today, lo=50, hi=80, dry_hours=24)
-        if b:
-            st["best"] = b
-            st["best_note"] = f"{b:%a %b %-d}: high {F(wx.rows[b]['tmax'])} with no rain. Good spraying day."
-        out["S5"] = st
-
-    # 5 Snowman — growth slowing (highs settle under ~55°F), before the ground freezes.
-    s = wx.first_day(y(10, 10), y(11, 30), lambda d: (wx.avg("tmax", d) or 99) <= 55)
-    if s:
-        fr = wx.first_day(s + DAY, y(12, 15), lambda d: wx.rows[d]["tmin"] <= 20)
-        out["5"] = dict(buy=s - 7 * DAY, start=s, end=min(fr or y(11, 30), y(12, 15)),
-                        basis=f"5-day average high down to {F(wx.avg('tmax', s))}. Growth is slowing, so it's time for the Winter Root Builder (GrassPad: ~Thanksgiving)."
-                              + (f" A hard freeze (≤20°F) is forecast {fr:%b %-d}, so apply before then." if fr else ""))
-
-    # W4 close-out — blow out irrigation before the first hard freeze.
-    fz = wx.first_day(y(10, 1), y(12, 31), lambda d: wx.rows[d]["tmin"] <= 28)
-    if fz:
-        s = max(fz - 2 * DAY, y(10, 1))
-        out["W4"] = dict(start=s, end=max(fz, s + DAY),
-                         basis=f"First hard freeze (low {F(wx.rows[fz]['tmin'])}) forecast for {fz:%a %b %-d}. Blow out the sprinklers before then.")
+def rules(wx, year, today, done, prog, cfg, clim):
+    """Weather timing for every program step with a trigger. ✅ dates anchor 'after' steps."""
+    anchors, out = dict(done), {}
+    for step in active_steps(prog, cfg):
+        r = evaluate(step, year, wx, clim, today, anchors)
+        if r:
+            out[step["id"]] = r
+            anchors.setdefault(step["id"], r["start"])
     return out
 
 
-def alerts(wx, today, done):
+def plant_rules(wx, year, today, clim):
+    out = {}
+    for item in lawn_plants.chosen_items():
+        for t in item["plant"]["tasks"]:
+            r = evaluate(t, year, wx, clim, today, {})
+            if r:
+                out[f"{item['key']}:{t['id']}"] = dict(start=r["start"], basis=r["basis"])
+    return out
+
+
+def alerts(wx, today, done, grass="cool"):
     """One-off heads-ups from the forecast. Each id is stable, so a re-run doesn't move it."""
     out = {}
     tomorrow = today + DAY
@@ -251,7 +95,7 @@ def alerts(wx, today, done):
             note="Skip irrigation. Hold off on Weed & Feed or weed spray before the rain. "
                  "Granular PREVENT!/Renovator/Snowman are fine: rain waters them in.")
 
-    if D(today.year, 6, 1) <= today <= D(today.year, 9, 15):
+    if grass == "cool" and D(today.year, 6, 1) <= today <= D(today.year, 9, 15):
         bp = wx.first_day(today, wx.last, lambda d: wx.run(lambda r: r["tmin"] >= 68 and (r["rh"] or 0) >= 80, d, 2))
         if bp:
             out[f"brownpatch-{bp:%Y%m%d}"] = dict(
@@ -268,43 +112,19 @@ def alerts(wx, today, done):
     return out
 
 
-def plant_rules(wx, year, plants):
-    """Weather-adjusted start dates for plant tasks that have a trigger (see plant-catalog.json)."""
-    out = {}
-    last_frost = None
-    lf = [d for d in wx.rows if D(year, 2, 1) <= d <= D(year, 6, 15) and wx.rows[d]["tmin"] <= 32]
-    if lf and wx.last >= max(lf) + 7 * DAY:  # need a frost-free week in view before calling it
-        last_frost = max(lf)
-    first_frost = wx.first_day(D(year, 9, 1), D(year, 12, 31), lambda d: wx.rows[d]["tmin"] <= 32)
-    hard_freeze = wx.first_day(D(year, 10, 1), D(year, 12, 31), lambda d: wx.rows[d]["tmin"] <= 28)
-    for plant in plants:
-        for t in plant["tasks"]:
-            trig = t.get("trigger")
-            if not trig:
-                continue
-            ws = D(year, *map(int, t["start"].split("-")))
-            we = D(year, *map(int, t["end"].split("-")))
-            off = trig.get("offset", 0) * DAY
-            start = basis = None
-            kind = trig["type"]
-            if kind in ("soil_ge", "soil_le"):
-                ge = kind == "soil_ge"
-                hit = wx.first_day(ws, we, lambda d: (lambda a: a is not None and (a >= trig["value"] if ge else a <= trig["value"]))(wx.avg("soil", d, 7)))
-                if hit:
-                    start = hit
-                    basis = f"Soil at 2½\" averaging {F(wx.avg('soil', hit, 7))} ({'warmed past' if ge else 'cooled below'} {trig['value']}°F) on {hit:%b %-d}."
-            elif kind == "last_frost" and last_frost:
-                start = max(ws, last_frost + DAY + off)
-                basis = f"Last frost was {last_frost:%b %-d}, with no more frost in the forecast."
-            elif kind == "first_frost" and first_frost:
-                start = max(D(year, 9, 1), first_frost + off)
-                basis = f"First frost (low {F(wx.rows[first_frost]['tmin'])}) forecast {first_frost:%a %b %-d}."
-            elif kind == "hard_freeze" and hard_freeze:
-                start = hard_freeze + off
-                basis = f"Hard freeze (low {F(wx.rows[hard_freeze]['tmin'])}) on {hard_freeze:%a %b %-d}."
-            if start:
-                out[f"{plant['id']}:{t['id']}"] = dict(start=start, basis=basis)
-    return out
+
+# ---------------------------------------------------------------- state
+
+def completion_dates(text):
+    """sid -> date for steps marked ✅ Done (skips don't anchor follow-on timing)."""
+    done = {}
+    for m in re.finditer(r"^\| (\w+) \|.*\| ✅ Done \((\w{3} \d{1,2}, \d{4})\) \|\s*$", text, re.M):
+        done[m.group(1)] = dt.datetime.strptime(m.group(2), "%b %d, %Y").date()
+    return done
+
+
+def ser(step):
+    return {k: (v.isoformat() if isinstance(v, D) else v) for k, v in step.items()}
 
 
 def merge(prev, fresh, today):
@@ -325,41 +145,23 @@ def merge(prev, fresh, today):
     return dict(sorted(out.items()))
 
 
-# ---------------------------------------------------------------- state
-
-def completion_dates(text):
-    """sid -> date for steps marked ✅ Done (skips don't anchor follow-on timing)."""
-    done = {}
-    for m in re.finditer(r"^\| (\w+) \|.*\| ✅ Done \((\w{3} \d{1,2}, \d{4})\) \|\s*$", text, re.M):
-        done[m.group(1)] = dt.datetime.strptime(m.group(2), "%b %d, %Y").date()
-    return done
-
-
-def ser(step):
-    return {k: (v.isoformat() if isinstance(v, D) else v) for k, v in step.items()}
-
-
-LABELS = {"1B": "PREVENT!® #1", "2B": "Weed & Feed", "S1": "Grub preventer", "S2": "Mosquito season start",
-          "3": "PREVENT!® #2", "W2": "Summer mode (raise mower)", "FR": "Fall seeding window opens",
-          "4": "Renovator®", "W3": "Fall watering shift", "S5": "Fall broadleaf spray", "5": "Snowman®",
-          "W4": "Blow out irrigation", "O1": "Optional early-summer feed", "O2": "Optional midsummer feed"}
-
-
 def backtest(cfg, year):
-    """Replay a past season's weather through the rules and print when each step would have triggered."""
+    """Replay a past season's weather through the program and print when each step would have triggered."""
+    prog, clim = program(cfg), climate(cfg)
     today = dt.datetime.now(ZoneInfo(cfg["timezone"])).date()
     end = min(D(year, 12, 31), today - DAY)
     wx = Wx(daily_rows(fetch(cfg, (D(year, 1, 1), end))))
-    found = rules(wx, year, D(year, 1, 1), {})
-    lines = [f"### {year} replay for {cfg['label']} (weather through {end:%b %-d})", "",
+    found = rules(wx, year, D(year, 1, 1), {}, prog, cfg, clim)
+    lines = [f"### {year} replay: {prog['name']} for {cfg['label']} (weather through {fmt(end)})", "",
              "| Step | 🛒 Buy | Apply | Window closes | ⭐ First good day | Why |", "|---|---|---|---|---|---|"]
-    f = lambda d: f"{d:%a %b %-d}" if d else "–"
-    for sid, name in sorted(LABELS.items(), key=lambda kv: found[kv[0]]["start"] if kv[0] in found else D(year, 12, 31)):
-        st = found.get(sid)
+    f = lambda d: f"{d:%a %b} {d.day}" if d else "–"
+    trig_steps = [s for s in active_steps(prog, cfg) if s.get("trigger")]
+    for s in sorted(trig_steps, key=lambda s: found[s["id"]]["start"] if s["id"] in found else D(year, 12, 31)):
+        st = found.get(s["id"])
         if st:
-            lines.append(f"| {name} | {f(st.get('buy'))} | **{f(st['start'])}** | {f(st['end'])} | {f(st.get('best'))} | {st['basis']} |")
+            lines.append(f"| {s['name']} | {f(st.get('buy'))} | **{f(st['start'])}** | {f(st['end'])} | {f(st.get('best'))} | {st['basis']} |")
         else:
-            lines.append(f"| {name} | – | not triggered yet | – | – | |")
+            lines.append(f"| {s['name']} | – | not triggered | – | – | |")
     frost = wx.first_day(D(year, 9, 1), wx.last, lambda d: wx.rows[d]["tmin"] <= 32)
     lines += ["", f"First fall frost (≤32°F): {f(frost) if frost else 'not yet'}"]
     print("\n".join(lines))
@@ -370,11 +172,17 @@ def main():
     ap.add_argument("--fixture", help="saved Open-Meteo response to use instead of fetching")
     ap.add_argument("--today", type=D.fromisoformat)
     ap.add_argument("--backtest", type=int, metavar="YEAR", help="print when steps would have triggered in a past year")
+    ap.add_argument("--program", help="with --backtest: replay a different program (e.g. cool-generic)")
     args = ap.parse_args()
 
-    cfg = json.loads(CONFIG.read_text())
+    cfg = config()
     if args.backtest:
+        if args.program:
+            cfg = dict(cfg, program=args.program)
+            if args.program != "grasspad":
+                cfg.pop("spring_path", None)
         return backtest(cfg, args.backtest)
+    prog, clim = program(cfg), climate(cfg)
     today = args.today or dt.datetime.now(ZoneInfo(cfg["timezone"])).date()
     raw = json.loads(pathlib.Path(args.fixture).read_text()) if args.fixture else fetch(cfg)
     wx = Wx(daily_rows(raw))
@@ -383,19 +191,17 @@ def main():
     done = completion_dates(text)
 
     old = json.loads(STATE.read_text()) if STATE.exists() else {}
-    cat = {p["id"]: p for p in json.loads((ROOT / "plant-catalog.json").read_text(encoding="utf-8"))["plants"]}
-    mine = [cat[p] for p in cfg.get("plants", []) if p in cat]
     fresh_steps, fresh_plants = {}, {}
     for year in (season, season + 1):
-        for sid, st in rules(wx, year, today, done if year == season else {}).items():
+        for sid, st in rules(wx, year, today, done if year == season else {}, prog, cfg, clim).items():
             fresh_steps[f"{year}:{sid}"] = st
-        for key, st in plant_rules(wx, year, mine).items():
+        for key, st in plant_rules(wx, year, today, clim).items():
             fresh_plants[f"{year}:{key}"] = st
     steps = merge(old.get("steps", {}), fresh_steps, today)
     plants = merge(old.get("plants", {}), fresh_plants, today)
 
     al = {k: v for k, v in old.get("alerts", {}).items() if D.fromisoformat(v["date"]) >= today - 30 * DAY}
-    for k, v in alerts(wx, today, done).items():
+    for k, v in alerts(wx, today, done, prog.get("grass", "cool")).items():
         al.setdefault(k, ser(v))  # first sighting wins, so dates don't drift day to day
 
     state = dict(location={k: cfg[k] for k in ("label", "lat", "lon")}, steps=steps, plants=plants,

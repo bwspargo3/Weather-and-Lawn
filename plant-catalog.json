@@ -1,104 +1,1077 @@
 {
-  "_about": "Plant care tasks for USDA zone 6 (Kansas City area). Dates are typical windows; 'trigger' lets the daily weather run move the start date. Trigger types: soil_ge / soil_le (7-day soil average at 2.5in, °F), last_frost (day after the last spring frost once 7+ frost-free days are in view), first_frost / hard_freeze (fall lows ≤32°F / ≤28°F; offset in days, negative = before).",
-  "plants": [
-    {"id": "roses", "name": "Roses (shrub & Knock Out)", "emoji": "🌹", "tasks": [
-      {"id": "prune", "task": "Prune hard (to 12–18\") and clean up", "start": "03-20", "end": "04-15",
-       "trigger": {"type": "soil_ge", "value": 50},
-       "note": "Classic cue: prune when forsythia blooms. Cut out dead/crossing canes; shape to 12–18\" (Knock Outs can go to ~1/3 height)."},
-      {"id": "feed", "task": "First feeding", "start": "04-20", "end": "05-15", "buy": "rose fertilizer",
-       "note": "Feed after new growth starts; repeat every 6 weeks through early August if you want max blooms."},
-      {"id": "stopfeed", "task": "Last feeding of the year", "start": "08-01", "end": "08-15",
-       "note": "No fertilizer after mid-August so growth hardens off before frost. Deadhead as needed."},
-      {"id": "winter", "task": "Mound mulch over the base for winter", "start": "11-01", "end": "12-01",
-       "trigger": {"type": "hard_freeze", "offset": 1},
-       "note": "After the first hard freeze, mound 8–10\" of mulch or compost over the crown. Don't prune now."}
-    ]},
-    {"id": "hydr-old", "name": "Hydrangea, bigleaf/oakleaf (blooms on old wood)", "emoji": "💠", "tasks": [
-      {"id": "dead", "task": "Remove only dead stems", "start": "04-20", "end": "05-15",
-       "trigger": {"type": "last_frost", "offset": 3},
-       "note": "Wait until buds leaf out so you can see what's dead. Do NOT cut back healthy stems: that removes this year's flowers. (Endless Summer types are forgiving.)"},
-      {"id": "shape", "task": "Deadhead / light shaping right after flowering", "start": "07-10", "end": "08-01",
-       "note": "Only window for shaping. No pruning after early August; next year's buds form in late summer."},
-      {"id": "winter", "task": "Mulch the base; leave stems standing", "start": "11-01", "end": "12-01",
-       "trigger": {"type": "hard_freeze", "offset": 1},
-       "note": "2–3\" of mulch over the root zone protects the flower buds on the stems."}
-    ]},
-    {"id": "hydr-new", "name": "Hydrangea, panicle/smooth (Limelight, Annabelle)", "emoji": "🤍", "tasks": [
-      {"id": "cut", "task": "Cut back for bigger blooms", "start": "02-20", "end": "03-31",
-       "note": "Blooms on new wood. Panicle: cut by about 1/3 to a strong framework. Smooth (Annabelle): cut to 12–18\" (taller if stems flop)."}
-    ]},
-    {"id": "spring-shrub", "name": "Spring-flowering shrubs (lilac, forsythia, azalea, viburnum, spring spirea)", "emoji": "🌸", "tasks": [
-      {"id": "prune", "task": "Prune right after flowering", "start": "05-10", "end": "06-15",
-       "note": "They set next year's flowers by midsummer, so prune within ~3 weeks of blooms fading. Remove the oldest 1/3 of stems at the base to renew."}
-    ]},
-    {"id": "hedge", "name": "Boxwood & hedges (privet, yew, burning bush)", "emoji": "🟩", "tasks": [
-      {"id": "shear", "task": "Shear after the spring growth flush", "start": "06-01", "end": "06-30",
-       "note": "Keep the bottom wider than the top so it stays full. Boxwood: thin a few interior branches for airflow."},
-      {"id": "last", "task": "Last trim of the year", "start": "08-01", "end": "08-15",
-       "note": "Light touch-up only. Pruning later pushes tender growth that winter burns."}
-    ]},
-    {"id": "grasses", "name": "Ornamental grasses", "emoji": "🌾", "tasks": [
-      {"id": "cut", "task": "Cut back to 4–6\"", "start": "02-20", "end": "03-31",
-       "note": "Before new green shoots get tall. Tie big clumps with twine first for easy cleanup. Divide every 3–4 years in spring."}
-    ]},
-    {"id": "perennials", "name": "Perennials (hosta, daylily, coneflower, salvia, black-eyed Susan)", "emoji": "🌼", "tasks": [
-      {"id": "spring", "task": "Spring cleanup & divide crowded clumps", "start": "03-25", "end": "04-30",
-       "trigger": {"type": "soil_ge", "value": 50},
-       "note": "Cut last year's stems to the ground and divide overgrown clumps as shoots emerge. Top-dress with compost."},
-      {"id": "fall", "task": "Fall cutback (leave seedheads for birds if you like)", "start": "10-25", "end": "11-30",
-       "trigger": {"type": "hard_freeze", "offset": 1},
-       "note": "After a hard freeze blackens foliage. Hostas and daylilies get cut to the ground; coneflower/black-eyed Susan can stand for birds and winter interest."}
-    ]},
-    {"id": "mums", "name": "Garden mums", "emoji": "🏵️", "tasks": [
-      {"id": "pinch", "task": "Pinch back tips (repeat every 2–3 weeks until July 4)", "start": "05-20", "end": "07-04",
-       "note": "Pinch off the top 1\" of each stem when it reaches 6\". Stop by July 4 or you'll lose fall flowers."}
-    ]},
-    {"id": "shade-trees", "name": "Shade trees (maple, oak, elm, redbud)", "emoji": "🌳", "tasks": [
-      {"id": "prune", "task": "Dormant pruning", "start": "01-10", "end": "02-28",
-       "note": "Remove dead, crossing and low branches while dormant. OAKS: never prune April–July (oak wilt). Leave big limbs to an arborist."},
-      {"id": "water", "task": "Deep-water young trees before winter", "start": "10-15", "end": "11-15",
-       "note": "Trees planted in the last 3 years: 10 gal per inch of trunk diameter every 2 weeks if it's dry, until the ground freezes."}
-    ]},
-    {"id": "fruit-trees", "name": "Fruit trees (apple, pear, peach, cherry)", "emoji": "🍎", "tasks": [
-      {"id": "prune", "task": "Dormant pruning", "start": "02-15", "end": "03-20",
-       "note": "Open the center, remove water sprouts and crossing limbs. Peaches: prune last (late March is fine)."},
-      {"id": "oil", "task": "Dormant oil spray (before bud break)", "start": "03-01", "end": "03-31", "buy": "horticultural dormant oil",
-       "note": "On a calm day above 40°F with no freeze for 24 hrs. Smothers overwintering scale, mites and aphid eggs."}
-    ]},
-    {"id": "crape", "name": "Crape myrtle", "emoji": "🌺", "tasks": [
-      {"id": "dead", "task": "Remove winter-killed wood only", "start": "05-01", "end": "05-31",
-       "trigger": {"type": "last_frost", "offset": 10},
-       "note": "They leaf out late here. Cut back only to live wood (scratch-test for green). Don't top them ('crape murder')."}
-    ]},
-    {"id": "evergreens", "name": "Evergreens (juniper, arborvitae, spruce, pine)", "emoji": "🌲", "tasks": [
-      {"id": "trim", "task": "Light trim of new growth", "start": "06-01", "end": "07-15",
-       "note": "Trim only the new growth. Most conifers won't regrow from bare old wood. Pines: pinch new 'candles' by half."}
-    ]},
-    {"id": "bulbs", "name": "Spring bulbs (tulips, daffodils, crocus)", "emoji": "🌷", "tasks": [
-      {"id": "foliage", "task": "Cut back yellowed foliage", "start": "06-01", "end": "06-20",
-       "note": "Wait until leaves yellow (about 6 weeks after bloom); they recharge next year's bulb."},
-      {"id": "plant", "task": "Plant new bulbs", "start": "10-10", "end": "11-30", "buy": "spring bulbs",
-       "trigger": {"type": "soil_le", "value": 60},
-       "note": "Once soil cools below ~60°F, before the ground freezes. Plant 3× as deep as the bulb is tall."}
-    ]},
-    {"id": "veg", "name": "Vegetable garden", "emoji": "🍅", "tasks": [
-      {"id": "cool", "task": "Plant cool-season crops (peas, lettuce, spinach, onions)", "start": "03-15", "end": "04-15",
-       "trigger": {"type": "soil_ge", "value": 45}, "buy": "seeds & onion sets",
-       "note": "Soil 45°F+ and workable (not soggy). Light frosts are fine for these."},
-      {"id": "warm", "task": "Plant tomatoes, peppers, squash", "start": "04-25", "end": "05-31",
-       "trigger": {"type": "last_frost", "offset": 7}, "buy": "transplants",
-       "note": "After the last frost with nights staying above 50°F. Harden off transplants for a week first."},
-      {"id": "cleanup", "task": "Fall garden cleanup", "start": "10-20", "end": "11-30",
-       "trigger": {"type": "hard_freeze", "offset": 1},
-       "note": "Pull spent plants (toss diseased tomato vines, don't compost), add compost or shredded leaves, mulch."}
-    ]},
-    {"id": "tender", "name": "Tender / container plants (tropicals, citrus, houseplants summering outside)", "emoji": "🪴", "tasks": [
-      {"id": "out", "task": "Move outside", "start": "05-01", "end": "05-31",
-       "trigger": {"type": "last_frost", "offset": 7},
-       "note": "After the last frost with nights above 50°F. Start in shade for a week so leaves don't scorch."},
-      {"id": "in", "task": "Bring inside before frost", "start": "09-25", "end": "10-31",
-       "trigger": {"type": "first_frost", "offset": -2},
-       "note": "Before nights drop below ~45–50°F for tropicals. Check for pests and hose off before bringing in."}
-    ]}
-  ]
+ "_about": "Plant care profiles for anywhere in the US. Windows are relative to the location's median last spring frost / first fall frost (computed from its ZIP), so they shift automatically from Minnesota to Florida. 'zones' = USDA hardiness zones where the plant (or task) applies. Triggers use the same engine as the lawn program (see tools/lawn_engine.py). Any profile can also be used for a custom plant: '🌿 plants: spring-shrub=Grandma's lilac'.",
+ "categories": [
+  "Flowering shrubs",
+  "Hedges & evergreens",
+  "Trees",
+  "Perennials & bulbs",
+  "Food garden",
+  "Warm climate",
+  "Containers"
+ ],
+ "plants": [
+  {
+   "id": "roses",
+   "name": "Roses (shrub, Knock Out, hybrid tea)",
+   "emoji": "🌹",
+   "category": "Flowering shrubs",
+   "zones": [
+    4,
+    10
+   ],
+   "tasks": [
+    {
+     "id": "prune",
+     "task": "Prune hard and clean up",
+     "start": {
+      "rel": "last_frost",
+      "days": -35
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": -5
+     },
+     "trigger": {
+      "type": "soil_ge",
+      "value": 50,
+      "days": 7,
+      "basis": "Soil at 2½\" averaging {val} on {date}, about when forsythia blooms. Classic rose-pruning time."
+     },
+     "note": "Cut out dead/crossing canes and shape to 12–18\" (Knock Outs to about 1/3 height). In zones 9–10, a lighter January trim."
+    },
+    {
+     "id": "feed",
+     "task": "First feeding",
+     "start": {
+      "rel": "last_frost",
+      "days": 7
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 35
+     },
+     "note": "Once new growth is a few inches long. Repeat every 4–6 weeks until the last feeding.",
+     "buy_item": "rose fertilizer"
+    },
+    {
+     "id": "stopfeed",
+     "task": "Last feeding of the year",
+     "start": {
+      "rel": "first_frost",
+      "days": -65
+     },
+     "end": {
+      "rel": "first_frost",
+      "days": -50
+     },
+     "note": "Stop fertilizing about 6–8 weeks before your first frost so growth hardens off."
+    },
+    {
+     "id": "winter",
+     "task": "Mound mulch over the base for winter",
+     "zones": [
+      3,
+      7
+     ],
+     "start": {
+      "rel": "first_frost",
+      "days": 7
+     },
+     "end": {
+      "rel": "first_frost",
+      "days": 40
+     },
+     "trigger": {
+      "type": "freeze",
+      "value": 28,
+      "offset": 1,
+      "basis": "Hard freeze (low {val}) on {trig}. Mound mulch now."
+     },
+     "note": "After the first hard freeze, mound 8–10\" of mulch or compost over the crown. Don't prune now."
+    }
+   ]
+  },
+  {
+   "id": "hydr-old",
+   "name": "Hydrangea, bigleaf/oakleaf/mountain (blooms on old wood)",
+   "emoji": "💠",
+   "category": "Flowering shrubs",
+   "zones": [
+    5,
+    9
+   ],
+   "tasks": [
+    {
+     "id": "dead",
+     "task": "Remove only dead stems",
+     "start": {
+      "rel": "last_frost",
+      "days": 7
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 35
+     },
+     "trigger": {
+      "type": "frost_free",
+      "offset": 5,
+      "basis": "Last frost was {since}; buds are leafing out, so dead wood is easy to see."
+     },
+     "note": "Wait until buds leaf out. Do NOT cut back healthy stems or you remove this year's flowers. Reblooming types (Endless Summer) are forgiving."
+    },
+    {
+     "id": "shape",
+     "task": "Deadhead / light shaping right after flowering",
+     "start": {
+      "rel": "last_frost",
+      "days": 85
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 115
+     },
+     "note": "The only safe window for shaping. Next year's buds form by late summer, so no pruning after this."
+    },
+    {
+     "id": "winter",
+     "task": "Mulch the base; leave stems standing",
+     "zones": [
+      5,
+      7
+     ],
+     "start": {
+      "rel": "first_frost",
+      "days": 7
+     },
+     "end": {
+      "rel": "first_frost",
+      "days": 40
+     },
+     "trigger": {
+      "type": "freeze",
+      "value": 28,
+      "offset": 1
+     },
+     "note": "2–3\" of mulch over the root zone protects the flower buds on the stems."
+    }
+   ]
+  },
+  {
+   "id": "hydr-new",
+   "name": "Hydrangea, panicle/smooth (Limelight, Annabelle)",
+   "emoji": "🤍",
+   "category": "Flowering shrubs",
+   "zones": [
+    3,
+    9
+   ],
+   "tasks": [
+    {
+     "id": "cut",
+     "task": "Cut back for bigger blooms",
+     "start": {
+      "rel": "last_frost",
+      "days": -50
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": -10
+     },
+     "note": "Blooms on new wood. Panicle: cut by about 1/3 to a strong framework. Smooth (Annabelle): cut to 12–18\"."
+    }
+   ]
+  },
+  {
+   "id": "spring-shrub",
+   "name": "Spring-flowering shrubs (lilac, forsythia, azalea, rhododendron, viburnum, spirea)",
+   "emoji": "🌸",
+   "category": "Flowering shrubs",
+   "zones": [
+    3,
+    9
+   ],
+   "tasks": [
+    {
+     "id": "prune",
+     "task": "Prune right after flowering",
+     "start": {
+      "rel": "last_frost",
+      "days": 25
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 60
+     },
+     "note": "They set next year's flowers by midsummer, so prune within ~3 weeks of blooms fading. Renew by removing the oldest 1/3 of stems."
+    },
+    {
+     "id": "acid",
+     "task": "Feed azaleas/rhododendrons (acid fertilizer)",
+     "start": {
+      "rel": "last_frost",
+      "days": 30
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 60
+     },
+     "note": "Only for acid-lovers (azalea, rhododendron, camellia, blueberry), right after bloom. Skip for lilac/forsythia.",
+     "buy_item": "acid-loving plant fertilizer"
+    }
+   ]
+  },
+  {
+   "id": "summer-shrub",
+   "name": "Summer-flowering shrubs (butterfly bush, rose of Sharon, summer spirea, abelia)",
+   "emoji": "🦋",
+   "category": "Flowering shrubs",
+   "zones": [
+    4,
+    9
+   ],
+   "tasks": [
+    {
+     "id": "prune",
+     "task": "Prune before new growth",
+     "start": {
+      "rel": "last_frost",
+      "days": -40
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": -7
+     },
+     "note": "Blooms on new wood. Butterfly bush can be cut to 12–18\"; others, shape and thin."
+    }
+   ]
+  },
+  {
+   "id": "hedge",
+   "name": "Boxwood & hedges (privet, yew, holly, burning bush)",
+   "emoji": "🟩",
+   "category": "Hedges & evergreens",
+   "zones": [
+    4,
+    9
+   ],
+   "tasks": [
+    {
+     "id": "shear",
+     "task": "Shear after the spring growth flush",
+     "start": {
+      "rel": "last_frost",
+      "days": 45
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 80
+     },
+     "note": "Keep the bottom wider than the top so it stays full. Boxwood: thin a few interior branches for airflow."
+    },
+    {
+     "id": "last",
+     "task": "Last trim of the year",
+     "start": {
+      "rel": "first_frost",
+      "days": -80
+     },
+     "end": {
+      "rel": "first_frost",
+      "days": -60
+     },
+     "note": "Light touch-up only. Later pruning pushes tender growth that winter burns."
+    }
+   ]
+  },
+  {
+   "id": "evergreens",
+   "name": "Conifers (juniper, arborvitae, spruce, pine)",
+   "emoji": "🌲",
+   "category": "Hedges & evergreens",
+   "zones": [
+    2,
+    9
+   ],
+   "tasks": [
+    {
+     "id": "trim",
+     "task": "Light trim of new growth",
+     "start": {
+      "rel": "last_frost",
+      "days": 45
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 95
+     },
+     "note": "Trim only new growth; most conifers won't regrow from bare old wood. Pines: pinch new 'candles' by half."
+    },
+    {
+     "id": "water",
+     "task": "Deep watering before the ground freezes",
+     "zones": [
+      2,
+      7
+     ],
+     "start": {
+      "rel": "first_frost",
+      "days": 0
+     },
+     "end": {
+      "rel": "first_frost",
+      "days": 35
+     },
+     "note": "Evergreens lose water all winter. Soak the root zone if fall has been dry."
+    }
+   ]
+  },
+  {
+   "id": "shade-trees",
+   "name": "Shade trees (maple, oak, elm, redbud, birch)",
+   "emoji": "🌳",
+   "category": "Trees",
+   "zones": [
+    3,
+    9
+   ],
+   "tasks": [
+    {
+     "id": "prune",
+     "task": "Dormant pruning",
+     "start": {
+      "rel": "last_frost",
+      "days": -95
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": -35
+     },
+     "note": "Remove dead, crossing and low branches while dormant. OAKS: never prune April–July (oak wilt). Big limbs go to an arborist. Maples and birches may 'bleed' sap; that's harmless."
+    },
+    {
+     "id": "water",
+     "task": "Deep-water young trees before winter",
+     "start": {
+      "rel": "first_frost",
+      "days": -10
+     },
+     "end": {
+      "rel": "first_frost",
+      "days": 25
+     },
+     "note": "Trees planted in the last 3 years: about 10 gal per inch of trunk diameter every 2 weeks if dry."
+    }
+   ]
+  },
+  {
+   "id": "fruit-trees",
+   "name": "Fruit trees (apple, pear, peach, plum, cherry)",
+   "emoji": "🍎",
+   "category": "Trees",
+   "zones": [
+    4,
+    9
+   ],
+   "tasks": [
+    {
+     "id": "prune",
+     "task": "Dormant pruning",
+     "start": {
+      "rel": "last_frost",
+      "days": -55
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": -20
+     },
+     "note": "Open the center, remove water sprouts and crossing limbs. Prune peaches last."
+    },
+    {
+     "id": "oil",
+     "task": "Dormant oil spray (before bud break)",
+     "start": {
+      "rel": "last_frost",
+      "days": -40
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": -14
+     },
+     "note": "Calm day above 40°F, no freeze for 24 hrs. Smothers overwintering scale, mites and aphid eggs.",
+     "buy_item": "horticultural dormant oil"
+    },
+    {
+     "id": "thin",
+     "task": "Thin young fruit",
+     "start": {
+      "rel": "last_frost",
+      "days": 35
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 60
+     },
+     "note": "Thin to one fruit every 6–8\" for bigger fruit and less limb breakage."
+    }
+   ]
+  },
+  {
+   "id": "crape",
+   "name": "Crape myrtle",
+   "emoji": "🌺",
+   "category": "Trees",
+   "zones": [
+    6,
+    10
+   ],
+   "tasks": [
+    {
+     "id": "prune",
+     "task": "Prune lightly / remove winter-killed wood",
+     "start": {
+      "rel": "last_frost",
+      "days": -20
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 30
+     },
+     "trigger": {
+      "type": "frost_free",
+      "offset": 7,
+      "basis": "Last frost was {since}. Leaves are emerging, so dead wood shows."
+     },
+     "note": "Thin crossing branches and suckers; cut back only to live wood. Don't top them ('crape murder')."
+    }
+   ]
+  },
+  {
+   "id": "perennials",
+   "name": "Perennials (hosta, daylily, coneflower, salvia, black-eyed Susan, peony)",
+   "emoji": "🌼",
+   "category": "Perennials & bulbs",
+   "zones": [
+    3,
+    9
+   ],
+   "tasks": [
+    {
+     "id": "spring",
+     "task": "Spring cleanup & divide crowded clumps",
+     "start": {
+      "rel": "last_frost",
+      "days": -14
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 21
+     },
+     "trigger": {
+      "type": "soil_ge",
+      "value": 50,
+      "days": 7
+     },
+     "note": "Cut last year's stems to the ground and divide overgrown clumps as shoots emerge. Top-dress with compost."
+    },
+    {
+     "id": "fall",
+     "task": "Fall cutback (leave seedheads for birds if you like)",
+     "start": {
+      "rel": "first_frost",
+      "days": 5
+     },
+     "end": {
+      "rel": "first_frost",
+      "days": 40
+     },
+     "trigger": {
+      "type": "freeze",
+      "value": 28,
+      "offset": 1
+     },
+     "note": "After a hard freeze blackens foliage. Hostas, daylilies and peonies to the ground; coneflower and black-eyed Susan can stand for birds."
+    }
+   ]
+  },
+  {
+   "id": "grasses",
+   "name": "Ornamental grasses",
+   "emoji": "🌾",
+   "category": "Perennials & bulbs",
+   "zones": [
+    3,
+    10
+   ],
+   "tasks": [
+    {
+     "id": "cut",
+     "task": "Cut back to 4–6\"",
+     "start": {
+      "rel": "last_frost",
+      "days": -50
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": -10
+     },
+     "note": "Before new shoots get tall. Tie big clumps with twine first for easy cleanup. Divide every 3–4 years."
+    }
+   ]
+  },
+  {
+   "id": "mums",
+   "name": "Garden mums",
+   "emoji": "🏵️",
+   "category": "Perennials & bulbs",
+   "zones": [
+    4,
+    9
+   ],
+   "tasks": [
+    {
+     "id": "pinch",
+     "task": "Pinch back tips (repeat every 2–3 weeks)",
+     "start": {
+      "rel": "last_frost",
+      "days": 35
+     },
+     "end": "07-04",
+     "note": "Pinch the top 1\" of each stem at 6\" tall. Stop by early July or you lose fall flowers."
+    }
+   ]
+  },
+  {
+   "id": "bulbs",
+   "name": "Spring bulbs (tulips, daffodils, crocus, hyacinth)",
+   "emoji": "🌷",
+   "category": "Perennials & bulbs",
+   "zones": [
+    3,
+    8
+   ],
+   "tasks": [
+    {
+     "id": "foliage",
+     "task": "Cut back yellowed foliage",
+     "start": {
+      "rel": "last_frost",
+      "days": 45
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 70
+     },
+     "note": "Wait until leaves yellow (about 6 weeks after bloom); they recharge next year's bulb."
+    },
+    {
+     "id": "plant",
+     "task": "Plant new bulbs",
+     "start": {
+      "rel": "first_frost",
+      "days": -10
+     },
+     "end": {
+      "rel": "first_frost",
+      "days": 45
+     },
+     "trigger": {
+      "type": "soil_le",
+      "value": 60,
+      "days": 7
+     },
+     "note": "Once soil cools below ~60°F, before the ground freezes. Plant 3× as deep as the bulb is tall. Zones 9+: buy pre-chilled bulbs and plant in December.",
+     "buy_item": "spring bulbs"
+    }
+   ]
+  },
+  {
+   "id": "summer-bulbs",
+   "name": "Summer bulbs (dahlia, canna, gladiolus, caladium)",
+   "emoji": "🌻",
+   "category": "Perennials & bulbs",
+   "zones": [
+    3,
+    11
+   ],
+   "tasks": [
+    {
+     "id": "plant",
+     "task": "Plant summer bulbs/tubers",
+     "start": {
+      "rel": "last_frost",
+      "days": 7
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 35
+     },
+     "trigger": {
+      "type": "soil_ge",
+      "value": 60,
+      "days": 7
+     },
+     "note": "Once soil is 60°F+. Caladiums want 65°F+.",
+     "buy_item": "summer bulbs"
+    },
+    {
+     "id": "lift",
+     "task": "Dig and store tubers for winter",
+     "zones": [
+      3,
+      7
+     ],
+     "start": {
+      "rel": "first_frost",
+      "days": 2
+     },
+     "end": {
+      "rel": "first_frost",
+      "days": 20
+     },
+     "trigger": {
+      "type": "freeze",
+      "value": 32,
+      "offset": 2,
+      "basis": "First frost (low {val}) {trig} blackened the foliage, so it's time to lift."
+     },
+     "note": "After frost blackens the foliage: dig, dry a few days, store in peat or sawdust at 40–50°F. Zones 8+ can leave them in the ground."
+    }
+   ]
+  },
+  {
+   "id": "veg",
+   "name": "Vegetable garden",
+   "emoji": "🍅",
+   "category": "Food garden",
+   "zones": [
+    3,
+    11
+   ],
+   "tasks": [
+    {
+     "id": "cool",
+     "task": "Plant cool-season crops (peas, lettuce, spinach, onions, potatoes)",
+     "start": {
+      "rel": "last_frost",
+      "days": -35
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": -5
+     },
+     "trigger": {
+      "type": "soil_ge",
+      "value": 45,
+      "days": 7
+     },
+     "note": "Soil 45°F+ and workable (not soggy). Light frosts are fine for these.",
+     "buy_item": "seeds, onion sets & seed potatoes"
+    },
+    {
+     "id": "warm",
+     "task": "Plant tomatoes, peppers, squash, beans",
+     "start": {
+      "rel": "last_frost",
+      "days": 7
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 40
+     },
+     "trigger": {
+      "type": "frost_free",
+      "offset": 7
+     },
+     "note": "After the last frost with nights staying above 50°F. Harden off transplants for a week first.",
+     "buy_item": "transplants"
+    },
+    {
+     "id": "fallcrop",
+     "task": "Sow fall crops (lettuce, kale, spinach, radish, carrots)",
+     "start": {
+      "rel": "first_frost",
+      "days": -80
+     },
+     "end": {
+      "rel": "first_frost",
+      "days": -55
+     },
+     "note": "Count back from frost: most greens need 50–60 days. Shade and water seedlings in late-summer heat.",
+     "buy_item": "fall seeds"
+    },
+    {
+     "id": "cleanup",
+     "task": "Fall garden cleanup",
+     "start": {
+      "rel": "first_frost",
+      "days": 5
+     },
+     "end": {
+      "rel": "first_frost",
+      "days": 40
+     },
+     "trigger": {
+      "type": "freeze",
+      "value": 28,
+      "offset": 1
+     },
+     "note": "Pull spent plants (toss diseased tomato vines; don't compost them), add compost or shredded leaves, mulch."
+    }
+   ]
+  },
+  {
+   "id": "garlic",
+   "name": "Garlic",
+   "emoji": "🧄",
+   "category": "Food garden",
+   "zones": [
+    3,
+    9
+   ],
+   "tasks": [
+    {
+     "id": "plant",
+     "task": "Plant garlic cloves",
+     "start": {
+      "rel": "first_frost",
+      "days": 0
+     },
+     "end": {
+      "rel": "first_frost",
+      "days": 35
+     },
+     "trigger": {
+      "type": "soil_le",
+      "value": 60,
+      "days": 7
+     },
+     "note": "Pointy end up, 2\" deep, 6\" apart; mulch after the ground starts to freeze. Harvest next summer when half the leaves brown.",
+     "buy_item": "seed garlic"
+    }
+   ]
+  },
+  {
+   "id": "berries",
+   "name": "Berries (blueberry, raspberry, blackberry, strawberry)",
+   "emoji": "🫐",
+   "category": "Food garden",
+   "zones": [
+    3,
+    9
+   ],
+   "tasks": [
+    {
+     "id": "prune",
+     "task": "Dormant pruning (blueberries, summer raspberries)",
+     "start": {
+      "rel": "last_frost",
+      "days": -50
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": -14
+     },
+     "note": "Blueberries: remove oldest canes and low twiggy growth. Raspberries: remove dead canes, thin to 4–6 per foot."
+    },
+    {
+     "id": "feed",
+     "task": "Feed after bloom (acid feed for blueberries)",
+     "start": {
+      "rel": "last_frost",
+      "days": 10
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 40
+     },
+     "note": "Blueberries need acid fertilizer (ammonium sulfate or 'acid-loving'); others, a balanced feed.",
+     "buy_item": "berry/acid fertilizer"
+    },
+    {
+     "id": "renovate",
+     "task": "Cut spent floricanes / renovate strawberries after harvest",
+     "start": {
+      "rel": "last_frost",
+      "days": 90
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 120
+     },
+     "note": "Raspberries/blackberries: cut canes that fruited to the ground. June-bearing strawberries: mow leaves, thin, side-dress."
+    }
+   ]
+  },
+  {
+   "id": "citrus",
+   "name": "Citrus (in-ground or patio)",
+   "emoji": "🍋",
+   "category": "Warm climate",
+   "zones": [
+    9,
+    11
+   ],
+   "tasks": [
+    {
+     "id": "feed1",
+     "task": "Late-winter citrus feeding",
+     "start": {
+      "rel": "last_frost",
+      "days": -10
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 20
+     },
+     "note": "Citrus fertilizer with micronutrients. Repeat in late spring and late summer.",
+     "buy_item": "citrus fertilizer"
+    },
+    {
+     "id": "feed2",
+     "task": "Late-spring citrus feeding",
+     "start": {
+      "rel": "last_frost",
+      "days": 80
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 110
+     },
+     "note": "Second of three yearly feedings."
+    },
+    {
+     "id": "feed3",
+     "task": "Late-summer citrus feeding (last of the year)",
+     "start": {
+      "rel": "first_frost",
+      "days": -90
+     },
+     "end": {
+      "rel": "first_frost",
+      "days": -70
+     },
+     "note": "Last feeding so new growth hardens before cool weather."
+    },
+    {
+     "id": "protect",
+     "task": "Frost protection: cover or move inside",
+     "start": {
+      "rel": "first_frost",
+      "days": -7
+     },
+     "end": {
+      "rel": "first_frost",
+      "days": 30
+     },
+     "trigger": {
+      "type": "freeze",
+      "value": 32,
+      "offset": -1,
+      "basis": "Frost (low {val}) forecast {trig}. Cover, water the soil, or move pots inside."
+     },
+     "note": "Frost cloth to the ground (not touching leaves), water soil the day before, or bring containers into a garage."
+    }
+   ]
+  },
+  {
+   "id": "palms",
+   "name": "Palms",
+   "emoji": "🌴",
+   "category": "Warm climate",
+   "zones": [
+    8,
+    11
+   ],
+   "tasks": [
+    {
+     "id": "feed",
+     "task": "Palm feeding (slow-release palm special)",
+     "start": {
+      "rel": "last_frost",
+      "days": 30
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 60
+     },
+     "note": "Palm-specific slow-release with magnesium and potassium. Repeat about every 3 months through summer.",
+     "buy_item": "palm fertilizer (with Mg/K)"
+    },
+    {
+     "id": "prune",
+     "task": "Remove only fully brown fronds",
+     "start": {
+      "rel": "last_frost",
+      "days": 100
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 150
+     },
+     "note": "Never cut green or yellowing fronds; palms pull nutrients from them. No 'hurricane cuts'."
+    }
+   ]
+  },
+  {
+   "id": "tropical-shrubs",
+   "name": "Tropical shrubs (hibiscus, bougainvillea, lantana, ixora)",
+   "emoji": "🌺",
+   "category": "Warm climate",
+   "zones": [
+    9,
+    11
+   ],
+   "tasks": [
+    {
+     "id": "prune",
+     "task": "Prune and shape after frost risk",
+     "start": {
+      "rel": "last_frost",
+      "days": 0
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 30
+     },
+     "trigger": {
+      "type": "frost_free",
+      "offset": 3
+     },
+     "note": "Cut back cold-damaged wood once frost risk is past, then shape. Feed as new growth starts."
+    },
+    {
+     "id": "protect",
+     "task": "Frost protection",
+     "start": {
+      "rel": "first_frost",
+      "days": -7
+     },
+     "end": {
+      "rel": "first_frost",
+      "days": 30
+     },
+     "trigger": {
+      "type": "freeze",
+      "value": 32,
+      "offset": -1
+     },
+     "note": "Cover with frost cloth and water the soil before a frost night."
+    }
+   ]
+  },
+  {
+   "id": "tender",
+   "name": "Tender / container plants (tropicals, houseplants summering outside)",
+   "emoji": "🪴",
+   "category": "Containers",
+   "zones": [
+    3,
+    11
+   ],
+   "tasks": [
+    {
+     "id": "out",
+     "task": "Move outside",
+     "zones": [
+      3,
+      9
+     ],
+     "start": {
+      "rel": "last_frost",
+      "days": 10
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 40
+     },
+     "trigger": {
+      "type": "frost_free",
+      "offset": 7
+     },
+     "note": "After the last frost with nights above 50°F. Start in shade for a week so leaves don't scorch."
+    },
+    {
+     "id": "in",
+     "task": "Bring inside before frost",
+     "zones": [
+      3,
+      9
+     ],
+     "start": {
+      "rel": "first_frost",
+      "days": -21
+     },
+     "end": {
+      "rel": "first_frost",
+      "days": 3
+     },
+     "trigger": {
+      "type": "freeze",
+      "value": 32,
+      "offset": -2,
+      "basis": "First frost (low {val}) forecast {trig}. Bring them in before then."
+     },
+     "note": "Before nights drop below about 45–50°F for tropicals. Check for pests and hose off first."
+    },
+    {
+     "id": "feed",
+     "task": "Start feeding containers",
+     "start": {
+      "rel": "last_frost",
+      "days": 14
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 40
+     },
+     "note": "Containers leach nutrients fast: liquid feed every 2 weeks through summer, or slow-release once.",
+     "buy_item": "liquid fertilizer"
+    }
+   ]
+  },
+  {
+   "id": "annuals",
+   "name": "Annual flowers & hanging baskets",
+   "emoji": "💐",
+   "category": "Containers",
+   "zones": [
+    3,
+    11
+   ],
+   "tasks": [
+    {
+     "id": "plant",
+     "task": "Plant annuals",
+     "start": {
+      "rel": "last_frost",
+      "days": 5
+     },
+     "end": {
+      "rel": "last_frost",
+      "days": 35
+     },
+     "trigger": {
+      "type": "frost_free",
+      "offset": 5
+     },
+     "note": "After the last frost. Pansies/violas can go in a month earlier; they like cool weather.",
+     "buy_item": "annual flowers"
+    },
+    {
+     "id": "cool",
+     "task": "Swap in cool-season color (pansies, mums, kale)",
+     "start": {
+      "rel": "first_frost",
+      "days": -40
+     },
+     "end": {
+      "rel": "first_frost",
+      "days": -10
+     },
+     "note": "Pull tired summer annuals; pansies planted now often bloom again in spring.",
+     "buy_item": "fall annuals"
+    }
+   ]
+  }
+ ]
 }

@@ -41,29 +41,25 @@
   <p id="hint">Opening the Lawn Log shortcut…</p>
   <a class="btn" id="run" href="#">⚡ Run Lawn Log</a>
   <a class="alt" id="gh" href="#">Log it on GitHub instead</a>
-  <p class="small"><a class="alt" href="https://github.com/bwspargo3/Weather-and-Lawn/blob/claude/lawn-care-tracker/LAWN_TRACKER.md#lawn-log-shortcut">Shortcut not set up yet?</a></p>
+  <p class="small"><a class="alt" id="help" href="#">Shortcut not set up yet?</a></p>
 </main>
+<script src="lawn-site.js"></script>
 <script>
-  // Calendar events link here as lawn-go.html?s=4&a=done (or a=skip). This page hands the
-  // update to the "Lawn Log" iOS Shortcut, which files it as a GitHub issue using a token
-  // stored only on the phone. Nothing secret lives in this page or the public calendar feed.
-  const p = new URLSearchParams(location.search);
+  // Calendar events link here as lawn-go.html?s=4&a=done (or a=skip), or ?reset=2027 for a new
+  // season. This page hands the text to the "Lawn Log" iOS Shortcut, which files it as a GitHub
+  // issue using a token stored only on the phone. Nothing secret lives in this page.
+  const S = window.LawnSite, p = new URLSearchParams(location.search);
   const id = (p.get("s") || "").toUpperCase().replace(/[^0-9A-Z]/g, "").slice(0, 3);
-  const skip = p.get("a") === "skip";
-  const text = id ? (skip ? `❌ ${id} skipped` : `✅ ${id} done`) : "";
-  const shortcut = "shortcuts://run-shortcut?name=" + encodeURIComponent("Lawn Log") +
-    (text ? "&input=text&text=" + encodeURIComponent(text) : "");
-  const github = "https://github.com/bwspargo3/Weather-and-Lawn/issues/new" +
-    (text ? "?title=" + encodeURIComponent(text) : "");
+  const reset = (p.get("reset") || "").replace(/\D/g, "").slice(0, 4);
+  const text = reset ? `🔄 new season ${reset}` : id ? (p.get("a") === "skip" ? `❌ ${id} skipped` : `✅ ${id} done`) : "";
 
   document.getElementById("what").textContent = text || "Lawn update";
-  document.getElementById("run").href = shortcut;
-  document.getElementById("gh").href = github;
+  document.getElementById("run").href = S.shortcut(text);
+  document.getElementById("gh").href = S.github(text);
+  S.tracker("lawn-log-shortcut").then(u => document.getElementById("help").href = u);
   if (text) {
-    location.href = shortcut;
-    setTimeout(() => {
-      document.getElementById("hint").textContent = "Didn't open? Tap the button below.";
-    }, 1500);
+    location.href = S.shortcut(text);
+    setTimeout(() => { document.getElementById("hint").textContent = "Didn't open? Tap the button below."; }, 1500);
   } else {
     document.getElementById("hint").textContent = "No step in this link. Tap below to log something by hand.";
   }

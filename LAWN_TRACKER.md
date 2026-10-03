@@ -1,11 +1,13 @@
 # 🌱 Lawn Care Tracker: GrassPad Programs
 
 **Programs merged:** Idiot-Proof (5-Step) · Seed Safe (spring seeding) · Fall Renovation / Overseeding, plus optional supplemental tasks (grubs, mosquitoes, watering, mowing, disease).
-**Built for:** cool-season lawns (tall fescue / Kentucky bluegrass) in the Kansas City / Omaha region, which is where GrassPad's timings come from. If you're north of there, shift spring dates ~1 week later; south, ~1 week earlier.
+**Built for:** cool-season lawns (tall fescue / Kentucky bluegrass) in the Kansas City / Omaha region, which is where GrassPad's timings come from. Dates are GrassPad's; 📡 weather triggers fine-tune them for your yard.
+**📍 Location:** Lenexa, KS 66220 · USDA zone 6a · typical last frost **Apr 10**, first frost **Oct 25** _(Kansas City defaults until your climate profile is computed)_
 **Season:** 2026
 **Lawn size:** `_____ sq ft` (fill this in and I'll work out bag counts for you).
+**Spring path:** Idiot-Proof (not seeding in spring)
 
-> **How to update:** tap **✅ Done** / **❌ Skip** in any calendar event (or in the box below). The [Lawn Log shortcut](#lawn-log-shortcut) logs it with no GitHub sign-in, and the tracker and calendar update themselves in about 15 seconds. For anything else, tap **💬 Talk to Claude**, or tell Claude `✅ 1B done (Mar 28)` directly.
+> **How to update:** tap **✅ Done** / **❌ Skip** in any calendar event (or in the box below). The [Lawn Log shortcut](#lawn-log-shortcut) logs it with no GitHub sign-in, and the tracker and calendar update themselves in about 15 seconds. For anything else, tap **💬 Talk to Claude**.
 
 ---
 
@@ -31,16 +33,13 @@
 
 ## 📅 Status Table
 
-**Spring path:** ✅ Idiot-Proof (Seed Safe steps 1A / 2A marked ➖ N/A)  
-**Season start:** began tracking at Step 4 (Oct 2); earlier steps ❌ skipped
-
 | # | Step | Program(s) | Timing | 🛒 Buy by | Status |
 |---|------|------------|--------|-----------|--------|
 | P | [Prep Tasks](#step-prep) | Both | Early → Mid Mar | ~Mar 1 | ❌ Skipped |
-| 1A | [Step 1: Renovator®](#step-1a) | Seed Safe | Early → Mid Mar | ~Mar 1 | ➖ N/A (Idiot-Proof path chosen) |
+| 1A | [Step 1: Renovator®](#step-1a) | Seed Safe | Early → Mid Mar | ~Mar 1 | ➖ N/A (other spring path) |
 | 1B | [Step 1: PREVENT!®](#step-1b) | Idiot-Proof | Mid-Mar → Mid-Apr | ~Mar 8 | ❌ Skipped |
 | W1 | [Spring Watering & Mowing Setup](#step-w1) | Supplemental | Early → Mid Apr | n/a | ❌ Skipped |
-| 2A | [Step 2: Seed Safe®](#step-2a) | Seed Safe | Mid-Apr (~3 wks after 1A) | ~Apr 1 | ➖ N/A (Idiot-Proof path chosen) |
+| 2A | [Step 2: Seed Safe®](#step-2a) | Seed Safe | Mid-Apr (~3 wks after 1A) | ~Apr 1 | ➖ N/A (other spring path) |
 | 2B | [Step 2: Weed & Feed](#step-2b) | Idiot-Proof | Apr → Early Jun | ~Apr 15 | ❌ Skipped |
 | S1 | [Grub Preventer](#step-s1) | Supplemental (recommended) | Mid-May → Late Jun | ~May 8 | ❌ Skipped |
 | S2 | [Mosquito Season Start](#step-s2) | Supplemental (optional) | Mid-May, repeat → Sep | ~May 8 | ❌ Skipped |
@@ -58,32 +57,32 @@
 | 5 | [Step 5: Snowman® Winter Root Builder](#step-5) | Both | Late Oct → Nov (GrassPad: ~Thanksgiving) | ~Oct 15 | ⬜ Not started |
 | W4 | [Season Close-Out](#step-w4) | Supplemental | Mid → Late Nov | n/a | ⬜ Not started |
 
-**Status key:** ⬜ Not started · ✅ Done (date) · ❌ Skipped · ➖ N/A (other spring path)
+**Status key:** ⬜ Not started · ✅ Done (date) · ❌ Skipped · ➖ N/A
 
-**How the Next Action Box picks a step:** it shows the first row in this table that is still ⬜. Rows marked ✅, ❌ or ➖ are skipped over.
+**How the Next Action Box picks a step:** the first row that is still ⬜.
 
 ---
 
 ## 🛒 Shopping Calendar (buy ~1 week before the window opens)
 
-| Buy by | Item | For step | Notes |
-|--------|------|----------|-------|
-| ~Mar 1 | Renovator® **or** PREVENT!® (depends on spring path) | 1A / 1B | Buy only one; your spring path decides which |
-| ~Mar 1 | Mower blade sharpening | P | Most hardware stores turn this around in about a day |
-| ~Apr 1 | Seed Safe® + grass seed | 2A | Seed Safe path only |
-| ~Apr 15 | Weed & Feed | 2B | Idiot-Proof path only |
-| ~May 8 | Grub preventer (chlorantraniliprole, e.g. GrubEx) | S1 | Recommended |
-| ~May 8 | Mosquito barrier spray + Bti dunks | S2 | Optional |
-| ~May 15 | PREVENT!® (2nd bag) | 3 | Both paths |
-| ~Jun 1 | Brown patch fungicide (azoxystrobin or propiconazole) | S3 | Only if you've had brown patch before |
-| ~Aug 20 | Grass seed, plus core aerator or slit-seeder rental | FR | Reserve rentals early; Labor Day weekend books out |
-| ~Aug 25 | Renovator® | 4 / FR | Doubles as the starter fertilizer if you seed |
-| ~Sep 28 | Broadleaf weed spray (2,4-D / triclopyr blend) | S5 | Skip if you overseeded |
-| ~Oct 15 | Snowman® | 5 | Last product of the year |
+| Buy by | Item | For step |
+|--------|------|----------|
+| ~Mar 1 | mower blade sharpening | P |
+| ~Mar 8 | PREVENT!® | 1B |
+| ~Apr 15 | Weed & Feed | 2B |
+| ~May 8 | grub preventer (chlorantraniliprole, e.g. GrubEx) | S1 |
+| ~May 8 | Bti dunks + mosquito barrier spray | S2 |
+| ~May 15 | PREVENT!® (2nd bag) | 3 |
+| ~May 18 | slow-release fertilizer (e.g. Milorganite) | O1 |
+| ~Jun 24 | slow-release fertilizer (e.g. Milorganite) | O2 |
+| ~Aug 20 | grass seed + aerator/slit-seeder rental | FR |
+| ~Aug 25 | Renovator® | 4 |
+| ~Sep 28 | broadleaf weed spray (2,4-D/triclopyr) | S5 |
+| ~Oct 15 | Snowman® Winter Root Builder | 5 |
 
 ---
 
-## 📖 Detailed Timeline (March → November)
+## 📖 Detailed Timeline
 
 <a id="step-prep"></a>
 ### 🧹 Prep Tasks
@@ -104,8 +103,8 @@
 
 <a id="step-1a"></a>
 ### 🌾 Step 1: Renovator®
-**Timing:** Early → Mid March  **Programs:** Seed Safe only
-**Status:** ➖ N/A (Idiot-Proof path chosen)
+**Timing:** Early → Mid March  **Programs:** Seed Safe
+**Status:** ➖ N/A (other spring path)
 
 **What to do:**
 - Apply Renovator® at the bag rate. It feeds the existing turf and gives food to the seed you'll put down.
@@ -117,7 +116,7 @@
 
 <a id="step-1b"></a>
 ### 🛡️ Step 1: PREVENT!®
-**Timing:** Mid-March → Mid-April  **Programs:** Idiot-Proof only
+**Timing:** Mid-March → Mid-April  **Programs:** Idiot-Proof
 **Status:** ❌ Skipped
 
 **What to do:**
@@ -144,8 +143,8 @@
 
 <a id="step-2a"></a>
 ### 🌱 Step 2: Seed Safe®
-**Timing:** Mid-April (~3 weeks after Renovator)  **Programs:** Seed Safe only
-**Status:** ➖ N/A (Idiot-Proof path chosen)
+**Timing:** Mid-April (~3 weeks after Renovator)  **Programs:** Seed Safe
+**Status:** ➖ N/A (other spring path)
 
 **What to do:**
 - Apply Seed Safe® (seed-safe crabgrass pre-emergent + fertilizer, mesotrione-based) at the bag rate.
@@ -158,7 +157,7 @@
 
 <a id="step-2b"></a>
 ### 🌼 Step 2: Weed & Feed
-**Timing:** April → Early June  **Programs:** Idiot-Proof only
+**Timing:** April → Early June  **Programs:** Idiot-Proof
 **Status:** ❌ Skipped
 
 **What to do:**
@@ -191,7 +190,7 @@
 - **Free first step:** dump standing water weekly (buckets, saucers, gutters, toys, tarps). This does more than spraying.
 - Put **Bti dunks** in water you can't dump (bird baths, rain barrels, ponds). They're safe for pets and wildlife. Replace them monthly.
 - **Optional barrier spray** (bifenthrin, or a botanical such as cedar oil) on shrubs, under decks and in shady foliage. Don't spray the open lawn or flowering plants, which protects bees.
-- **Re-spray every 3–4 weeks.** I'll remind you: June, July, August and early September rounds.
+- **Re-spray every 3–4 weeks.** The calendar reminds you every 25 days through early fall.
 
 ---
 
@@ -225,7 +224,7 @@
 
 <a id="step-o1"></a>
 ### 🍃 Optional: Early-Summer Slow-Release Feeding
-**Timing:** Late May → June 20 (about 6 weeks after Weed & Feed)  **Programs:** Optional (not part of GrassPad's 5 steps)
+**Timing:** Late May → June 20 (about 6 weeks after Weed & Feed)  **Programs:** Optional
 **Status:** ➖ N/A (added Oct 3)
 
 **What to do:**
@@ -264,7 +263,7 @@
 
 <a id="step-s4"></a>
 ### 🔍 Grub Check & Rescue Treatment
-**Timing:** Mid-August → Mid-September  **Programs:** Supplemental (only if needed)
+**Timing:** Mid-August → Mid-September  **Programs:** Supplemental (if needed)
 **Status:** ❌ Skipped
 
 **What to do:**
@@ -370,14 +369,14 @@
 - **Irrigation:** shut it off and **blow out the lines** before the first hard freeze (~mid-November in KC). Disconnect the hoses.
 - **Mower:** run it out of gas or add fuel stabilizer, clean the deck, and pull the blade for sharpening now so it's ready in March.
 - **Winter watering:** if there's no rain or snow for 4+ weeks (Dec–Feb), water once on a day above 40°F, especially new seedlings.
-- **Next season:** reset this tracker to ⬜ at the start of March.
+- **Next season:** a 🔄 reminder before spring resets the tracker in one tap.
 
 ---
 
 <a id="plants"></a>
 ## 🌿 My Plants: Pruning, Feeding & Planting
 
-Reminders for the plants you pick, timed for zone 6 (Kansas City). Tasks marked 📡 move with the weather (last frost, soil temperature, hard freeze). These are calendar reminders only, with nothing to check off. Pick or change your plants on the [plant picker](https://bwspargo3.github.io/Weather-and-Lawn/lawn-plants.html).
+Reminders for the plants you pick, timed to your frost dates and USDA zone. Tasks marked 📡 move with the weather (last frost, soil temperature, hard freeze). Calendar reminders only, with nothing to check off. Pick or change plants on the [plant picker](https://bwspargo3.github.io/Weather-and-Lawn/lawn-plants.html).
 
 <!-- PLANTS:START (auto-generated from lawn-config.json + plant-catalog.json) -->
 _No plants chosen yet._ Pick yours on the **[plant picker](https://bwspargo3.github.io/Weather-and-Lawn/lawn-plants.html)**, and the Lawn Log shortcut saves the list. Pruning, feeding and planting reminders then appear in your calendar.
@@ -388,26 +387,28 @@ _No plants chosen yet._ Pick yours on the **[plant picker](https://bwspargo3.git
 <a id="weather-timing"></a>
 ## 📡 Weather Timing (Lenexa, KS 66220)
 
-Every morning around 5 AM, a GitHub Action (`.github/workflows/lawn-weather.yml`) pulls **modeled soil temperature (at 2½"), air temperature, rain and humidity** for the location in `lawn-config.json`. The data comes from [Open-Meteo](https://open-meteo.com) and covers the last 3 months plus a 16-day forecast. The Action moves each step's calendar events to match. No AI is involved.
+Every morning a GitHub Action (`.github/workflows/lawn-weather.yml`) pulls **modeled soil temperature (2½"), highs/lows, rain and humidity** for your location from [Open-Meteo](https://open-meteo.com) (3 months back + 16-day forecast) and moves each step's calendar events to match. No AI involved.
 
 | Step | Weather trigger |
 |------|-----------------|
-| 1B PREVENT!® | Soil **7-day** average reaches **50°F**, not before Mar 15 (GrassPad's window; crabgrass sprouts ~55°F; this ignores February warm spells). Last call as soil passes 57°F. |
-| 2B Weed & Feed | Highs **60°F+** for 3 days. ⭐ best day = mild (60–85°F) and dry for 24–48 hrs. |
-| 3 PREVENT!® #2 | **6 weeks** after your ✅ date for PREVENT! #1 (May 15 – Jun 10). |
-| S1 Grub preventer | Soil 5-day average reaches **60°F**. |
-| S2 Mosquitoes | Nights **50°F+** for 5 days, then re-spray every 25 days to mid-Sep. |
-| W2 Summer mode | Highs **85°F+** for 3 days. |
-| O1 Optional summer feed | About **6 weeks after Weed & Feed** (May 25 – Jun 15). ⭐ best day = mild (60–88°F). |
-| O2 Optional midsummer feed | 6 weeks after O1 (Jul 1–15). Says **skip** if the 5-day average high is ≥ 92°F. |
-| FR / 4 / W3 Fall | 5-day average high drops to **85°F** or below. Seeding last call when soil heads below 55°F. |
-| S5 Fall weeds | 5-day average high **≤ 80°F** (after Sep 25). ⭐ best day = 50–80°F and dry. |
-| 5 Snowman® Root Builder | 5-day average high **≤ 55°F** (growth slowing), before a forecast hard freeze. |
-| W4 Close-out | **2 days before** the first forecast hard freeze (≤ 28°F). |
+| 1B Step 1: PREVENT!® | Soil 7-day average reaches **50°F**. last call: Soil 7-day average reaches **57°F** |
+| 2B Step 2: Weed & Feed | Highs **60°F+** for 3 days. ⭐ best day = 60–85°F and dry |
+| S1 Grub Preventer | Soil 5-day average reaches **60°F** |
+| S2 Mosquito Season Start | Lows **50°F+** for 5 days. repeats every 25 days |
+| 3 Step 3: PREVENT!® (2nd app) | **6 weeks after step 1B**. clamped not before 05-15 – not after 06-10 |
+| W2 Summer Mode: Mowing & Watering | Highs **85°F+** for 3 days |
+| O1 Optional: Early-Summer Slow-Release Feeding | **6 weeks after step 2B**. clamped not before 05-25 – not after 06-15; ⭐ best day = 60–88°F and dry |
+| O2 Optional: Midsummer Feeding (irrigated lawns only) | **6 weeks after step O1**. clamped not before 07-01 – not after 07-15; says **skip** if the 5-day average high is ≥ 92°F |
+| 4 Step 4: Renovator® | 5-day average high **≤ 85°F**. clamped not before 08-25 |
+| FR Fall Renovation / Overseeding | 5-day average high **≤ 85°F**. last call: Soil 5-day average cools to **55°F** |
+| W3 Fall Watering Shift | 5-day average high **≤ 85°F** |
+| S5 Fall Broadleaf Weed Control | 5-day average high **≤ 80°F**. ⭐ best day = 50–80°F and dry |
+| 5 Step 5: Snowman® Winter Root Builder | 5-day average high **≤ 55°F**. last call: First fall low **≤ 20°F** |
+| W4 Season Close-Out | First fall low **≤ 28°F** (2 days before). clamped not before 10-01 |
 
-**Extra alerts:** 💧 water this week (under 0.75" of rain in 7 days, none coming; it switches to seedling advice for 4 weeks after you seed) · 🌧 heavy rain coming (skip watering and liquid weed killers) · 🍄 brown patch weather (warm, humid nights) · 🥶 first frost.
+**Extra alerts:** 💧 water this week (< 0.75" rain in 7 days, none coming; seedling advice for 4 weeks after you seed) · 🌧 heavy rain coming · 🍄 brown patch weather · 🥶 first frost.
 
-**How to read the calendar:** events marked **📡** are weather-timed, and their notes explain why. Unmarked events are typical dates that move once the weather triggers them. Dates are locked once they arrive, so past entries don't shift. To change the location, edit `lawn-config.json` (ZIP, label, lat/lon).
+**How to read the calendar:** 📡 events are weather-timed and say why. Others are typical dates for your frost dates and move once the weather triggers them. Dates lock once they arrive. Change location or program on the [setup page](https://bwspargo3.github.io/Weather-and-Lawn/lawn-setup.html).
 
 ---
 
@@ -439,7 +440,7 @@ Each one alerts at 9 AM. Its notes link back to its section here and include **�
 
 **A. Create a GitHub token** (the only time you'll need to sign in to GitHub)
 1. In Safari, open **github.com/settings/personal-access-tokens/new**.
-2. **Token name:** `Lawn Log`. **Expiration:** the longest available (up to 1 year). A 🔑 renewal reminder is already in the calendar for Sep 18, 2027; tell Claude if your date differs.
+2. **Token name:** `Lawn Log`. **Expiration:** the longest available (up to 1 year). Put the expiry date in `lawn-config.json` as `"token_expires": "YYYY-MM-DD"`, and a 🔑 renewal reminder lands in your calendar 2 weeks before.
 3. **Repository access:** *Only select repositories* → **Weather-and-Lawn**.
 4. **Permissions → Repository permissions → Issues:** *Read and write*. Leave everything else as is.
 5. **Generate token** and copy it (starts with `github_pat_`). It's only shown once.
@@ -470,4 +471,6 @@ Each one alerts at 9 AM. Its notes link back to its section here and include **�
 - **Oct 3, 2026** · ✅ Done · W3 · Fall Watering Shift
 <!-- JOURNAL:END -->
 
-*Sources: GrassPad's [Idiot-Proof Lawn Program](https://grasspad.com/idiot-proof-lawn-program/), [Spring Seeding / Seed Safe](https://grasspad.com/spring-seeding/), and [Idiot-Proof Fall Lawn Renovation](https://grasspad.com/idiot-proof-fall-lawn-renovation/). The supplemental tasks (grubs, mosquitoes, disease, watering) use standard cool-season extension guidance. Always follow the product label for rates.*
+---
+
+*Sources: [GrassPad Idiot-Proof Lawn Program](https://grasspad.com/idiot-proof-lawn-program/) · [Spring Seeding / Seed Safe](https://grasspad.com/spring-seeding/) · [Idiot-Proof Fall Lawn Renovation](https://grasspad.com/idiot-proof-fall-lawn-renovation/) · [When to Apply / Snowman Winter Root Builder](https://grasspad.com/?p=11024). Supplemental timing uses standard extension guidance. Always follow the product label for rates.*

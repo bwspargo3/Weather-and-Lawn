@@ -1,0 +1,589 @@
+{
+ "id": "grasspad",
+ "name": "GrassPad: Idiot-Proof + Seed Safe + Fall Renovation",
+ "grass": "cool",
+ "title": "🌱 Lawn Care Tracker: GrassPad Programs",
+ "intro": [
+  "**Programs merged:** Idiot-Proof (5-Step) · Seed Safe (spring seeding) · Fall Renovation / Overseeding, plus optional supplemental tasks (grubs, mosquitoes, watering, mowing, disease).",
+  "**Built for:** cool-season lawns (tall fescue / Kentucky bluegrass) in the Kansas City / Omaha region, which is where GrassPad's timings come from. Dates are GrassPad's; 📡 weather triggers fine-tune them for your yard."
+ ],
+ "paths": {
+  "idiotproof": "Idiot-Proof (not seeding in spring)",
+  "seedsafe": "Seed Safe (seeding in spring)"
+ },
+ "sources": [
+  "[GrassPad Idiot-Proof Lawn Program](https://grasspad.com/idiot-proof-lawn-program/)",
+  "[Spring Seeding / Seed Safe](https://grasspad.com/spring-seeding/)",
+  "[Idiot-Proof Fall Lawn Renovation](https://grasspad.com/idiot-proof-fall-lawn-renovation/)",
+  "[When to Apply / Snowman Winter Root Builder](https://grasspad.com/?p=11024)"
+ ],
+ "steps": [
+  {
+   "id": "P",
+   "name": "Prep Tasks",
+   "table_name": "Prep Tasks",
+   "heading": "🧹 Prep Tasks",
+   "anchor": "step-prep",
+   "programs": "Both",
+   "timing": "Early → Mid Mar",
+   "timing_long": "Early → Mid March",
+   "buy_text": "~Mar 1",
+   "start": "03-01",
+   "end": "03-15",
+   "lastcall": false,
+   "note": "Sharpen blades, rake out debris, check spreader. Confirm spring path with Claude (Idiot-Proof vs Seed Safe).",
+   "body": "**What to do:**\n- **Pick your spring path:**\n  - **Seed Safe path** if you plan to seed thin or bare areas this spring. It runs Renovator (1A), then Seed Safe (2A).\n  - **Idiot-Proof path** if you're not seeding. It runs PREVENT! (1B), then Weed & Feed (2B).\n  - You can't do both: PREVENT! stops grass seed from sprouting too.\n- **Equipment:** sharpen mower blades, change the oil and plug, and calibrate the spreader (check the setting chart on each bag).\n- **Cleanup:** rake out leaves, sticks and matted snow-mold patches.\n- **Optional:** run a soil test through K-State or UNL Extension. It tells you pH and whether you need lime.\n- **Don't** aerate or power-rake now if you're on the Idiot-Proof path. It disturbs the pre-emergent barrier.",
+   "buy": "03-01",
+   "buy_item": "mower blade sharpening"
+  },
+  {
+   "id": "1A",
+   "name": "Step 1: Renovator® (Seed Safe)",
+   "table_name": "Step 1: Renovator®",
+   "heading": "🌾 Step 1: Renovator®",
+   "anchor": "step-1a",
+   "programs": "Seed Safe",
+   "timing": "Early → Mid Mar",
+   "timing_long": "Early → Mid March",
+   "buy_text": "~Mar 1",
+   "start": "03-01",
+   "end": "03-20",
+   "lastcall": true,
+   "note": "Apply at bag rate, water in. Seed Safe follows ~3 weeks later.",
+   "body": "**What to do:**\n- Apply Renovator® at the bag rate. It feeds the existing turf and gives food to the seed you'll put down.\n- Water it in (about ¼\") or apply before rain.\n- Set a reminder **~3 weeks out** for Seed Safe (Step 2A). GrassPad specifies that gap.\n- Prep the spots you'll seed: rake bare areas down to loose soil.",
+   "buy": "03-01",
+   "buy_item": "Renovator®",
+   "path": "seedsafe"
+  },
+  {
+   "id": "1B",
+   "name": "Step 1: PREVENT!®",
+   "table_name": "Step 1: PREVENT!®",
+   "heading": "🛡️ Step 1: PREVENT!®",
+   "anchor": "step-1b",
+   "programs": "Idiot-Proof",
+   "timing": "Mid-Mar → Mid-Apr",
+   "timing_long": "Mid-March → Mid-April",
+   "buy_text": "~Mar 8",
+   "start": "03-15",
+   "end": "04-15",
+   "lastcall": true,
+   "note": "Apply before soil holds 55°F (check the Lawn tab) / when forsythia blooms. Water in ½\" within 24–48 hrs (GrassPad). No seeding or aerating after.",
+   "body": "**What to do:**\n- Apply PREVENT!® (crabgrass pre-emergent + fertilizer) at the bag rate.\n- **Timing cue:** apply before soil holds at 55°F (the *Lawn* tab in this app shows soil temperature), or when forsythia bushes are in bloom. Earlier in the window is safer than later.\n- Water in with ~½\" within a few days. That activates the barrier.\n- **No seeding, aerating or dethatching** after this goes down. It breaks the barrier and blocks seed.\n- It's safe for kids and pets once watered in and dry.",
+   "buy": "03-08",
+   "buy_item": "PREVENT!®",
+   "path": "idiotproof",
+   "trigger": {
+    "type": "soil_ge",
+    "value": 50,
+    "days": 7,
+    "from": "03-15",
+    "to": "05-15",
+    "end": {
+     "type": "soil_ge",
+     "value": 57,
+     "days": 7,
+     "default_days": 21,
+     "cap": "04-30",
+     "min_days": 5
+    },
+    "basis": "Soil at 2½\" hit a 7-day average of {val} on {date}. Crabgrass sprouts once soil holds ~55°F, so apply now."
+   }
+  },
+  {
+   "id": "W1",
+   "name": "Spring Watering & Mowing Setup",
+   "table_name": "Spring Watering & Mowing Setup",
+   "heading": "💧 Spring Watering & Mowing Setup",
+   "anchor": "step-w1",
+   "programs": "Supplemental",
+   "timing": "Early → Mid Apr",
+   "timing_long": "Early → Mid April",
+   "buy_text": "n/a",
+   "start": "04-01",
+   "end": "04-15",
+   "lastcall": false,
+   "note": "Mow at 3\". Turn irrigation on, check heads, leave it on manual. Water only after 10+ dry days.",
+   "body": "**What to do:**\n- **Mowing:** first cuts at **3\"**, removing no more than ⅓ of the blade per cut. Mulch the clippings.\n- **Watering:** usually none needed. Spring rain covers it. Only water if you go 10+ days dry: ~1\"/week total, in 1–2 deep sessions, early morning.\n- **Irrigation:** turn the system on, check for broken heads, and set it to **manual / off** for now so it doesn't overwater in spring.\n- **If you're on the Seed Safe path and seeded:** keep seed moist with light watering 2–3× daily until it germinates."
+  },
+  {
+   "id": "2A",
+   "name": "Step 2: Seed Safe®",
+   "table_name": "Step 2: Seed Safe®",
+   "heading": "🌱 Step 2: Seed Safe®",
+   "anchor": "step-2a",
+   "programs": "Seed Safe",
+   "timing": "Mid-Apr (~3 wks after 1A)",
+   "timing_long": "Mid-April (~3 weeks after Renovator)",
+   "buy_text": "~Apr 1",
+   "start": "04-10",
+   "end": "04-25",
+   "lastcall": true,
+   "note": "Apply and seed. Water lightly 2–3×/day until germination.",
+   "body": "**What to do:**\n- Apply Seed Safe® (seed-safe crabgrass pre-emergent + fertilizer, mesotrione-based) at the bag rate.\n- Seed the same day or around it. Seed Safe stops crabgrass but lets your new grass come up.\n- Water lightly **2–3× daily** until germination (7–14 days for fescue), then taper to deeper, less frequent watering.\n- Keep foot traffic off the seeded areas.\n- **Don't** use Weed & Feed or other broadleaf killers on new grass until it's been mowed 3–4 times.",
+   "buy": "04-01",
+   "buy_item": "Seed Safe® + grass seed",
+   "path": "seedsafe"
+  },
+  {
+   "id": "2B",
+   "name": "Step 2: Weed & Feed",
+   "table_name": "Step 2: Weed & Feed",
+   "heading": "🌼 Step 2: Weed & Feed",
+   "anchor": "step-2b",
+   "programs": "Idiot-Proof",
+   "timing": "Apr → Early Jun",
+   "timing_long": "April → Early June",
+   "buy_text": "~Apr 15",
+   "start": "04-22",
+   "end": "06-05",
+   "lastcall": true,
+   "note": "Apply to WET grass when dandelions flower. No water or mowing for 24–48 hrs; check for a dry forecast.",
+   "body": "**What to do:**\n- Apply when dandelions and other broadleaf weeds are **actively growing and flowering**.\n- **Apply to wet grass** (morning dew, or after a light sprinkle) so the granules stick to the weed leaves.\n- **Don't water or mow for 24–48 hours** after. Check the forecast for a dry 24 hours first.\n- Best results: 60–85°F days, light wind.",
+   "buy": "04-15",
+   "buy_item": "Weed & Feed",
+   "path": "idiotproof",
+   "trigger": {
+    "type": "tmax_run_ge",
+    "value": 60,
+    "days": 3,
+    "from": "04-01",
+    "to": "06-01",
+    "best": {
+     "lo": 60,
+     "hi": 85,
+     "dry_hours": 48,
+     "note": "{day}: high {hi}, dry for the next 24–48 hrs. Apply to wet (dewy) grass that morning."
+    },
+    "basis": "Highs have been 60°F+ for 3 days (since {since}), so weeds are actively growing."
+   }
+  },
+  {
+   "id": "S1",
+   "name": "Grub Preventer",
+   "table_name": "Grub Preventer",
+   "heading": "🐛 Grub Preventer",
+   "anchor": "step-s1",
+   "programs": "Supplemental (recommended)",
+   "timing": "Mid-May → Late Jun",
+   "timing_long": "Mid-May → Late June",
+   "buy_text": "~May 8",
+   "start": "05-15",
+   "end": "06-30",
+   "lastcall": true,
+   "note": "Apply and water in ~½\" within 24 hrs.",
+   "body": "**What to do:**\n- Apply a preventive grub control. **Chlorantraniliprole** (e.g. GrubEx) is the lowest-toxicity option and lasts the whole season.\n- Water in with ~½\" within 24 hours.\n- **Why:** Japanese beetle and masked chafer grubs hatch in July and eat roots in August–September. Preventing them is far cheaper than repairing dead patches. It also protects any fall seeding.\n- **Skip** if you've never had grub damage and don't see Japanese beetles. Instead, just do the August check (S4).",
+   "buy": "05-08",
+   "buy_item": "grub preventer (chlorantraniliprole, e.g. GrubEx)",
+   "trigger": {
+    "type": "soil_ge",
+    "value": 60,
+    "days": 5,
+    "from": "04-20",
+    "to": "06-20",
+    "basis": "Soil at 2½\" averaging {val}. Grub preventer goes down before beetles lay eggs."
+   }
+  },
+  {
+   "id": "S2",
+   "name": "Mosquito Season Start",
+   "table_name": "Mosquito Season Start",
+   "heading": "🦟 Mosquito Season Start",
+   "anchor": "step-s2",
+   "programs": "Supplemental (optional)",
+   "timing": "Mid-May, repeat → Sep",
+   "timing_long": "Mid-May, then repeat every 3–4 weeks through September",
+   "buy_text": "~May 8",
+   "start": "05-15",
+   "end": "05-31",
+   "lastcall": false,
+   "note": "Dump standing water weekly. Bti dunks in bird baths and barrels. Spray shrubs and shade, not flowers.",
+   "body": "**What to do:**\n- **Free first step:** dump standing water weekly (buckets, saucers, gutters, toys, tarps). This does more than spraying.\n- Put **Bti dunks** in water you can't dump (bird baths, rain barrels, ponds). They're safe for pets and wildlife. Replace them monthly.\n- **Optional barrier spray** (bifenthrin, or a botanical such as cedar oil) on shrubs, under decks and in shady foliage. Don't spray the open lawn or flowering plants, which protects bees.\n- **Re-spray every 3–4 weeks.** The calendar reminds you every 25 days through early fall.",
+   "buy": "05-08",
+   "buy_item": "Bti dunks + mosquito barrier spray",
+   "extra": [
+    [
+     "06-10",
+     "🦟 Mosquito re-spray + fresh Bti dunks"
+    ],
+    [
+     "07-05",
+     "🦟 Mosquito re-spray + fresh Bti dunks"
+    ],
+    [
+     "07-30",
+     "🦟 Mosquito re-spray + fresh Bti dunks"
+    ],
+    [
+     "08-25",
+     "🦟 Mosquito re-spray (last round)"
+    ]
+   ],
+   "trigger": {
+    "type": "tmin_run_ge",
+    "value": 50,
+    "days": 5,
+    "from": "04-15",
+    "to": "06-30",
+    "end": {
+     "days_after": 14
+    },
+    "repeat": {
+     "every": 25,
+     "until": "09-15",
+     "title": "🦟 Mosquito re-spray + fresh Bti dunks"
+    },
+    "basis": "Nights have stayed above 50°F for 5 days (since {since}). Mosquito season is starting."
+   }
+  },
+  {
+   "id": "3",
+   "name": "Step 3: PREVENT!® (2nd app)",
+   "table_name": "Step 3: PREVENT!® (2nd app)",
+   "heading": "🛡️ Step 3: PREVENT!® (2nd Application)",
+   "anchor": "step-3",
+   "programs": "Both",
+   "timing": "Late May → Early Jul",
+   "timing_long": "Late May → Early July (GrassPad's sweet spot is **late May – early June**)",
+   "buy_text": "~May 15",
+   "start": "05-22",
+   "end": "07-05",
+   "lastcall": true,
+   "note": "Best late May to early June. If you plan to overseed this fall, apply by June 15. Water in ½\" within 24–48 hrs (GrassPad).",
+   "body": "**What to do:**\n- Apply PREVENT!® at the bag rate. This is round two of crabgrass prevention, carrying the barrier through summer.\n- Water in with ~½\".\n- **If you seeded this spring (Seed Safe path):** only apply once the new grass has been mowed **3+ times**.\n- **If you plan to overseed in fall:** apply by **mid-June** at the latest. A later application can still be active in September and stop your seed.",
+   "buy": "05-15",
+   "buy_item": "PREVENT!® (2nd bag)",
+   "trigger": {
+    "type": "after",
+    "step": "1B",
+    "days": 42,
+    "min": "05-15",
+    "max": "06-10",
+    "basis": "About 6 weeks after your first PREVENT! ({anchor}). If you plan to overseed this fall, apply by Jun 15."
+   }
+  },
+  {
+   "id": "W2",
+   "name": "Summer Mode: Mowing & Watering",
+   "table_name": "Summer Mode: Mowing & Watering",
+   "heading": "☀️ Summer Mode: Mowing & Watering",
+   "anchor": "step-w2",
+   "programs": "Supplemental",
+   "timing": "Late May → Aug",
+   "timing_long": "Late May → August",
+   "buy_text": "n/a",
+   "start": "05-25",
+   "end": "08-31",
+   "lastcall": false,
+   "note": "Raise mower to 3.5–4\". Water 1–1.5\"/week in 2–3 deep sessions, 4–9 AM only. No summer fertilizer.",
+   "body": "**What to do:**\n- **Raise the mower to 3.5–4\"** by Memorial Day. Tall grass shades out weeds and holds moisture.\n- **Watering:** **1–1.5\"/week** total (rain + irrigation), in **2–3 deep sessions**, **4–9 AM** only. Evening watering invites brown patch.\n  - Tuna-can test: set a can out, and run the sprinkler until it holds 1\". That's your run time.\n- **No fertilizer June–August.** Feeding cool-season grass in heat feeds disease. Steps 3 and 4 have it covered.\n- **Heat waves (95°F+):** keep off the lawn when it's stressed. It's OK to let tall fescue go dormant, but give ½\" every 2 weeks so the crowns survive.\n- **Mower blade:** resharpen around July 4. Dull blades shred the tips and invite disease.",
+   "extra": [
+    [
+     "07-04",
+     "🔧 Resharpen mower blade"
+    ]
+   ],
+   "trigger": {
+    "type": "tmax_run_ge",
+    "value": 85,
+    "days": 3,
+    "from": "05-01",
+    "to": "07-31",
+    "basis": "Highs 85°F+ for 3 days (since {since}). Raise the mower and switch to summer watering."
+   }
+  },
+  {
+   "id": "O1",
+   "name": "Optional: Early-Summer Slow-Release Feeding",
+   "table_name": "Optional: Early-Summer Slow-Release Feeding",
+   "heading": "🍃 Optional: Early-Summer Slow-Release Feeding",
+   "anchor": "step-o1",
+   "programs": "Optional",
+   "timing": "Late May → Jun",
+   "timing_long": "Late May → June 20 (about 6 weeks after Weed & Feed)",
+   "buy_text": "~May 18",
+   "start": "05-25",
+   "end": "06-20",
+   "lastcall": true,
+   "note": "OPTIONAL. Non-burning slow-release feed (organic like Milorganite, or 50%+ slow-release N) at the bag rate. Skip if the lawn is drought-stressed or highs are 90°F+.",
+   "body": "**What to do:**\n- GrassPad's program doesn't include summer feeding. The \"feed every 6–8 weeks\" idea comes from national lawn programs. For Kansas City fescue and bluegrass, **one light early-summer feeding** is the safe version of it.\n- Use a **non-burning slow-release** product: organic (Milorganite) or 50%+ slow-release nitrogen, at the bag rate.\n- **Skip** if the lawn is drought-stressed or highs are 90°F+. Feeding cool-season grass in heat favors disease (brown patch).\n- 📡 Weather-timed: about 6 weeks after your Weed & Feed, on a day with a mild forecast.",
+   "buy": "05-18",
+   "buy_item": "slow-release fertilizer (e.g. Milorganite)",
+   "trigger": {
+    "type": "after",
+    "step": "2B",
+    "days": 42,
+    "min": "05-25",
+    "max": "06-15",
+    "best": {
+     "lo": 60,
+     "hi": 88,
+     "dry_hours": 24,
+     "note": "{day}: high {hi}. Mild enough to feed."
+    },
+    "basis": "About 6 weeks after Weed & Feed ({anchor}). Optional: skip if the lawn is drought-stressed or highs reach 90°F+."
+   }
+  },
+  {
+   "id": "S3",
+   "name": "Brown Patch Watch",
+   "table_name": "Brown Patch Watch / Fungicide",
+   "heading": "🍄 Brown Patch Watch / Fungicide",
+   "anchor": "step-s3",
+   "programs": "Supplemental (optional)",
+   "timing": "Jun → Aug",
+   "timing_long": "June → August",
+   "buy_text": "~Jun 1 (if needed)",
+   "start": "06-15",
+   "end": "08-31",
+   "lastcall": false,
+   "note": "Tan circular patches with a smoky edge? Water mornings only. Optional fungicide (azoxystrobin).",
+   "body": "**What to do:**\n- **Watch for:** tan, roughly circular patches 6\"–3' across, often with a dark \"smoke ring\" at the edge on humid mornings. This shows up mostly on tall fescue.\n- **Trigger:** nights above 68–70°F combined with humidity or evening watering.\n- **Prevention:** water only in the early morning, don't fertilize in summer, and mow with a sharp blade.\n- **Fungicide (optional):** if you've had brown patch before, apply azoxystrobin or propiconazole preventively in mid-June and repeat at label intervals (14–28 days) through August."
+  },
+  {
+   "id": "O2",
+   "name": "Optional: Midsummer Feeding (irrigated lawns only)",
+   "table_name": "Optional: Midsummer Feeding (irrigated only)",
+   "heading": "🍃 Optional: Midsummer Feeding (irrigated lawns only)",
+   "anchor": "step-o2",
+   "programs": "Optional",
+   "timing": "Early → Mid Jul",
+   "timing_long": "July 1 → 20",
+   "buy_text": "~Jun 24",
+   "start": "07-01",
+   "end": "07-20",
+   "lastcall": true,
+   "note": "OPTIONAL. Only if you water regularly and the lawn is green. Use a non-burning slow-release product; skip during heat waves (90°F+) or drought dormancy.",
+   "body": "**What to do:**\n- **Only if you irrigate** and the lawn is still green and growing. Never feed a dormant (brown) lawn.\n- Same non-burning slow-release product as O1, at the bag rate.\n- 📡 The calendar notes say \"skip\" if a heat wave (5-day average high ≥ 92°F) is forecast.\n- Most Kansas City lawns are better off **skipping this** and putting the energy into the fall Renovator®.",
+   "buy": "06-24",
+   "buy_item": "slow-release fertilizer (e.g. Milorganite)",
+   "trigger": {
+    "type": "after",
+    "step": "O1",
+    "days": 42,
+    "min": "07-01",
+    "max": "07-15",
+    "heat_skip": 92,
+    "basis": "About 6 weeks after your early-summer feeding ({anchor}). Only if you irrigate and the lawn is green."
+   }
+  },
+  {
+   "id": "S4",
+   "name": "Grub Check",
+   "table_name": "Grub Check & Rescue Treatment",
+   "heading": "🔍 Grub Check & Rescue Treatment",
+   "anchor": "step-s4",
+   "programs": "Supplemental (if needed)",
+   "timing": "Mid-Aug → Mid-Sep",
+   "timing_long": "Mid-August → Mid-September",
+   "buy_text": "Only if grubs found",
+   "start": "08-15",
+   "end": "09-15",
+   "lastcall": false,
+   "note": "Lift 1 sq ft of sod in any brown spot. 10+ grubs → apply Dylox (trichlorfon) and water in.",
+   "body": "**What to do:**\n- **Check:** in any brown patch, see whether the turf peels back like carpet. If it does, cut and lift a 1 sq ft piece of sod.\n- **10+ grubs per sq ft** → apply a curative (**trichlorfon**, e.g. Dylox) right away and water it in. It works within days.\n- **Fewer than 10** → no treatment. Healthy grass outgrows them.\n- If you applied S1, this is mostly a quick confirmation check.\n- Skunks, raccoons or birds digging up the turf is a strong grub sign."
+  },
+  {
+   "id": "4",
+   "name": "Step 4: Renovator®",
+   "table_name": "Step 4: Renovator®",
+   "heading": "🍂 Step 4: Renovator®",
+   "anchor": "step-4",
+   "programs": "Both",
+   "timing": "Sep → Oct",
+   "timing_long": "September → October",
+   "buy_text": "~Aug 25",
+   "start": "09-01",
+   "end": "10-31",
+   "lastcall": true,
+   "note": "Apply at bag rate (3–5 lb/1,000 sq ft if seeding, on seeding day). Water in.",
+   "body": "**What to do:**\n- Apply Renovator® at the bag rate. It's a strong nitrogen dose that helps the lawn recover from summer stress.\n- **If you're doing Fall Renovation:** apply on seeding day (3–5 lb/1,000 sq ft) as the starter fertilizer. One application covers both.\n- Water in with ~¼–½\".\n- Early September is ideal if you're not seeding. It gives the longest recovery window.",
+   "buy": "08-25",
+   "buy_item": "Renovator®",
+   "trigger": {
+    "type": "tmax_avg_le",
+    "value": 85,
+    "days": 5,
+    "from": "08-15",
+    "to": "10-05",
+    "min": "08-25",
+    "basis": "Summer heat has broken (since {date}). Feed now so the lawn recovers before winter."
+   }
+  },
+  {
+   "id": "FR",
+   "name": "Fall Renovation / Overseeding",
+   "table_name": "Fall Renovation / Overseeding",
+   "heading": "🌾 Fall Renovation / Overseeding",
+   "anchor": "step-fr",
+   "programs": "Optional",
+   "timing": "Late Aug prep → Sep 1 – Oct 10 seeding",
+   "timing_long": "Prep late August → seed **Sep 1 – Oct 10** (best by **Sep 30**; the earlier, the better root depth before winter)",
+   "buy_text": "~Aug 20",
+   "start": "09-01",
+   "end": "10-10",
+   "lastcall": true,
+   "note": "Mow low, clear debris, rough up soil, seed, apply Renovator, water lightly 3×/day for 3 weeks.",
+   "body": "**What to do (in order):**\n1. **Late August:** kill weeds and crabgrass in the areas to renovate. Wait the herbicide label's interval before seeding.\n2. **Mow 1–2 notches lower** (~2.5–3\" for fescue or bluegrass). Don't scalp.\n3. **Remove debris and clippings.** Seed needs bare soil contact.\n4. **Rough up the soil:** rake bare spots hard. For large areas, **core aerate or verticut/slit-seed** (rent the machine).\n5. **Spread seed** over the whole area with a rotary or hand-crank spreader. Overseed rate is on the bag (typically 4–6 lb/1,000 sq ft for tall fescue).\n6. **Apply Renovator®** at the fall rate, **3–5 lb/1,000 sq ft**, as your starter fertilizer. This **is** Step 4, so mark both done.\n7. **Water lightly 3× a day for 3 weeks** (see W3). **Don't stop once you've started.** Seed that dries out after sprouting dies.\n8. First mow when the new grass reaches ~4\", cutting at 3\".\n9. **No weed killer** on the new grass until it's been mowed 3–4 times (so skip S5 this year).\n10. Rake leaves off the new grass promptly (S6). Smothered seedlings die.",
+   "buy": "08-20",
+   "buy_item": "grass seed + aerator/slit-seeder rental",
+   "extra": [
+    [
+     "08-25",
+     "🌾 Fall overseed? Decide this week (seed Sep 1–30 is best)"
+    ]
+   ],
+   "trigger": {
+    "type": "tmax_avg_le",
+    "value": 85,
+    "days": 5,
+    "from": "08-15",
+    "to": "10-05",
+    "end": {
+     "type": "soil_le",
+     "value": 55,
+     "days": 5,
+     "default": "10-10",
+     "cap": "10-15",
+     "min_days": 7,
+     "note": " Soil is forecast to cool below 55°F around {end}, so seed before then."
+    },
+    "basis": "Summer heat broke {date} (5-day average high {val}). Seed germinates best in warm soil and cool air."
+   }
+  },
+  {
+   "id": "W3",
+   "name": "Fall Watering Shift",
+   "table_name": "Fall Watering Shift",
+   "heading": "💧 Fall Watering Shift",
+   "anchor": "step-w3",
+   "programs": "Supplemental",
+   "timing": "Sep → Oct",
+   "timing_long": "September → October",
+   "buy_text": "n/a",
+   "start": "09-01",
+   "end": "10-31",
+   "lastcall": false,
+   "note": "Overseeded: light 3×/day for weeks 1–3, then daily, then 1\"/wk. Otherwise ~1\"/wk incl. rain. Mow 3–3.5\".",
+   "body": "**What to do:**\n- **If you overseeded:**\n  - Weeks 1–3: **light watering 3×/day** (~5–10 min per zone) to keep the top ½\" moist.\n  - Weeks 4–6: **once a day**, longer.\n  - After that: back to **~1\"/week**, deep and infrequent.\n- **If you didn't seed:** drop to **~1\"/week** including rain. September rains often cover it.\n- **Mowing:** return to **3–3.5\"**. Keep mowing as long as the grass grows.",
+   "trigger": {
+    "type": "tmax_avg_le",
+    "value": 85,
+    "days": 5,
+    "from": "08-15",
+    "to": "10-05",
+    "basis": "Cooler weather since {date}. Cut back to ~1\"/week unless you seeded."
+   }
+  },
+  {
+   "id": "S5",
+   "name": "Fall Broadleaf Weed Control",
+   "table_name": "Fall Broadleaf Weed Control",
+   "heading": "🌿 Fall Broadleaf Weed Control",
+   "anchor": "step-s5",
+   "programs": "Supplemental (skip if you seeded)",
+   "timing": "Early → Late Oct",
+   "timing_long": "Early → Late October",
+   "buy_text": "~Sep 28",
+   "start": "10-05",
+   "end": "10-31",
+   "lastcall": true,
+   "note": "Spot-spray on a 50–80°F day, no rain for 24 hrs. SKIP if you overseeded.",
+   "body": "**What to do:**\n- Fall is the **most effective** time to kill dandelions, clover and ground ivy (creeping Charlie). Weeds are pulling energy down to their roots and take the herbicide with it.\n- Spot-spray a 2,4-D / triclopyr blend on a 50–80°F day with no rain for 24 hours.\n- **Skip** if you overseeded this fall. It will harm the new grass.",
+   "buy": "09-28",
+   "buy_item": "broadleaf weed spray (2,4-D/triclopyr)",
+   "trigger": {
+    "type": "tmax_avg_le",
+    "value": 80,
+    "days": 5,
+    "from": "09-25",
+    "to": "10-25",
+    "best": {
+     "lo": 50,
+     "hi": 80,
+     "dry_hours": 24,
+     "note": "{day}: high {hi} with no rain. Good spraying day."
+    },
+    "basis": "5-day average high {val}. Weeds are moving energy to their roots, so spraying works best now."
+   }
+  },
+  {
+   "id": "S6",
+   "name": "Leaf Management",
+   "table_name": "Leaf Management",
+   "heading": "🍁 Leaf Management",
+   "anchor": "step-s6",
+   "programs": "Supplemental",
+   "timing": "Mid-Oct → Nov",
+   "timing_long": "Mid-October → November (weekly while trees drop)",
+   "buy_text": "n/a",
+   "start": "10-15",
+   "end": "11-30",
+   "lastcall": false,
+   "note": "Mulch-mow light leaves; rake heavy mats, especially off new grass. Repeat weekly while trees drop.",
+   "body": "**What to do:**\n- **Mulch-mow** light leaf cover into the lawn. It's free organic matter.\n- **Rake or bag** heavy layers. Leaves matted on the lawn over winter cause snow mold and kill new seedlings.\n- **Most important on newly seeded areas.**"
+  },
+  {
+   "id": "5",
+   "name": "Step 5: Snowman® Winter Root Builder",
+   "table_name": "Step 5: Snowman® Winter Root Builder",
+   "heading": "⛄ Step 5: Snowman® Winter Root Builder",
+   "anchor": "step-5",
+   "programs": "Both",
+   "timing": "Late Oct → Nov (GrassPad: ~Thanksgiving)",
+   "timing_long": "Late October → November (GrassPad: around Thanksgiving)",
+   "buy_text": "~Oct 15",
+   "start": "10-22",
+   "end": "11-30",
+   "lastcall": true,
+   "note": "GrassPad: apply around Thanksgiving, at about the last mow while grass is still green. High phosphorus + potash for roots, disease resistance and early spring green-up. Water in ½\" within 24–48 hrs.",
+   "body": "**What to do:**\n- Apply Snowman® **Winter Root Builder** at the bag rate. It's high in phosphorus and potash: it builds roots, disease, drought and traffic tolerance, and gives an earlier green-up next spring. This is the \"root builder\" step.\n- **Timing cue:** GrassPad says around Thanksgiving, once top growth slows but the grass is still green (about the last mow). 📡 The calendar times it when highs settle under about 55°F.\n- Water in with ½\" within 24–48 hrs, or apply before rain.\n- This is the last product of the season.",
+   "buy": "10-15",
+   "buy_item": "Snowman® Winter Root Builder",
+   "trigger": {
+    "type": "tmax_avg_le",
+    "value": 55,
+    "days": 5,
+    "from": "10-10",
+    "to": "11-30",
+    "end": {
+     "type": "freeze",
+     "value": 20,
+     "default": "11-30",
+     "cap": "12-15",
+     "note": " A hard freeze (≤20°F) is forecast {end}, so apply before then."
+    },
+    "basis": "5-day average high down to {val}. Growth is slowing, so it's time for the Winter Root Builder (GrassPad: ~Thanksgiving)."
+   }
+  },
+  {
+   "id": "W4",
+   "name": "Season Close-Out",
+   "table_name": "Season Close-Out",
+   "heading": "🔒 Season Close-Out",
+   "anchor": "step-w4",
+   "programs": "Supplemental",
+   "timing": "Mid → Late Nov",
+   "timing_long": "Mid → Late November",
+   "buy_text": "n/a",
+   "start": "11-15",
+   "end": "11-30",
+   "lastcall": false,
+   "note": "Final mow ~2.5\". Blow out irrigation before a hard freeze. Stabilize mower fuel and sharpen the blade.",
+   "body": "**What to do:**\n- **Final mow:** lower to **~2.5\"** for the last cut, which reduces snow mold and vole damage.\n- **Irrigation:** shut it off and **blow out the lines** before the first hard freeze (~mid-November in KC). Disconnect the hoses.\n- **Mower:** run it out of gas or add fuel stabilizer, clean the deck, and pull the blade for sharpening now so it's ready in March.\n- **Winter watering:** if there's no rain or snow for 4+ weeks (Dec–Feb), water once on a day above 40°F, especially new seedlings.\n- **Next season:** a 🔄 reminder before spring resets the tracker in one tap.",
+   "trigger": {
+    "type": "freeze",
+    "value": 28,
+    "from": "10-01",
+    "to": "12-31",
+    "offset": -2,
+    "min": "10-01",
+    "end": {
+     "trigger_day": true,
+     "min_days": 1
+    },
+    "basis": "First hard freeze (low {val}) forecast for {trig}. Blow out the sprinklers before then."
+   }
+  }
+ ]
+}

@@ -1,0 +1,617 @@
+{
+ "id": "warm-generic",
+ "name": "Warm-season lawn (Bermuda, Zoysia, St. Augustine, Centipede): 5-step program",
+ "grass": "warm",
+ "title": "🌱 Lawn Care Tracker: Warm-Season Lawn",
+ "intro": [
+  "**Program:** a brand-neutral plan for **Bermuda, Zoysia, St. Augustine, Centipede and Bahia** (the South, Southwest and transition zone). Steps note species differences.",
+  "**Dates** come from your location's frost dates; 📡 weather triggers then fine-tune each step for your yard."
+ ],
+ "sources": [
+  "University extension warm-season lawn calendars (Texas A&M AgriLife, UF/IFAS, Clemson HGIC, NC State TurfFiles)"
+ ],
+ "steps": [
+  {
+   "id": "P",
+   "name": "Prep Tasks",
+   "heading": "🧹 Prep Tasks",
+   "anchor": "step-prep",
+   "programs": "All",
+   "start": {
+    "rel": "last_frost",
+    "days": -50
+   },
+   "end": {
+    "rel": "last_frost",
+    "days": -25
+   },
+   "note": "Sharpen blades, service the mower, calibrate the spreader, consider a soil test.",
+   "body": "**What to do:**\n- **Equipment:** sharpen mower blades, change the oil, calibrate the spreader.\n- **Soil test (recommended):** your state's extension service reports pH and nutrients. Centipede and St. Augustine prefer slightly acidic soil.\n- **Know your grass:** Bermuda and Zoysia (sun, fine texture) · St. Augustine (wide blades, shade-tolerant) · Centipede (low-input, light green) · Bahia. Steps below note species differences.",
+   "lastcall": false,
+   "buy_item": "mower blade sharpening",
+   "buy": {
+    "rel": "last_frost",
+    "days": -55
+   }
+  },
+  {
+   "id": "1",
+   "name": "Step 1: Spring Pre-Emergent (no fertilizer yet)",
+   "heading": "🛡️ Step 1: Spring Pre-Emergent (no fertilizer yet)",
+   "anchor": "step-1",
+   "programs": "Core",
+   "start": {
+    "rel": "last_frost",
+    "days": -40
+   },
+   "end": {
+    "rel": "last_frost",
+    "days": -5
+   },
+   "note": "Crabgrass/goosegrass preventer before soil holds 55°F. Don't fertilize yet; warm-season grass is still dormant. Water in.",
+   "body": "**What to do:**\n- Apply a **pre-emergent only** (prodiamine or dithiopyr), **not** a weed & feed. Fertilizer now feeds weeds, not the dormant grass.\n- **Timing cue:** 📡 soil reaching a 7-day average of 50°F, before crabgrass sprouts at ~55°F.\n- Water in with ½\" within 2–3 days.\n- Planning to plug or sod bare spots this year? Keep the preventer off those areas.",
+   "lastcall": true,
+   "buy_item": "pre-emergent herbicide (prodiamine or dithiopyr, no fertilizer)",
+   "trigger": {
+    "type": "soil_ge",
+    "value": 50,
+    "days": 7,
+    "from": {
+     "rel": "last_frost",
+     "days": -70
+    },
+    "to": {
+     "rel": "last_frost",
+     "days": 30
+    },
+    "end": {
+     "type": "soil_ge",
+     "value": 57,
+     "days": 7,
+     "default_days": 21,
+     "min_days": 5
+    },
+    "basis": "Soil at 2½\" hit a 7-day average of {val} on {date}. Crabgrass sprouts once soil holds ~55°F, so apply now."
+   }
+  },
+  {
+   "id": "W1",
+   "name": "Green-Up: Scalp & Start Mowing",
+   "heading": "✂️ Green-Up: Scalp & Start Mowing",
+   "anchor": "step-w1",
+   "programs": "Supplemental",
+   "start": {
+    "rel": "last_frost",
+    "days": 0
+   },
+   "end": {
+    "rel": "last_frost",
+    "days": 30
+   },
+   "note": "Bermuda/Zoysia: scalp low and bag clippings as green-up starts. St. Augustine/Centipede: just mow normally. Turn irrigation on.",
+   "body": "**What to do:**\n- **Bermuda & Zoysia:** scalp (mow 1–1.5\" lower than normal, bag the clippings) once the grass starts greening. It removes dead thatch and speeds green-up. Dethatch only if thatch is over ½\".\n- **St. Augustine & Centipede:** don't scalp; just remove debris and mow at normal height.\n- **Irrigation:** turn on, check heads, set to manual. Water only when the lawn shows stress.",
+   "lastcall": false,
+   "trigger": {
+    "type": "soil_ge",
+    "value": 60,
+    "days": 5,
+    "from": {
+     "rel": "last_frost",
+     "days": -25
+    },
+    "to": {
+     "rel": "last_frost",
+     "days": 45
+    },
+    "basis": "Soil reached a 5-day average of {val} on {date}. Green-up is starting."
+   }
+  },
+  {
+   "id": "2",
+   "name": "Step 2: First Feeding (after full green-up)",
+   "heading": "🌱 Step 2: First Feeding (after full green-up)",
+   "anchor": "step-2",
+   "programs": "Core",
+   "start": {
+    "rel": "last_frost",
+    "days": 20
+   },
+   "end": {
+    "rel": "last_frost",
+    "days": 60
+   },
+   "note": "Feed once the lawn is fully green and soil holds 65°F. Bermuda/Zoysia: full rate. St. Augustine: moderate. Centipede: light, low-phosphorus.",
+   "body": "**What to do:**\n- Wait for **full green-up**: soil holding 65°F and you've mowed 2–3 times. 📡 The calendar times it from soil temperature.\n- **Bermuda / Zoysia:** lawn fertilizer at the bag rate (about 1 lb N/1,000 sq ft).\n- **St. Augustine:** ½–1 lb N; slow-release with iron.\n- **Centipede:** at most ½ lb N with little or no phosphorus; it declines when over-fed.\n- Water in.",
+   "lastcall": true,
+   "buy_item": "lawn fertilizer for warm-season grass",
+   "trigger": {
+    "type": "soil_ge",
+    "value": 65,
+    "days": 7,
+    "from": {
+     "rel": "last_frost",
+     "days": 0
+    },
+    "to": {
+     "rel": "last_frost",
+     "days": 80
+    },
+    "min": {
+     "rel": "last_frost",
+     "days": 14
+    },
+    "basis": "Soil at 2½\" averaging {val} (since {since}). The grass is out of dormancy and can use the food."
+   }
+  },
+  {
+   "id": "2W",
+   "name": "Spring Weed Control",
+   "heading": "🌼 Spring Weed Control",
+   "anchor": "step-2w",
+   "programs": "Core",
+   "start": {
+    "rel": "last_frost",
+    "days": 10
+   },
+   "end": {
+    "rel": "last_frost",
+    "days": 50
+   },
+   "note": "Spot-spray broadleaf weeds on a mild, dry day. St. Augustine & Centipede: use atrazine-type products; many 2,4-D mixes injure them.",
+   "body": "**What to do:**\n- Spot-treat **broadleaf weeds** (clover, dandelion, henbit) with a product **labeled for your grass**.\n- **St. Augustine & Centipede** are sensitive to 2,4-D blends: use atrazine or a product labeled for them.\n- 📡 The calendar picks a ⭐ best day: 65–85°F and no rain for 24 hrs. Don't spray during green-up stress or above 90°F.",
+   "lastcall": true,
+   "buy_item": "post-emergent weed killer labeled for your grass type",
+   "trigger": {
+    "type": "tmax_run_ge",
+    "value": 70,
+    "days": 3,
+    "from": {
+     "rel": "last_frost",
+     "days": 0
+    },
+    "to": {
+     "rel": "last_frost",
+     "days": 60
+    },
+    "best": {
+     "lo": 65,
+     "hi": 85,
+     "dry_hours": 24,
+     "note": "{day}: high {hi}, no rain. Good spraying day."
+    },
+    "basis": "Highs 70°F+ for 3 days (since {since}). Weeds are actively growing and take up the spray."
+   }
+  },
+  {
+   "id": "S1",
+   "name": "Grub Preventer",
+   "heading": "🐛 Grub Preventer",
+   "anchor": "step-s1",
+   "programs": "Supplemental (recommended)",
+   "start": {
+    "rel": "last_frost",
+    "days": 30
+   },
+   "end": {
+    "rel": "last_frost",
+    "days": 80
+   },
+   "note": "Chlorantraniliprole (e.g. GrubEx) before beetles lay eggs; water in ½\".",
+   "body": "**What to do:**\n- Apply a preventive grub control (**chlorantraniliprole** is the lowest-toxicity option and lasts the season). Water in ½\".\n- **Skip** if you've never had grub damage; do a quick check in late summer instead.",
+   "lastcall": true,
+   "buy_item": "grub preventer (chlorantraniliprole, e.g. GrubEx)",
+   "trigger": {
+    "type": "soil_ge",
+    "value": 65,
+    "days": 5,
+    "from": {
+     "rel": "last_frost",
+     "days": 10
+    },
+    "to": {
+     "rel": "last_frost",
+     "days": 90
+    },
+    "basis": "Soil at 2½\" averaging {val}. Grub preventer goes down before beetles lay eggs."
+   }
+  },
+  {
+   "id": "S2",
+   "name": "Mosquito Season Start",
+   "heading": "🦟 Mosquito Season Start",
+   "anchor": "step-s2",
+   "programs": "Supplemental (optional)",
+   "start": {
+    "rel": "last_frost",
+    "days": 0
+   },
+   "end": {
+    "rel": "last_frost",
+    "days": 30
+   },
+   "note": "Dump standing water weekly; Bti dunks for water you can't dump; optional barrier spray on shrubs every 3–4 weeks.",
+   "body": "**What to do:**\n- **Dump standing water weekly** (buckets, saucers, gutters, toys).\n- **Bti dunks** in bird baths, rain barrels and ponds; replace monthly.\n- **Optional barrier spray** on shrubs and shady foliage, not flowers. The calendar repeats it every 25 days through early fall.",
+   "lastcall": false,
+   "buy_item": "Bti dunks + mosquito barrier spray",
+   "trigger": {
+    "type": "tmin_run_ge",
+    "value": 55,
+    "days": 5,
+    "from": {
+     "rel": "last_frost",
+     "days": -10
+    },
+    "to": {
+     "rel": "last_frost",
+     "days": 90
+    },
+    "end": {
+     "days_after": 14
+    },
+    "repeat": {
+     "every": 25,
+     "until": {
+      "rel": "first_frost",
+      "days": -20
+     },
+     "title": "🦟 Mosquito re-spray + fresh Bti dunks"
+    },
+    "basis": "Nights have stayed above 55°F for 5 days (since {since}). Mosquito season is starting."
+   }
+  },
+  {
+   "id": "3",
+   "name": "Step 3: Summer Feeding",
+   "heading": "☀️ Step 3: Summer Feeding",
+   "anchor": "step-3",
+   "programs": "Core",
+   "start": {
+    "rel": "last_frost",
+    "days": 60
+   },
+   "end": {
+    "rel": "last_frost",
+    "days": 110
+   },
+   "note": "About 6 weeks after Step 2. Bermuda/Zoysia: full rate. St. Augustine: half rate, slow-release. Centipede: skip.",
+   "body": "**What to do:**\n- **Bermuda:** full rate; it's a heavy feeder in summer. **Zoysia:** moderate.\n- **St. Augustine:** half rate, slow-release; heavy summer nitrogen invites chinch bugs and gray leaf spot.\n- **Centipede:** skip it.\n- Water in. Avoid applying during drought or 95°F+ heat.",
+   "lastcall": true,
+   "buy_item": "slow-release lawn fertilizer",
+   "trigger": {
+    "type": "after",
+    "step": "2",
+    "days": 42,
+    "min": {
+     "rel": "last_frost",
+     "days": 50
+    },
+    "max": {
+     "rel": "last_frost",
+     "days": 110
+    },
+    "basis": "About 6 weeks after your first feeding ({anchor})."
+   }
+  },
+  {
+   "id": "W2",
+   "name": "Summer Mode: Mowing & Watering",
+   "heading": "☀️ Summer Mode: Mowing & Watering",
+   "anchor": "step-w2",
+   "programs": "Supplemental",
+   "start": {
+    "rel": "last_frost",
+    "days": 50
+   },
+   "end": {
+    "rel": "first_frost",
+    "days": -60
+   },
+   "note": "Water 1–1.5\"/week in 1–2 deep early-morning sessions. Mow at your species' summer height; never remove more than 1/3.",
+   "body": "**What to do:**\n- **Mowing heights:** Bermuda 1–2\" · Zoysia 1.5–2.5\" · St. Augustine 3–4\" · Centipede 1.5–2\". Never remove more than 1/3 at a time.\n- **Watering:** 1–1.5\"/week (rain + irrigation) in 1–2 deep sessions, **4–9 AM**. Water when blades fold or footprints stay visible.\n- **Watch for:** chinch bugs in hot, sunny St. Augustine (yellow patches that spread); armyworms in Bermuda after storms.",
+   "lastcall": false,
+   "trigger": {
+    "type": "tmax_run_ge",
+    "value": 90,
+    "days": 3,
+    "from": {
+     "rel": "last_frost",
+     "days": 20
+    },
+    "to": {
+     "rel": "first_frost",
+     "days": -60
+    },
+    "basis": "Highs 90°F+ for 3 days (since {since}). Switch to summer watering and mowing."
+   }
+  },
+  {
+   "id": "O1",
+   "name": "Optional: Second Summer Feeding (Bermuda)",
+   "heading": "🍃 Optional: Second Summer Feeding (Bermuda)",
+   "anchor": "step-o1",
+   "programs": "Optional",
+   "start": {
+    "rel": "last_frost",
+    "days": 100
+   },
+   "end": {
+    "rel": "last_frost",
+    "days": 150
+   },
+   "note": "OPTIONAL, mainly for Bermuda you want dense and dark. Skip for St. Augustine and Centipede, or in drought.",
+   "body": "**What to do:**\n- For **Bermuda** (and Zoysia if thin): another slow-release feeding about 6 weeks after Step 3.\n- **Skip** for St. Augustine and Centipede, and during drought or heat waves.",
+   "lastcall": true,
+   "buy_item": "slow-release lawn fertilizer",
+   "trigger": {
+    "type": "after",
+    "step": "3",
+    "days": 42,
+    "min": {
+     "rel": "last_frost",
+     "days": 90
+    },
+    "max": {
+     "rel": "first_frost",
+     "days": -70
+    },
+    "heat_skip": 97,
+    "basis": "About 6 weeks after your summer feeding ({anchor}). Bermuda only; skip in drought."
+   }
+  },
+  {
+   "id": "FR",
+   "name": "Repair Bare Spots (sod, plugs or seed)",
+   "heading": "🌾 Repair Bare Spots (sod, plugs or seed)",
+   "anchor": "step-fr",
+   "programs": "Optional",
+   "start": {
+    "rel": "last_frost",
+    "days": 30
+   },
+   "end": {
+    "rel": "last_frost",
+    "days": 100
+   },
+   "note": "Warm-season grass spreads best in early summer: sod or plug Zoysia/St. Augustine/Centipede; seed Bermuda once soil holds 65°F+.",
+   "body": "**What to do:**\n- **Best window:** early summer, when soil holds 65°F+ and the grass is actively spreading. 📡 Timed from soil temperature.\n- **Bermuda:** seed at the bag rate (hulled seed), rake in lightly, keep moist.\n- **Zoysia, St. Augustine, Centipede:** use **sod or plugs** (seed is slow or unavailable).\n- **Water:** keep new sod/seed moist (light watering 2–3×/day) for 2–3 weeks, then taper. Seedling watering alerts run 4 weeks after you mark this done.\n- No pre-emergent on repaired spots this season.",
+   "lastcall": true,
+   "buy_item": "sod, plugs or Bermuda seed + starter fertilizer",
+   "trigger": {
+    "type": "soil_ge",
+    "value": 65,
+    "days": 7,
+    "from": {
+     "rel": "last_frost",
+     "days": 15
+    },
+    "to": {
+     "rel": "last_frost",
+     "days": 120
+    },
+    "basis": "Soil holding {val} (since {since}). Warm-season grass roots and spreads fastest now."
+   }
+  },
+  {
+   "id": "4",
+   "name": "Step 4: Fall Pre-Emergent (winter weeds)",
+   "heading": "🛡️ Step 4: Fall Pre-Emergent (winter weeds)",
+   "anchor": "step-4",
+   "programs": "Core",
+   "start": {
+    "rel": "first_frost",
+    "days": -75
+   },
+   "end": {
+    "rel": "first_frost",
+    "days": -40
+   },
+   "note": "Prevents winter weeds (Poa annua, henbit, chickweed). Apply as soil cools toward 70°F. Skip where you'll overseed ryegrass.",
+   "body": "**What to do:**\n- Apply a **pre-emergent** (prodiamine or dithiopyr) as soil cools toward 70°F. This is the step that keeps **Poa annua, henbit and chickweed** out of a dormant lawn.\n- Water in ½\".\n- **Skip** areas you'll overseed with winter ryegrass (O2).",
+   "lastcall": true,
+   "buy_item": "pre-emergent herbicide (prodiamine or dithiopyr)",
+   "trigger": {
+    "type": "soil_le",
+    "value": 70,
+    "days": 5,
+    "from": {
+     "rel": "first_frost",
+     "days": -110
+    },
+    "to": {
+     "rel": "first_frost",
+     "days": -15
+    },
+    "basis": "Soil cooled to a 5-day average of {val} on {date}. Winter weeds start sprouting soon."
+   }
+  },
+  {
+   "id": "5",
+   "name": "Step 5: Last Feeding / Potassium (no late nitrogen)",
+   "heading": "🍂 Step 5: Last Feeding / Potassium (no late nitrogen)",
+   "anchor": "step-5",
+   "programs": "Core",
+   "start": {
+    "rel": "first_frost",
+    "days": -65
+   },
+   "end": {
+    "rel": "first_frost",
+    "days": -42
+   },
+   "note": "Stop nitrogen about 6 weeks before your first frost. Optional potassium (0-0-50 or similar) for winter hardiness.",
+   "body": "**What to do:**\n- **No nitrogen after this point.** Late nitrogen on warm-season grass invites winter kill and spring disease (large patch).\n- **Optional:** potassium (e.g. 0-0-50 or a \"fall\" warm-season blend) builds cold and disease tolerance, especially for Bermuda and St. Augustine.\n- There's **no winterizer** for warm-season grass; the cool-season \"winterizer\" advice doesn't apply.",
+   "lastcall": true,
+   "buy_item": "potassium / fall warm-season blend (optional)",
+   "trigger": {
+    "type": "tmax_avg_le",
+    "value": 88,
+    "days": 5,
+    "from": {
+     "rel": "first_frost",
+     "days": -90
+    },
+    "to": {
+     "rel": "first_frost",
+     "days": -35
+    },
+    "max": {
+     "rel": "first_frost",
+     "days": -42
+    },
+    "basis": "Heat is breaking (5-day average high {val}). Last call for feeding before frost."
+   }
+  },
+  {
+   "id": "S5",
+   "name": "Large Patch Prevention (optional fungicide)",
+   "heading": "🍄 Large Patch Prevention (optional fungicide)",
+   "anchor": "step-s5",
+   "programs": "Supplemental (optional)",
+   "start": {
+    "rel": "first_frost",
+    "days": -60
+   },
+   "end": {
+    "rel": "first_frost",
+    "days": -20
+   },
+   "note": "If you've had large patch (orange-ringed circles in spring/fall), apply a preventive fungicide as soil cools to 70°F. Avoid late-day watering.",
+   "body": "**What to do:**\n- **Large patch** shows up as orange/brown rings in Zoysia, St. Augustine and Centipede when soil is 60–70°F and wet.\n- If you've had it before: preventive fungicide (azoxystrobin, propiconazole) as soil cools through 70°F; repeat per label.\n- Water early morning only, and fix drainage. Don't fertilize heavily in fall.",
+   "lastcall": false,
+   "buy_item": "lawn fungicide (if you've had large patch)",
+   "trigger": {
+    "type": "soil_le",
+    "value": 70,
+    "days": 5,
+    "from": {
+     "rel": "first_frost",
+     "days": -100
+    },
+    "to": {
+     "rel": "first_frost",
+     "days": -10
+    },
+    "basis": "Soil at 2½\" cooling through {val}. That's large-patch season."
+   }
+  },
+  {
+   "id": "O2",
+   "name": "Optional: Overseed Winter Ryegrass (Bermuda)",
+   "heading": "🌱 Optional: Overseed Winter Ryegrass (Bermuda)",
+   "anchor": "step-o2",
+   "programs": "Optional",
+   "start": {
+    "rel": "first_frost",
+    "days": -45
+   },
+   "end": {
+    "rel": "first_frost",
+    "days": -20
+   },
+   "note": "OPTIONAL for green winter Bermuda: perennial ryegrass at 8–10 lb/1,000 sq ft as nights cool. Skip the fall pre-emergent on these areas.",
+   "body": "**What to do:**\n- For a green lawn all winter on **Bermuda**: scalp low, then seed **perennial ryegrass** at 8–10 lb/1,000 sq ft. Keep moist until it's up.\n- Don't overseed Zoysia, St. Augustine or Centipede; it competes with them in spring.\n- No fall pre-emergent (Step 4) where you overseed.",
+   "lastcall": false,
+   "buy_item": "perennial ryegrass seed",
+   "trigger": {
+    "type": "soil_le",
+    "value": 72,
+    "days": 5,
+    "from": {
+     "rel": "first_frost",
+     "days": -70
+    },
+    "to": {
+     "rel": "first_frost",
+     "days": -10
+    },
+    "basis": "Soil cooling to {val}. Ryegrass establishes now while Bermuda slows down."
+   }
+  },
+  {
+   "id": "W3",
+   "name": "Fall Watering Shift",
+   "heading": "💧 Fall Watering Shift",
+   "anchor": "step-w3",
+   "programs": "Supplemental",
+   "start": {
+    "rel": "first_frost",
+    "days": -55
+   },
+   "end": {
+    "rel": "first_frost",
+    "days": 0
+   },
+   "note": "Cut back to about ½–1\"/week, only when needed. Raise the mower a notch for the last few cuts.",
+   "body": "**What to do:**\n- Reduce watering to **½–1\"/week** including rain, only when needed; dormant grass needs little.\n- Raise the mower slightly for the last few cuts going into dormancy.",
+   "lastcall": false,
+   "trigger": {
+    "type": "tmax_avg_le",
+    "value": 85,
+    "days": 5,
+    "from": {
+     "rel": "first_frost",
+     "days": -80
+    },
+    "to": {
+     "rel": "first_frost",
+     "days": -10
+    },
+    "basis": "Cooler weather since {date}. Cut back watering."
+   }
+  },
+  {
+   "id": "S6",
+   "name": "Leaf Management",
+   "heading": "🍁 Leaf Management",
+   "anchor": "step-s6",
+   "programs": "Supplemental",
+   "start": {
+    "rel": "first_frost",
+    "days": -5
+   },
+   "end": {
+    "rel": "first_frost",
+    "days": 40
+   },
+   "note": "Mulch-mow light leaf cover; rake heavy mats so they don't smother dormant grass.",
+   "body": "**What to do:**\n- **Mulch-mow** light leaf cover. **Rake** heavy layers; matted leaves smother dormant grass and invite disease.",
+   "lastcall": false
+  },
+  {
+   "id": "W4",
+   "name": "Dormancy & Close-Out",
+   "heading": "🔒 Dormancy & Close-Out",
+   "anchor": "step-w4",
+   "programs": "Supplemental",
+   "start": {
+    "rel": "first_frost",
+    "days": 0
+   },
+   "end": {
+    "rel": "first_frost",
+    "days": 40
+   },
+   "note": "Lawn goes dormant (tan) after frost: normal. Winterize irrigation where pipes can freeze; keep traffic off frosty grass.",
+   "body": "**What to do:**\n- **Tan after frost is normal dormancy** for warm-season grass. Don't fertilize or over-water it.\n- **Irrigation:** where hard freezes happen, drain or blow out lines before the first one.\n- **Winter watering:** water dormant grass every 3–4 weeks in dry, windy winters, on a mild day.\n- **Next season:** a 🔄 reminder before spring resets the tracker in one tap.",
+   "lastcall": false,
+   "trigger": {
+    "type": "freeze",
+    "value": 28,
+    "offset": -2,
+    "from": {
+     "rel": "first_frost",
+     "days": -30
+    },
+    "to": {
+     "rel": "first_frost",
+     "days": 90
+    },
+    "end": {
+     "trigger_day": true,
+     "min_days": 1
+    },
+    "basis": "First hard freeze (low {val}) forecast for {trig}. Winterize irrigation before then."
+   }
+  }
+ ]
+}
